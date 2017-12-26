@@ -44,9 +44,9 @@
             // 
             this.groupBox3.Controls.Add(this.textBox1);
             this.groupBox3.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(12, 89);
+            this.groupBox3.Location = new System.Drawing.Point(61, 83);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(320, 56);
+            this.groupBox3.Size = new System.Drawing.Size(320, 51);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "اسم المستخدم";
@@ -54,18 +54,19 @@
             // 
             // textBox1
             // 
-            this.textBox1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(6, 19);
             this.textBox1.Name = "textBox1";
             this.textBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textBox1.Size = new System.Drawing.Size(304, 26);
+            this.textBox1.Size = new System.Drawing.Size(308, 25);
             this.textBox1.TabIndex = 3;
+            this.textBox1.Enter += new System.EventHandler(this.textBox1_Enter);
             // 
             // groupBox9
             // 
             this.groupBox9.Controls.Add(this.textBox2);
             this.groupBox9.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox9.Location = new System.Drawing.Point(12, 146);
+            this.groupBox9.Location = new System.Drawing.Point(61, 140);
             this.groupBox9.Name = "groupBox9";
             this.groupBox9.Size = new System.Drawing.Size(320, 56);
             this.groupBox9.TabIndex = 3;
@@ -75,11 +76,12 @@
             // 
             // textBox2
             // 
-            this.textBox2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(6, 19);
+            this.textBox2.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(10, 20);
             this.textBox2.Name = "textBox2";
+            this.textBox2.PasswordChar = '#';
             this.textBox2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textBox2.Size = new System.Drawing.Size(304, 26);
+            this.textBox2.Size = new System.Drawing.Size(304, 25);
             this.textBox2.TabIndex = 1;
             // 
             // btnAddSup
@@ -87,9 +89,9 @@
             this.btnAddSup.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btnAddSup.Image = global::Users.Properties.Resources.tutorial;
             this.btnAddSup.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddSup.Location = new System.Drawing.Point(98, 208);
+            this.btnAddSup.Location = new System.Drawing.Point(98, 205);
             this.btnAddSup.Name = "btnAddSup";
-            this.btnAddSup.Size = new System.Drawing.Size(103, 40);
+            this.btnAddSup.Size = new System.Drawing.Size(103, 30);
             this.btnAddSup.TabIndex = 8;
             this.btnAddSup.Text = "دخول";
             this.btnAddSup.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -98,10 +100,10 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::Users.Properties.Resources.logii;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Image = global::Users.Properties.Resources.login_img;
+            this.pictureBox1.Location = new System.Drawing.Point(3, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(320, 71);
+            this.pictureBox1.Size = new System.Drawing.Size(416, 65);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
@@ -112,9 +114,9 @@
             this.button4.Font = new System.Drawing.Font("Tahoma", 12F);
             this.button4.Image = global::Users.Properties.Resources.exit__3_;
             this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(207, 208);
+            this.button4.Location = new System.Drawing.Point(207, 205);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(103, 40);
+            this.button4.Size = new System.Drawing.Size(103, 30);
             this.button4.TabIndex = 9;
             this.button4.Text = "الغاء الامر";
             this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -126,12 +128,14 @@
             this.AcceptButton = this.btnAddSup;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(343, 278);
+            this.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.ClientSize = new System.Drawing.Size(431, 247);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.btnAddSup);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox9);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "frmLogin";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;

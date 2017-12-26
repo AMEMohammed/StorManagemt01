@@ -9,22 +9,25 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Supplly;
 using Users;
+using Out_;
 namespace StoreMaga0101
 {
     public partial class FrmMain : Form
     {
-        frmADDSup frmADdSup;
-        frmLogin frm = new frmLogin();
+   
+     
+        frmLogin frm;// Login from
         public FrmMain()
         {
             InitializeComponent();
-            frmADdSup = new frmADDSup();
-            
            
+         
+            frm= new frmLogin();
 
-        } 
 
-        
+        }
+
+
         /// <summary>
         ///  AddSupply
         /// </summary>
@@ -33,6 +36,7 @@ namespace StoreMaga0101
         private void toolStripMenuItem14_Click(object sender, EventArgs e)
         {
             this.Cursor = Cursors.WaitCursor;
+            frmADDSup frmADdSup = new frmADDSup();// from AddSupply
             FormCollection fromco = Application.OpenForms;
             bool foundFrom = false;
             foreach (Form frm in fromco)
@@ -62,6 +66,7 @@ namespace StoreMaga0101
             }
            else
             {
+                groupBox1.Visible = true;
                 UsersSQl us = new UsersSQl(@".\s2008", "StoreManagement1", null, null);
                 DataTable dt = new DataTable();
                  dt=  us.GetUser(frmLogin.GETIDD);
@@ -72,7 +77,7 @@ namespace StoreMaga0101
                 toolStripMenuItem23.Visible = true;
                 toolStripMenuItem5.Visible = true;
                 toolStripMenuItem17.Visible = true;
-
+            
                 toolStripMenuItem14.Visible  = Convert.ToBoolean(dt.Rows[0][4].ToString());
                 toolStripMenuItem15.Visible = Convert.ToBoolean(dt.Rows[0][5].ToString());
                 toolStripMenuItem8.Visible = Convert.ToBoolean(dt.Rows[0][6].ToString());
@@ -91,6 +96,95 @@ namespace StoreMaga0101
                 toolStripMenuItem28.Visible = Convert.ToBoolean(dt.Rows[0][19].ToString());
 
             }
+        }
+
+        private void toolStripMenuItem20_Click(object sender, EventArgs e)
+        {
+
+        }
+        /// <summary>
+        /// update Supply
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void toolStripMenuItem15_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            frmUpdatSupply frmUp = new frmUpdatSupply(); //from update Supply
+            FormCollection fromco = Application.OpenForms;
+            bool foundFrom = false;
+            foreach (Form frm in fromco)
+            {
+                if (frm.Name == "frmUpdatSupply")
+                {
+                    frm.Focus();
+
+                    foundFrom = true;
+
+                }
+
+            }
+            if (foundFrom == false)
+            {
+                frmUp.Show();
+            }
+            this.Cursor = Cursors.Default;
+
+            
+                   }
+        /// <summary>
+        /// ///////// ADD Out
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+
+        private void toolStripMenuItem8_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+           frmAddOut frmou = new frmAddOut(); //from update Supply
+            FormCollection fromco = Application.OpenForms;
+            bool foundFrom = false;
+            foreach (Form frm in fromco)
+            {
+                if (frm.Name == "frmAddOut")
+                {
+                    frm.Focus();
+
+                    foundFrom = true;
+
+                }
+
+            }
+            if (foundFrom == false)
+            {
+                frmou.Show();
+            }
+            this.Cursor = Cursors.Default;
+        }
+
+        private void toolStripMenuItem19_Click(object sender, EventArgs e)
+        {
+
+            this.Cursor = Cursors.WaitCursor;
+           frmAddUser frmAddUser = new frmAddUser(); //from update Supply
+            FormCollection fromco = Application.OpenForms;
+            bool foundFrom = false;
+            foreach (Form frm in fromco)
+            {
+                if (frm.Name == "frmAddUser")
+                {
+                    frm.Focus();
+
+                    foundFrom = true;
+
+                }
+
+            }
+            if (foundFrom == false)
+            {
+                frmAddUser.Show();
+            }
+            this.Cursor = Cursors.Default;
         }
     }
 }

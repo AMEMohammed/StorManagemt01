@@ -104,5 +104,10 @@ namespace Users
         {
 
         }
+
+        private void textBox1_Enter(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
