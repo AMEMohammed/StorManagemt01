@@ -205,6 +205,7 @@
             this.toolStripMenuItem9.Text = "تعديل و بحث";
             this.toolStripMenuItem9.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.toolStripMenuItem9.Visible = false;
+            this.toolStripMenuItem9.Click += new System.EventHandler(this.toolStripMenuItem9_Click);
             // 
             // toolStripMenuItem1
             // 
@@ -233,6 +234,7 @@
             this.toolStripMenuItem2.Text = "تقارير التوريد";
             this.toolStripMenuItem2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.toolStripMenuItem2.Visible = false;
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
             // toolStripMenuItem10
             // 
@@ -244,6 +246,7 @@
             this.toolStripMenuItem10.Text = "تقارير الصرف";
             this.toolStripMenuItem10.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.toolStripMenuItem10.Visible = false;
+            this.toolStripMenuItem10.Click += new System.EventHandler(this.toolStripMenuItem10_Click);
             // 
             // toolStripMenuItem11
             // 
@@ -255,6 +258,7 @@
             this.toolStripMenuItem11.Text = "تقارير المخزون";
             this.toolStripMenuItem11.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.toolStripMenuItem11.Visible = false;
+            this.toolStripMenuItem11.Click += new System.EventHandler(this.toolStripMenuItem11_Click);
             // 
             // toolStripMenuItem12
             // 
@@ -266,6 +270,7 @@
             this.toolStripMenuItem12.Text = "مراجعة التوريد";
             this.toolStripMenuItem12.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.toolStripMenuItem12.Visible = false;
+            this.toolStripMenuItem12.Click += new System.EventHandler(this.toolStripMenuItem12_Click);
             // 
             // toolStripMenuItem16
             // 
@@ -277,6 +282,7 @@
             this.toolStripMenuItem16.Text = "مراجعة الصرف";
             this.toolStripMenuItem16.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.toolStripMenuItem16.Visible = false;
+            this.toolStripMenuItem16.Click += new System.EventHandler(this.toolStripMenuItem16_Click);
             // 
             // toolStripMenuItem23
             // 
@@ -305,6 +311,7 @@
             this.toolStripMenuItem24.Text = "تهيئة الاصناف";
             this.toolStripMenuItem24.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.toolStripMenuItem24.Visible = false;
+            this.toolStripMenuItem24.Click += new System.EventHandler(this.toolStripMenuItem24_Click);
             // 
             // toolStripMenuItem25
             // 
@@ -375,7 +382,6 @@
             this.toolStripMenuItem29.Size = new System.Drawing.Size(210, 50);
             this.toolStripMenuItem29.Text = "الاتصال بالسيرفر";
             this.toolStripMenuItem29.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.toolStripMenuItem29.Visible = false;
             // 
             // toolStripMenuItem30
             // 
@@ -386,7 +392,6 @@
             this.toolStripMenuItem30.Size = new System.Drawing.Size(210, 50);
             this.toolStripMenuItem30.Text = "نسخة احتياطية";
             this.toolStripMenuItem30.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.toolStripMenuItem30.Visible = false;
             // 
             // toolStripMenuItem31
             // 
@@ -446,6 +451,7 @@
             this.toolStripMenuItem18.Text = "تعديل المستخدم";
             this.toolStripMenuItem18.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.toolStripMenuItem18.Visible = false;
+            this.toolStripMenuItem18.Click += new System.EventHandler(this.toolStripMenuItem18_Click);
             // 
             // groupBox1
             // 
