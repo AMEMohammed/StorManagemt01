@@ -53,6 +53,12 @@
       <DependentUpon>Cate.cs</DependentUpon>
     </Compile>
     <Compile Include="Config.cs" />
+    <Compile Include="frmPlace.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPlace.Designer.cs">
+      <DependentUpon>frmPlace.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmType.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,6 +70,9 @@
     <Compile Include="SqlConnection.cs" />
     <EmbeddedResource Include="Cate.resx">
       <DependentUpon>Cate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPlace.resx">
+      <DependentUpon>frmPlace.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmType.resx">
       <DependentUpon>frmType.cs</DependentUpon>

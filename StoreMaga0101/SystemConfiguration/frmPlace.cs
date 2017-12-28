@@ -9,30 +9,27 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SystemConfiguration
-{ 
-    public partial class Cate : Form
+{
+    public partial class frmPlace : Form
     {
         Config config;
-        
-        public Cate()
+        public frmPlace()
         {
             InitializeComponent();
             try
             {
                 config = new Config(@".\s2008", "StoreManagement1", null, null);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
-
-        public Cate(string ServerNm,string DbNm,string UserSql,string PassSql)
+        public frmPlace(string ServerNm,string DbNm,string UserSql,string PassSql)
         {
-            InitializeComponent();
             try
             {
-                config = new Config(ServerNm, DbNm,UserSql, PassSql);
+                config = new Config(ServerNm, DbNm, UserSql, PassSql);
             }
             catch (Exception ex)
             {
@@ -40,53 +37,53 @@ namespace SystemConfiguration
             }
         }
 
-        private void Cate_Load(object sender, EventArgs e)
-        { try
+        
+
+        private void frmPlace_Load(object sender, EventArgs e)
+        {
+            try
             {
                 textBox4.Focus();
-                dataGridView1.DataSource = config.GetAllCategoryAR();
+                dataGridView1.DataSource = config.GetAllPlace();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
 
 
-            }
+        }
 
         private void btnAddSup_Click(object sender, EventArgs e)
         {
-            if(textBox4.Text.Length>0)
+            if(textBox4.Text.Length > 0)
             {
                 try
                 {
-                    config.AddNewCategory(textBox4.Text);
-                dataGridView1.DataSource = config.GetAllCategoryAR();
+                    config.AddNewPlaceSend(textBox4.Text);
+                    dataGridView1.DataSource = config.GetAllPlace();
                     textBox4.Text = "";
                     textBox4.Focus();
 
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
             }
         }
-        /// <summary>
-        /// تعديل
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+
         private void btnRefrsh_Click(object sender, EventArgs e)
         {
             if (textBox4.Text.Length > 0)
             {
                 try
-                { if(MessageBox.Show("هل تريد التعديل","",MessageBoxButtons.YesNo)==DialogResult.Yes)
-                    config.UpdateCategory(Convert.ToInt32(textBox3.Text), textBox4.Text);
+                {
+                    if (MessageBox.Show("هل تريد التعديل", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                        config.UpdatePlaceSend(Convert.ToInt32(textBox3.Text), textBox4.Text);
 
-                 
-                    dataGridView1.DataSource = config.GetAllCategoryAR();
+
+                    dataGridView1.DataSource = config.GetAllPlace();
                     textBox4.Focus();
                 }
                 catch (Exception ex)
@@ -102,20 +99,21 @@ namespace SystemConfiguration
             {
                 try
                 {
-                    if (MessageBox.Show("هل تريد حذف الصنف", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                    { DataTable dt = new DataTable();
+                    if (MessageBox.Show("هل تريد حذف الجهة", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        DataTable dt = new DataTable();
                         int IDCAT = Convert.ToInt32(textBox3.Text);
-                        dt = config.chackCatagory(IDCAT);
-                        if(dt.Rows.Count>0)
+                        dt = config.chackPlace(IDCAT);
+                        if (dt.Rows.Count > 0)
                         {
                             MessageBox.Show("لايكمن حذف السجل .مرتبط بسجلات اخرى", "", MessageBoxButtons.OK);
                         }
                         else
                         {
-                            config.DeleteCategory(IDCAT);
+                            config.DeletePlaceSend(IDCAT);
 
-                          
-                            dataGridView1.DataSource = config.GetAllCategoryAR();
+
+                            dataGridView1.DataSource = config.GetAllPlace();
                             textBox4.Focus();
                             textBox4.Text = "";
                             textBox3.Text = "";
@@ -129,14 +127,9 @@ namespace SystemConfiguration
             }
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void dataGridView1_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count>0)
+            if (dataGridView1.SelectedRows.Count > 0)
             {
                 try
                 {
@@ -145,11 +138,12 @@ namespace SystemConfiguration
 
 
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
-                   // MessageBox.Show(ex.Message);
+                    // MessageBox.Show(ex.Message);
                 }
             }
         }
     }
-}
+    }
+

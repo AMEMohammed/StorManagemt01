@@ -127,7 +127,68 @@ namespace SystemConfiguration
             return sql.SelectData(Query, parm);
 
         }
-        /////////
+        /////////?//////////
+        //////////////////
+        //// place
+        //Get All Place send
+        public DataTable GetAllPlace()
+        {
+            string Query = "SELECT [IDPlace]as 'رقم الجهة' ,[NamePlace] as 'اسم الجهة'  FROM [PlaceSend]  order by IDPlace desc";
+
+            return sql.SelectData(Query,null);
+
+        }
+
+
+
+        // add new PlaceSend
+        public int AddNewPlaceSend(string name)
+        {
+            string Query = "INSERT INTO [PlaceSend] ([NamePlace]) VALUES  (@name)";
+            SqlParameter[] parm = new SqlParameter[1];
+            parm[0] = new SqlParameter("@name", name);
+            return sql.ExcuteQuery(Query, parm);
+
+        }
+
+
+        //
+        // update Place send
+        public int UpdatePlaceSend(int id, string name)
+        {
+            string Query = "UPDATE  [PlaceSend] SET [NamePlace] =@name  WHERE IDPlace =@id";
+            SqlParameter[] parm = new SqlParameter[2];
+            parm[0] = new SqlParameter("@name", name);
+            parm[1] = new SqlParameter("@id", id);
+            return sql.ExcuteQuery(Query, parm);
+        }
+
+        ////
+        // delete PalceSend
+        public int DeletePlaceSend(int id)
+        {
+            string Query = "delete from PlaceSend where IDPlace=@id";
+            SqlParameter[] parm = new SqlParameter[1];
+            parm[0] = new SqlParameter("@id", id);
+            return sql.ExcuteQuery(Query, parm);
+
+        }
+        ///////
+        /// <param name="IDPlace"></param>
+        /// <returns></returns>
+        public DataTable chackPlace(int IDplace)
+        {
+            string Query = "select * from RequstOut where IDPlace=@id";
+            SqlParameter[] parm = new SqlParameter[1];
+            parm[0] = new SqlParameter("@id", IDplace);
+            return sql.SelectData(Query, parm);
+
+        }
+
+
+
+
+
 
 
 
