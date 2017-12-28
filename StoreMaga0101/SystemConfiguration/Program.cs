@@ -16,7 +16,7 @@ namespace SystemConfiguration
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Cate());
+            Application.Run(new frmType());
         }
     }
 }

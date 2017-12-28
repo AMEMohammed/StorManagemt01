@@ -81,7 +81,7 @@ namespace SystemConfiguration
         ///    
         public DataTable GetAllTypeQuntity()
         {
-            string Query = "SELECT [IDType] as 'رقم النوع' ,[NameType] as 'اسم النوع' FROM [TypeQuntity] order by IDType disc";
+            string Query = "SELECT [IDType] as 'رقم النوع' ,[NameType] as 'اسم النوع' FROM [TypeQuntity] order by IDType desc";
             return sql.SelectData(Query, null);
         }
         //add new TypeQuntity

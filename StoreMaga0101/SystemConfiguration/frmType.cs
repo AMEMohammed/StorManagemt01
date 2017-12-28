@@ -128,5 +128,24 @@ namespace SystemConfiguration
         {
             this.Close();
         }
+
+        private void dataGridView1_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                try
+                {
+                    textBox3.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+                    textBox4.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+
+
+                }
+                catch (Exception ex)
+                {
+                    // MessageBox.Show(ex.Message);
+                }
+            }
+        }
     }
 }
