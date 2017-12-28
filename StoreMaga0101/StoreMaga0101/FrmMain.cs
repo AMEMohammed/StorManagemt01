@@ -11,6 +11,7 @@ using Supplly;
 using Users;
 using Out_;
 using frmWInReprting;
+using SystemConfiguration;
 namespace StoreMaga0101
 {
     public partial class FrmMain : Form
@@ -393,7 +394,100 @@ namespace StoreMaga0101
 
         private void toolStripMenuItem24_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
+            Cate frmcat = new Cate();
+            FormCollection fromco = Application.OpenForms;
+            bool foundFrom = false;
+            foreach (Form frm in fromco)
+            {
+                if (frm.Name == "Cate")
+                {
+                    frm.Focus();
 
+                    foundFrom = true;
+
+                }
+
+            }
+            if (foundFrom == false)
+            {
+                frmcat.Show();
+            }
+            this.Cursor = Cursors.Default;
+        }
+
+        private void toolStripMenuItem25_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+          frmType  frmtype = new frmType();
+            FormCollection fromco = Application.OpenForms;
+            bool foundFrom = false;
+            foreach (Form frm in fromco)
+            {
+                if (frm.Name == "frmType")
+                {
+                    frm.Focus();
+
+                    foundFrom = true;
+
+                }
+
+            }
+            if (foundFrom == false)
+            {
+                frmtype.Show();
+            }
+            this.Cursor = Cursors.Default;
+
+        }
+
+        private void toolStripMenuItem28_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            frmPlace frmplace = new frmPlace();
+            FormCollection fromco = Application.OpenForms;
+            bool foundFrom = false;
+            foreach (Form frm in fromco)
+            {
+                if (frm.Name == "frmPlace")
+                {
+                    frm.Focus();
+
+                    foundFrom = true;
+
+                }
+
+            }
+            if (foundFrom == false)
+            {
+                frmplace.Show();
+            }
+            this.Cursor = Cursors.Default;
+
+        }
+
+        private void toolStripMenuItem27_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            frmCuurncy frmCurrncy = new frmCuurncy();
+            FormCollection fromco = Application.OpenForms;
+            bool foundFrom = false;
+            foreach (Form frm in fromco)
+            {
+                if (frm.Name == "frmCuurncy")
+                {
+                    frm.Focus();
+
+                    foundFrom = true;
+
+                }
+
+            }
+            if (foundFrom == false)
+            {
+                frmCurrncy.Show();
+            }
+            this.Cursor = Cursors.Default;
         }
     }
 }

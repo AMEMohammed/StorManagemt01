@@ -184,11 +184,67 @@ namespace SystemConfiguration
             return sql.SelectData(Query, parm);
 
         }
+        /////////////////
+        /////////
+        /////////
+        /// currncy
+        /// 
+         //////// get AllCurrency
+        public DataTable GetAllCurrency()
+        {
+          
+            string Query="select IDCurrency as'رقم العملة',NameCurrency as 'اسم العملة' from Currency ";
+            return sql.SelectData(Query, null);
+          
+
+        }
+        /////
+        //////// جدول العملاتط
+        // 
+        public int AddNewCurrency(string name)
+        {
+            
+            string Query="INSERT INTO [Currency]  ([NameCurrency])  VALUES(@txt)";
+            SqlParameter[] parm = new SqlParameter[1];
+            parm[0]=new SqlParameter("@txt", name);
+            return sql.ExcuteQuery(Query, parm);
+        }
+      
+          /////////////////////////////////////////////////
+        ///// Update Currency
+        public int UpdateCurrency(int id, string name)
+        {
+            string Query="update Currency set NameCurrency=@name where IDCurrency=@id ";
+            SqlParameter[] parm = new SqlParameter[2];
+            parm[0]=new SqlParameter("@name", name);
+            parm[1]=new SqlParameter("@id", id);
+            return sql.ExcuteQuery(Query, parm);
+
+        }
+        ///////////////////////////////////
+        ////// delete Currency
+        public int DeleteCurrency(int id)
+        {
+            
+            string Query="delete from Currency where IDCurrency=@id";
+            SqlParameter[] parm = new SqlParameter[1];
+            parm[0]=new SqlParameter("@id", id);
+            return sql.ExcuteQuery(Query, parm);
+
+        }
 
 
+        ///////
+        /// <param name="IDCurnncy"></param>
+        /// <returns></returns>
+        public DataTable chackCurncy(int IDcur)
+        {
+            string Query = "select * from RequstSupply where IDCurrency=@id";
+            SqlParameter[] parm = new SqlParameter[1];
+            parm[0] = new SqlParameter("@id", IDcur);
+            return sql.SelectData(Query, parm);
 
-
-
+        }
 
 
 

@@ -74,3 +74,5 @@ D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\StoreMaga0101\obj\Debug
 D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\StoreMaga0101\obj\Debug\StoreMaga0101.FrmMain.resources
 D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\StoreMaga0101\obj\Debug\StoreMaga0101.Properties.Resources.resources
 D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\StoreMaga0101\obj\Debug\StoreMaga0101.csproj.GenerateResource.Cache
+D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\StoreMaga0101\bin\Debug\SystemConfiguration.dll
+D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\StoreMaga0101\bin\Debug\SystemConfiguration.pdb
