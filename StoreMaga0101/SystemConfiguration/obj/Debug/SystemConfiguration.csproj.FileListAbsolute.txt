@@ -8,3 +8,4 @@ D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\SystemConfiguration\obj
 D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\SystemConfiguration\obj\Debug\SystemConfiguration.exe
 D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\SystemConfiguration\obj\Debug\SystemConfiguration.pdb
 D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\SystemConfiguration\obj\Debug\SystemConfiguration.frmType.resources
+D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\SystemConfiguration\obj\Debug\SystemConfiguration.frmPlace.resources
