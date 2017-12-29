@@ -1,0 +1,9 @@
+D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\Account\bin\Debug\Account.exe.config
+D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\Account\bin\Debug\Account.exe
+D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\Account\bin\Debug\Account.pdb
+D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\Account\obj\Debug\Account.csprojResolveAssemblyReference.cache
+D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\Account\obj\Debug\Account.frmAcount.resources
+D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\Account\obj\Debug\Account.Properties.Resources.resources
+D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\Account\obj\Debug\Account.csproj.GenerateResource.Cache
+D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\Account\obj\Debug\Account.exe
+D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\Account\obj\Debug\Account.pdb
