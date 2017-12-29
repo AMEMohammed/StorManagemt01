@@ -64,7 +64,7 @@ namespace Account
                 t.Text = dr["IDCode"].ToString() + " - " + dr["AcountNm"].ToString();
                 t.Name = dr["IDCode"].ToString();
              
-                t.Tag = dt.Rows.IndexOf(dr);
+                t.Tag = dt.Rows.IndexOf(dr); //ترقيم العقدة برقم  السطر في الجدول
                
                 if (parentNode == null)
                 {
