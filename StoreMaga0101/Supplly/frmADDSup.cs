@@ -91,13 +91,13 @@ namespace Supplly
         {
             try
             {
-                comboBox4.ValueMember = "الرقم";
-                comboBox4.DisplayMember = "نوع الحساب";
-                comboBox4.DataSource = SuRe.GetAllDebit();
+                comboBox4.ValueMember = "رقم الحساب";
+                comboBox4.DisplayMember = "اسم الحساب";
+                comboBox4.DataSource = SuRe.GetALLAcountNm();
 
-                comboBox5.ValueMember = "الرقم";
-                comboBox5.DisplayMember = "نوع الحساب";
-                comboBox5.DataSource = SuRe.GetAllCreditor();
+                comboBox5.ValueMember = "رقم الحساب";
+                comboBox5.DisplayMember = "اسم الحساب";
+                comboBox5.DataSource = SuRe.GetALLAcountNm();
             }
             catch (Exception ex)
             {

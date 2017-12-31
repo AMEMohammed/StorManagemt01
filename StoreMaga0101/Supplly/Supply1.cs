@@ -203,10 +203,10 @@ namespace Supplly
         ///////////////
         /// GetAllDebit
         /// 
-        public DataTable GetAllDebit()
+        public DataTable GetALLAcountNm()
         {
          
-            string query = "select IdTypeAccount as 'الرقم' ,NameTypeAccount as 'نوع الحساب' from Debit ";
+            string query = "  select AccountNm.IDCode as  'رقم الحساب' ,AccountNm.AcountNm as 'اسم الحساب' from AccountNm where AcountType='فرعي' ";
             return sql.SelectData(query, null);
 
         }
@@ -367,6 +367,14 @@ namespace Supplly
             return sql.ExcuteQuery(Query, parm);
           
         }
+        ////////////////////
+        ////////////
+        ///ACCount Tables
+        ///
+      
+
+
+
 
 
     }
