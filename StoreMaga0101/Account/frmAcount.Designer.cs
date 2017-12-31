@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -39,6 +40,10 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.treeView1 = new System.Windows.Forms.TreeView();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.اختيارالحسابToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.اضافةحسابفرعيToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.اضافةحسابفرعيToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -53,6 +58,7 @@
             this.groupBox9.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.groupBox11.SuspendLayout();
             this.groupBox10.SuspendLayout();
             this.groupBox12.SuspendLayout();
@@ -107,6 +113,7 @@
             // 
             // comboBox2
             // 
+            this.comboBox2.Enabled = false;
             this.comboBox2.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(6, 20);
@@ -127,11 +134,9 @@
             // 
             // textBox1
             // 
-            this.textBox1.Enabled = false;
             this.textBox1.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(6, 20);
             this.textBox1.Name = "textBox1";
-            this.textBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.textBox1.Size = new System.Drawing.Size(229, 25);
             this.textBox1.TabIndex = 5;
             // 
@@ -157,11 +162,42 @@
             // 
             // treeView1
             // 
+            this.treeView1.ContextMenuStrip = this.contextMenuStrip1;
             this.treeView1.Location = new System.Drawing.Point(268, 21);
             this.treeView1.Name = "treeView1";
             this.treeView1.RightToLeftLayout = true;
             this.treeView1.Size = new System.Drawing.Size(430, 318);
             this.treeView1.TabIndex = 6;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.اختيارالحسابToolStripMenuItem,
+            this.اضافةحسابفرعيToolStripMenuItem,
+            this.اضافةحسابفرعيToolStripMenuItem1});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.contextMenuStrip1.Size = new System.Drawing.Size(171, 92);
+            // 
+            // اختيارالحسابToolStripMenuItem
+            // 
+            this.اختيارالحسابToolStripMenuItem.Name = "اختيارالحسابToolStripMenuItem";
+            this.اختيارالحسابToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.اختيارالحسابToolStripMenuItem.Text = "اختيار الحساب";
+            this.اختيارالحسابToolStripMenuItem.Click += new System.EventHandler(this.اختيارالحسابToolStripMenuItem_Click);
+            // 
+            // اضافةحسابفرعيToolStripMenuItem
+            // 
+            this.اضافةحسابفرعيToolStripMenuItem.Name = "اضافةحسابفرعيToolStripMenuItem";
+            this.اضافةحسابفرعيToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.اضافةحسابفرعيToolStripMenuItem.Text = "اضافة حساب رئيسي";
+            this.اضافةحسابفرعيToolStripMenuItem.Click += new System.EventHandler(this.اضافةحسابفرعيToolStripMenuItem_Click);
+            // 
+            // اضافةحسابفرعيToolStripMenuItem1
+            // 
+            this.اضافةحسابفرعيToolStripMenuItem1.Name = "اضافةحسابفرعيToolStripMenuItem1";
+            this.اضافةحسابفرعيToolStripMenuItem1.Size = new System.Drawing.Size(170, 22);
+            this.اضافةحسابفرعيToolStripMenuItem1.Text = "اضافة حساب فرعي";
             // 
             // groupBox11
             // 
@@ -214,6 +250,7 @@
             this.btnRefrsh.Text = "تعديل";
             this.btnRefrsh.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnRefrsh.UseVisualStyleBackColor = true;
+            this.btnRefrsh.Click += new System.EventHandler(this.btnRefrsh_Click);
             // 
             // btnAddSup
             // 
@@ -227,6 +264,7 @@
             this.btnAddSup.Text = "اضافة";
             this.btnAddSup.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAddSup.UseVisualStyleBackColor = true;
+            this.btnAddSup.Click += new System.EventHandler(this.btnAddSup_Click);
             // 
             // groupBox10
             // 
@@ -241,6 +279,7 @@
             // 
             // textBox4
             // 
+            this.textBox4.Enabled = false;
             this.textBox4.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox4.Location = new System.Drawing.Point(6, 20);
             this.textBox4.Name = "textBox4";
@@ -273,14 +312,14 @@
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1184, 343);
@@ -307,6 +346,7 @@
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
+            this.contextMenuStrip1.ResumeLayout(false);
             this.groupBox11.ResumeLayout(false);
             this.groupBox10.ResumeLayout(false);
             this.groupBox10.PerformLayout();
@@ -336,6 +376,10 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem اختيارالحسابToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem اضافةحسابفرعيToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem اضافةحسابفرعيToolStripMenuItem1;
     }
 }
 
