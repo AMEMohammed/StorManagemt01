@@ -140,16 +140,44 @@ namespace Supplly
                         {
                             // حذف الطلب
                             int qu = QuntityHere - oldQuntity;
-                           SuRe.UpdateQuntityAccount(idAcount2, qu); // تعديل الكمية في جدول المخزون
-                            //اضافة الطلب في جدول التعديلات
-                          SuRe.ADDNewUPDSupply(id, Convert.ToInt32(dt.Rows[0]["IDCategory"].ToString()), Convert.ToInt32(dt.Rows[0]["IDType"].ToString()), Convert.ToInt32(dt.Rows[0]["Quntity"].ToString()), Convert.ToInt32(dt.Rows[0]["Price"].ToString()), Convert.ToInt32(dt.Rows[0]["IDCurrency"].ToString()), dt.Rows[0]["NameSupply"].ToString(), DateTime.Parse(dt.Rows[0]["DateSupply"].ToString()), DateTime.Now, "تم حذف الطلب", UserID);
+                            SuRe.UpdateQuntityAccount(idAcount2, qu); // تعديل الكمية في جدول المخزون
+                                                                      //اضافة الطلب في جدول التعديلات
+                            SuRe.ADDNewUPDSupply(id, Convert.ToInt32(dt.Rows[0]["IDCategory"].ToString()), Convert.ToInt32(dt.Rows[0]["IDType"].ToString()), Convert.ToInt32(dt.Rows[0]["Quntity"].ToString()), Convert.ToInt32(dt.Rows[0]["Price"].ToString()), Convert.ToInt32(dt.Rows[0]["IDCurrency"].ToString()), dt.Rows[0]["NameSupply"].ToString(), DateTime.Parse(dt.Rows[0]["DateSupply"].ToString()), DateTime.Now, "تم حذف الطلب", UserID);
+
+                            /// Account Monay Totla
+                            DataTable dtSupply = SuRe.GetRequstSupply(id);
+                            int IDAccounPlus = Convert.ToInt32(dtSupply.Rows[0]["Creditor"].ToString());
+                            int IDAccountMins = Convert.ToInt32(dtSupply.Rows[0]["Debit"].ToString());
+                            int IDcurrncy = Convert.ToInt32(dtSupply.Rows[0]["IDCurrency"].ToString());
+                            int TotalMony = Convert.ToInt32(dtSupply.Rows[0]["Quntity"].ToString()) * Convert.ToInt32(dtSupply.Rows[0]["Price"].ToString());
+                            SuRe.UpdateAccountTotal(IDAccounPlus, (-1 * TotalMony), IDcurrncy);// حذف القيمة من حساب الدائن
+                            SuRe.UpdateAccountTotal(IDAccountMins, TotalMony, IDcurrncy);// ارجاع القيمة الى حساب المدين
+
+                            ////////
+                            //////
+                            SuRe.DeleteSuuplyFrmAccountDitalis(id);//حذف الطلب من جدول تفاصيل الحساب
+
+
 
                             SuRe.DeleteRequstSupply(id); //حذف الطلب من جدول الطلبات
+
                             dataGridView1.DataSource = SuRe.SearchINRequsetSupplyDate(DateTime.Now.AddDays(-7), DateTime.Now);
 
                         }
                         else
-                        { MessageBox.Show("تاكد من الكيمة المخزونة"); }
+                        {
+                            MessageBox.Show("تاكد من الكيمة المخزونة");
+                        }
+                      
+
+
+                        //////////////////////////////////////////////////////////
+                        ///////////////////////
+                        ////////////
+                        ///
+
+                        // 
+
                     }
                 }
                 catch (Exception ex)

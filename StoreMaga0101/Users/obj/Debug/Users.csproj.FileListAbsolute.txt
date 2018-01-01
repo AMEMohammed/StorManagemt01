@@ -7,12 +7,13 @@ D:\progaming\New\StoreMaga0101\Users\obj\Debug\Users.frmLogin.resources
 D:\progaming\New\StoreMaga0101\Users\bin\Debug\Users.dll.config
 D:\progaming\New\StoreMaga0101\Users\bin\Debug\Users.dll
 D:\progaming\New\StoreMaga0101\Users\obj\Debug\Users.dll
-D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\Users\bin\Debug\Users.dll.config
-D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\Users\bin\Debug\Users.dll
 D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\Users\bin\Debug\Users.pdb
 D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\Users\obj\Debug\Users.frmAddUser.resources
 D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\Users\obj\Debug\Users.frmLogin.resources
 D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\Users\obj\Debug\Users.Properties.Resources.resources
 D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\Users\obj\Debug\Users.csproj.GenerateResource.Cache
-D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\Users\obj\Debug\Users.dll
 D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\Users\obj\Debug\Users.pdb
+D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\Users\bin\Debug\Users.exe.config
+D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\Users\bin\Debug\Users.exe
+D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\Users\obj\Debug\Users.csprojResolveAssemblyReference.cache
+D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\Users\obj\Debug\Users.exe

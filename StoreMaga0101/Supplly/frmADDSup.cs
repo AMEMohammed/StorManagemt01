@@ -61,6 +61,7 @@ namespace Supplly
                 getDate1();
                 getdata22();
                 changeLanguage();
+                
             }
             catch(Exception ex)
             {
@@ -169,8 +170,8 @@ namespace Supplly
                                 int idCurrnt = (int)comboBox3.SelectedValue;
                                 int qunt = Convert.ToInt32(textBox1.Text);
                                 int price = Convert.ToInt32(textBox2.Text);
-                                int mins = (int)comboBox4.SelectedValue;
-                                int plus= (int)comboBox5.SelectedValue;
+                                int mins = (int)comboBox4.SelectedValue; // من حساب 
+                                int plus= (int)comboBox5.SelectedValue;//الى حساب
                                 string name = textBox3.Text;
                                 string dec = textBox4.Text;
                                 int idAcount = SuRe.CheckAccountIsHere(idcate, idtype, price, idCurrnt);
@@ -215,7 +216,7 @@ namespace Supplly
 
                             /////////////////
                             ///////////
-                            ///
+                            ////////////////
                             ////////////// من حساب mins
                             if (SuRe.CheckAccontTotal(mins, idCurrnt))// الحساب مضاف مسبقا
                             {
@@ -225,10 +226,29 @@ namespace Supplly
                             {
                                 SuRe.AddNewAccountTotal(mins, (-1 * qunt * price), idCurrnt);
                             }
-                            string DitalisMis = "تم قيد عليكم مبلغ وقدره " + (qunt * price).ToString() + "مقابل امر توريد ب  " + qunt.ToString() + " " + comboBox1.Text + " " + comboBox2.Text+" الى حساب"+comboBox5.Text;
+                            //// (اضافة الامر الى جدول تفاصيل الحساب )مدين(
+                            string DitalisMis = "تم قيد عليكم مبلغ وقدره " + (qunt * price).ToString() + "مقابل امر توريد ب  " + qunt.ToString() + " " + comboBox1.Text + " " + comboBox2.Text+"  الى حساب  "+comboBox5.Text;
                             SuRe.AddNewAccountDetalis(mins, (-1 * qunt * price), SuRe.GetMaxIdSupply(),0, DitalisMis, DateTime.Now, UserID);//// اضافة الى جدول التفاصيل
-                          ///////////////////
-                          
+                          /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                          //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                          ////// الى حساب plus
+                          //////////////////
+                          if(SuRe.CheckAccontTotal(plus,idCurrnt)) // الحساب مضاف مسبقا
+                            {
+                                SuRe.UpdateAccountTotal(plus, (qunt * price), idCurrnt);
+                            }
+                            else // اضافة حساب جديد في جدول الاجمالي
+                            {
+                                SuRe.AddNewAccountTotal(plus, (qunt * price), idCurrnt);
+                            }
+                            /////////////////////////////
+                            //  اضافة الامر الى جدول التفاصيل (دائن)
+                          string DitalisPlus = "تم قيد لكم مبلغ وقدره" + (qunt * price).ToString() + "مقابل امر توريد ب " + qunt.ToString() + " " + comboBox1.Text + " " + comboBox2.Text + "  من حساب " + comboBox4.Text;
+                         
+                          SuRe.AddNewAccountDetalis(plus, ( qunt * price), SuRe.GetMaxIdSupply(), 0, DitalisPlus, DateTime.Now, UserID);//// اضافة الى جدول التفاصيل
+
+                            //////////////////////
+                            ////////
                             if ((MessageBox.Show("هل تريد اضافة طلب  اخر", "تاكيد", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign) == DialogResult.Yes))
                             {
                                 flagAddAgian = true;
@@ -277,14 +297,14 @@ namespace Supplly
                        }
                         catch (Exception ex)
                       {
-                          MessageBox.Show(ex.Message + "2");
+                         MessageBox.Show(ex.Message + "2");
                       }
 
                     }
 
                 }
            }
-            catch (Exception ex)
+           catch (Exception ex)
           {
               MessageBox.Show(ex.Message + "3");
            }

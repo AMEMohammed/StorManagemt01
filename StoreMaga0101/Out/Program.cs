@@ -16,7 +16,7 @@ namespace Out_
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmUpdateOut());
+            Application.Run(new frmAddOut());
         }
     }
 }

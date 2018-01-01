@@ -53,19 +53,20 @@ namespace Supplly
         public DataTable PrintRequstSupply(int IDreqSup, int UserId, int user)
         {
           
-           string Query="select IDSupply as 'رقم الطلب' ,  Category.NameCategory  as 'الصنف', TypeQuntity.NameType  as'النوع' , RequstSupply.Quntity  as 'الكمية', RequstSupply.Price as 'السعر'  , RequstSupply.Quntity * RequstSupply.Price as 'الاجمالي' ,Currency.NameCurrency as 'العملة', RequstSupply.DateSupply as 'تاريخ' , RequstSupply.NameSupply  as'اسم المورد',Users.Name as 'اسم الموظف', RequstSupply.DescSupply AS 'ملاحظات',Debit.NameTypeAccount as 'مدين' ,Creditor.NameTypeAccount as 'دائن'  from Debit,Creditor ,Category,Users,TypeQuntity, RequstSupply,Currency where RequstSupply.IDCategory = Category.IDCategory and Debit.IdTypeAccount=RequstSupply.Debit and Creditor.IdTypeAccount=RequstSupply.Creditor and RequstSupply.IDType = TypeQuntity.IDType and RequstSupply.IDCurrency=Currency.IDCurrency and Users.UserID=@UserId  and RequstSupply.chek =@id and RequstSupply.UserId =@uuu ";
+           string Query= "select IDSupply as 'رقم الطلب' ,  Category.NameCategory  as 'الصنف', TypeQuntity.NameType  as'النوع' , RequstSupply.Quntity  as 'الكمية', RequstSupply.Price as 'السعر'  , RequstSupply.Quntity * RequstSupply.Price as 'الاجمالي' ,Currency.NameCurrency as 'العملة', RequstSupply.DateSupply as 'تاريخ' , RequstSupply.NameSupply  as'اسم المورد',Users.Name as 'اسم الموظف', RequstSupply.DescSupply AS 'ملاحظات',t.AcountNm as 'مدين' ,t1.AcountNm as 'دائن'  from AccountNm as t,AccountNm as t1 ,Category,Users,TypeQuntity, RequstSupply,Currency where RequstSupply.IDCategory = Category.IDCategory and t.IDCode=RequstSupply.Debit and t1.IDCode=RequstSupply.Creditor and RequstSupply.IDType = TypeQuntity.IDType and RequstSupply.IDCurrency=Currency.IDCurrency and Users.IDUSER=@UserId  and RequstSupply.chek =@id and RequstSupply.UserId =@uuu ";
             SqlParameter[] parm = new SqlParameter[3];
            parm[0]=new SqlParameter("@id", IDreqSup);
             parm[1]=new SqlParameter("@UserId", UserId);
             parm[2] = new SqlParameter("@uuu", user);
             return sql.SelectData(Query, parm);
 
+
         }
     
 
         public DataTable printrequstOutExit1(int IDreqSup, int UserId, int user)
         {
-            string Query="select IDSupply as 'الرقم المخزني' ,  Category.NameCategory  as 'الاسم', TypeQuntity.NameType  as'النوع' , RequstSupply.Quntity  as 'الكمية',    RequstSupply.NameSupply  as'اسم المستلم',Users.Name as 'اسم الموظف' , Users.Name as 'العنوان' ,Users.Name as 'الجهة'  from Debit,Creditor ,Category,Users,TypeQuntity, RequstSupply,Currency where RequstSupply.IDCategory = Category.IDCategory and Debit.IdTypeAccount=RequstSupply.Debit and Creditor.IdTypeAccount=RequstSupply.Creditor and RequstSupply.IDType = TypeQuntity.IDType and RequstSupply.IDCurrency=Currency.IDCurrency and Users.UserID=@UserId  and RequstSupply.chek =@id and RequstSupply.UserId =@uuu ";
+            string Query= "select IDSupply as 'الرقم المخزني' ,  Category.NameCategory  as 'الاسم', TypeQuntity.NameType  as'النوع' , RequstSupply.Quntity  as 'الكمية',    RequstSupply.NameSupply  as'اسم المستلم',Users.Name as 'اسم الموظف' , Users.Name as 'العنوان' ,Users.Name as 'الجهة'  from Debit,Creditor ,Category,Users,TypeQuntity, RequstSupply,Currency where RequstSupply.IDCategory = Category.IDCategory and Debit.IdTypeAccount=RequstSupply.Debit and Creditor.IdTypeAccount=RequstSupply.Creditor and RequstSupply.IDType = TypeQuntity.IDType and RequstSupply.IDCurrency=Currency.IDCurrency and Users.IDUSER=@UserId  and RequstSupply.chek =@id and RequstSupply.UserId =@uuu ";
             SqlParameter[] parm = new SqlParameter[3];
             parm[0]=new SqlParameter("@id", IDreqSup);
             parm[1]=new SqlParameter("@UserId", UserId);
@@ -101,7 +102,7 @@ namespace Supplly
         ////
        public DataTable    SearchINRequsetSupplyDate(DateTime d1,DateTime d2)
         {
-            string Query = "select IDSupply as 'رقم الطلب' ,Category.NameCategory as 'اسم الصنف', TypeQuntity.NameType as 'نوع الكمية', RequstSupply.Quntity as 'الكمية', RequstSupply.Price as 'سعر الوحدة', RequstSupply.Quntity * RequstSupply.Price as 'الاجمالي',Currency.NameCurrency as 'العملة',RequstSupply.DateSupply as'تاريخ التوريد', RequstSupply.NameSupply as 'اسم المورد',Users.Name as 'اسم الموظف', RequstSupply.DescSupply as 'ملاحظات',RequstSupply.chek  from Category, TypeQuntity, RequstSupply,Currency, Users where RequstSupply.UserId=Users.UserID and  RequstSupply.IDCategory = Category.IDCategory and RequstSupply.IDCurrency=Currency.IDCurrency and RequstSupply.IDType = TypeQuntity.IDType and DateSupply between @d1 and @d2  order by RequstSupply.DateSupply,RequstSupply.IDCurrency,RequstSupply.IDType,RequstSupply.IDCategory";
+            string Query = "select IDSupply as 'رقم الطلب' ,Category.NameCategory as 'اسم الصنف', TypeQuntity.NameType as 'نوع الكمية', RequstSupply.Quntity as 'الكمية', RequstSupply.Price as 'سعر الوحدة', RequstSupply.Quntity * RequstSupply.Price as 'الاجمالي',Currency.NameCurrency as 'العملة',RequstSupply.DateSupply as'تاريخ التوريد', RequstSupply.NameSupply as 'اسم المورد',Users.Name as 'اسم الموظف', RequstSupply.DescSupply as 'ملاحظات',RequstSupply.chek  from Category, TypeQuntity, RequstSupply,Currency, Users where RequstSupply.UserId=Users.IDUSER and  RequstSupply.IDCategory = Category.IDCategory and RequstSupply.IDCurrency=Currency.IDCurrency and RequstSupply.IDType = TypeQuntity.IDType and DateSupply between @d1 and @d2  order by RequstSupply.DateSupply,RequstSupply.IDCurrency,RequstSupply.IDType,RequstSupply.IDCategory";
                   DataTable dt = new DataTable();
             SqlParameter[] parm = new SqlParameter[2];
             parm[0] = new SqlParameter("@d1", d1);
@@ -175,10 +176,17 @@ namespace Supplly
         /// Get Max ChechSupply
         /// 
         public int GetMaxCheckSupply()
-        {
-
-            string query = "select max(chek) from RequstSupply ";
-            return (int)sql.ExcuteQueryValue(query, null);
+        { int res = 0;
+            try
+            {
+                string query = "select max(chek) from RequstSupply ";
+                res= (int)sql.ExcuteQueryValue(query, null);
+            }
+            catch
+            {
+                res = 0;
+            }
+            return res;
         }
         public DataTable GetAllCategoryAR()
         {
@@ -232,7 +240,7 @@ namespace Supplly
         { //
             
             txt = "%" + txt + "%";
-            string query = "select IDSupply as 'رقم الطلب' ,Category.NameCategory as 'اسم الصنف', TypeQuntity.NameType as 'نوع الكمية', RequstSupply.Quntity as 'الكمية', RequstSupply.Price as 'سعر الوحدة', RequstSupply.Quntity * RequstSupply.Price as 'الاجمالي',Currency.NameCurrency as 'العملة',RequstSupply.DateSupply as'تاريخ التوريد', RequstSupply.NameSupply as 'اسم المورد',Users.Name as 'اسم الموظف',RequstSupply.DescSupply as 'ملاحظات' ,RequstSupply.chek  from Users, Category, TypeQuntity, RequstSupply,Currency where RequstSupply.UserId=Users.UserID and RequstSupply.IDCategory = Category.IDCategory and RequstSupply.IDCurrency=Currency.IDCurrency and RequstSupply.IDType = TypeQuntity.IDType and convert(varchar,IDSupply)+convert(varchar,Quntity)+convert(varchar,Quntity)+convert(varchar,Price)+Category.NameCategory+Currency.NameCurrency+ TypeQuntity.NameType + RequstSupply.NameSupply + RequstSupply.DescSupply +Users.Name  like @txt order by RequstSupply.DateSupply,RequstSupply.IDCurrency,RequstSupply.IDType,RequstSupply.IDCategory ";
+            string query = "select IDSupply as 'رقم الطلب' ,Category.NameCategory as 'اسم الصنف', TypeQuntity.NameType as 'نوع الكمية', RequstSupply.Quntity as 'الكمية', RequstSupply.Price as 'سعر الوحدة', RequstSupply.Quntity * RequstSupply.Price as 'الاجمالي',Currency.NameCurrency as 'العملة',RequstSupply.DateSupply as'تاريخ التوريد', RequstSupply.NameSupply as 'اسم المورد',Users.Name as 'اسم الموظف',RequstSupply.DescSupply as 'ملاحظات' ,RequstSupply.chek  from Users, Category, TypeQuntity, RequstSupply,Currency where RequstSupply.UserId=Users.IDUSER and RequstSupply.IDCategory = Category.IDCategory and RequstSupply.IDCurrency=Currency.IDCurrency and RequstSupply.IDType = TypeQuntity.IDType and convert(varchar,IDSupply)+convert(varchar,Quntity)+convert(varchar,Quntity)+convert(varchar,Price)+Category.NameCategory+Currency.NameCurrency+ TypeQuntity.NameType + RequstSupply.NameSupply + RequstSupply.DescSupply +Users.Name  like @txt order by RequstSupply.DateSupply,RequstSupply.IDCurrency,RequstSupply.IDType,RequstSupply.IDCategory ";
             SqlParameter[] parm = new SqlParameter[1];
             parm[0] = new SqlParameter("@txt", txt);
             return sql.SelectData(query, parm);
@@ -245,7 +253,7 @@ namespace Supplly
         { //
             
             txt = "%" + txt + "%";
-            string query = "select IDSupply as 'رقم الطلب' ,Category.NameCategory as 'اسم الصنف', TypeQuntity.NameType as 'نوع الكمية', RequstSupply.Quntity as 'الكمية', RequstSupply.Price as 'سعر الوحدة', RequstSupply.Quntity * RequstSupply.Price as 'الاجمالي',Currency.NameCurrency as 'العملة',RequstSupply.DateSupply as'تاريخ التوريد', RequstSupply.NameSupply as 'اسم المورد',Users.Name as 'اسم الموظف', RequstSupply.DescSupply as 'ملاحظات' ,RequstSupply.chek  from Users, Category, TypeQuntity, RequstSupply,Currency where RequstSupply.UserId=Users.UserID and RequstSupply.IDCategory = Category.IDCategory and RequstSupply.IDCurrency=Currency.IDCurrency and  RequstSupply.IDType = TypeQuntity.IDType and convert(varchar,IDSupply)+convert(varchar,Quntity)+convert(varchar,Quntity)+convert(varchar,Price)+ Category.NameCategory + TypeQuntity.NameType + RequstSupply.NameSupply + RequstSupply.DescSupply+Currency.NameCurrency+Users.Name  like @txt and DateSupply between @d1 and @d2 order by RequstSupply.DateSupply,RequstSupply.IDCurrency,RequstSupply.IDType,RequstSupply.IDCategory ";
+            string query = "select IDSupply as 'رقم الطلب' ,Category.NameCategory as 'اسم الصنف', TypeQuntity.NameType as 'نوع الكمية', RequstSupply.Quntity as 'الكمية', RequstSupply.Price as 'سعر الوحدة', RequstSupply.Quntity * RequstSupply.Price as 'الاجمالي',Currency.NameCurrency as 'العملة',RequstSupply.DateSupply as'تاريخ التوريد', RequstSupply.NameSupply as 'اسم المورد',Users.Name as 'اسم الموظف', RequstSupply.DescSupply as 'ملاحظات' ,RequstSupply.chek  from Users, Category, TypeQuntity, RequstSupply,Currency where RequstSupply.UserId=Users.IDUSER and RequstSupply.IDCategory = Category.IDCategory and RequstSupply.IDCurrency=Currency.IDCurrency and  RequstSupply.IDType = TypeQuntity.IDType and convert(varchar,IDSupply)+convert(varchar,Quntity)+convert(varchar,Quntity)+convert(varchar,Price)+ Category.NameCategory + TypeQuntity.NameType + RequstSupply.NameSupply + RequstSupply.DescSupply+Currency.NameCurrency+Users.Name  like @txt and DateSupply between @d1 and @d2 order by RequstSupply.DateSupply,RequstSupply.IDCurrency,RequstSupply.IDType,RequstSupply.IDCategory ";
             SqlParameter[] parm = new SqlParameter[3];
            parm[0] =new SqlParameter("@txt", txt);
            parm[1]=new SqlParameter("@d1", d1);
@@ -373,7 +381,7 @@ namespace Supplly
         public DataTable GetALLAcountNm()
         {
 
-            string query = "  select AccountNm.IDCode as  'رقم الحساب' ,AccountNm.AcountNm as 'اسم الحساب' from AccountNm where AcountType='فرعي' ";
+            string query = "  select AccountNm.IDCode as  'رقم الحساب' ,AccountNm.AcountNm as 'اسم الحساب' from AccountNm where AcountType='فرعي'  and Active=1";
             return sql.SelectData(query, null);
 
         }
@@ -386,7 +394,7 @@ namespace Supplly
             bool x;
             try
             {
-                string Query = " select AccountTotal.IDCode from AccountTotal where AccountTotal.IDCode=@idc and AccountTotal.IDCurrncy=@idcu and Active=1";
+                string Query = " select AccountTotal.IDCode from AccountTotal where AccountTotal.IDCode=@idc and AccountTotal.IDCurrncy=@idcu ";
                 SqlParameter[] parm = new SqlParameter[2];
                 parm[0] = new SqlParameter("@idc", IDcode);
                 parm[1] = new SqlParameter("@idcu", IDCurrncy);
@@ -437,7 +445,7 @@ namespace Supplly
             string Query = " update AccountTotal set Balance=@balanc where IDCode=@idco and IDCurrncy=@idcur";
             SqlParameter[] parm = new SqlParameter[3];
             parm[0] = new SqlParameter("@idco", IDCOde);
-            parm[1] = new SqlParameter("@many", NewBalance);
+            parm[1] = new SqlParameter("@balanc", NewBalance);
             parm[2] = new SqlParameter("@idcur", idCurrncy);
             return sql.ExcuteQuery(Query, parm);
 
@@ -458,8 +466,38 @@ namespace Supplly
             parm[6] = new SqlParameter("@UserID", userid);
             return sql.ExcuteQuery(Query,parm);
         }
+        public int DeleteSuuplyFrmAccountDitalis(int idSupply)
+        {
+            string Query = "  delete from AccountDetalis where AccountDetalis.IDSupply=@idsup";
+            SqlParameter[] parm = new SqlParameter[1];
+            parm[0] = new SqlParameter("@idsup", idSupply);
+            return sql.ExcuteQuery(Query, parm);
+        }
+
+
+
+
         ////////////////
-        //////////
+        ////////
+        ///// الحصول على رقم حساب الدائن من جدول تفاصيل الحساب من خلال رقم طلب التوريد
+        ////////////
+        //public int GetIDcodePluesFrmDitlies(int IDSuuply)
+        //{
+        //    string Query = "select IDCode from AccountDetalis where IDSupply=@IDSuuply and Mony >=0";
+        //    SqlParameter[] parm = new SqlParameter[1];
+        //    parm[0] = new SqlParameter("@IDSuuply", IDSuuply);
+        //    return (int)sql.ExcuteQueryValue(Query, parm);
+        //}
+        ////////
+        ///// الحصول على رقم حساب المدين من جدول تفاصيل الحساب من خلال رقم طلب التوريد
+        ////////////
+        //public int GetIDcodeMinsFrmDitlies(int IDSuuply)
+        //{
+        //    string Query = "select IDCode from AccountDetalis where IDSupply=@IDSuuply and Mony <0";
+        //    SqlParameter[] parm = new SqlParameter[1];
+        //    parm[0] = new SqlParameter("@IDSuuply", IDSuuply);
+        //    return (int)sql.ExcuteQueryValue(Query, parm);
+        //}
 
     }
 }
