@@ -92,7 +92,11 @@ namespace Supplly
             parm[11] = new SqlParameter("@crd", cred);
            return resl=   sql.ExcuteQuery(Query, parm);
         }
-
+        public int GetMaxIdSupply()
+        {
+            string Query = " select MAX(RequstSupply.IDSupply) from RequstSupply";
+            return (int)sql.ExcuteQueryValue(Query, null);
+        }
         //////////////////////
         ////
        public DataTable    SearchINRequsetSupplyDate(DateTime d1,DateTime d2)
@@ -200,16 +204,7 @@ namespace Supplly
 
         }
 
-        ///////////////
-        /// GetAllDebit
-        /// 
-        public DataTable GetALLAcountNm()
-        {
-         
-            string query = "  select AccountNm.IDCode as  'رقم الحساب' ,AccountNm.AcountNm as 'اسم الحساب' from AccountNm where AcountType='فرعي' ";
-            return sql.SelectData(query, null);
-
-        }
+       
 
 
         ///
@@ -371,11 +366,100 @@ namespace Supplly
         ////////////
         ///ACCount Tables
         ///
-      
 
+        ///////////////
+        /// GetAllCount
+        /// 
+        public DataTable GetALLAcountNm()
+        {
 
+            string query = "  select AccountNm.IDCode as  'رقم الحساب' ,AccountNm.AcountNm as 'اسم الحساب' from AccountNm where AcountType='فرعي' ";
+            return sql.SelectData(query, null);
 
+        }
 
+    ////////////
+    //////////
+    // Chack AcoountTotal is Here
+    public   bool CheckAccontTotal(int IDcode,int IDCurrncy)
+        {
+            bool x;
+            try
+            {
+                string Query = " select AccountTotal.IDCode from AccountTotal where AccountTotal.IDCode=@idc and AccountTotal.IDCurrncy=@idcu and Active=1";
+                SqlParameter[] parm = new SqlParameter[2];
+                parm[0] = new SqlParameter("@idc", IDcode);
+                parm[1] = new SqlParameter("@idcu", IDCurrncy);
+              int zzz=(int)   sql.ExcuteQueryValue(Query, parm);
+                x = true;
+            }
+            catch
+            {
+                x = false;
+            }
+            return x;
+
+        }
+        ////////////
+        /// <summary>
+        /// /// add new AccountTotal 
+        /// // 
+        /// </summary>
+        public int AddNewAccountTotal(int IDCOde, int Mony,int idCurrncy)
+        {
+            string Query = "insert into AccountTotal (IDCode,Balance,IDCurrncy) values(@idco,@many,@idcur)";
+            SqlParameter[] parm = new SqlParameter[3];
+            parm[0] = new SqlParameter("@idco", IDCOde);
+            parm[1] = new SqlParameter("@many", Mony);
+            parm[2] = new SqlParameter("@idcur", idCurrncy);
+            return sql.ExcuteQuery(Query, parm);
+
+        }
+        ////////////
+        //////////
+        ///Get  Balance for AccountTotal
+        public int GetBalance(int Idcode,int IDCur)
+        {
+            string Query = "select AccountTotal.Balance from AccountTotal where AccountTotal.IDCode=@idco and AccountTotal.IDCurrncy=@idCu";
+            SqlParameter[] parm = new SqlParameter[2];
+            parm[0] = new SqlParameter("@idco", Idcode);
+            parm[1] = new SqlParameter("@idCu", IDCur);
+            return (int)sql.ExcuteQueryValue(Query, parm);
+        }
+
+        ///////
+        /// update Account Total
+        ///
+        public int UpdateAccountTotal(int IDCOde, int Mony, int idCurrncy)
+        {
+            int NewBalance = GetBalance(IDCOde, idCurrncy) + Mony;
+
+            string Query = " update AccountTotal set Balance=@balanc where IDCode=@idco and IDCurrncy=@idcur";
+            SqlParameter[] parm = new SqlParameter[3];
+            parm[0] = new SqlParameter("@idco", IDCOde);
+            parm[1] = new SqlParameter("@many", NewBalance);
+            parm[2] = new SqlParameter("@idcur", idCurrncy);
+            return sql.ExcuteQuery(Query, parm);
+
+        }
+        ////////////
+        //////////
+        //// Add new AccountDetalis 
+        public int AddNewAccountDetalis(int idcode,int monay,int idsupply,int idout,string Detalis,DateTime d1,int userid)
+        {
+            string Query = "insert into AccountDetalis(IDCode,Mony,IDSupply,IDOut,Detalis,DateEnter,UserID) values(@IDCode,@Mony,@IDSupply,@IDOut,@Detalis,@DateEnter,@UserID)";
+            SqlParameter[] parm = new SqlParameter[7];
+            parm[0] = new SqlParameter("@IDCode", idcode);
+            parm[1] = new SqlParameter("@Mony", monay);
+            parm[2] = new SqlParameter("@IDSupply", idsupply);
+            parm[3] = new SqlParameter("@IDOut", idout);
+            parm[4] = new SqlParameter("@Detalis", Detalis);
+            parm[5] = new SqlParameter("@DateEnter", d1);
+            parm[6] = new SqlParameter("@UserID", userid);
+            return sql.ExcuteQuery(Query,parm);
+        }
+        ////////////////
+        //////////
 
     }
 }

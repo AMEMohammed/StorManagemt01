@@ -169,12 +169,16 @@ namespace Supplly
                                 int idCurrnt = (int)comboBox3.SelectedValue;
                                 int qunt = Convert.ToInt32(textBox1.Text);
                                 int price = Convert.ToInt32(textBox2.Text);
-                                int debit = (int)comboBox4.SelectedValue;
-                                int cred = (int)comboBox5.SelectedValue;
+                                int mins = (int)comboBox4.SelectedValue;
+                                int plus= (int)comboBox5.SelectedValue;
                                 string name = textBox3.Text;
                                 string dec = textBox4.Text;
                                 int idAcount = SuRe.CheckAccountIsHere(idcate, idtype, price, idCurrnt);
+                            /////////////////////
+                            /////////////////
+                            
                          
+                                
                             
 
                             if (idAcount > 0) // في حالة الحساب موجود من قبل
@@ -207,8 +211,24 @@ namespace Supplly
                             }
 
                             // اضافة الى جدول التوريد
-                            SuRe.AddNewRequsetSupply(idcate, idtype, qunt, price, idCurrnt, name, dec, DateTime.Now, UserID, check, debit, cred);//اضافة طلب جديد
+                            SuRe.AddNewRequsetSupply(idcate, idtype, qunt, price, idCurrnt, name, dec, DateTime.Now, UserID, check, mins, plus);//اضافة طلب جديد
 
+                            /////////////////
+                            ///////////
+                            ///
+                            ////////////// من حساب mins
+                            if (SuRe.CheckAccontTotal(mins, idCurrnt))// الحساب مضاف مسبقا
+                            {
+                                SuRe.UpdateAccountTotal(mins, (-1 * qunt * price), idCurrnt);
+                            }
+                            else //   في جدول الاجمالي اضافة حساب جديد
+                            {
+                                SuRe.AddNewAccountTotal(mins, (-1 * qunt * price), idCurrnt);
+                            }
+                            string DitalisMis = "تم قيد عليكم مبلغ وقدره " + (qunt * price).ToString() + "مقابل امر توريد ب  " + qunt.ToString() + " " + comboBox1.Text + " " + comboBox2.Text+" الى حساب"+comboBox5.Text;
+                            SuRe.AddNewAccountDetalis(mins, (-1 * qunt * price), SuRe.GetMaxIdSupply(),0, DitalisMis, DateTime.Now, UserID);//// اضافة الى جدول التفاصيل
+                          ///////////////////
+                          
                             if ((MessageBox.Show("هل تريد اضافة طلب  اخر", "تاكيد", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign) == DialogResult.Yes))
                             {
                                 flagAddAgian = true;
