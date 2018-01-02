@@ -170,5 +170,15 @@ namespace Account
         }
         ////////////////////////////
         //
+        public DataTable GETALLAccountPrime()
+        {
+            string Query = "select AccountNm.IDCode as 'رقم الحساب', AccountNm.AcountNm as'اسم الحساب'  from AccountNm where AcountType='رئيسي' and Active=1 ";
+            return sql.SelectData(Query, null);
+        }
+        public DataTable GETALLAccountSub()
+        {
+            string Query = "select AccountNm.IDCode as 'رقم الحساب', AccountNm.AcountNm as'اسم الحساب'  from AccountNm where AcountType='فرعي' and Active=1";
+            return sql.SelectData(Query, null);
+        }
     }
 }

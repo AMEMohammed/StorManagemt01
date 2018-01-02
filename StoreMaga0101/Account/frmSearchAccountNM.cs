@@ -89,6 +89,9 @@ namespace Account
             IdAllAcount = 2;
             IDTypeAccontPrime = 1;
             IDYType = 1;
+            comboBox1.DataSource = Acn.GETALLAccountPrime();
+            comboBox1.ValueMember = "رقم الحساب";
+            comboBox1.DisplayMember = "اسم الحساب";
         }
         /// <summary>
         /// ///// الحسابات الفرعية
@@ -102,6 +105,9 @@ namespace Account
             IdAllAcount = 1;
             IDTypeAccontPrime = 2;
             IDYType = 1;
+            comboBox1.DataSource = Acn.GETALLAccountSub();
+            comboBox1.ValueMember = "رقم الحساب";
+            comboBox1.DisplayMember = "اسم الحساب";
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -111,6 +117,9 @@ namespace Account
             IdAllAcount = 2;
             IDTypeAccontPrime = 2;
             IDYType = 1;
+            comboBox1.DataSource = Acn.GETALLAccountSub();
+            comboBox1.ValueMember = "رقم الحساب";
+            comboBox1.DisplayMember = "اسم الحساب";
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
