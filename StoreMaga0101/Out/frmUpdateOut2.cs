@@ -149,7 +149,41 @@ namespace Out_
             {
                 if ((MessageBox.Show("هل تريد ترحيل طلب  تعديل الصرف واعتماده ؟", "تاكيد", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign) == DialogResult.Yes))
                 {
+                    OutFun.DeleteSuuplyFrmAccountDitalis2(IdOut);/// حذف الطلب من جدول التفاصيل 
+                    int IDcounoldPlus = Convert.ToInt32(dt.Rows[0]["Creditor"].ToString());
+                    int IdCountOldMins = Convert.ToInt32(dt.Rows[0]["Debit"].ToString());
+                    int OldMony= Convert.ToInt32(dt.Rows[0]["Quntity"].ToString()) * Convert.ToInt32(dt.Rows[0]["Price"].ToString());
+                    int oldIDCurrncy= Convert.ToInt32(dt.Rows[0]["IDCurrency"].ToString()); ;
+                    int IDcoutNEWPlus = (int)comboBox6.SelectedValue;
+                    int IdCoutNEWMins = (int)comboBox5.SelectedValue;
+                    int mony = Convert.ToInt32(textBox1.Text) * Convert.ToInt32(textBox2.Text);
+                    int idcurncy = Convert.ToInt32(dt.Rows[0]["IDCurrency"].ToString());
+                    string DitalisMis = "تم قيد عليكم مبلغ وقدره " + (mony).ToString() + "مقابل امر صرف ب  " +textBox1.Text + " " + comboBox1.Text+ " " + comboBox2.Text + "  الى حساب  " + comboBox6.Text;
+                    string DatlisPlus = "تم قيد لكم مبلغ وقدره" + (mony).ToString() + "مقابل امر توريد ب " + textBox1.Text+ " " +comboBox1.Text+ " " + comboBox2.Text + "  من حساب " + comboBox5.Text;
+                    OutFun.AddNewAccountDetalis(IDcoutNEWPlus, mony, 0, IdOut, DatlisPlus, DateTime.Now, UserID);////اضافة الدائن الى جدول التفاصيل
+                    OutFun.AddNewAccountDetalis(IdCoutNEWMins, (-1 * mony), 0, IdOut, DitalisMis, DateTime.Now, UserID);//// اضافة المدين لى جدول التفاصيل
+                    //////////////
+                    /////// التعديل جدول اجمالي الحسابات
+                    OutFun.UpdateAccountTotal(IDcounoldPlus, (-1 * OldMony), idcurncy);// حذف القمية من حساب الدائن
+                    OutFun.UpdateAccountTotal(IdCountOldMins, OldMony, idcurncy);//  ارجاع القمية الى حساب المدين
+                    if (OutFun.CheckAccontTotal(IDcoutNEWPlus, idcurncy))/// في حالة انم الحساب الدائن موجود مسبقا
+                    {
+                        OutFun.UpdateAccountTotal(IDcoutNEWPlus, mony, idcurncy);
+                    }
+                    else// في حالة الحساب الدائن جديد نضيف حساب جديد
+                    {
+                        OutFun.AddNewAccountTotal(IDcoutNEWPlus, mony, idcurncy);//
+                    }
+                    if (OutFun.CheckAccontTotal(IdCoutNEWMins, idcurncy)) //في حالة الحساب المدين موجودمسبقا
+                      {
+                        OutFun.UpdateAccountTotal(IdCoutNEWMins, (-1 * mony), idcurncy);
+                    }
+                    else //في حالة الحساب المدين جديد اضافة حساب جديد
+                    {
+                        OutFun.AddNewAccountTotal(IdCoutNEWMins, (-1 * mony), idcurncy);1
+                    }
                     OutFun.UpdateRequstOut(IdOut, (int)comboBox4.SelectedValue, textBox3.Text, textBox4.Text, textBox5.Text, DateTime.Now, UserID, (int)comboBox5.SelectedValue, (int)comboBox6.SelectedValue);
+                    
                     this.Close();
                 }
             }

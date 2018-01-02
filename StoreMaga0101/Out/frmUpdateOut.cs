@@ -277,7 +277,7 @@ namespace Out_
                 {
                     int IdOut = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
                     //MessageBox.Show(IdOut.ToString());
-           if (MessageBox.Show("هل تريد استرداد الكمية المصروفة رقم الطلب " + IdOut + "", "استرداد طلب صرف", MessageBoxButtons.YesNo, MessageBoxIcon.None, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign) == DialogResult.Yes)
+               if (MessageBox.Show("هل تريد استرداد الكمية المصروفة رقم الطلب " + IdOut + "", "استرداد طلب صرف", MessageBoxButtons.YesNo, MessageBoxIcon.None, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign) == DialogResult.Yes)
                     {
 
                         DataTable dt12 = new DataTable();
@@ -333,3 +333,4 @@ namespace Out_
         }
     }
 }
+
