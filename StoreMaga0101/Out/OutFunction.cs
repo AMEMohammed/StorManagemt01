@@ -27,7 +27,7 @@ namespace Out_
         {
           
 
-            string Query="select RequstOut.IDOut as  'رقم الطلب',Category.NameCategory as 'اسم الصنف',TypeQuntity.NameType as 'نوع الكمية',PlaceSend.NamePlace as'الجهة المستفيدة' ,RequstOut.Quntity as'الكمية',RequstOut.Price as 'سعر الوحدة',RequstOut.Quntity*RequstOut.Price as'الاجمالي', Currency.NameCurrency as 'العملة',RequstOut.NameOut as'يصرف بامر',RequstOut.NameSend as'باستلام',RequstOut.DateOut as'تاريخ الصرف',Users.Name as 'اسم الموظف',RequstOut.DesOut as 'الملاحظات' ,Debit.NameTypeAccount as 'مدين' ,Creditor.NameTypeAccount as 'دائن'  from Users,RequstOut,Category,TypeQuntity,PlaceSend,Currency,Debit,Creditor where RequstOut.IDCategory = Category.IDCategory and Users.UserID=@idUser and RequstOut.IDType = TypeQuntity.IDType and RequstOut.IDCurrency=Currency.IDCurrency and Debit.IdTypeAccount=RequstOut.Debit and Creditor.IdTypeAccount=RequstOut.Creditor  and RequstOut.IDPlace = PlaceSend.IDPlace and RequstOut.Chack=@check and RequstOut.UserId=@uuu ";
+            string Query= "select RequstOut.IDOut as  'رقم الطلب',Category.NameCategory as 'اسم الصنف',TypeQuntity.NameType as 'نوع الكمية',PlaceSend.NamePlace as'الجهة المستفيدة' ,RequstOut.Quntity as'الكمية',RequstOut.Price as 'سعر الوحدة',RequstOut.Quntity*RequstOut.Price as'الاجمالي', Currency.NameCurrency as 'العملة',RequstOut.NameOut as'يصرف بامر',RequstOut.NameSend as'باستلام',RequstOut.DateOut as'تاريخ الصرف',Users.Name as 'اسم الموظف',RequstOut.DesOut as 'الملاحظات' ,t.AcountNm as 'مدين' ,t1.AcountNm as 'دائن'  from Users,RequstOut,Category,TypeQuntity,PlaceSend,Currency,AccountNm as t,AccountNm as t1 where RequstOut.IDCategory = Category.IDCategory and Users.IDUSER=@idUser and RequstOut.IDType = TypeQuntity.IDType and RequstOut.IDCurrency=Currency.IDCurrency and t.IDCode=RequstOut.Debit and t1.IDCode=RequstOut.Creditor  and RequstOut.IDPlace = PlaceSend.IDPlace and RequstOut.Chack=@check and RequstOut.UserId=@uuu ";
             SqlParameter[] parm = new SqlParameter[3];
             parm[0]=new SqlParameter   ("@check", Check);
             parm[1]=new SqlParameter("@idUser", UserId);
@@ -47,7 +47,7 @@ namespace Out_
         {
            
 
-            string Query="select RequstOut.IDOut as  'الرقم المخزني',Category.NameCategory as 'الاسم',TypeQuntity.NameType as 'النوع',RequstOut.Quntity as'الكمية',RequstOut.NameSend as'اسم المستلم',Users.Name as 'اسم الموظف' ,Users.Name as 'العنوان' ,PlaceSend.NamePlace as 'الجهة' from Users,RequstOut,Category,TypeQuntity,PlaceSend,Currency,Debit,Creditor where RequstOut.IDCategory = Category.IDCategory and Users.UserID=@idUser and RequstOut.IDType = TypeQuntity.IDType and RequstOut.IDCurrency=Currency.IDCurrency and Debit.IdTypeAccount=RequstOut.Debit and Creditor.IdTypeAccount=RequstOut.Creditor  and RequstOut.IDPlace = PlaceSend.IDPlace and RequstOut.Chack=@check and RequstOut.UserId=@uuu ";
+            string Query= "select RequstOut.IDOut as  'الرقم المخزني',Category.NameCategory as 'الاسم',TypeQuntity.NameType as 'النوع',RequstOut.Quntity as'الكمية',RequstOut.NameSend as'اسم المستلم',Users.Name as 'اسم الموظف' ,Users.Name as 'العنوان' ,PlaceSend.NamePlace as 'الجهة' from Users,RequstOut,Category,TypeQuntity,PlaceSend,Currency,Debit,Creditor where RequstOut.IDCategory = Category.IDCategory and Users.IDUSER=@idUser and RequstOut.IDType = TypeQuntity.IDType and RequstOut.IDCurrency=Currency.IDCurrency and Debit.IdTypeAccount=RequstOut.Debit and Creditor.IdTypeAccount=RequstOut.Creditor  and RequstOut.IDPlace = PlaceSend.IDPlace and RequstOut.Chack=@check and RequstOut.UserId=@uuu ";
             SqlParameter[] parm = new SqlParameter[3];
             parm[0] =new SqlParameter("@check", Check);
             parm[1]=new SqlParameter("@idUser", UserId);
@@ -116,7 +116,7 @@ namespace Out_
         //////////////// 
         public DataTable SearchINRequstOutDate(DateTime d1, DateTime d2)
         {
-            string Query="select RequstOut.IDOut as 'رقم الطلب',Category.NameCategory as 'اسم الصنف' ,TypeQuntity.NameType as 'نوع الكمية',PlaceSend.NamePlace as'الجهة المستفيدة' ,RequstOut.Quntity as'الكمية',RequstOut.Price as 'سعر الوحدة',RequstOut.Quntity*RequstOut.Price as'الاجمالي', Currency.NameCurrency as 'العملة',RequstOut.NameOut as'يصرف بامر',RequstOut.NameSend as'باستلام',RequstOut.DateOut as'تاريخ الصرف',Users.Name as 'اسم الموظف' ,RequstOut.DesOut as 'ملاحظات',RequstOut.Chack from Users, Category,TypeQuntity,PlaceSend,RequstOut,Currency where RequstOut.IDCategory=Category.IDCategory and RequstOut.IDType=TypeQuntity.IDType and RequstOut.IDPlace =PlaceSend.IDPlace and RequstOut.UserId=Users.UserID and RequstOut.IDCurrency =Currency.IDCurrency  and DateOut between @d1 and @d2 order by RequstOut.Chack desc ";
+            string Query= "select RequstOut.IDOut as 'رقم الطلب',Category.NameCategory as 'اسم الصنف' ,TypeQuntity.NameType as 'نوع الكمية',PlaceSend.NamePlace as'الجهة المستفيدة' ,RequstOut.Quntity as'الكمية',RequstOut.Price as 'سعر الوحدة',RequstOut.Quntity*RequstOut.Price as'الاجمالي', Currency.NameCurrency as 'العملة',RequstOut.NameOut as'يصرف بامر',RequstOut.NameSend as'باستلام',RequstOut.DateOut as'تاريخ الصرف',Users.Name as 'اسم الموظف' ,RequstOut.DesOut as 'ملاحظات',RequstOut.Chack from Users, Category,TypeQuntity,PlaceSend,RequstOut,Currency where RequstOut.IDCategory=Category.IDCategory and RequstOut.IDType=TypeQuntity.IDType and RequstOut.IDPlace =PlaceSend.IDPlace and RequstOut.UserId=Users.IDUSER and RequstOut.IDCurrency =Currency.IDCurrency  and DateOut between @d1 and @d2 order by RequstOut.Chack desc ";
             SqlParameter[] parm = new SqlParameter[2];
             parm[0]=new SqlParameter("@d1", d1);
             parm[1] = new SqlParameter("@d2", d2);
@@ -234,18 +234,20 @@ namespace Out_
         }
 
         /////////////////  التكد من ان الحساب يغطي الطلب وارجاع صفر في حالة تم الطلب او ارجاع الكمية المتبقة المطلوبه
-        public int GetAndCheckQuntityAccountAndAddRqustNew(int IDAccount, int QuntityMust, int IDCategory, int IDType, int idcurrn, int IDPlace, string NameOut, string DesOut, DateTime DateOut, int Chack, string NameSend, int debit, int credi,int UserId)
+        public int GetAndCheckQuntityAccountAndAddRqustNew(int IDAccount, int QuntityMust, int IDCategory, int IDType, int idcurrn, int IDPlace, string NameOut, string DesOut, DateTime DateOut, int Chack, string NameSend, int debit, int credi,int UserId,string NMIDCA,string NMTYpe,string NMPlus,string NMMins)
         {
             int r = -1;
             int QuntityOld = GetQuntityInAccount(IDAccount);
+            int Total = 0;
             int Price = GetPriceAccount(IDAccount);// دالة جلب السعر
-
+            int Quntity12 ;
             if (QuntityOld >= QuntityMust)
             {
                 int newQuntity = QuntityOld - QuntityMust;
                 UpdateQuntityAccount(IDAccount, newQuntity);/// تعديل الحساب بالكمية الجديدة
                 AddNewRequstOut(QuntityMust, IDCategory, IDType, idcurrn, IDPlace, NameOut, DesOut, DateOut, Chack, NameSend, Price, UserId, debit, credi);// اضافة طلب جديد
-
+                Total = QuntityMust * Price;
+                Quntity12 = QuntityMust;
                 r = 0;
             }
 
@@ -256,10 +258,47 @@ namespace Out_
                 int newQun = QuntityMust - QuntityOld;
                 UpdateQuntityAccount(IDAccount, 0);
                 AddNewRequstOut(QuntityOld, IDCategory, IDType, idcurrn, IDPlace, NameOut, DesOut, DateOut, Chack, NameSend, Price, UserId, debit, credi);// اضافة طلب جديد
-
-                r = QuntityOld;
+                Total = QuntityOld * Price;
+                Quntity12 = QuntityOld;
+               r = QuntityOld;
 
             }
+            /////////////////////////////////////////
+            /////////////////////// Acount Total
+            if(CheckAccontTotal(credi, idcurrn))///التاكرمن وجود الحساب الدائن موجود من قبل اولا
+            {
+                UpdateAccountTotal(credi, Total, idcurrn);
+
+              
+                
+            }
+            else
+                {
+                AddNewAccountTotal(credi, Total, idcurrn);
+
+            }
+            if(CheckAccontTotal(debit, idcurrn))///التاكرمن وجود الحساب المدين موجود من قبل اولا
+            {
+                UpdateAccountTotal(debit, (-1* Total), idcurrn);
+               
+
+            }
+            else
+                {
+
+                AddNewAccountTotal(debit, (-1 * Total), idcurrn);
+
+            }
+            /////////////////
+            ///////////// adding for Account datalis
+            /// اضافة حساب دائن
+            /// 
+            string DitalisMis = "تم قيد عليكم مبلغ وقدره " + (Total).ToString() + "مقابل امر صرف ب  " + Quntity12 + " " + NMIDCA+ " " + NMTYpe + "  الى حساب  " + NMPlus;
+            string DatlisPlus = "تم قيد لكم مبلغ وقدره" + (Total).ToString() + "مقابل امر توريد ب " + Quntity12 + " " + NMIDCA + " " + NMTYpe + "  من حساب " +NMMins ;
+            AddNewAccountDetalis(credi, Total, 0, GetMAxIDOUt(), DatlisPlus, DateTime.Now, UserId);
+            ////////// اضافة حساب مدين
+           
+            AddNewAccountDetalis(debit, (-1 * Total), 0, GetMAxIDOUt(), DitalisMis, DateTime.Now, UserId);
 
             return r;
 
@@ -320,7 +359,7 @@ namespace Out_
             string Query="select * from RequstOut where IDOut=@id";
             SqlParameter[] parm = new SqlParameter[1];
 
-           parm[0]=new SqlParameter("@id", IDOutRequst);
+            parm[0]=new SqlParameter("@id", IDOutRequst);
             return sql.SelectData(Query, parm);
 
         }
@@ -415,7 +454,121 @@ namespace Out_
             return sql.ExcuteQuery(Query, parm);
 
         }
-        //////////////
+        ///////////////////////////////////
+        //////////////////////
+        //////////////// Acount NM
+       //// get max IDOut
+       public int GetMAxIDOUt()
+        {
+            string Query = "  select max(IDOut) from RequstOut";
+            return (int) sql.ExcuteQueryValue(Query, null);
+        
+        }
+
+        ///////////////
+        /// GetAllCount
+        /// 
+        public DataTable GetALLAcountNm()
+        {
+
+            string query = "  select AccountNm.IDCode as  'رقم الحساب' ,AccountNm.AcountNm as 'اسم الحساب' from AccountNm where AcountType='فرعي'  and Active=1";
+            return sql.SelectData(query, null);
+
+        }
+        ////////////
+        //////////
+        // Chack AcoountTotal is Here
+        public bool CheckAccontTotal(int IDcode, int IDCurrncy)
+        {
+            bool x;
+            try
+            {
+                string Query = " select AccountTotal.IDCode from AccountTotal where AccountTotal.IDCode=@idc and AccountTotal.IDCurrncy=@idcu ";
+                SqlParameter[] parm = new SqlParameter[2];
+                parm[0] = new SqlParameter("@idc", IDcode);
+                parm[1] = new SqlParameter("@idcu", IDCurrncy);
+                int zzz = (int)sql.ExcuteQueryValue(Query, parm);
+                x = true;
+            }
+            catch
+            {
+                x = false;
+            }
+            return x;
+
+        }
+        ////////////
+        /// <summary>
+        /// /// add new AccountTotal 
+        /// // 
+        /// </summary>
+        public int AddNewAccountTotal(int IDCOde, int Mony, int idCurrncy)
+        {
+            string Query = "insert into AccountTotal (IDCode,Balance,IDCurrncy) values(@idco,@many,@idcur)";
+            SqlParameter[] parm = new SqlParameter[3];
+            parm[0] = new SqlParameter("@idco", IDCOde);
+            parm[1] = new SqlParameter("@many", Mony);
+            parm[2] = new SqlParameter("@idcur", idCurrncy);
+            return sql.ExcuteQuery(Query, parm);
+
+        }
+        ////////////
+        //////////
+        ///Get  Balance for AccountTotal
+        public int GetBalance(int Idcode, int IDCur)
+        {
+            string Query = "select AccountTotal.Balance from AccountTotal where AccountTotal.IDCode=@idco and AccountTotal.IDCurrncy=@idCu";
+            SqlParameter[] parm = new SqlParameter[2];
+            parm[0] = new SqlParameter("@idco", Idcode);
+            parm[1] = new SqlParameter("@idCu", IDCur);
+            return (int)sql.ExcuteQueryValue(Query, parm);
+        }
+
+        ///////
+        /// update Account Total
+        ///
+        public int UpdateAccountTotal(int IDCOde, int Mony, int idCurrncy)
+        {
+            int NewBalance = GetBalance(IDCOde, idCurrncy) + Mony;
+
+            string Query = " update AccountTotal set Balance=@balanc where IDCode=@idco and IDCurrncy=@idcur";
+            SqlParameter[] parm = new SqlParameter[3];
+            parm[0] = new SqlParameter("@idco", IDCOde);
+            parm[1] = new SqlParameter("@balanc", NewBalance);
+            parm[2] = new SqlParameter("@idcur", idCurrncy);
+            return sql.ExcuteQuery(Query, parm);
+
+        }
+        ////////////
+        //////////
+        //// Add new AccountDetalis 
+        public int AddNewAccountDetalis(int idcode, int monay, int idsupply, int idout, string Detalis, DateTime d1, int userid)
+        {
+            string Query = "insert into AccountDetalis(IDCode,Mony,IDSupply,IDOut,Detalis,DateEnter,UserID) values(@IDCode,@Mony,@IDSupply,@IDOut,@Detalis,@DateEnter,@UserID)";
+            SqlParameter[] parm = new SqlParameter[7];
+            parm[0] = new SqlParameter("@IDCode", idcode);
+            parm[1] = new SqlParameter("@Mony", monay);
+            parm[2] = new SqlParameter("@IDSupply", idsupply);
+            parm[3] = new SqlParameter("@IDOut", idout);
+            parm[4] = new SqlParameter("@Detalis", Detalis);
+            parm[5] = new SqlParameter("@DateEnter", d1);
+            parm[6] = new SqlParameter("@UserID", userid);
+            return sql.ExcuteQuery(Query, parm);
+        }
+        public int DeleteSuuplyFrmAccountDitalis(int idSupply)
+        {
+            string Query = "  delete from AccountDetalis where AccountDetalis.IDSupply=@idsup";
+            SqlParameter[] parm = new SqlParameter[1];
+            parm[0] = new SqlParameter("@idsup", idSupply);
+            return sql.ExcuteQuery(Query, parm);
+        }
+        public int DeleteSuuplyFrmAccountDitalis2(int idout)
+        {
+            string Query = "  delete from AccountDetalis where AccountDetalis.IDOut=@idsup";
+            SqlParameter[] parm = new SqlParameter[1];
+            parm[0] = new SqlParameter("@idsup", idout);
+            return sql.ExcuteQuery(Query, parm);
+        }
     }
 
 }

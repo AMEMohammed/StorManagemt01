@@ -278,9 +278,25 @@ namespace Out_
                     int IdOut = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
                     //MessageBox.Show(IdOut.ToString());
            if (MessageBox.Show("هل تريد استرداد الكمية المصروفة رقم الطلب " + IdOut + "", "استرداد طلب صرف", MessageBoxButtons.YesNo, MessageBoxIcon.None, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign) == DialogResult.Yes)
-                    { 
+                    {
+
+                        DataTable dt12 = new DataTable();
+                        ////////////////
+                        ///////// Account Nm
+                        dt12 = OutFun.GetRequstOutSngle(IdOut);
+                        int IDACCOuntPlus =Convert.ToInt32( dt12.Rows[0]["Creditor"].ToString());
+                        int IDAccountMins = Convert.ToInt32(dt12.Rows[0]["Debit"].ToString());
+                        int IDCuurncy = Convert.ToInt32(dt12.Rows[0]["IDCurrency"].ToString());
+                        int Total = Convert.ToInt32(dt12.Rows[0]["Price"].ToString()) * Convert.ToInt32(dt12.Rows[0]["Quntity"].ToString());
+                        OutFun.UpdateAccountTotal(IDACCOuntPlus, (-1 * Total), IDCuurncy);//حذف القيمة من حساب الدائن
+                        OutFun.UpdateAccountTotal(IDAccountMins,  Total, IDCuurncy);// ارجاع القيمة من حساب المدين
+                        OutFun.DeleteSuuplyFrmAccountDitalis2(IdOut); // حذف الطلب من جدول التفاصيل
+
+                            ///////////////////// حذف الطلب من جدول طلبات الصرف
                         OutFun.DeleteRqustOut(IdOut, UserID);
                         dataGridView1.DataSource = OutFun.SearchINRequstOutDate(DateTime.Now.AddDays(-3), DateTime.Now);
+                       
+                       
                     }
                 }
                 catch (Exception ex)

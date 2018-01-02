@@ -107,13 +107,13 @@ namespace Out_
                 comboBox3.DisplayMember = "اسم الجهة";
                 comboBox3.DataSource = OutFun.GetAllPlace();
 
-                comboBox5.ValueMember = "الرقم";
-                comboBox5.DisplayMember = "نوع الحساب";
-                comboBox5.DataSource = OutFun.GetAllDebit();
+                comboBox5.ValueMember = "رقم الحساب";
+                comboBox5.DisplayMember = "اسم الحساب";
+                comboBox5.DataSource = OutFun.GetALLAcountNm();
 
-                comboBox6.ValueMember = "الرقم";
-                comboBox6.DisplayMember = "نوع الحساب";
-                comboBox6.DataSource = OutFun.GetAllCreditor();
+                comboBox6.ValueMember = "رقم الحساب";
+                comboBox6.DisplayMember = "اسم الحساب";
+                comboBox6.DataSource = OutFun.GetALLAcountNm();
                 dataGridView1.DataSource = OutFun.SearchINRequstOutDate(DateTime.Now.Date, DateTime.Now); // جلب طلبات الصرف لليوم الحالي
                 dataGridView1.Columns[0].Visible = false;
                 dataGridView1.Columns[12].Visible = false;
@@ -214,7 +214,7 @@ namespace Out_
             {
                 try
                 {
-                    int qunntNow = OutFun.GetQunitiyinAccount2((int)comboBox1.SelectedValue, (int)comboBox2.SelectedValue, (int)comboBox5.SelectedValue);
+                    int qunntNow = OutFun.GetQunitiyinAccount2((int)comboBox1.SelectedValue, (int)comboBox2.SelectedValue, (int)comboBox4.SelectedValue);
                     int qunnMus = Convert.ToInt32(textBox2.Text);
                    
                     if (qunnMus > qunntNow)
@@ -256,8 +256,8 @@ namespace Out_
                         int idplace = ((int)comboBox3.SelectedValue);
                         int idcurrnt = ((int)comboBox4.SelectedValue);
                         int QunntyMust = Convert.ToInt32(textBox2.Text);
-                        int creditor = ((int)comboBox6.SelectedValue);
-                        int debit = ((int)comboBox5.SelectedValue);
+                        int IdAccountPlus = ((int)comboBox6.SelectedValue);
+                        int IdAccountMins = ((int)comboBox5.SelectedValue);
                         string nameAmmer = textBox3.Text;
                         string nameMostlaem = textBox4.Text;
                         string Decrip = textBox5.Text;
@@ -265,7 +265,7 @@ namespace Out_
 
 
                         DataTable dtAccountIDs = new DataTable();
-                        dtAccountIDs = OutFun.GetAccountIDs(Idcat, idtyp, idcurrnt); // [جلب الحسابات التي تحتوي على نفس النوع والصنف
+                        dtAccountIDs = OutFun.GetAccountIDs(Idcat, idtyp, idcurrnt); // جلب الحسابات التي تحتوي على نفس النوع والصنف
                         int MaxCheckRequstOut;
                         if (flagAddAgin == true)
                         {
@@ -282,7 +282,7 @@ namespace Out_
                         for (int i = 0; i < dtAccountIDs.Rows.Count; i++)
                         {
                             int IDAccount = Convert.ToInt32(dtAccountIDs.Rows[i][0].ToString());
-                            int result = OutFun.GetAndCheckQuntityAccountAndAddRqustNew(IDAccount, Quntity2, Idcat, idtyp, idcurrnt, idplace, nameAmmer, Decrip, DateTime.Now, MaxCheckRequstOut, nameMostlaem, debit, creditor,UserID);
+                            int result = OutFun.GetAndCheckQuntityAccountAndAddRqustNew(IDAccount, Quntity2, Idcat, idtyp, idcurrnt, idplace, nameAmmer, Decrip, DateTime.Now, MaxCheckRequstOut, nameMostlaem, IdAccountMins, IdAccountPlus, UserID,comboBox1.Text,comboBox2.Text,comboBox5.Text,comboBox6.Text);
                             if (result == 0)
                             {
                                 break;
@@ -313,19 +313,33 @@ namespace Out_
                             flagAddAgin = false;
                             if ((MessageBox.Show("هل تريد طباعة سند صرف؟", "تاكيد", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign) == DialogResult.Yes))
                             {
-                                bool printExit = false;
+                                
+                                int IDcheck = OutFun.GetMaxCheckInRequsetOut();
+                                    //string name = dataGridView1.SelectedRows[0].Cells[11].Value.ToString();
+
+                                DataTable dtExit = new DataTable();
+                                
                                 if (checkBox1.Checked)
                                 {
-                                    printExit = true;
+                                    dtExit = OutFun.printrequstOutExit(IDcheck, UserID, UserID);
                                 }
                                 else
                                 {
-                                    printExit = false;
+                                    dtExit = null;
                                 }
+
+                                DataTable dtOut = new DataTable();
+                               
+
+                                dtOut = OutFun.PrintRequstOut(IDcheck, UserID, UserID);
+                                this.Cursor = Cursors.WaitCursor;
+                                FrmRports.frmReprt frmrepett = new FrmRports.frmReprt(dtOut, dtExit, 2);
+                                frmrepett.ShowDialog();
+                                this.Cursor = Cursors.Default;
                                 //  frmREPORT frm = new frmREPORT(MaxCheckRequstOut, 2, Contrl.UserId, printExit);
 
                                 //frm.ShowDialog();
-                                MessageBox.Show("re1");
+
                                 refrsh1();
                             }
                             refrsh1();
