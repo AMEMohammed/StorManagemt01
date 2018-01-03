@@ -7,3 +7,4 @@ D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\Account\obj\Debug\Accou
 D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\Account\obj\Debug\Account.csproj.GenerateResource.Cache
 D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\Account\obj\Debug\Account.exe
 D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\Account\obj\Debug\Account.pdb
+D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\Account\obj\Debug\Account.frmSearchAccountNM.resources

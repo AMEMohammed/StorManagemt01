@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 namespace Account
 { 
     class AccountNm
@@ -177,8 +178,279 @@ namespace Account
         }
         public DataTable GETALLAccountSub()
         {
-            string Query = "select AccountNm.IDCode as 'رقم الحساب', AccountNm.AcountNm as'اسم الحساب'  from AccountNm where AcountType='فرعي' and Active=1";
+            string Query = "select AccountNm.IDCode as 'رقم الحساب',AccountNm.AcountNm as'اسم الحساب'  from AccountNm where AcountType='فرعي' and Active=1";
             return sql.SelectData(Query, null);
         }
+        /////////
+        ////////////////////////////////
+        //////// get AllCurrency
+        public DataTable GetAllCurrency()
+        {
+
+            string query = "select IDCurrency as'رقم العملة',NameCurrency as 'اسم العملة' from Currency ";
+            return sql.SelectData(query, null);
+
+
+        }
+
+        //////////////
+        public DataTable GetBalanceAccount(int IDcode,int IDCurrncy,string NmIDcurrmcy)
+        {
+            int Valu;
+            string Query = "select Balance from AccountTotal where IDCode=@idcode and  IDCurrncy=@idcurrncy";
+            SqlParameter[] parm = new SqlParameter[2];
+            DataTable dt2 = new DataTable();
+            dt2 = GETNMAccount(IDcode);
+            parm[0] = new SqlParameter("@idcode", IDcode);
+            parm[1] = new SqlParameter("@idcurrncy", IDCurrncy);
+            try
+            {
+
+
+                Valu = (int)sql.ExcuteQueryValue(Query, parm);
+            }
+            catch
+            {
+                Valu = 0;
+            }
+
+            DataTable dt = new DataTable();
+            dt.Columns.Add("رقم  الحساب");
+            dt.Columns.Add("اسم الحساب");
+            dt.Columns.Add("دائن");
+            dt.Columns.Add("مدين");
+            dt.Columns.Add("عملة الحساب");
+            dt.Columns.Add("البيان");
+            string Detilas;
+
+            if (Valu >0)
+            {
+                Detilas = "الرصيد لكم بقيمة "+ string.Format("{0:##,##}", Valu) + "  "+NmIDcurrmcy;
+                dt.Rows.Add(new string[] {dt2.Rows[0][0].ToString(),dt2.Rows[0][1].ToString(), string.Format("{0:##,##}", Valu), "0" , NmIDcurrmcy , Detilas });
+
+            }
+            else
+            {
+                Valu = -1 * Valu;
+                Detilas = "الرصيد عليكم  بقيمة " + string.Format("{0:##,##}", Valu) + "  "+NmIDcurrmcy;
+                dt.Rows.Add(new string[] { dt2.Rows[0][0].ToString(), dt2.Rows[0][1].ToString(),"0", string.Format("{0:##,##}", Valu), NmIDcurrmcy, Detilas });
+            }
+            return dt;
+        }
+
+        //////////////
+        /// <summary>
+        ///  جلب جميع الاحسابات لعميل واحد بجمع العملات
+        ///  
+        /// </summary>
+        /// <param name="IDcode"></param>
+        /// <returns></returns>
+        //////////////
+        public DataTable GetBalanceAccountALLCunncy(int IDcode)
+        {
+            DataTable dt123 = new DataTable();
+            DataTable dt = new DataTable();
+            string Query = "select Balance,IDCurrncy from AccountTotal where IDCode=@idCode";
+
+            DataTable dt2 = new DataTable();
+            dt2 = GETNMAccount(IDcode);
+
+            SqlParameter[] parm = new SqlParameter[1];
+            parm[0] = new SqlParameter("@idCode", IDcode);
+            dt123 = sql.SelectData(Query, parm);
+            dt.Columns.Add("رقم الحساب");
+            dt.Columns.Add("اسم الحساب");
+            dt.Columns.Add("دائن");
+            dt.Columns.Add("مدين");
+            dt.Columns.Add("عملة الحساب");
+            dt.Columns.Add("البيان");
+            string Detilas;
+            for (int i=0;i<dt123.Rows.Count;i++)
+            {
+                int Valu = Convert.ToInt32( dt123.Rows[i][0].ToString());
+                string NmIDcurrmcy = GETNMCurrncy(Convert.ToInt32(dt123.Rows[i][1].ToString()));
+
+                if (Valu > 0)
+                {
+                    Detilas = "الرصيد لكم بقيمة " + string.Format("{0:##,##}", Valu) + "  " + NmIDcurrmcy;
+                    dt.Rows.Add(new string[] { dt2.Rows[0][0].ToString(),dt2.Rows[0][1].ToString(), string.Format("{0:##,##}", Valu), "0", NmIDcurrmcy, Detilas });
+
+                }
+                else
+                {
+                    Valu = -1 * Valu;
+                    Detilas = "الرصيد عليكم  بقيمة " + string.Format("{0:##,##}", Valu) + "  " + NmIDcurrmcy;
+                    dt.Rows.Add(new string[] { dt2.Rows[0][0].ToString(), dt2.Rows[0][1].ToString(), "0", string.Format("{0:##,##}", Valu), NmIDcurrmcy, Detilas });
+                }
+            }
+            return dt;
+
+        }
+        /// <summary>
+        ///  جلب اسم العملة من رقمها
+        /// </summary>
+        /// <param name="IDCur"></param>
+        /// <returns></returns>
+        public string GETNMCurrncy(int IDCur)
+
+        {
+            string Query = "select NameCurrency from Currency where IDCurrency=@idCur";
+            SqlParameter[] parm = new SqlParameter[1];
+            parm[0] = new SqlParameter("@idCur", IDCur);
+            return (string)sql.ExcuteQueryValue(Query, parm);
+
+
+        }
+
+        ////////////////
+        /////////////
+       // جلب جميع الحسابات الفرعية الاجمالية بعملة وواحدة او كل العملات
+        //////////////
+        public DataTable GetBalanceALLAccountALLCunncy(int idcurrncy)
+        {
+            DataTable dt123 = new DataTable();
+            DataTable dt = new DataTable();
+            string Query;
+            if (idcurrncy > 0)
+            {
+               Query = "select Balance,IDCurrncy,IDCode from AccountTotal where IDCurrncy=@idcurrncy  ";
+                SqlParameter[] parm = new SqlParameter[1];
+                parm[0] = new SqlParameter("@idcurrncy", idcurrncy);
+                dt123 = sql.SelectData(Query, parm);
+            }
+            else
+
+            {
+                Query = "select Balance, IDCurrncy,IDCode from AccountTotal order by IDCode ";
+                dt123 = sql.SelectData(Query, null);
+            }
+            dt.Columns.Add("رقم الحساب");
+            dt.Columns.Add("اسم الحساب");
+            dt.Columns.Add("دائن");
+            dt.Columns.Add("مدين");
+            dt.Columns.Add("عملة الحساب");
+            dt.Columns.Add("البيان");
+            string Detilas;
+            for (int i = 0; i < dt123.Rows.Count; i++)
+            {
+                int Valu = Convert.ToInt32(dt123.Rows[i][0].ToString());
+                string NmIDcurrmcy = GETNMCurrncy(Convert.ToInt32(dt123.Rows[i][1].ToString()));
+                DataTable dtAc = new DataTable();
+                dtAc = GETNMAccount(Convert.ToInt32(dt123.Rows[i][2].ToString()));
+                string IDCodeAC = dtAc.Rows[0][0].ToString();
+                string NMACOUNT= dtAc.Rows[0][1].ToString();
+                if (Valu > 0)
+                {
+                    Detilas = "الرصيد لكم بقيمة " + string.Format("{0:##,##}", Valu) + "  " + NmIDcurrmcy;
+                    dt.Rows.Add(new string[] { IDCodeAC, NMACOUNT, string.Format("{0:##,##}", Valu), "0", NmIDcurrmcy, Detilas });
+
+                }
+                else
+                {
+                    Valu = -1 * Valu;
+                    Detilas = "الرصيد عليكم  بقيمة " + string.Format("{0:##,##}", Valu) + "  " + NmIDcurrmcy;
+                    dt.Rows.Add(new string[] { IDCodeAC, NMACOUNT, "0", string.Format("{0:##,##}", Valu), NmIDcurrmcy, Detilas });
+                }
+            }
+            return dt;
+
+        }
+        ////جلب اسم رقم واسمه ومنرقم الحساب
+        public DataTable GETNMAccount(int IDCOde)
+        {
+            string Query = "select AccountNm.IDCode,AccountNm.AcountNm  from AccountNm where IDCode=@idcode";
+            SqlParameter[] parm = new SqlParameter[1];
+            parm[0] = new SqlParameter("@idcode", IDCOde);
+            return sql.SelectData(Query, parm);
+
+        }
+
+        ////////////////
+        ////////////
+        /////////// جلب كشف حساب لللحساب فرعي تفصيليا بعملة واحده او عدة عملات
+        public DataTable GETAccountDitalis(int IDcode, int IDCurnncy, DateTime d1, DateTime d2)
+        {
+            DataTable DtResult = new DataTable();
+            DtResult.Columns.Add("دائن");
+            DtResult.Columns.Add("مدين");
+            DtResult.Columns.Add("عملة العملية");
+            DtResult.Columns.Add("العملية");
+            DtResult.Columns.Add("تاريخ العملية");
+            DtResult.Columns.Add("البيان");
+            DtResult.Columns.Add("اسم الموظف");
+            /////// اضافة الرصيد السابق قبل تاريخ البحث
+            int OldMony = getOldMony(IDcode, IDCurnncy, d1);
+            string nmCurrncy = GETNMCurrncy(IDCurnncy);
+            if (OldMony>0)
+            {
+                DtResult.Rows.Add(new string[] { string.Format("{0:##,##}", OldMony), "0", nmCurrncy, null, "قبل تاريخ " + d1.ToString(), "رصيد سابق", null });
+            }
+            else
+            {
+                DtResult.Rows.Add(new string[] { "0", string.Format("{0:##,##}", OldMony), nmCurrncy, null, "قبل تاريخ " + d1.ToString(), "رصيد سابق", null });
+
+            }
+            /////////////////
+            ///////////////
+            DataTable dtre1 = new DataTable();
+            dtre1 = GETAcountDitlis(IDcode, IDCurnncy, d1, d2);
+            for(int i=0;i<dtre1.Rows.Count; i++)
+            { int vale = Convert.ToInt32(dtre1.Rows[i][2].ToString());
+              int cha= Convert.ToInt32(dtre1.Rows[i][3].ToString());
+                string LIKEType;
+                if (cha>0)
+                {
+                    LIKEType = "توريد";
+                }
+                else
+                {
+                    LIKEType = "صرف";
+                }
+                int userii = Convert.ToInt32(dtre1.Rows[i][7].ToString());
+                if (vale > 0)
+                {
+                    DtResult.Rows.Add(new string[] { string.Format("{0:##,##}", Convert.ToInt32(dtre1.Rows[i][2].ToString())), "0", nmCurrncy, LIKEType, dtre1.Rows[i][6].ToString(), dtre1.Rows[i][5].ToString(), GetUserNM(userii)});
+                }
+               else
+                {
+                    DtResult.Rows.Add(new string[] { "0", string.Format("{0:##,##}", Convert.ToInt32(dtre1.Rows[i][2].ToString())), nmCurrncy, LIKEType, dtre1.Rows[i][6].ToString(), dtre1.Rows[i][5].ToString(), GetUserNM(userii) });
+                }
+            }
+            return DtResult;
+
+        }
+        ///
+        /// get oldMonay 
+        /// 
+        int getOldMony(int IDcode, int IDCurnncy, DateTime d2)
+        {
+            string Query = "  select SUM(Mony) from AccountDetalis  where IDCode=@idcode and  IDCurrncy=@idcurrncy and DateEnter between Cast('01-01-2017' AS DATETIME)  and @d2";
+            SqlParameter[] parm = new SqlParameter[3];
+            parm[0] = new SqlParameter("@idcode", IDcode);
+            parm[1] = new SqlParameter("@idcurrncy", IDCurnncy);
+            parm[2] = new SqlParameter("@d2", d2);
+            return (int)sql.ExcuteQueryValue(Query, parm);
+
+
+        }
+        DataTable GETAcountDitlis(int IDcode, int IDCurnncy, DateTime d1, DateTime d2)
+        {
+            string Query = "  select * from AccountDetalis  where IDCode=@idcode and  IDCurrncy=@idcurrncy and DateEnter between @d1  and @d2";
+            SqlParameter[] parm = new SqlParameter[4];
+            parm[0] = new SqlParameter("@idcode", IDcode);
+            parm[1] = new SqlParameter("@idcurrncy", IDCurnncy);
+            parm[2] = new SqlParameter("@d1", d1);
+            parm[3] = new SqlParameter("@d2", d2);
+            return sql.SelectData(Query, parm);
+
+        }
+      string GetUserNM(int IDuser)
+        {
+            string Query = "select Name from Users where IDUSER =@iduser";
+            SqlParameter[] parm = new SqlParameter[1];
+            parm[0] = new SqlParameter("@iduser", IDuser);
+            return (string)sql.ExcuteQueryValue(Query, parm);
+        }
+
     }
 }

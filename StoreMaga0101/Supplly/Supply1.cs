@@ -453,10 +453,10 @@ namespace Supplly
         ////////////
         //////////
         //// Add new AccountDetalis 
-        public int AddNewAccountDetalis(int idcode,int monay,int idsupply,int idout,string Detalis,DateTime d1,int userid)
+        public int AddNewAccountDetalis(int idcode,int monay,int idsupply,int idout,string Detalis,DateTime d1,int userid,int idCurrnt)
         {
-            string Query = "insert into AccountDetalis(IDCode,Mony,IDSupply,IDOut,Detalis,DateEnter,UserID) values(@IDCode,@Mony,@IDSupply,@IDOut,@Detalis,@DateEnter,@UserID)";
-            SqlParameter[] parm = new SqlParameter[7];
+            string Query = "insert into AccountDetalis(IDCode,Mony,IDSupply,IDOut,Detalis,DateEnter,UserID,IDCurrncy) values(@IDCode,@Mony,@IDSupply,@IDOut,@Detalis,@DateEnter,@UserID,@IDCurrncy)";
+            SqlParameter[] parm = new SqlParameter[8];
             parm[0] = new SqlParameter("@IDCode", idcode);
             parm[1] = new SqlParameter("@Mony", monay);
             parm[2] = new SqlParameter("@IDSupply", idsupply);
@@ -464,6 +464,8 @@ namespace Supplly
             parm[4] = new SqlParameter("@Detalis", Detalis);
             parm[5] = new SqlParameter("@DateEnter", d1);
             parm[6] = new SqlParameter("@UserID", userid);
+            parm[7] = new SqlParameter("@IDCurrncy", IDCurrncy);
+                
             return sql.ExcuteQuery(Query,parm);
         }
         public int DeleteSuuplyFrmAccountDitalis(int idSupply)

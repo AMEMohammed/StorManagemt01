@@ -72,21 +72,21 @@ namespace Supplly
                                 SuRe.UpdateQuntityAccount(idAcount, newQunt);
                                 ///// Acount Detilas
                                 SuRe.DeleteSuuplyFrmAccountDitalis(idAcount); // حذف الحساب من جدول التفاصيل 
-                                string DitalisMis = "تم قيد عليكم مبلغ وقدره " + (NewTotla).ToString() + "مقابل امر توريد ب  " + newQuntity.ToString() + " " + comboBox1.Text + " " + comboBox2.Text + "  الى حساب" + comboBox5.Text;
-                                string DitalisPlus = "تم قيد لكم مبلغ وقدره" + (NewTotla).ToString() + "مقابل امر توريد ب " + newQuntity.ToString() + " " + comboBox1.Text + " " + comboBox2.Text + "  من حساب " + comboBox4.Text;
+                                string DitalisMis = "تم قيد عليكم مبلغ وقدره " + (NewTotla).ToString() + "مقابل امر توريد ب  " + newQuntity.ToString() + " " + comboBox1.Text + " " + comboBox2.Text + "  الى حساب" + comboBox5.Text + "رقم الطلب " + idAcount;
+                                string DitalisPlus = "تم قيد لكم مبلغ وقدره" + (NewTotla).ToString() + "مقابل امر توريد ب " + newQuntity.ToString() + " " + comboBox1.Text + " " + comboBox2.Text + "  من حساب " + comboBox4.Text + "رقم الطلب " + idAcount;
 
-                                SuRe.AddNewAccountDetalis(IdAccountPlus, NewTotla, idAcount, 0, DitalisMis, DateTime.Now, UserID);//اضافة الحساب الدائن المعدل الى جدول التفاصيل
-                                SuRe.AddNewAccountDetalis(IdAccountMins, (-1 * NewTotla), idAcount, 0, DitalisPlus, DateTime.Now, UserID);//اضافة الحساب المدين المعدل الى جدول التفاصيل
+                                SuRe.AddNewAccountDetalis(IdAccountPlus, NewTotla, idAcount, 0, DitalisMis, DateTime.Now, UserID, idcurrn);//اضافة الحساب الدائن المعدل الى جدول التفاصيل
+                                SuRe.AddNewAccountDetalis(IdAccountMins, (-1 * NewTotla), idAcount, 0, DitalisPlus, DateTime.Now, UserID, idcurrn);//اضافة الحساب المدين المعدل الى جدول التفاصيل
 
                             }
                             else //  في حالة الحساب جديد
                             {
-                                string DitalisMis = "تم قيد عليكم مبلغ وقدره " + (NewTotla).ToString() + "مقابل امر توريد ب  " + newQuntity.ToString() + " " + comboBox1.Text + " " + comboBox2.Text + "  الى حساب" + comboBox5.Text;
-                                string DitalisPlus = "تم قيد لكم مبلغ وقدره" + (NewTotla).ToString() + "مقابل امر توريد ب " + newQuntity.ToString() + " " + comboBox1.Text + " " + comboBox2.Text + "  من حساب " + comboBox4.Text;
+                                string DitalisMis = "تم قيد عليكم مبلغ وقدره " + (NewTotla).ToString() + "مقابل امر توريد ب  " + newQuntity.ToString() + " " + comboBox1.Text + " " + comboBox2.Text + "  الى حساب" + comboBox5.Text + "رقم الطلب " + idAcount;
+                                string DitalisPlus = "تم قيد لكم مبلغ وقدره" + (NewTotla).ToString() + "مقابل امر توريد ب " + newQuntity.ToString() + " " + comboBox1.Text + " " + comboBox2.Text + "  من حساب " + comboBox4.Text + "رقم الطلب " + idAcount;
                                 SuRe.AddNewAccount(IDCAT, IDTYPE, newQuntity, NewPrice, idcurrn);// اضافة حساب جديد
                                 SuRe.DeleteSuuplyFrmAccountDitalis(idAcount); // حذف الحساب من جدول التفاصيل 
-                                SuRe.AddNewAccountDetalis(IdAccountPlus, NewTotla, SuRe.GetMaxIdSupply(), 0, DitalisMis, DateTime.Now, UserID);//اضافة الحساب الدائن المعدل الى جدول التفاصيل
-                                SuRe.AddNewAccountDetalis(IdAccountMins, (-1 * NewTotla), SuRe.GetMaxIdSupply(), 0, DitalisPlus, DateTime.Now, UserID);//اضافة الحساب المدين المعدل الى جدول التفاصيل
+                                SuRe.AddNewAccountDetalis(IdAccountPlus, NewTotla, SuRe.GetMaxIdSupply(), 0, DitalisMis, DateTime.Now, UserID, idcurrn);//اضافة الحساب الدائن المعدل الى جدول التفاصيل
+                                SuRe.AddNewAccountDetalis(IdAccountMins, (-1 * NewTotla), SuRe.GetMaxIdSupply(), 0, DitalisPlus, DateTime.Now, UserID, idcurrn);//اضافة الحساب المدين المعدل الى جدول التفاصيل
                             }
                             //////////////////////////////
                             ///////////////// 

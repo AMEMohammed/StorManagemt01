@@ -293,12 +293,12 @@ namespace Out_
             ///////////// adding for Account datalis
             /// اضافة حساب دائن
             /// 
-            string DitalisMis = "تم قيد عليكم مبلغ وقدره " + (Total).ToString() + "مقابل امر صرف ب  " + Quntity12 + " " + NMIDCA+ " " + NMTYpe + "  الى حساب  " + NMPlus;
-            string DatlisPlus = "تم قيد لكم مبلغ وقدره" + (Total).ToString() + "مقابل امر توريد ب " + Quntity12 + " " + NMIDCA + " " + NMTYpe + "  من حساب " +NMMins ;
-            AddNewAccountDetalis(credi, Total, 0, GetMAxIDOUt(), DatlisPlus, DateTime.Now, UserId);
+            string DitalisMis = "تم قيد عليكم مبلغ وقدره " + (Total).ToString() + "مقابل امر صرف ب  " + Quntity12 + " " + NMIDCA+ " " + NMTYpe + "  الى حساب  " + NMPlus +"رقم الطلب " + GetMAxIDOUt();
+            string DatlisPlus = "تم قيد لكم مبلغ وقدره" + (Total).ToString() + "مقابل امر توريد ب " + Quntity12 + " " + NMIDCA + " " + NMTYpe + "  من حساب " +NMMins + "رقم الطلب " + GetMAxIDOUt();
+            AddNewAccountDetalis(credi, Total, 0, GetMAxIDOUt(), DatlisPlus, DateTime.Now, UserId, idcurrn);
             ////////// اضافة حساب مدين
            
-            AddNewAccountDetalis(debit, (-1 * Total), 0, GetMAxIDOUt(), DitalisMis, DateTime.Now, UserId);
+            AddNewAccountDetalis(debit, (-1 * Total), 0, GetMAxIDOUt(), DitalisMis, DateTime.Now, UserId, idcurrn);
 
             return r;
 
@@ -542,10 +542,10 @@ namespace Out_
         ////////////
         //////////
         //// Add new AccountDetalis 
-        public int AddNewAccountDetalis(int idcode, int monay, int idsupply, int idout, string Detalis, DateTime d1, int userid)
+        public int AddNewAccountDetalis(int idcode, int monay, int idsupply, int idout, string Detalis, DateTime d1, int userid,int idcurrn)
         {
-            string Query = "insert into AccountDetalis(IDCode,Mony,IDSupply,IDOut,Detalis,DateEnter,UserID) values(@IDCode,@Mony,@IDSupply,@IDOut,@Detalis,@DateEnter,@UserID)";
-            SqlParameter[] parm = new SqlParameter[7];
+            string Query = "insert into AccountDetalis(IDCode,Mony,IDSupply,IDOut,Detalis,DateEnter,UserID,IDCurrncy) values(@IDCode,@Mony,@IDSupply,@IDOut,@Detalis,@DateEnter,@UserID,@IDCurrncy)";
+            SqlParameter[] parm = new SqlParameter[8];
             parm[0] = new SqlParameter("@IDCode", idcode);
             parm[1] = new SqlParameter("@Mony", monay);
             parm[2] = new SqlParameter("@IDSupply", idsupply);
@@ -553,6 +553,7 @@ namespace Out_
             parm[4] = new SqlParameter("@Detalis", Detalis);
             parm[5] = new SqlParameter("@DateEnter", d1);
             parm[6] = new SqlParameter("@UserID", userid);
+            parm[7] = new SqlParameter("@IDCurrncy", IDCurrncy);
             return sql.ExcuteQuery(Query, parm);
         }
         public int DeleteSuuplyFrmAccountDitalis(int idSupply)

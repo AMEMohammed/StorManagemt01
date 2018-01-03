@@ -158,10 +158,10 @@ namespace Out_
                     int IdCoutNEWMins = (int)comboBox5.SelectedValue;
                     int mony = Convert.ToInt32(textBox1.Text) * Convert.ToInt32(textBox2.Text);
                     int idcurncy = Convert.ToInt32(dt.Rows[0]["IDCurrency"].ToString());
-                    string DitalisMis = "تم قيد عليكم مبلغ وقدره " + (mony).ToString() + "مقابل امر صرف ب  " +textBox1.Text + " " + comboBox1.Text+ " " + comboBox2.Text + "  الى حساب  " + comboBox6.Text;
-                    string DatlisPlus = "تم قيد لكم مبلغ وقدره" + (mony).ToString() + "مقابل امر توريد ب " + textBox1.Text+ " " +comboBox1.Text+ " " + comboBox2.Text + "  من حساب " + comboBox5.Text;
-                    OutFun.AddNewAccountDetalis(IDcoutNEWPlus, mony, 0, IdOut, DatlisPlus, DateTime.Now, UserID);////اضافة الدائن الى جدول التفاصيل
-                    OutFun.AddNewAccountDetalis(IdCoutNEWMins, (-1 * mony), 0, IdOut, DitalisMis, DateTime.Now, UserID);//// اضافة المدين لى جدول التفاصيل
+                    string DitalisMis = "تم قيد عليكم مبلغ وقدره " + (mony).ToString() + "مقابل امر صرف ب  " +textBox1.Text + " " + comboBox1.Text+ " " + comboBox2.Text + "  الى حساب  " + comboBox6.Text + "رقم الطلب " + IdOut;
+                    string DatlisPlus = "تم قيد لكم مبلغ وقدره" + (mony).ToString() + "مقابل امر توريد ب " + textBox1.Text+ " " +comboBox1.Text+ " " + comboBox2.Text + "  من حساب " + comboBox5.Text + "رقم الطلب " + IdOut;
+                    OutFun.AddNewAccountDetalis(IDcoutNEWPlus, mony, 0, IdOut, DatlisPlus, DateTime.Now, UserID, idcurncy);////اضافة الدائن الى جدول التفاصيل
+                    OutFun.AddNewAccountDetalis(IdCoutNEWMins, (-1 * mony), 0, IdOut, DitalisMis, DateTime.Now, UserID, idcurncy);//// اضافة المدين لى جدول التفاصيل
                     //////////////
                     /////// التعديل جدول اجمالي الحسابات
                     OutFun.UpdateAccountTotal(IDcounoldPlus, (-1 * OldMony), idcurncy);// حذف القمية من حساب الدائن
