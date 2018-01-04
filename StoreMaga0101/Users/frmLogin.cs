@@ -15,7 +15,8 @@ namespace Users
         int UserID = 0;
         int idd = 0;
         UsersSQl Us;
-        public static int GETIDD = -1;        public frmLogin()
+        public static int GETIDD = -1;
+        public frmLogin()
         {
             InitializeComponent();
             try

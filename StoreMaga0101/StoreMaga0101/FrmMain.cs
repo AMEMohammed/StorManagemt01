@@ -17,7 +17,7 @@ namespace StoreMaga0101
 {
     public partial class FrmMain : Form
     {
-   
+        int UserID;
      
         frmLogin frm;// Login from
         public FrmMain()
@@ -73,6 +73,7 @@ namespace StoreMaga0101
                 UsersSQl us = new UsersSQl(@".\s2008", "StoreManagement1", null, null);
                 DataTable dt = new DataTable();
                  dt=  us.GetUser(frmLogin.GETIDD);
+                UserID = Convert.ToInt32(dt.Rows[0][0].ToString());
                 toolStripMenuItem3.Visible = true;
                 toolStripMenuItem13.Visible = true;
                 toolStripMenuItem7.Visible = true;
@@ -104,7 +105,12 @@ namespace StoreMaga0101
 
         private void toolStripMenuItem20_Click(object sender, EventArgs e)
         {
+          if(  MessageBox.Show("هل تريد الخروج", "تنبيه", MessageBoxButtons.YesNo, MessageBoxIcon.Question)==DialogResult.Yes)
 
+            {
+                Application.Exit();
+            }
+          
         }
         /// <summary>
         /// update Supply
@@ -544,6 +550,30 @@ namespace StoreMaga0101
             }
             this.Cursor = Cursors.Default;
 
+        }
+
+        private void toolStripMenuItem6_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            frmChangPass frmCurrncy = new frmChangPass(UserID);
+            FormCollection fromco = Application.OpenForms;
+            bool foundFrom = false;
+            foreach (Form frm in fromco)
+            {
+                if (frm.Name == "frmChangPass")
+                {
+                    frm.Focus();
+
+                    foundFrom = true;
+
+                }
+
+            }
+            if (foundFrom == false)
+            {
+                frmCurrncy.Show();
+            }
+            this.Cursor = Cursors.Default;
         }
     }
 }
