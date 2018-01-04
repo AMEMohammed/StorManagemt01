@@ -146,6 +146,8 @@ namespace Account
             {
                 IDYType = 2;
                 groupBox9.Visible = true;
+                checkBox1.Checked = false;
+                comboBox4.Enabled = true;
             }
         }
 
