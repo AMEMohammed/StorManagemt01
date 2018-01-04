@@ -14,7 +14,7 @@ namespace Users
 {
     public partial class frmAddUser : Form
     {
-        int UserID=0;
+        int UserID = 0;
         int idd = 0;
         UsersSQl Us;
         public frmAddUser()
@@ -30,7 +30,7 @@ namespace Users
                 MessageBox.Show(ex.Message);
             }
         }
-        public frmAddUser(string SerNm, string DbNm, string UserSql, string PassSql,int UserI)
+        public frmAddUser(string SerNm, string DbNm, string UserSql, string PassSql, int UserI)
         {
             InitializeComponent();
             try
@@ -45,7 +45,7 @@ namespace Users
         }
 
         private void frmAddUser_Load(object sender, EventArgs e)
-        { 
+        {
             LoadTree();
             LoadDate();
         }
@@ -111,7 +111,7 @@ namespace Users
             t5.Nodes.Add(t53);
             t5.Nodes.Add(t54);
             t5.Nodes.Add(t55);
-          
+
             treeView1.Nodes.Add(t1);
             treeView1.Nodes.Add(t2);
             treeView1.Nodes.Add(t3);
@@ -144,7 +144,7 @@ namespace Users
             int i = 0;
             foreach (TreeNode tp in treeView1.Nodes)
             {
-               // chek[i++] = tp.Checked;
+                // chek[i++] = tp.Checked;
                 foreach (TreeNode tc in tp.Nodes)
                 {
 
@@ -174,11 +174,11 @@ namespace Users
             if (textBox3.Text.Length > 0 && textBox4.Text.Length > 0 && textBox1.Text.Length > 0)
             {
 
-              Us.UpdUsers(idd, textBox1.Text, textBox3.Text, textBox4.Text, GetBool[0], GetBool[1], GetBool[2], GetBool[3], GetBool[4], GetBool[5], GetBool[6], GetBool[7], GetBool[8], GetBool[9], active, GetBool[10], GetBool[11], GetBool[12], GetBool[13], GetBool[14]);
+                Us.UpdUsers(idd, textBox1.Text, textBox3.Text,textBox4.Text, GetBool[0], GetBool[1], GetBool[2], GetBool[3], GetBool[4], GetBool[5], GetBool[6], GetBool[7], GetBool[8], GetBool[9], active, GetBool[10], GetBool[11], GetBool[12], GetBool[13], GetBool[14]);
                 LoadDate();
             }
 
-
+            
         }
         void LoadDate()
         {
@@ -202,7 +202,7 @@ namespace Users
                 if (textBox3.Text.Length > 0 && textBox4.Text.Length > 0 && textBox1.Text.Length > 0)
                 {
 
-                    Us.AddNewUser(textBox1.Text, textBox3.Text, textBox4.Text, GetBool[0], GetBool[1], GetBool[2], GetBool[3], GetBool[4], GetBool[5], GetBool[6], GetBool[7], GetBool[8], GetBool[9], active, GetBool[10], GetBool[11], GetBool[12], GetBool[13], GetBool[14], UserID);
+                    Us.AddNewUser(textBox1.Text, textBox3.Text,ChangePass("1"), GetBool[0], GetBool[1], GetBool[2], GetBool[3], GetBool[4], GetBool[5], GetBool[6], GetBool[7], GetBool[8], GetBool[9], active, GetBool[10], GetBool[11], GetBool[12], GetBool[13], GetBool[14], UserID);
                     LoadDate();
                 }
             }
@@ -226,10 +226,11 @@ namespace Users
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-           // try
+            // try
             {
                 if (dataGridView1.SelectedRows.Count > 0)
                 {
+                    textBox4.Enabled = false;
                     UNchakTreeView();
                     idd = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
                     textBox1.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
@@ -243,7 +244,7 @@ namespace Users
                     chek1[4] = Convert.ToBoolean(dataGridView1.SelectedRows[0].Cells[8].Value.ToString());
                     chek1[5] = Convert.ToBoolean(dataGridView1.SelectedRows[0].Cells[9].Value.ToString());
                     chek1[6] = Convert.ToBoolean(dataGridView1.SelectedRows[0].Cells[10].Value.ToString());
-                 chek1[7] = Convert.ToBoolean(dataGridView1.SelectedRows[0].Cells[11].Value.ToString());
+                    chek1[7] = Convert.ToBoolean(dataGridView1.SelectedRows[0].Cells[11].Value.ToString());
                     chek1[8] = Convert.ToBoolean(dataGridView1.SelectedRows[0].Cells[12].Value.ToString());
                     chek1[9] = Convert.ToBoolean(dataGridView1.SelectedRows[0].Cells[13].Value.ToString());
                     chek1[10] = Convert.ToBoolean(dataGridView1.SelectedRows[0].Cells[14].Value.ToString());
@@ -251,7 +252,7 @@ namespace Users
                     chek1[12] = Convert.ToBoolean(dataGridView1.SelectedRows[0].Cells[16].Value.ToString());
                     chek1[13] = Convert.ToBoolean(dataGridView1.SelectedRows[0].Cells[17].Value.ToString());
                     chek1[14] = Convert.ToBoolean(dataGridView1.SelectedRows[0].Cells[18].Value.ToString());
-                    chek1[15]= Convert.ToBoolean(dataGridView1.SelectedRows[0].Cells[19].Value.ToString());
+                    chek1[15] = Convert.ToBoolean(dataGridView1.SelectedRows[0].Cells[19].Value.ToString());
                     if (chek1[0] == true || chek1[1] == true)
                     {
                         treeView1.Nodes[0].Checked = true;
@@ -264,7 +265,7 @@ namespace Users
                         treeView1.Nodes[1].Nodes[0].Checked = chek1[2];
                         treeView1.Nodes[1].Nodes[1].Checked = chek1[3];
                     }
-                    if (chek1[4] == true || chek1[5] == true || chek1[6] == true || chek1[7]==true || chek1[8]==true)
+                    if (chek1[4] == true || chek1[5] == true || chek1[6] == true || chek1[7] == true || chek1[8] == true)
                     {
                         treeView1.Nodes[2].Checked = true;
                         treeView1.Nodes[2].Nodes[0].Checked = chek1[4];
@@ -289,7 +290,7 @@ namespace Users
                     {
                         comboBox1.SelectedIndex = 1;
                     }
-                    if(chek1[11]==true  || chek1[12]==true || chek1[13]==true || chek1[14]==true ||chek1[15]==true)
+                    if (chek1[11] == true || chek1[12] == true || chek1[13] == true || chek1[14] == true || chek1[15] == true)
                     {
                         treeView1.Nodes[4].Checked = true;
                         treeView1.Nodes[4].Nodes[0].Checked = chek1[11];
@@ -302,27 +303,62 @@ namespace Users
 
 
             }
-          //  catch (Exception ex)
+            //  catch (Exception ex)
             {
-            ///    MessageBox.Show(ex.Message);
+                ///    MessageBox.Show(ex.Message);
             }
         }
-    
-         
-         void UNchakTreeView()
+
+
+        void UNchakTreeView()
         {
             foreach (TreeNode tp in treeView1.Nodes)
             {
-                 tp.Checked=false;
+                tp.Checked = false;
                 foreach (TreeNode tc in tp.Nodes)
                 {
 
-                     tc.Checked=false;
+                    tc.Checked = false;
 
                 }
             }
         }
 
-     
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        /// <summary>
+        /// تشفير كلمة المرور
+        /// </summary>
+        /// <param name="pass"></param>
+        /// <returns></returns>
+        string ChangePass(string pass)
+        {
+            byte[] tmpSource = new UTF8Encoding().GetBytes(pass);
+            return Convert.ToBase64String(tmpSource);
+        }
+        //فك تشفير كلمة المورر
+        //
+        string GetPassNormal(string passDecode)
+        {
+            byte[] tmpData = Convert.FromBase64String(passDecode);
+            return (new UTF8Encoding().GetString(tmpData));
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+           try
+            {
+                Us.UpatePassword(idd, ChangePass("1"));
+                LoadDate();
+                MessageBox.Show("تم اعادة تعين كلمة المرور ", "رسالة", MessageBoxButtons.OK);
+
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

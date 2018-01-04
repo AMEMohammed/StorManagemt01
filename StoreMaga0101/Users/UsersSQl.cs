@@ -48,6 +48,14 @@ public     class UsersSQl
         /////////////////////
         //////
         /////
+        public int UpatePassword(int idUser,string Pass)
+        { 
+            string Query = "Update Users set Password=@Password  where IDUSER=@IDUSER";
+            SqlParameter[] parm = new SqlParameter[2];
+            parm[0] = new SqlParameter("@Password", Pass);
+            parm[1] = new SqlParameter("@IDUSER", idUser);
+            return sql.ExcuteQuery(Query, parm);
+        }
         ////////Updte Users
         public int UpdUsers(int IDUser, string name, string user, string pass, bool Addsupply, bool UpdSupply, bool Addoutt, bool updOut, bool PrintSupply, bool PrintOut, bool PrintQuntity, bool UpdSupp1, bool UpdOut1, bool userAdd, bool Active, bool Cate, bool type1, bool account, bool Monay, bool Place)
         {
