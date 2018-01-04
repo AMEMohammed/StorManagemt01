@@ -553,7 +553,7 @@ namespace Out_
             parm[4] = new SqlParameter("@Detalis", Detalis);
             parm[5] = new SqlParameter("@DateEnter", d1);
             parm[6] = new SqlParameter("@UserID", userid);
-            parm[7] = new SqlParameter("@IDCurrncy", IDCurrncy);
+            parm[7] = new SqlParameter("@IDCurrncy", idcurrn);
             return sql.ExcuteQuery(Query, parm);
         }
         public int DeleteSuuplyFrmAccountDitalis(int idSupply)

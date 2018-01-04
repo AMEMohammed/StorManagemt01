@@ -418,7 +418,7 @@ namespace Account
             }
             DataTable DTAll = new DataTable();
             DTAll = GetBalanceAccount(IDcode, IDCurnncy, nmCurrncy);
-            DtResult.Rows.Add(new string[] { string.Format("{0:##,##}", DTAll.Rows[0][2].ToString()), nmCurrncy, "الاجمالي", DateTime.Now.ToString(), DTAll.Rows[0][5].ToString(), null });
+            DtResult.Rows.Add(new string[] { string.Format("{0:##,##}", DTAll.Rows[0][2].ToString()), string.Format("{0:##,##}", DTAll.Rows[0][3].ToString()), nmCurrncy, "الاجمالي", DateTime.Now.ToString(), DTAll.Rows[0][5].ToString(), null });
 
             return DtResult;
 

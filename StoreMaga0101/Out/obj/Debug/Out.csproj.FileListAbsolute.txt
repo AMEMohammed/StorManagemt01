@@ -84,13 +84,12 @@ D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\Out\bin\Debug\CrystalDe
 D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\Out\bin\Debug\stdole.dll
 D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\Out\bin\Debug\ShockwaveFlashObjects.dll
 D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\Out\bin\Debug\FrmRports.pdb
-D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\Out\obj\Debug\Out.csprojResolveAssemblyReference.cache
 D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\Out\obj\Debug\Out_.frmAddOut.resources
 D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\Out\obj\Debug\Out_.frmUpdateOut.resources
 D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\Out\obj\Debug\Out_.frmUpdateOut2.resources
 D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\Out\obj\Debug\Out_.Properties.Resources.resources
 D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\Out\obj\Debug\Out.csproj.GenerateResource.Cache
 D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\Out\obj\Debug\Out.pdb
-D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\Out\bin\Debug\Out.exe.config
-D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\Out\bin\Debug\Out.exe
-D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\Out\obj\Debug\Out.exe
+D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\Out\bin\Debug\Out.dll.config
+D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\Out\bin\Debug\Out.dll
+D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\Out\obj\Debug\Out.dll

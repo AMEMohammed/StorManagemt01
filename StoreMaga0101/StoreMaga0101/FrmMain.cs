@@ -12,6 +12,7 @@ using Users;
 using Out_;
 using frmWInReprting;
 using SystemConfiguration;
+using Account;
 namespace StoreMaga0101
 {
     public partial class FrmMain : Form
@@ -93,7 +94,7 @@ namespace StoreMaga0101
                 toolStripMenuItem16.Visible = Convert.ToBoolean(dt.Rows[0][14].ToString());
                 toolStripMenuItem24.Visible = Convert.ToBoolean(dt.Rows[0][15].ToString());
                 toolStripMenuItem25.Visible = Convert.ToBoolean(dt.Rows[0][16].ToString());
-                toolStripMenuItem26.Visible = Convert.ToBoolean(dt.Rows[0][17].ToString());
+                toolStripMenuItem21.Visible = Convert.ToBoolean(dt.Rows[0][17].ToString());
                 toolStripMenuItem27.Visible = Convert.ToBoolean(dt.Rows[0][18].ToString());
                 toolStripMenuItem28.Visible = Convert.ToBoolean(dt.Rows[0][19].ToString());
 
@@ -488,6 +489,60 @@ namespace StoreMaga0101
                 frmCurrncy.Show();
             }
             this.Cursor = Cursors.Default;
+        }
+
+        private void toolStripMenuItem21_Click(object sender, EventArgs e)
+        {
+
+        }
+        //شجرة الحسابات
+        private void toolStripMenuItem22_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            frmAcount frmCurrncy = new frmAcount();
+            FormCollection fromco = Application.OpenForms;
+            bool foundFrom = false;
+            foreach (Form frm in fromco)
+            {
+                if (frm.Name == "frmAcount")
+                {
+                    frm.Focus();
+
+                    foundFrom = true;
+
+                }
+
+            }
+            if (foundFrom == false)
+            {
+                frmCurrncy.Show();
+            }
+            this.Cursor = Cursors.Default;
+        }
+
+        private void toolStripMenuItem26_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            frmSearchAccountNM frmCurrncy = new frmSearchAccountNM();
+            FormCollection fromco = Application.OpenForms;
+            bool foundFrom = false;
+            foreach (Form frm in fromco)
+            {
+                if (frm.Name == "frmSearchAccountNM")
+                {
+                    frm.Focus();
+
+                    foundFrom = true;
+
+                }
+
+            }
+            if (foundFrom == false)
+            {
+                frmCurrncy.Show();
+            }
+            this.Cursor = Cursors.Default;
+
         }
     }
 }
