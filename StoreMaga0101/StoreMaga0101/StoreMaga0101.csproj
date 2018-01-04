@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Account">
+      <HintPath>..\Account\bin\Debug\Account.dll</HintPath>
+    </Reference>
     <Reference Include="FrmRports">
       <HintPath>..\FrmRports\bin\Debug\FrmRports.dll</HintPath>
     </Reference>

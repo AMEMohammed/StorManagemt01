@@ -80,7 +80,7 @@ namespace StoreMaga0101
                 toolStripMenuItem23.Visible = true;
                 toolStripMenuItem5.Visible = true;
                 toolStripMenuItem17.Visible = true;
-            
+                toolStripMenuItem21.Visible = true;
                 toolStripMenuItem14.Visible  = Convert.ToBoolean(dt.Rows[0][4].ToString());
                 toolStripMenuItem15.Visible = Convert.ToBoolean(dt.Rows[0][5].ToString());
                 toolStripMenuItem8.Visible = Convert.ToBoolean(dt.Rows[0][6].ToString());
@@ -94,7 +94,8 @@ namespace StoreMaga0101
                 toolStripMenuItem16.Visible = Convert.ToBoolean(dt.Rows[0][14].ToString());
                 toolStripMenuItem24.Visible = Convert.ToBoolean(dt.Rows[0][15].ToString());
                 toolStripMenuItem25.Visible = Convert.ToBoolean(dt.Rows[0][16].ToString());
-                toolStripMenuItem21.Visible = Convert.ToBoolean(dt.Rows[0][17].ToString());
+                toolStripMenuItem26.Visible = Convert.ToBoolean(dt.Rows[0][17].ToString());
+                toolStripMenuItem22.Visible = Convert.ToBoolean(dt.Rows[0][17].ToString());
                 toolStripMenuItem27.Visible = Convert.ToBoolean(dt.Rows[0][18].ToString());
                 toolStripMenuItem28.Visible = Convert.ToBoolean(dt.Rows[0][19].ToString());
 
