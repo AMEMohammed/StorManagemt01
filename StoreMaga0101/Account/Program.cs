@@ -16,7 +16,7 @@ namespace Account
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmSearchAccountNM());
+            Application.Run(new frmAcount());
         }
     }
 }

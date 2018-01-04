@@ -7,12 +7,12 @@ D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\Account\obj\Debug\Accou
 D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\Account\bin\Debug\Account.dll.config
 D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\Account\bin\Debug\Account.dll
 D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\Account\obj\Debug\Account.dll
-D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\Account\bin\Debug\Account.dll.config
-D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\Account\bin\Debug\Account.dll
 D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\Account\bin\Debug\Account.pdb
 D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\Account\obj\Debug\Account.frmAcount.resources
 D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\Account\obj\Debug\Account.frmSearchAccountNM.resources
 D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\Account\obj\Debug\Account.Properties.Resources.resources
 D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\Account\obj\Debug\Account.csproj.GenerateResource.Cache
-D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\Account\obj\Debug\Account.dll
 D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\Account\obj\Debug\Account.pdb
+D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\Account\bin\Debug\Account.dll.config
+D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\Account\bin\Debug\Account.dll
+D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\Account\obj\Debug\Account.dll
