@@ -78,8 +78,8 @@
             this.toolStripMenuItem7,
             this.toolStripMenuItem21,
             this.toolStripMenuItem1,
-            this.toolStripMenuItem23,
-            this.toolStripMenuItem17});
+            this.toolStripMenuItem17,
+            this.toolStripMenuItem23});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
