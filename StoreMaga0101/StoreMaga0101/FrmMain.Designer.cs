@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem20 = new System.Windows.Forms.ToolStripMenuItem();
@@ -61,7 +62,6 @@
             this.toolStripMenuItem17 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem19 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem18 = new System.Windows.Forms.ToolStripMenuItem();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -88,6 +88,18 @@
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
+            // groupBox1
+            // 
+            this.groupBox1.BackgroundImage = global::StoreMaga0101.Properties.Resources.B;
+            this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Location = new System.Drawing.Point(0, 40);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(1099, 663);
+            this.groupBox1.TabIndex = 5;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Visible = false;
+            // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.AutoSize = false;
@@ -106,11 +118,11 @@
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.AutoSize = false;
-            this.toolStripMenuItem4.Image = global::StoreMaga0101.Properties.Resources.tutorial;
+            this.toolStripMenuItem4.Image = global::StoreMaga0101.Properties.Resources.question;
             this.toolStripMenuItem4.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
             this.toolStripMenuItem4.Size = new System.Drawing.Size(210, 50);
-            this.toolStripMenuItem4.Text = "دخول النظام";
+            this.toolStripMenuItem4.Text = "معلومات النظام";
             this.toolStripMenuItem4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // toolStripMenuItem20
@@ -229,7 +241,7 @@
             // toolStripMenuItem22
             // 
             this.toolStripMenuItem22.AutoSize = false;
-            this.toolStripMenuItem22.Image = global::StoreMaga0101.Properties.Resources.file;
+            this.toolStripMenuItem22.Image = global::StoreMaga0101.Properties.Resources.accounting_book;
             this.toolStripMenuItem22.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItem22.Name = "toolStripMenuItem22";
             this.toolStripMenuItem22.Size = new System.Drawing.Size(210, 50);
@@ -241,7 +253,7 @@
             // toolStripMenuItem26
             // 
             this.toolStripMenuItem26.AutoSize = false;
-            this.toolStripMenuItem26.Image = global::StoreMaga0101.Properties.Resources.document;
+            this.toolStripMenuItem26.Image = global::StoreMaga0101.Properties.Resources.mobile_phone;
             this.toolStripMenuItem26.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItem26.Name = "toolStripMenuItem26";
             this.toolStripMenuItem26.Size = new System.Drawing.Size(210, 50);
@@ -486,18 +498,6 @@
             this.toolStripMenuItem18.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.toolStripMenuItem18.Visible = false;
             this.toolStripMenuItem18.Click += new System.EventHandler(this.toolStripMenuItem18_Click);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.BackgroundImage = global::StoreMaga0101.Properties.Resources.B;
-            this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(0, 40);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1099, 663);
-            this.groupBox1.TabIndex = 5;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Visible = false;
             // 
             // FrmMain
             // 

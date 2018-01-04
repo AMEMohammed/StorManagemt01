@@ -1,7 +1,21 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="StoreMaga0101.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ServerNm" Type="System.String" Scope="User">
+      <Value Profile="(Default)">.\s2008</Value>
+    </Setting>
+    <Setting Name="DBNM" Type="System.String" Scope="User">
+      <Value Profile="(Default)">StoreManagement1</Value>
+    </Setting>
+    <Setting Name="UserSql" Type="System.String" Scope="User">
+      <Value Profile="(Default)">sa</Value>
+    </Setting>
+    <Setting Name="PassSql" Type="System.String" Scope="User">
+      <Value Profile="(Default)">123456</Value>
+    </Setting>
+    <Setting Name="PathDB" Type="System.String" Scope="User">
+      <Value Profile="(Default)">D:\\</Value>
+    </Setting>
+  </Settings>
 </SettingsFile>
