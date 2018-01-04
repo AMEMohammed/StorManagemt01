@@ -234,7 +234,7 @@ namespace Out_
         }
 
         /////////////////  التكد من ان الحساب يغطي الطلب وارجاع صفر في حالة تم الطلب او ارجاع الكمية المتبقة المطلوبه
-        public int GetAndCheckQuntityAccountAndAddRqustNew(int IDAccount, int QuntityMust, int IDCategory, int IDType, int idcurrn, int IDPlace, string NameOut, string DesOut, DateTime DateOut, int Chack, string NameSend, int debit, int credi,int UserId,string NMIDCA,string NMTYpe,string NMPlus,string NMMins)
+        public int GetAndCheckQuntityAccountAndAddRqustNew(int IDAccount, int QuntityMust, int IDCategory, int IDType, int idcurrn, int IDPlace, string NameOut, string DesOut, DateTime DateOut, int Chack, string NameSend, int debit, int credi,int UserId,string NMIDCA,string NMTYpe,string NMPlus,string NMMins,string nmCurnncy)
         {
             int r = -1;
             int QuntityOld = GetQuntityInAccount(IDAccount);
@@ -292,9 +292,9 @@ namespace Out_
             /////////////////
             ///////////// adding for Account datalis
             /// اضافة حساب دائن
-            /// 
-            string DitalisMis = "تم قيد عليكم مبلغ وقدره " + (Total).ToString() + "مقابل امر صرف ب  " + Quntity12 + " " + NMIDCA+ " " + NMTYpe + "  الى حساب  " + NMPlus +"رقم الطلب " + GetMAxIDOUt();
-            string DatlisPlus = "تم قيد لكم مبلغ وقدره" + (Total).ToString() + "مقابل امر توريد ب " + Quntity12 + " " + NMIDCA + " " + NMTYpe + "  من حساب " +NMMins + "رقم الطلب " + GetMAxIDOUt();
+            /// string.Format("{0:##,##}", (Total).ToString())+" "+ nmCurnncy
+            string DitalisMis = "تم قيد عليكم مبلغ وقدره " + string.Format("{0:##,##}", (Total).ToString()) + " " + nmCurnncy +"  "+ "مقابل امر صرف ب  " + Quntity12 + " " + NMIDCA+ " " + NMTYpe + "  الى حساب  " + NMPlus +"رقم الطلب " + GetMAxIDOUt();
+            string DatlisPlus = "تم قيد لكم مبلغ وقدره" + string.Format("{0:##,##}", (Total).ToString()) + " " + nmCurnncy +"  " + "مقابل امر توريد ب " + Quntity12 + " " + NMIDCA + " " + NMTYpe + "  من حساب " +NMMins + "رقم الطلب " + GetMAxIDOUt();
             AddNewAccountDetalis(credi, Total, 0, GetMAxIDOUt(), DatlisPlus, DateTime.Now, UserId, idcurrn);
             ////////// اضافة حساب مدين
            

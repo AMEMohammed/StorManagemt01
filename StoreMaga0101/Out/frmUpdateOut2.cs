@@ -158,8 +158,9 @@ namespace Out_
                     int IdCoutNEWMins = (int)comboBox5.SelectedValue;
                     int mony = Convert.ToInt32(textBox1.Text) * Convert.ToInt32(textBox2.Text);
                     int idcurncy = Convert.ToInt32(dt.Rows[0]["IDCurrency"].ToString());
-                    string DitalisMis = "تم قيد عليكم مبلغ وقدره " + (mony).ToString() + "مقابل امر صرف ب  " +textBox1.Text + " " + comboBox1.Text+ " " + comboBox2.Text + "  الى حساب  " + comboBox6.Text + "رقم الطلب " + IdOut;
-                    string DatlisPlus = "تم قيد لكم مبلغ وقدره" + (mony).ToString() + "مقابل امر توريد ب " + textBox1.Text+ " " +comboBox1.Text+ " " + comboBox2.Text + "  من حساب " + comboBox5.Text + "رقم الطلب " + IdOut;
+
+                    string DitalisMis = "تم قيد عليكم مبلغ وقدره " + string.Format("{0:##,##}", (mony).ToString()) + " " + comboBox3.Text + "مقابل امر صرف ب  " +textBox1.Text + " " + comboBox1.Text+ " " + comboBox2.Text + "  الى حساب  " + comboBox6.Text + "رقم الطلب " + IdOut;
+                    string DatlisPlus = "تم قيد لكم مبلغ وقدره" + string.Format("{0:##,##}", (mony).ToString()) + " " + comboBox3.Text + "مقابل امر توريد ب " + textBox1.Text+ " " +comboBox1.Text+ " " + comboBox2.Text + "  من حساب " + comboBox5.Text + "رقم الطلب " + IdOut;
                     OutFun.AddNewAccountDetalis(IDcoutNEWPlus, mony, 0, IdOut, DatlisPlus, DateTime.Now, UserID, idcurncy);////اضافة الدائن الى جدول التفاصيل
                     OutFun.AddNewAccountDetalis(IdCoutNEWMins, (-1 * mony), 0, IdOut, DitalisMis, DateTime.Now, UserID, idcurncy);//// اضافة المدين لى جدول التفاصيل
                     //////////////
@@ -180,7 +181,7 @@ namespace Out_
                     }
                     else //في حالة الحساب المدين جديد اضافة حساب جديد
                     {
-                        OutFun.AddNewAccountTotal(IdCoutNEWMins, (-1 * mony), idcurncy);1
+                        OutFun.AddNewAccountTotal(IdCoutNEWMins, (-1 * mony), idcurncy);
                     }
                     OutFun.UpdateRequstOut(IdOut, (int)comboBox4.SelectedValue, textBox3.Text, textBox4.Text, textBox5.Text, DateTime.Now, UserID, (int)comboBox5.SelectedValue, (int)comboBox6.SelectedValue);
                     

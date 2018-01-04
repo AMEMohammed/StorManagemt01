@@ -424,13 +424,27 @@ namespace Account
         /// 
         int getOldMony(int IDcode, int IDCurnncy, DateTime d2)
         {
-            string Query = "  select SUM(Mony) from AccountDetalis  where IDCode=@idcode and  IDCurrncy=@idcurrncy and DateEnter between Cast('01-01-2017' AS DATETIME)  and @d2";
-            SqlParameter[] parm = new SqlParameter[3];
+           
+            DateTime dd = Convert.ToDateTime("2017/01/01");
+           
+            string Query = "select SUM(Mony) from AccountDetalis where IDCode=@idcode and IDCurrncy=@idcurrncy and DateEnter between @dd and @d2";
+            SqlParameter[] parm = new SqlParameter[4];
             parm[0] = new SqlParameter("@idcode", IDcode);
             parm[1] = new SqlParameter("@idcurrncy", IDCurnncy);
             parm[2] = new SqlParameter("@d2", d2);
-            return (int)sql.ExcuteQueryValue(Query, parm);
-
+            parm[3] = new SqlParameter("@dd", dd);
+            int reslt = 0;
+            try
+            {
+                reslt =Convert.ToInt32(sql.ExcuteQueryValue(Query, parm));
+               
+            }
+            catch(Exception ex)
+            {
+                reslt = 0;
+              //  MessageBox.Show(ex.Message);
+            }
+            return reslt;
 
         }
         DataTable GETAcountDitlis(int IDcode, int IDCurnncy, DateTime d1, DateTime d2)
