@@ -75,7 +75,7 @@
             // 
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(396, 12);
+            this.groupBox1.Location = new System.Drawing.Point(343, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(423, 46);
             this.groupBox1.TabIndex = 11;
@@ -102,9 +102,9 @@
             this.groupBox2.Controls.Add(this.groupBox11);
             this.groupBox2.Controls.Add(this.groupBox10);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(244, 64);
+            this.groupBox2.Location = new System.Drawing.Point(191, 64);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(798, 379);
+            this.groupBox2.Size = new System.Drawing.Size(798, 332);
             this.groupBox2.TabIndex = 12;
             this.groupBox2.TabStop = false;
             // 
@@ -113,7 +113,7 @@
             this.groupBox5.Controls.Add(this.button3);
             this.groupBox5.Controls.Add(this.button2);
             this.groupBox5.Controls.Add(this.txtSaerch);
-            this.groupBox5.Location = new System.Drawing.Point(376, 309);
+            this.groupBox5.Location = new System.Drawing.Point(376, 263);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(416, 64);
             this.groupBox5.TabIndex = 9;
@@ -159,7 +159,7 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(259, 253);
+            this.checkBox1.Location = new System.Drawing.Point(259, 239);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(97, 20);
             this.checkBox1.TabIndex = 8;
@@ -170,7 +170,7 @@
             // 
             this.groupBox9.Controls.Add(this.comboBox2);
             this.groupBox9.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox9.Location = new System.Drawing.Point(8, 196);
+            this.groupBox9.Location = new System.Drawing.Point(8, 182);
             this.groupBox9.Name = "groupBox9";
             this.groupBox9.Size = new System.Drawing.Size(348, 51);
             this.groupBox9.TabIndex = 5;
@@ -191,7 +191,7 @@
             // 
             this.groupBox4.Controls.Add(this.textBox1);
             this.groupBox4.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(8, 87);
+            this.groupBox4.Location = new System.Drawing.Point(8, 73);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(348, 51);
             this.groupBox4.TabIndex = 6;
@@ -210,7 +210,7 @@
             // 
             this.groupBox3.Controls.Add(this.comboBox1);
             this.groupBox3.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(8, 30);
+            this.groupBox3.Location = new System.Drawing.Point(8, 16);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(348, 51);
             this.groupBox3.TabIndex = 7;
@@ -232,7 +232,7 @@
             this.treeView1.Location = new System.Drawing.Point(362, 12);
             this.treeView1.Name = "treeView1";
             this.treeView1.RightToLeftLayout = true;
-            this.treeView1.Size = new System.Drawing.Size(430, 282);
+            this.treeView1.Size = new System.Drawing.Size(430, 247);
             this.treeView1.TabIndex = 6;
             this.treeView1.Click += new System.EventHandler(this.treeView1_Click);
             // 
@@ -274,7 +274,7 @@
             this.groupBox11.Controls.Add(this.button4);
             this.groupBox11.Controls.Add(this.btnRefrsh);
             this.groupBox11.Controls.Add(this.btnAddSup);
-            this.groupBox11.Location = new System.Drawing.Point(14, 309);
+            this.groupBox11.Location = new System.Drawing.Point(14, 263);
             this.groupBox11.Name = "groupBox11";
             this.groupBox11.Size = new System.Drawing.Size(356, 64);
             this.groupBox11.TabIndex = 1;
@@ -340,7 +340,7 @@
             // 
             this.groupBox10.Controls.Add(this.textBox4);
             this.groupBox10.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox10.Location = new System.Drawing.Point(8, 139);
+            this.groupBox10.Location = new System.Drawing.Point(8, 125);
             this.groupBox10.Name = "groupBox10";
             this.groupBox10.Size = new System.Drawing.Size(348, 51);
             this.groupBox10.TabIndex = 0;
@@ -363,9 +363,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox12.Controls.Add(this.dataGridView1);
-            this.groupBox12.Location = new System.Drawing.Point(12, 449);
+            this.groupBox12.Location = new System.Drawing.Point(12, 402);
             this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(1196, 300);
+            this.groupBox12.Size = new System.Drawing.Size(1147, 265);
             this.groupBox12.TabIndex = 13;
             this.groupBox12.TabStop = false;
             this.groupBox12.Text = "قائمة الحسابات";
@@ -392,7 +392,7 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1184, 275);
+            this.dataGridView1.Size = new System.Drawing.Size(1135, 240);
             this.dataGridView1.TabIndex = 13;
             // 
             // frmAcount
@@ -400,7 +400,7 @@
             this.AcceptButton = this.btnAddSup;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1220, 761);
+            this.ClientSize = new System.Drawing.Size(1171, 679);
             this.Controls.Add(this.groupBox12);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);

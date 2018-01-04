@@ -46,7 +46,7 @@ namespace frmWInReprting
 
         private void frmSuppRepring_Load(object sender, EventArgs e)
         {
-            try
+          //  try
             {/////////
                 comboBox1.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
                 comboBox1.AutoCompleteSource = AutoCompleteSource.ListItems;
@@ -66,9 +66,9 @@ namespace frmWInReprting
                 ///////
 
             }
-            catch (Exception ex)
+          //  catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+            //    MessageBox.Show(ex.Message);
             }
 
         }
@@ -76,7 +76,7 @@ namespace frmWInReprting
         /// </summary>
         void getDate1()
         {
-            try
+           // try
             {
                 comboBox1.DisplayMember = "اسم الصنف";
                 comboBox1.ValueMember = "رقم الصنف";
@@ -84,16 +84,16 @@ namespace frmWInReprting
                 comboBox2.DisplayMember = "اسم النوع";
                 comboBox2.ValueMember = "رقم النوع";
                 comboBox2.DataSource = rf.GetAllTypeQuntity();
-                comboBox3.DisplayMember = "اسم العملة";
-                comboBox3.ValueMember = "رقم العملة";
-                comboBox3.DataSource = rf.GetAllCurrency();
-                comboBox4.ValueMember = "رقم";
-                comboBox4.DisplayMember = "اسم الموظف";
-                comboBox4.DataSource = rf.GetAllUser();
+                comboBox4.DisplayMember = "اسم العملة";
+                comboBox4.ValueMember = "رقم العملة";
+                comboBox4.DataSource = rf.GetAllCurrency();
+                comboBox3.ValueMember = "رقم الموظف";
+               comboBox3.DisplayMember = "اسم الموظف";
+                comboBox3.DataSource = rf.GetAllUserAR();
             }
-            catch (Exception ex)
+          //  catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+              //  MessageBox.Show(ex.Message);
             }
         }
 

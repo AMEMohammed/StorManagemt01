@@ -90,17 +90,17 @@ namespace frmWInReprting
                 comboBox2.DisplayMember = "اسم النوع";
                 comboBox2.ValueMember = "رقم النوع";
                 comboBox2.DataSource = rf.GetAllTypeQuntity();
-                comboBox3.DisplayMember = "اسم العملة";
-                comboBox3.ValueMember = "رقم العملة";
+                comboBox4.DisplayMember = "اسم العملة";
+                comboBox4.ValueMember = "رقم العملة";
 
-                comboBox3.DataSource = rf.GetAllCurrency();
+                comboBox4.DataSource = rf.GetAllCurrency();
 
                 comboBox6.ValueMember = "رقم الجهة";
                 comboBox6.DisplayMember = "اسم الجهة";
                 comboBox6.DataSource =rf.GetAllPlace();
-                comboBox4.ValueMember = "رقم";
-                comboBox4.DisplayMember = "اسم الموظف";
-                comboBox4.DataSource = rf.GetAllUser();
+                comboBox3.ValueMember = "رقم الموظف";
+                comboBox3.DisplayMember = "اسم الموظف";
+                comboBox3.DataSource = rf.GetAllUserAR();
               
             }
             catch (Exception ex)

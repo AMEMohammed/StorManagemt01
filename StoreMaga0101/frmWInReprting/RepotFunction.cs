@@ -67,7 +67,15 @@ namespace frmWInReprting
         {
 
 
-            string Query = "select Users.UserID as 'رقم' ,Users.Name as 'اسم الموظف',Users.UserName as 'اسم المستخدم',Users.Password as 'كلمة المرور',Users.Supply as 'امر توريد',Users.Out as 'امر صرف',Users.PrintRE as 'طباعة تقارير',Users.UpdteDe as'تعديل / حذف' ,Users.Active as 'تفعيل',Users.UserAdd as'اضافة مستخدمين' from Users ";
+            string Query = "select Users.IDUSER as 'رقم الموظف' ,Users.Name as 'اسم الموظف',Users.UserName as 'اسم المستخدم',Users.Password as 'كلمة المرور',Users.Supply as 'امر توريد',Users.Out as 'امر صرف',Users.PrintRE as 'طباعة تقارير',Users.UpdteDe as'تعديل / حذف' ,Users.Active as 'تفعيل',Users.UserAdd as'اضافة مستخدمين' from Users ";
+            return sql.SelectData(Query, null);
+        }
+        //// Get All UsersAR
+        public DataTable GetAllUserAR()
+        {
+
+
+            string Query = "select Users.IDUSER as 'رقم الموظف',Users.Name as 'اسم الموظف'  from Users ";
             return sql.SelectData(Query, null);
         }
 
@@ -93,7 +101,7 @@ namespace frmWInReprting
         public string GetUserNameBYIdUser(int IdUser)
         {
 
-            string Query = "select Name from Users where UserID=@userid";
+            string Query = "select Name from Users where IDUSER=@userid";
             SqlParameter[] parm = new SqlParameter[1];
 
             parm[0] = new SqlParameter("@userid", IdUser);
@@ -287,7 +295,7 @@ namespace frmWInReprting
         public DataTable GetUpdateSupplyByIDSupply(int Id)
         {
           
-            string Query="SELECT  dbo.UpdSupply.IDUpt as 'رقم' , dbo.UpdSupply.IDSupply as 'رقم الطلب', dbo.Category.NameCategory as 'اسم الصنف' , dbo.TypeQuntity.NameType as 'نوع الكمية', dbo.UpdSupply.Quntity as 'الكمية', dbo.UpdSupply.Price as 'سعر الوحدة', dbo.Currency.NameCurrency as 'العملة',dbo.UpdSupply.NameSupply as 'اسم المورد' , dbo.UpdSupply.dateUpd as 'تاريخ التعديل', dbo.UpdSupply.DescUpd  as 'التعديل',Users.Name as 'اسم الموظف'  FROM Users, dbo.TypeQuntity CROSS JOIN   dbo.Category INNER JOIN  dbo.UpdSupply ON dbo.Category.IDCategory = dbo.UpdSupply.IDCategory CROSS JOIN   dbo.Currency  where UpdSupply.IDCategory=Category.IDCategory and UpdSupply.IDType=TypeQuntity.IDType and UpdSupply.IDCurrency =Currency.IDCurrency and UpdSupply.UserId = Users.UserID and dbo.UpdSupply.IDSupply=@id ";
+            string Query= "SELECT  dbo.UpdSupply.IDUpt as 'رقم' , dbo.UpdSupply.IDSupply as 'رقم الطلب', dbo.Category.NameCategory as 'اسم الصنف' , dbo.TypeQuntity.NameType as 'نوع الكمية', dbo.UpdSupply.Quntity as 'الكمية', dbo.UpdSupply.Price as 'سعر الوحدة', dbo.Currency.NameCurrency as 'العملة',dbo.UpdSupply.NameSupply as 'اسم المورد' , dbo.UpdSupply.dateUpd as 'تاريخ التعديل', dbo.UpdSupply.DescUpd  as 'التعديل',Users.Name as 'اسم الموظف'  FROM Users, dbo.TypeQuntity CROSS JOIN   dbo.Category INNER JOIN  dbo.UpdSupply ON dbo.Category.IDCategory = dbo.UpdSupply.IDCategory CROSS JOIN   dbo.Currency  where UpdSupply.IDCategory=Category.IDCategory and UpdSupply.IDType=TypeQuntity.IDType and UpdSupply.IDCurrency =Currency.IDCurrency and UpdSupply.UserId = Users.IDUSER and dbo.UpdSupply.IDSupply=@id ";
             SqlParameter[] pram = new SqlParameter[1];
             pram[0]=new SqlParameter("@id", Id);
             return sql.SelectData(Query, pram);
@@ -297,7 +305,7 @@ namespace frmWInReprting
         public DataTable GetUpdateSupplyByDate(DateTime d1, DateTime d2)
         {
 
-            string Query = "SELECT  dbo.UpdSupply.IDUpt as 'رقم', dbo.UpdSupply.IDSupply as 'رقم الطلب', dbo.Category.NameCategory as 'اسم الصنف' , dbo.TypeQuntity.NameType as 'نوع الكمية', dbo.UpdSupply.Quntity as 'الكمية', dbo.UpdSupply.Price as 'سعر الوحدة', dbo.Currency.NameCurrency as 'العملة',dbo.UpdSupply.NameSupply as 'اسم المورد', dbo.UpdSupply.dateUpd as 'تاريخ التعديل', dbo.UpdSupply.DescUpd  as 'التعديل' ,Users.Name as 'اسم الموظف' FROM Users, dbo.TypeQuntity CROSS JOIN   dbo.Category INNER JOIN  dbo.UpdSupply ON dbo.Category.IDCategory = dbo.UpdSupply.IDCategory CROSS JOIN   dbo.Currency  where UpdSupply.IDCategory=Category.IDCategory and UpdSupply.IDType=TypeQuntity.IDType and UpdSupply.IDCurrency =Currency.IDCurrency and UpdSupply.UserId = Users.UserID and dbo.UpdSupply.dateUpd between @d1 and @d2  ";
+            string Query = "SELECT  dbo.UpdSupply.IDUpt as 'رقم', dbo.UpdSupply.IDSupply as 'رقم الطلب', dbo.Category.NameCategory as 'اسم الصنف' , dbo.TypeQuntity.NameType as 'نوع الكمية', dbo.UpdSupply.Quntity as 'الكمية', dbo.UpdSupply.Price as 'سعر الوحدة', dbo.Currency.NameCurrency as 'العملة',dbo.UpdSupply.NameSupply as 'اسم المورد', dbo.UpdSupply.dateUpd as 'تاريخ التعديل', dbo.UpdSupply.DescUpd  as 'التعديل' ,Users.Name as 'اسم الموظف' FROM Users, dbo.TypeQuntity CROSS JOIN   dbo.Category INNER JOIN  dbo.UpdSupply ON dbo.Category.IDCategory = dbo.UpdSupply.IDCategory CROSS JOIN   dbo.Currency  where UpdSupply.IDCategory=Category.IDCategory and UpdSupply.IDType=TypeQuntity.IDType and UpdSupply.IDCurrency =Currency.IDCurrency and UpdSupply.UserId = Users.IDUSER and dbo.UpdSupply.dateUpd between @d1 and @d2  ";
             SqlParameter[] parm = new SqlParameter[2];
           parm[0]=new SqlParameter("@d1", d1);
           parm[1]=new SqlParameter("@d2", d2);
@@ -306,7 +314,7 @@ namespace frmWInReprting
         /// 
         public DataTable GetUpdateSupplyByDateUpdateWithDate(DateTime d1, DateTime d2)
         {
-          string Query="SELECT  dbo.UpdSupply.IDUpt as 'رقم', dbo.UpdSupply.IDSupply as 'رقم الطلب', dbo.Category.NameCategory as 'اسم الصنف' , dbo.TypeQuntity.NameType as 'نوع الكمية', dbo.UpdSupply.Quntity as 'الكمية', dbo.UpdSupply.Price as 'سعر الوحدة', dbo.Currency.NameCurrency as 'العملة',dbo.UpdSupply.NameSupply as 'اسم المورد', dbo.UpdSupply.dateUpd as 'تاريخ التعديل', dbo.UpdSupply.DescUpd  as 'التعديل' ,Users.Name as 'اسم الموظف' FROM Users, dbo.TypeQuntity CROSS JOIN   dbo.Category INNER JOIN  dbo.UpdSupply ON dbo.Category.IDCategory = dbo.UpdSupply.IDCategory CROSS JOIN   dbo.Currency  where UpdSupply.IDCategory=Category.IDCategory and UpdSupply.IDType=TypeQuntity.IDType and UpdSupply.IDCurrency =Currency.IDCurrency and UpdSupply.UserId = Users.UserID and dbo.UpdSupply.dateUpd between @d1 and @d2  and UpdSupply.DescUpd !=N'تم حذف الطلب' ";
+          string Query= "SELECT  dbo.UpdSupply.IDUpt as 'رقم', dbo.UpdSupply.IDSupply as 'رقم الطلب', dbo.Category.NameCategory as 'اسم الصنف' , dbo.TypeQuntity.NameType as 'نوع الكمية', dbo.UpdSupply.Quntity as 'الكمية', dbo.UpdSupply.Price as 'سعر الوحدة', dbo.Currency.NameCurrency as 'العملة',dbo.UpdSupply.NameSupply as 'اسم المورد', dbo.UpdSupply.dateUpd as 'تاريخ التعديل', dbo.UpdSupply.DescUpd  as 'التعديل' ,Users.Name as 'اسم الموظف' FROM Users, dbo.TypeQuntity CROSS JOIN   dbo.Category INNER JOIN  dbo.UpdSupply ON dbo.Category.IDCategory = dbo.UpdSupply.IDCategory CROSS JOIN   dbo.Currency  where UpdSupply.IDCategory=Category.IDCategory and UpdSupply.IDType=TypeQuntity.IDType and UpdSupply.IDCurrency =Currency.IDCurrency and UpdSupply.UserId = Users.IDUSER and dbo.UpdSupply.dateUpd between @d1 and @d2  and UpdSupply.DescUpd !=N'تم حذف الطلب' ";
             SqlParameter[] parm = new SqlParameter[2];
          parm[0]=new SqlParameter("@d1", d1);
            parm[1]=new SqlParameter("@d2", d2);
@@ -317,7 +325,7 @@ namespace frmWInReprting
         public DataTable GetUpdateSupplyByDateDeleteWithDate(DateTime d1, DateTime d2)
         {
           
-            string Query="SELECT  dbo.UpdSupply.IDUpt as 'رقم', dbo.UpdSupply.IDSupply as 'رقم الطلب', dbo.Category.NameCategory as 'اسم الصنف' , dbo.TypeQuntity.NameType as 'نوع الكمية', dbo.UpdSupply.Quntity as 'الكمية', dbo.UpdSupply.Price as 'سعر الوحدة', dbo.Currency.NameCurrency as 'العملة',dbo.UpdSupply.NameSupply as 'اسم المورد', dbo.UpdSupply.dateUpd as 'تاريخ التعديل', dbo.UpdSupply.DescUpd  as 'التعديل' ,Users.Name as 'اسم الموظف' FROM Users, dbo.TypeQuntity CROSS JOIN   dbo.Category INNER JOIN  dbo.UpdSupply ON dbo.Category.IDCategory = dbo.UpdSupply.IDCategory CROSS JOIN   dbo.Currency  where UpdSupply.IDCategory=Category.IDCategory and UpdSupply.IDType=TypeQuntity.IDType and UpdSupply.IDCurrency =Currency.IDCurrency and UpdSupply.UserId = Users.UserID and dbo.UpdSupply.dateUpd between @d1 and @d2  and UpdSupply.DescUpd =N'تم حذف الطلب' ";
+            string Query= "SELECT  dbo.UpdSupply.IDUpt as 'رقم', dbo.UpdSupply.IDSupply as 'رقم الطلب', dbo.Category.NameCategory as 'اسم الصنف' , dbo.TypeQuntity.NameType as 'نوع الكمية', dbo.UpdSupply.Quntity as 'الكمية', dbo.UpdSupply.Price as 'سعر الوحدة', dbo.Currency.NameCurrency as 'العملة',dbo.UpdSupply.NameSupply as 'اسم المورد', dbo.UpdSupply.dateUpd as 'تاريخ التعديل', dbo.UpdSupply.DescUpd  as 'التعديل' ,Users.Name as 'اسم الموظف' FROM Users, dbo.TypeQuntity CROSS JOIN   dbo.Category INNER JOIN  dbo.UpdSupply ON dbo.Category.IDCategory = dbo.UpdSupply.IDCategory CROSS JOIN   dbo.Currency  where UpdSupply.IDCategory=Category.IDCategory and UpdSupply.IDType=TypeQuntity.IDType and UpdSupply.IDCurrency =Currency.IDCurrency and UpdSupply.UserId = Users.IDUSER and dbo.UpdSupply.dateUpd between @d1 and @d2  and UpdSupply.DescUpd =N'تم حذف الطلب' ";
             SqlParameter[] parm = new SqlParameter[2];
             parm[0] = new SqlParameter("@d1", d1);
             parm[1] = new SqlParameter("@d2", d2);
@@ -333,7 +341,7 @@ namespace frmWInReprting
         public DataTable GetUpdtOutByIDOut(int idOUt)
         {
             
-            string Query="SELECT     dbo.UpdateOut.IdUpdate as 'رقم', dbo.UpdateOut.IDOut as 'رقم الطلب', dbo.Category.NameCategory as 'اسم الصنف', dbo.TypeQuntity.NameType as 'نوع الكمية', dbo.UpdateOut.Quntity as 'الكمية', dbo.UpdateOut.Price as 'سعر الوحدة', dbo.Currency.NameCurrency as 'العملة',  dbo.PlaceSend.NamePlace as 'الجهة المستفيدة', dbo.UpdateOut.NameOUt as 'بامر من ', dbo.UpdateOut.NameSend as 'اسم المستلم', dbo.UpdateOut.TxtReson as 'سبب التعديل', dbo.UpdateOut.DateUpdate as 'تاريخ التعديل' ,Users.Name as 'اسم الموظف' FROM Users,   dbo.UpdateOut INNER JOIN   dbo.PlaceSend ON dbo.UpdateOut.IdPlace = dbo.PlaceSend.IDPlace CROSS JOIN   dbo.TypeQuntity CROSS JOIN  dbo.Category CROSS JOIN   dbo.Currency where UpdateOut.IdCate = Category.IDCategory and UpdateOut.IdCurrent = Currency.IDCurrency and UpdateOut.IdPlace = PlaceSend.IDPlace and UpdateOut.UserId=Users.UserID and UpdateOut.IdType = TypeQuntity.IDType and UpdateOut.IDOut=@id";
+            string Query= "SELECT     dbo.UpdateOut.IdUpdate as 'رقم', dbo.UpdateOut.IDOut as 'رقم الطلب', dbo.Category.NameCategory as 'اسم الصنف', dbo.TypeQuntity.NameType as 'نوع الكمية', dbo.UpdateOut.Quntity as 'الكمية', dbo.UpdateOut.Price as 'سعر الوحدة', dbo.Currency.NameCurrency as 'العملة',  dbo.PlaceSend.NamePlace as 'الجهة المستفيدة', dbo.UpdateOut.NameOUt as 'بامر من ', dbo.UpdateOut.NameSend as 'اسم المستلم', dbo.UpdateOut.TxtReson as 'سبب التعديل', dbo.UpdateOut.DateUpdate as 'تاريخ التعديل' ,Users.Name as 'اسم الموظف' FROM Users,   dbo.UpdateOut INNER JOIN   dbo.PlaceSend ON dbo.UpdateOut.IdPlace = dbo.PlaceSend.IDPlace CROSS JOIN   dbo.TypeQuntity CROSS JOIN  dbo.Category CROSS JOIN   dbo.Currency where UpdateOut.IdCate = Category.IDCategory and UpdateOut.IdCurrent = Currency.IDCurrency and UpdateOut.IdPlace = PlaceSend.IDPlace and UpdateOut.UserId=Users.IDUSER and UpdateOut.IdType = TypeQuntity.IDType and UpdateOut.IDOut=@id";
             SqlParameter[] parm = new SqlParameter[1];
             parm [0]=new SqlParameter("@id", idOUt);
            return  sql.SelectData(Query, parm);
@@ -344,7 +352,7 @@ namespace frmWInReprting
         public DataTable GetUpdOutByDate(DateTime d1, DateTime d2)
         {
 
-            string Query="SELECT    dbo.UpdateOut.IdUpdate as 'رقم', dbo.UpdateOut.IDOut as 'رقم الطلب', dbo.Category.NameCategory as 'اسم الصنف', dbo.TypeQuntity.NameType as 'نوع الكمية', dbo.UpdateOut.Quntity as 'الكمية', dbo.UpdateOut.Price as 'سعر الوحدة', dbo.Currency.NameCurrency as 'العملة',  dbo.PlaceSend.NamePlace as 'الجهة المستفيدة', dbo.UpdateOut.NameOUt as 'بامر من ', dbo.UpdateOut.NameSend as 'اسم المستلم', dbo.UpdateOut.TxtReson as 'سبب التعديل', dbo.UpdateOut.DateUpdate as 'تاريخ التعديل' ,Users.Name as 'اسم الموظف' FROM  Users, dbo.UpdateOut INNER JOIN   dbo.PlaceSend ON dbo.UpdateOut.IdPlace = dbo.PlaceSend.IDPlace CROSS JOIN   dbo.TypeQuntity CROSS JOIN  dbo.Category CROSS JOIN   dbo.Currency where UpdateOut.IdCate = Category.IDCategory and UpdateOut.IdCurrent = Currency.IDCurrency and UpdateOut.IdPlace = PlaceSend.IDPlace and UpdateOut.UserId=Users.UserID and  UpdateOut.IdType = TypeQuntity.IDType and UpdateOut.DateUpdate between @d1 and @d2";
+            string Query= "SELECT    dbo.UpdateOut.IdUpdate as 'رقم', dbo.UpdateOut.IDOut as 'رقم الطلب', dbo.Category.NameCategory as 'اسم الصنف', dbo.TypeQuntity.NameType as 'نوع الكمية', dbo.UpdateOut.Quntity as 'الكمية', dbo.UpdateOut.Price as 'سعر الوحدة', dbo.Currency.NameCurrency as 'العملة',  dbo.PlaceSend.NamePlace as 'الجهة المستفيدة', dbo.UpdateOut.NameOUt as 'بامر من ', dbo.UpdateOut.NameSend as 'اسم المستلم', dbo.UpdateOut.TxtReson as 'سبب التعديل', dbo.UpdateOut.DateUpdate as 'تاريخ التعديل' ,Users.Name as 'اسم الموظف' FROM  Users, dbo.UpdateOut INNER JOIN   dbo.PlaceSend ON dbo.UpdateOut.IdPlace = dbo.PlaceSend.IDPlace CROSS JOIN   dbo.TypeQuntity CROSS JOIN  dbo.Category CROSS JOIN   dbo.Currency where UpdateOut.IdCate = Category.IDCategory and UpdateOut.IdCurrent = Currency.IDCurrency and UpdateOut.IdPlace = PlaceSend.IDPlace and UpdateOut.UserId=Users.IDUSER and  UpdateOut.IdType = TypeQuntity.IDType and UpdateOut.DateUpdate between @d1 and @d2";
             SqlParameter[] parm = new SqlParameter[2];
          parm[0]=new SqlParameter("@d1", d1);
           parm[1]=new SqlParameter("@d2", d2);
@@ -358,7 +366,7 @@ namespace frmWInReprting
         public DataTable GetUpdOutByDateUpdtewithdate(DateTime d1, DateTime d2)
         {
            
-          string Query="SELECT    dbo.UpdateOut.IdUpdate as 'رقم', dbo.UpdateOut.IDOut as 'رقم الطلب', dbo.Category.NameCategory as 'اسم الصنف', dbo.TypeQuntity.NameType as 'نوع الكمية', dbo.UpdateOut.Quntity as 'الكمية', dbo.UpdateOut.Price as 'سعر الوحدة', dbo.Currency.NameCurrency as 'العملة',  dbo.PlaceSend.NamePlace as 'الجهة المستفيدة', dbo.UpdateOut.NameOUt as 'بامر من ', dbo.UpdateOut.NameSend as 'اسم المستلم', dbo.UpdateOut.TxtReson as 'سبب التعديل', dbo.UpdateOut.DateUpdate as 'تاريخ التعديل' ,Users.Name as 'اسم الموظف' FROM  Users, dbo.UpdateOut INNER JOIN   dbo.PlaceSend ON dbo.UpdateOut.IdPlace = dbo.PlaceSend.IDPlace CROSS JOIN   dbo.TypeQuntity CROSS JOIN  dbo.Category CROSS JOIN   dbo.Currency where UpdateOut.IdCate = Category.IDCategory and UpdateOut.IdCurrent = Currency.IDCurrency and UpdateOut.IdPlace = PlaceSend.IDPlace and UpdateOut.UserId=Users.UserID and  UpdateOut.IdType = TypeQuntity.IDType and UpdateOut.DateUpdate between @d1 and @d2 and UpdateOut.TxtReson !=N'تم حذف الطلب'" ;
+          string Query= "SELECT    dbo.UpdateOut.IdUpdate as 'رقم', dbo.UpdateOut.IDOut as 'رقم الطلب', dbo.Category.NameCategory as 'اسم الصنف', dbo.TypeQuntity.NameType as 'نوع الكمية', dbo.UpdateOut.Quntity as 'الكمية', dbo.UpdateOut.Price as 'سعر الوحدة', dbo.Currency.NameCurrency as 'العملة',  dbo.PlaceSend.NamePlace as 'الجهة المستفيدة', dbo.UpdateOut.NameOUt as 'بامر من ', dbo.UpdateOut.NameSend as 'اسم المستلم', dbo.UpdateOut.TxtReson as 'سبب التعديل', dbo.UpdateOut.DateUpdate as 'تاريخ التعديل' ,Users.Name as 'اسم الموظف' FROM  Users, dbo.UpdateOut INNER JOIN   dbo.PlaceSend ON dbo.UpdateOut.IdPlace = dbo.PlaceSend.IDPlace CROSS JOIN   dbo.TypeQuntity CROSS JOIN  dbo.Category CROSS JOIN   dbo.Currency where UpdateOut.IdCate = Category.IDCategory and UpdateOut.IdCurrent = Currency.IDCurrency and UpdateOut.IdPlace = PlaceSend.IDPlace and UpdateOut.UserId=Users.IDUSER and  UpdateOut.IdType = TypeQuntity.IDType and UpdateOut.DateUpdate between @d1 and @d2 and UpdateOut.TxtReson !=N'تم حذف الطلب'";
             SqlParameter[] parm = new SqlParameter[2];
             parm[0] = new SqlParameter("@d1", d1);
             parm[1] = new SqlParameter("@d2", d2);
@@ -370,7 +378,7 @@ namespace frmWInReprting
         public DataTable GetUpdOutByDateDetle2tewithdate(DateTime d1, DateTime d2)
         {
 
-            string Query = "SELECT    dbo.UpdateOut.IdUpdate as 'رقم', dbo.UpdateOut.IDOut as 'رقم الطلب', dbo.Category.NameCategory as 'اسم الصنف', dbo.TypeQuntity.NameType as 'نوع الكمية', dbo.UpdateOut.Quntity as 'الكمية', dbo.UpdateOut.Price as 'سعر الوحدة', dbo.Currency.NameCurrency as 'العملة',  dbo.PlaceSend.NamePlace as 'الجهة المستفيدة', dbo.UpdateOut.NameOUt as 'بامر من ', dbo.UpdateOut.NameSend as 'اسم المستلم', dbo.UpdateOut.TxtReson as 'سبب التعديل', dbo.UpdateOut.DateUpdate as 'تاريخ التعديل' ,Users.Name as 'اسم الموظف' FROM  Users, dbo.UpdateOut INNER JOIN   dbo.PlaceSend ON dbo.UpdateOut.IdPlace = dbo.PlaceSend.IDPlace CROSS JOIN   dbo.TypeQuntity CROSS JOIN  dbo.Category CROSS JOIN   dbo.Currency where UpdateOut.IdCate = Category.IDCategory and UpdateOut.IdCurrent = Currency.IDCurrency and UpdateOut.IdPlace = PlaceSend.IDPlace and UpdateOut.UserId=Users.UserID and  UpdateOut.IdType = TypeQuntity.IDType and UpdateOut.DateUpdate between @d1 and @d2 and UpdateOut.TxtReson =N'تم حذف الطلب'";
+            string Query = "SELECT    dbo.UpdateOut.IdUpdate as 'رقم', dbo.UpdateOut.IDOut as 'رقم الطلب', dbo.Category.NameCategory as 'اسم الصنف', dbo.TypeQuntity.NameType as 'نوع الكمية', dbo.UpdateOut.Quntity as 'الكمية', dbo.UpdateOut.Price as 'سعر الوحدة', dbo.Currency.NameCurrency as 'العملة',  dbo.PlaceSend.NamePlace as 'الجهة المستفيدة', dbo.UpdateOut.NameOUt as 'بامر من ', dbo.UpdateOut.NameSend as 'اسم المستلم', dbo.UpdateOut.TxtReson as 'سبب التعديل', dbo.UpdateOut.DateUpdate as 'تاريخ التعديل' ,Users.Name as 'اسم الموظف' FROM  Users, dbo.UpdateOut INNER JOIN   dbo.PlaceSend ON dbo.UpdateOut.IdPlace = dbo.PlaceSend.IDPlace CROSS JOIN   dbo.TypeQuntity CROSS JOIN  dbo.Category CROSS JOIN   dbo.Currency where UpdateOut.IdCate = Category.IDCategory and UpdateOut.IdCurrent = Currency.IDCurrency and UpdateOut.IdPlace = PlaceSend.IDPlace and UpdateOut.UserId=Users.IDUSER and  UpdateOut.IdType = TypeQuntity.IDType and UpdateOut.DateUpdate between @d1 and @d2 and UpdateOut.TxtReson =N'تم حذف الطلب'";
             SqlParameter[] parm = new SqlParameter[2];
             parm[0] = new SqlParameter("@d1", d1);
             parm[1] = new SqlParameter("@d2", d2);

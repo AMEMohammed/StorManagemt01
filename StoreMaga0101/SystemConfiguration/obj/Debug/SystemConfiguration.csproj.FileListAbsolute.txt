@@ -9,3 +9,14 @@ D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\SystemConfiguration\bin
 D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\SystemConfiguration\bin\Debug\SystemConfiguration.dll
 D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\SystemConfiguration\obj\Debug\SystemConfiguration.dll
 D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\SystemConfiguration\obj\Debug\SystemConfiguration.frmCuurncy.resources
+D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\SystemConfiguration\bin\Debug\SystemConfiguration.dll.config
+D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\SystemConfiguration\bin\Debug\SystemConfiguration.dll
+D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\SystemConfiguration\bin\Debug\SystemConfiguration.pdb
+D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\SystemConfiguration\obj\Debug\SystemConfiguration.Cate.resources
+D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\SystemConfiguration\obj\Debug\SystemConfiguration.frmCuurncy.resources
+D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\SystemConfiguration\obj\Debug\SystemConfiguration.frmPlace.resources
+D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\SystemConfiguration\obj\Debug\SystemConfiguration.frmType.resources
+D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\SystemConfiguration\obj\Debug\SystemConfiguration.Properties.Resources.resources
+D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\SystemConfiguration\obj\Debug\SystemConfiguration.csproj.GenerateResource.Cache
+D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\SystemConfiguration\obj\Debug\SystemConfiguration.dll
+D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\SystemConfiguration\obj\Debug\SystemConfiguration.pdb
