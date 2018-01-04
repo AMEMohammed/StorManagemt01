@@ -355,7 +355,7 @@ namespace Account
             return dt;
 
         }
-        ////جلب اسم رقم واسمه ومنرقم الحساب
+        ////جلب اسم رقم واسمه ومن رقم الحساب
         public DataTable GETNMAccount(int IDCOde)
         {
             string Query = "select AccountNm.IDCode,AccountNm.AcountNm  from AccountNm where IDCode=@idcode";
@@ -400,11 +400,11 @@ namespace Account
                 string LIKEType;
                 if (cha>0)
                 {
-                    LIKEType = "توريد";
+                    LIKEType = "امر توريد";
                 }
                 else
                 {
-                    LIKEType = "صرف";
+                    LIKEType = "امر صرف";
                 }
                 int userii = Convert.ToInt32(dtre1.Rows[i][7].ToString());
                 if (vale > 0)
@@ -416,6 +416,10 @@ namespace Account
                     DtResult.Rows.Add(new string[] { "0", string.Format("{0:##,##}", Convert.ToInt32(dtre1.Rows[i][2].ToString())), nmCurrncy, LIKEType, dtre1.Rows[i][6].ToString(), dtre1.Rows[i][5].ToString(), GetUserNM(userii) });
                 }
             }
+            DataTable DTAll = new DataTable();
+            DTAll = GetBalanceAccount(IDcode, IDCurnncy, nmCurrncy);
+            DtResult.Rows.Add(new string[] { string.Format("{0:##,##}", DTAll.Rows[0][2].ToString()), nmCurrncy, "الاجمالي", DateTime.Now.ToString(), DTAll.Rows[0][5].ToString(), null });
+
             return DtResult;
 
         }
@@ -449,7 +453,7 @@ namespace Account
         }
         DataTable GETAcountDitlis(int IDcode, int IDCurnncy, DateTime d1, DateTime d2)
         {
-            string Query = "  select * from AccountDetalis  where IDCode=@idcode and  IDCurrncy=@idcurrncy and DateEnter between @d1  and @d2";
+            string Query = "select * from AccountDetalis  where IDCode=@idcode and  IDCurrncy=@idcurrncy and DateEnter between @d1  and @d2";
             SqlParameter[] parm = new SqlParameter[4];
             parm[0] = new SqlParameter("@idcode", IDcode);
             parm[1] = new SqlParameter("@idcurrncy", IDCurnncy);
