@@ -29,10 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.txtBath = new System.Windows.Forms.TextBox();
             this.btnCHek = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -47,9 +44,7 @@
             this.btnExit = new System.Windows.Forms.Button();
             this.btnsave = new System.Windows.Forms.Button();
             this.txtpass = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.groupBox5.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -58,31 +53,12 @@
             // 
             this.groupBox5.Controls.Add(this.btnExit);
             this.groupBox5.Controls.Add(this.btnsave);
-            this.groupBox5.Location = new System.Drawing.Point(145, 299);
+            this.groupBox5.Location = new System.Drawing.Point(145, 222);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(144, 55);
             this.groupBox5.TabIndex = 14;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "العمليات";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.button1);
-            this.groupBox3.Controls.Add(this.txtBath);
-            this.groupBox3.Controls.Add(this.label5);
-            this.groupBox3.Location = new System.Drawing.Point(9, 231);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(280, 62);
-            this.groupBox3.TabIndex = 13;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "قاعدة البيانات";
-            // 
-            // txtBath
-            // 
-            this.txtBath.Location = new System.Drawing.Point(6, 24);
-            this.txtBath.Name = "txtBath";
-            this.txtBath.Size = new System.Drawing.Size(151, 20);
-            this.txtBath.TabIndex = 6;
             // 
             // btnCHek
             // 
@@ -93,15 +69,6 @@
             this.btnCHek.Text = "تاكيد الاتصال";
             this.btnCHek.UseVisualStyleBackColor = true;
             this.btnCHek.Click += new System.EventHandler(this.btnCHek_Click);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(207, 27);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(67, 13);
-            this.label5.TabIndex = 7;
-            this.label5.Text = "مسار الحفظ : ";
             // 
             // groupBox2
             // 
@@ -230,6 +197,7 @@
             this.btnsave.TabIndex = 0;
             this.btnsave.Text = "حفظ";
             this.btnsave.UseVisualStyleBackColor = true;
+            this.btnsave.Click += new System.EventHandler(this.btnsave_Click);
             // 
             // txtpass
             // 
@@ -239,22 +207,12 @@
             this.txtpass.Size = new System.Drawing.Size(151, 20);
             this.txtpass.TabIndex = 7;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(163, 22);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(38, 23);
-            this.button1.TabIndex = 10;
-            this.button1.Text = ".....";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // FrmConServer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(295, 366);
+            this.ClientSize = new System.Drawing.Size(295, 281);
             this.Controls.Add(this.groupBox5);
-            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "FrmConServer";
@@ -264,8 +222,6 @@
             this.Text = "الاتصال بالسيرفر";
             this.Load += new System.EventHandler(this.FrmConServer_Load);
             this.groupBox5.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -279,10 +235,7 @@
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnsave;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.TextBox txtBath;
         private System.Windows.Forms.Button btnCHek;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
@@ -295,6 +248,5 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtUser;
         private System.Windows.Forms.TextBox txtpass;
-        private System.Windows.Forms.Button button1;
     }
 }
