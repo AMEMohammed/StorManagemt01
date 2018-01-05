@@ -73,6 +73,16 @@ namespace Users.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap download_button {
+            get {
+                object obj = ResourceManager.GetObject("download-button", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap exit__3_ {
             get {
                 object obj = ResourceManager.GetObject("exit (3)", resourceCulture);
@@ -96,6 +106,16 @@ namespace Users.Properties {
         internal static System.Drawing.Bitmap login_img {
             get {
                 object obj = ResourceManager.GetObject("login_img", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logout {
+            get {
+                object obj = ResourceManager.GetObject("logout", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

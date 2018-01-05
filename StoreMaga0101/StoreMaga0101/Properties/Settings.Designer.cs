@@ -25,54 +25,6 @@ namespace StoreMaga0101.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute(".\\s2008")]
-        public string ServerNm {
-            get {
-                return ((string)(this["ServerNm"]));
-            }
-            set {
-                this["ServerNm"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("StoreManagement1")]
-        public string DBNM {
-            get {
-                return ((string)(this["DBNM"]));
-            }
-            set {
-                this["DBNM"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("sa")]
-        public string UserSql {
-            get {
-                return ((string)(this["UserSql"]));
-            }
-            set {
-                this["UserSql"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("123456")]
-        public string PassSql {
-            get {
-                return ((string)(this["PassSql"]));
-            }
-            set {
-                this["PassSql"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("D:\\\\")]
         public string PathDB {
             get {

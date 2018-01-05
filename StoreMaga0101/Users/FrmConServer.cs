@@ -2,38 +2,41 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
-namespace StoreMaga0101
+
+namespace Users
 {
     public partial class FrmConServer : Form
-    { 
+    {
         public FrmConServer()
         {
             InitializeComponent();
-           
+
         }
 
         private void btnCHek_Click(object sender, EventArgs e)
         {
             SqlConnection sqlCon;
-            if (txtServer.Text.Length>0 &&txtDB.Text.Length>0)
+            if (txtServer.Text.Length > 0 && txtDB.Text.Length > 0)
 
-            { if (txtUser.Text.Length > 0 && txtpass.Text.Length > 0)
+            {
+                if (txtUser.Text.Length > 0 && txtpass.Text.Length > 0)
                 {
                     sqlCon = new SqlConnection(@"Data Source=" + txtServer.Text + ";Initial Catalog=" + txtDB.Text + ";User ID=" + txtUser.Text + ";Password=" + txtpass.Text);
                 }
-             else
+                else
                 {
-                 sqlCon = new SqlConnection(@"Data Source=" + txtServer.Text + ";Initial Catalog=" + txtDB.Text + ";;Integrated Security=true;");
+                    sqlCon = new SqlConnection(@"Data Source=" + txtServer.Text + ";Initial Catalog=" + txtDB.Text + ";;Integrated Security=true;");
 
                 }
                 try
-                { sqlCon.Open();
+                {
+                    sqlCon.Open();
                     label7.Text = "متصل";
                     sqlCon.Close();
                 }
@@ -41,8 +44,8 @@ namespace StoreMaga0101
                 {
                     label7.Text = "غير متصل";
                 }
-          
-               
+
+
 
             }
             else
@@ -60,7 +63,7 @@ namespace StoreMaga0101
                 txtUser.Text = Properties.Settings.Default.UserSql;
                 txtpass.Text = Properties.Settings.Default.PassSql;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -68,10 +71,10 @@ namespace StoreMaga0101
 
         private void btnsave_Click(object sender, EventArgs e)
         {
-           Properties.Settings.Default.ServerNm = txtServer.Text;
-          Properties.Settings.Default.DBNM = txtDB.Text;
+            Properties.Settings.Default.ServerNm = txtServer.Text;
+            Properties.Settings.Default.DBNM = txtDB.Text;
             Properties.Settings.Default.UserSql = txtUser.Text;
-           Properties.Settings.Default.PassSql = txtpass.Text;
+            Properties.Settings.Default.PassSql = txtpass.Text;
             Properties.Settings.Default.Save();
             this.Close();
         }

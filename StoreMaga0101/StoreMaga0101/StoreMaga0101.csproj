@@ -86,12 +86,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FrmConServer.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmConServer.Designer.cs">
-      <DependentUpon>FrmConServer.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,9 +95,6 @@
     <Compile Include="MessageBoxManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FrmConServer.resx">
-      <DependentUpon>FrmConServer.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>

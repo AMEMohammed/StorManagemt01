@@ -579,7 +579,7 @@ namespace StoreMaga0101
         private void toolStripMenuItem29_Click(object sender, EventArgs e)
         {
             this.Cursor = Cursors.WaitCursor;
-            FrmConServer frmCurrncy = new FrmConServer();
+           Users. FrmConServer frmCurrncy = new Users.FrmConServer();
             FormCollection fromco = Application.OpenForms;
             bool foundFrom = false;
             foreach (Form frm in fromco)
