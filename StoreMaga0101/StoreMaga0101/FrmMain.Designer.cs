@@ -428,6 +428,7 @@
             this.toolStripMenuItem29.Size = new System.Drawing.Size(210, 50);
             this.toolStripMenuItem29.Text = "الاتصال بالسيرفر";
             this.toolStripMenuItem29.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.toolStripMenuItem29.Click += new System.EventHandler(this.toolStripMenuItem29_Click);
             // 
             // toolStripMenuItem30
             // 

@@ -78,10 +78,7 @@ D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\StoreMaga0101\bin\Debug
 D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\StoreMaga0101\bin\Debug\SystemConfiguration.pdb
 D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\StoreMaga0101\bin\Debug\Account.dll
 D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\StoreMaga0101\bin\Debug\Account.pdb
-D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\StoreMaga0101\bin\Debug\StoreMaga0101.exe.config
-D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\StoreMaga0101\obj\Debug\StoreMaga0101.exe
 D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\StoreMaga0101\obj\Debug\StoreMaga0101.pdb
-D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\StoreMaga0101\bin\Debug\StoreMaga0101.exe
 D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\StoreMaga0101\bin\Debug\StoreMaga0101.pdb
 D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\StoreMaga0101\bin\Debug\Account.dll
 D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\StoreMaga0101\bin\Debug\FrmRports.dll
@@ -120,3 +117,6 @@ D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\StoreMaga0101\obj\Debug
 D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\StoreMaga0101\obj\Debug\StoreMaga0101.Properties.Resources.resources
 D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\StoreMaga0101\obj\Debug\StoreMaga0101.csproj.GenerateResource.Cache
 D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\StoreMaga0101\obj\Debug\StoreMaga0101.FrmConServer.resources
+D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\StoreMaga0101\bin\Debug\StoreMaga0101.dll.config
+D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\StoreMaga0101\bin\Debug\StoreMaga0101.dll
+D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\StoreMaga0101\obj\Debug\StoreMaga0101.dll

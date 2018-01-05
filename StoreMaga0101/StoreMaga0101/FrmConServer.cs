@@ -71,6 +71,12 @@ namespace StoreMaga0101
             Properties.Settings.Default.UserSql = txtUser.Text;
            Properties.Settings.Default.PassSql = txtpass.Text;
             Properties.Settings.Default.Save();
+            this.Close();
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

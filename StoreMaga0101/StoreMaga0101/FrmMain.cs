@@ -575,5 +575,29 @@ namespace StoreMaga0101
             }
             this.Cursor = Cursors.Default;
         }
+
+        private void toolStripMenuItem29_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            FrmConServer frmCurrncy = new FrmConServer();
+            FormCollection fromco = Application.OpenForms;
+            bool foundFrom = false;
+            foreach (Form frm in fromco)
+            {
+                if (frm.Name == "FrmConServer")
+                {
+                    frm.Focus();
+
+                    foundFrom = true;
+
+                }
+
+            }
+            if (foundFrom == false)
+            {
+                frmCurrncy.Show();
+            }
+            this.Cursor = Cursors.Default;
+        }
     }
 }
