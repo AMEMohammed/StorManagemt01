@@ -27,6 +27,7 @@ namespace SystemConfiguration
         }
         public frmPlace(string ServerNm,string DbNm,string UserSql,string PassSql)
         {
+            InitializeComponent();
             try
             {
                 config = new Config(ServerNm, DbNm, UserSql, PassSql);

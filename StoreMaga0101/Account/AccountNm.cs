@@ -14,7 +14,7 @@ namespace Account
 
       public  AccountNm(string SerNm,string DBNm,string UserSql,string PassSql)
         {
-            if(UserSql ==null || PassSql ==null)
+           if (string.IsNullOrEmpty(UserSql) || string.IsNullOrEmpty(PassSql))
             {
                 sql = new MSqlConnection(SerNm, DBNm);
             }
@@ -70,6 +70,51 @@ namespace Account
             return sql.ExcuteQuery(Query, parm);
         }
         /// <summary>
+        /// 
+        /// 
+        ///
+        /// 
+        /// chaeck account
+    public   bool CheckAccountinDetlis(int idcode)
+        { bool res;
+            string Query = "select * from AccountDetalis where IDCode=@idcode";
+            SqlParameter[] parm = new SqlParameter[1];
+            parm[0] = new SqlParameter("@idcode", idcode);
+            DataTable dt = new DataTable();
+            dt = sql.SelectData(Query, parm);
+            if(dt.Rows.Count>0)
+            {
+                res = true;
+            }
+            else
+            {
+                res = false;
+                
+            }
+            return res;
+
+        }
+        public bool CheckAccounthaschalid(int idcode)
+        {
+            bool res;
+            string Query = "select * from AccountNm where IDParentAcount =@idcode";
+            SqlParameter[] parm = new SqlParameter[1];
+            parm[0] = new SqlParameter("@idcode", idcode);
+            DataTable dt = new DataTable();
+            dt = sql.SelectData(Query, parm);
+            if (dt.Rows.Count > 0)
+            {
+                res = true;
+            }
+            else
+            {
+                res = false;
+
+            }
+            return res;
+
+        }
+
         /// GetTYpe Account
         /// </summary>
         /// <param name="IDAccount"></param>
@@ -155,7 +200,15 @@ namespace Account
             parm[0] = new SqlParameter("@id", IDCount);
             return sql.ExcuteQuery(Query, parm);
         }
-
+        /// <returns></returns>
+        /////////////
+        public int DelteAccount2(int IDcode)
+        {
+            string Query = "delete from AccountNm where IDCode=@id";
+            SqlParameter[] parm = new SqlParameter[1];
+            parm[0] = new SqlParameter("@id", IDcode);
+            return sql.ExcuteQuery(Query, parm);
+        }
 
         /////////
         /// Search AcoutnNm

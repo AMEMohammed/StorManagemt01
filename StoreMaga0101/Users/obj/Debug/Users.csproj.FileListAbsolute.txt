@@ -28,4 +28,3 @@ D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\Users\bin\Debug\Users.d
 D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\Users\obj\Debug\Users.dll
 D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\Users\obj\Debug\Users.frmChangPass.resources
 D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\Users\obj\Debug\Users.FrmConServer.resources
-D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\Users\obj\Debug\Users.csprojResolveAssemblyReference.cache

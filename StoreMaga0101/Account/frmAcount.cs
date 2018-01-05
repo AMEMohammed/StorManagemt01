@@ -132,6 +132,7 @@ namespace Account
           
            
             IdAcount = Convert.ToInt32(t.Tag.ToString());
+            idcode = Convert.ToInt32(t.Name);
             comboBox2.Text = Acn.TypeAccount(IdAcount);//get Type Account;
             checkBox1.Checked = !Acn.GetCheckAccount(IdAcount);
 
@@ -236,6 +237,7 @@ namespace Account
                     if (Acn.TypeAccount(IdAcount).Equals("رئيسي"))
                     {
                         textBox1.Text = "";
+                        textBox1.Focus();
                         comboBox1.Text = t.Text;
 
                         CodeAddAcount = Convert.ToInt32(t.Name);// رقم حساب الاب
@@ -278,6 +280,7 @@ namespace Account
                     if (Acn.TypeAccount(IdAcount).Equals("رئيسي"))
                     {
                         textBox1.Text = "";
+                        textBox1.Focus();
                         comboBox1.Text = t.Text;
 
                         CodeAddAcount = Convert.ToInt32(t.Name);// رقم حساب الاب
@@ -351,7 +354,7 @@ namespace Account
 
             }
         }
-
+        public int idcode;
         private void dataGridView1_CellEnter_1(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -367,7 +370,7 @@ namespace Account
                     bool chek = Convert.ToBoolean(dataGridView1.SelectedRows[0].Cells[5].Value.ToString());
                     checkBox1.Checked = !chek;
                     IdAcount = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[8].Value.ToString());
-
+                    idcode = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
 
                 }
             }
@@ -375,5 +378,34 @@ namespace Account
             { MessageBox.Show(ex.Message); }
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if(idcode >= 1)
+            {
+           if( MessageBox.Show("هل تريد حذف الحساب المحدد", "تاكيد", MessageBoxButtons.YesNo, MessageBoxIcon.Question)==DialogResult.Yes)
+                { 
+                    if(Acn.CheckAccountinDetlis(idcode) || Acn.CheckAccounthaschalid(idcode))
+                    { 
+                        MessageBox.Show("لا يمكن حذف السجل لانه مرتبط بسجلات اخرى", "رسالة", MessageBoxButtons.OK);
+                    }
+                    else
+                    {
+                        MessageBox.Show(idcode.ToString ());
+                       Acn.DelteAccount2(idcode);
+                        
+                        RefrshTreeNode();
+                  
+                        textBox1.Text = "";
+                        comboBox1.Text = "";
+                        comboBox2.Text = "";
+                        textBox4.Text = "";
+                    }
+
+                    }
+
+                }
+            }
+        
     }
 }

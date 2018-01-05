@@ -15,7 +15,8 @@ namespace Supplly
       
        
         public SupplyRequset(string serv, string db,string user,string pass)
-        { if(user ==null || pass==null)
+        {
+            if (string.IsNullOrEmpty(user) || string.IsNullOrEmpty(pass))
                 sql = new MSqlConnection(serv, db);
             else
             sql = new MSqlConnection(serv, db,user,pass);

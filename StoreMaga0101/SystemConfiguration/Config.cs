@@ -12,7 +12,7 @@ namespace SystemConfiguration
         MSqlConnection sql;
         public Config(string ServerNm,string DbNm,string UserSql,string PassSql)
         {
-            if(UserSql ==null || PassSql==null)
+            if (string.IsNullOrEmpty(UserSql) || string.IsNullOrEmpty(PassSql))
             {
                 sql = new MSqlConnection(ServerNm, DbNm);
             }

@@ -15,8 +15,8 @@ namespace frmWInReprting
         public MSqlConnection(string ServerSql, string DbSql, string UserSql, string PassSql)
         {
 
-            if (UserSql==null || PassSql==null )
-             ConnectionString = @"Data Source=" + ServerSql + ";Initial Catalog=" + DbSql + ";Integrated Security=true;";
+            if (string.IsNullOrEmpty(UserSql) || string.IsNullOrEmpty(PassSql))
+                ConnectionString = @"Data Source=" + ServerSql + ";Initial Catalog=" + DbSql + ";Integrated Security=true;";
            else
             ConnectionString = @"Data Source=" + ServerSql + ";Initial Catalog=" + DbSql + ";User ID=" + UserSql + ";Password=" + PassSql;
             sqlcon = new SqlConnection(ConnectionString);

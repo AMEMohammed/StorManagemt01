@@ -13,7 +13,8 @@ namespace Out_
         MSqlConnection sql;
        
         public OutFunction(string SeverNm, string DBNm,string UserSql,string PassSql)
-        {    if(UserSql ==null || PassSql==null)
+        {
+            if (string.IsNullOrEmpty(UserSql) || string.IsNullOrEmpty(PassSql))
             {
                 sql = new MSqlConnection(SeverNm, DBNm);
             }

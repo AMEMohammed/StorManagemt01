@@ -21,7 +21,6 @@ namespace Users
             InitializeComponent();
             try
             {
-                UserID = 1;
                 Us = new UsersSQl(@".\s2008", "StoreManagement1", null, null);
             }
             catch (Exception ex)
@@ -29,12 +28,12 @@ namespace Users
                 MessageBox.Show(ex.Message);
             }
         }
-        public frmLogin(string SerNm, string DbNm, string UserSql, string PassSql,int Useri)
+        public frmLogin(string SerNm, string DbNm, string UserSql, string PassSql)
         {
             InitializeComponent();
             try
             {
-                UserID = Useri;
+               
                 Us = new UsersSQl(SerNm, DbNm, UserSql, PassSql);
             }
             catch (Exception ex)
