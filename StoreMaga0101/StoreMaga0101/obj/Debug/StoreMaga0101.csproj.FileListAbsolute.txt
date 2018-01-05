@@ -120,3 +120,4 @@ D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\StoreMaga0101\obj\Debug
 D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\StoreMaga0101\bin\Debug\StoreMaga0101.exe.config
 D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\StoreMaga0101\bin\Debug\StoreMaga0101.exe
 D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\StoreMaga0101\obj\Debug\StoreMaga0101.exe
+D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\StoreMaga0101\obj\Debug\StoreMaga0101.csprojResolveAssemblyReference.cache

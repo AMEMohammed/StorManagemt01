@@ -26,5 +26,4 @@ D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\Users\obj\Debug\Users.p
 D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\Users\bin\Debug\Users.dll.config
 D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\Users\bin\Debug\Users.dll
 D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\Users\obj\Debug\Users.dll
-D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\Users\obj\Debug\Users.csprojResolveAssemblyReference.cache
 D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\Users\obj\Debug\Users.frmChangPass.resources

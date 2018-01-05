@@ -32,15 +32,17 @@ namespace StoreMaga0101
                  sqlCon = new SqlConnection(@"Data Source=" + txtServer.Text + ";Initial Catalog=" + txtDB.Text + ";;Integrated Security=true;");
 
                 }
-            if(sqlCon.State==ConnectionState.Connecting)
-                {
+                try
+                { sqlCon.Open();
                     label7.Text = "متصل";
+                    sqlCon.Close();
                 }
-            else
+                catch
                 {
                     label7.Text = "غير متصل";
-
                 }
+          
+               
 
             }
             else
