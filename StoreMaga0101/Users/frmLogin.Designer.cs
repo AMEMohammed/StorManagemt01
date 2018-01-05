@@ -33,8 +33,9 @@
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.btnAddSup = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button4 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox3.SuspendLayout();
             this.groupBox9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -98,16 +99,6 @@
             this.btnAddSup.UseVisualStyleBackColor = true;
             this.btnAddSup.Click += new System.EventHandler(this.btnAddSup_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Users.Properties.Resources.login_img;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(416, 65);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 10;
-            this.pictureBox1.TabStop = false;
-            // 
             // button4
             // 
             this.button4.DialogResult = System.Windows.Forms.DialogResult.Cancel;
@@ -123,6 +114,26 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
+            // button1
+            // 
+            this.button1.Image = global::Users.Properties.Resources.settings;
+            this.button1.Location = new System.Drawing.Point(385, 202);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(43, 37);
+            this.button1.TabIndex = 11;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Users.Properties.Resources.login_img;
+            this.pictureBox1.Location = new System.Drawing.Point(3, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(416, 65);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 10;
+            this.pictureBox1.TabStop = false;
+            // 
             // frmLogin
             // 
             this.AcceptButton = this.btnAddSup;
@@ -131,6 +142,7 @@
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.CancelButton = this.button4;
             this.ClientSize = new System.Drawing.Size(431, 247);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.btnAddSup);
@@ -161,5 +173,6 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button btnAddSup;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button button1;
     }
 }

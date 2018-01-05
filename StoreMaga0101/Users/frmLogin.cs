@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using StoreMaga0101;
 namespace Users
 {
     public partial class frmLogin : Form
@@ -129,6 +129,11 @@ namespace Users
         private void textBox1_Enter(object sender, EventArgs e)
         {
             
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            new FrmConServer().ShowDialog();
         }
     }
 }
