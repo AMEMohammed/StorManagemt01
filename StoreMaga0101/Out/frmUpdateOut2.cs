@@ -87,12 +87,12 @@ namespace Out_
                 comboBox4.ValueMember = "رقم الجهة";
                 comboBox4.DisplayMember = "اسم الجهة";
                 comboBox4.DataSource = OutFun.GetAllPlace();
-                comboBox5.ValueMember = "الرقم";
-                comboBox5.DisplayMember = "نوع الحساب";
-                comboBox5.DataSource = OutFun.GetAllDebit();
-                comboBox6.ValueMember = "الرقم";
-                comboBox6.DisplayMember = "نوع الحساب";
-                comboBox6.DataSource = OutFun.GetAllDebit();
+                comboBox5.ValueMember = "رقم الحساب";
+                comboBox5.DisplayMember = "اسم الحساب";
+                comboBox5.DataSource = OutFun.GetALLAcountNm();
+                comboBox6.ValueMember = "رقم الحساب";
+                comboBox6.DisplayMember = "اسم الحساب";
+                comboBox6.DataSource = OutFun.GetALLAcountNm();
             }
             catch(Exception ex)
             {

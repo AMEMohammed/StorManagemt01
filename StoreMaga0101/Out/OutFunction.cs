@@ -104,6 +104,17 @@ namespace Out_
             return sql.SelectData(Query, null);
 
         }
+        ///////////////
+        /// GetAllCount
+        /// 
+        //public DataTable GetALLAcountNm()
+        //{
+
+        //    string query = "  select AccountNm.IDCode as  'رقم الحساب' ,AccountNm.AcountNm as 'اسم الحساب' from AccountNm where AcountType='فرعي'  and Active=1";
+        //    return sql.SelectData(query, null);
+
+        //}
+
         /// GetAllCreditor
         /// 
         public DataTable GetAllCreditor()
@@ -295,7 +306,7 @@ namespace Out_
             /// اضافة حساب دائن
             /// string.Format("{0:##,##}", (Total).ToString())+" "+ nmCurnncy
             string DitalisMis = "تم قيد عليكم مبلغ وقدره " + string.Format("{0:##,##}", (Total).ToString()) + " " + nmCurnncy +"  "+ "مقابل امر صرف ب  " + Quntity12 + " " + NMIDCA+ " " + NMTYpe + "  الى حساب  " + NMPlus +"رقم الطلب " + GetMAxIDOUt();
-            string DatlisPlus = "تم قيد لكم مبلغ وقدره" + string.Format("{0:##,##}", (Total).ToString()) + " " + nmCurnncy +"  " + "مقابل امر توريد ب " + Quntity12 + " " + NMIDCA + " " + NMTYpe + "  من حساب " +NMMins + "رقم الطلب " + GetMAxIDOUt();
+            string DatlisPlus = "تم قيد لكم مبلغ وقدره" + string.Format("{0:##,##}", (Total).ToString()) + " " + nmCurnncy +"  " + "مقابل امر صرف ب " + Quntity12 + " " + NMIDCA + " " + NMTYpe + "  من حساب " +NMMins + "رقم الطلب " + GetMAxIDOUt();
             AddNewAccountDetalis(credi, Total, 0, GetMAxIDOUt(), DatlisPlus, DateTime.Now, UserId, idcurrn);
             ////////// اضافة حساب مدين
            

@@ -115,7 +115,6 @@ D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\Out\bin\Debug\CrystalDe
 D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\Out\bin\Debug\stdole.dll
 D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\Out\bin\Debug\ShockwaveFlashObjects.dll
 D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\Out\bin\Debug\FrmRports.pdb
-D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\Out\obj\Debug\Out.csprojResolveAssemblyReference.cache
 D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\Out\obj\Debug\Out_.frmAddOut.resources
 D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\Out\obj\Debug\Out_.frmUpdateOut.resources
 D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\Out\obj\Debug\Out_.frmUpdateOut2.resources

@@ -282,7 +282,7 @@ namespace Out_
                         for (int i = 0; i < dtAccountIDs.Rows.Count; i++)
                         {
                             int IDAccount = Convert.ToInt32(dtAccountIDs.Rows[i][0].ToString());
-                            int result = OutFun.GetAndCheckQuntityAccountAndAddRqustNew(IDAccount, Quntity2, Idcat, idtyp, idcurrnt, idplace, nameAmmer, Decrip, DateTime.Now, MaxCheckRequstOut, nameMostlaem, IdAccountMins, IdAccountPlus, UserID,comboBox1.Text,comboBox2.Text,comboBox5.Text,comboBox6.Text,comboBox4.Text);
+                            int result = OutFun.GetAndCheckQuntityAccountAndAddRqustNew(IDAccount, Quntity2, Idcat, idtyp, idcurrnt, idplace, nameAmmer, Decrip, DateTime.Now, MaxCheckRequstOut, nameMostlaem, IdAccountMins, IdAccountPlus, UserID,comboBox1.Text,comboBox2.Text,comboBox6.Text,comboBox5.Text,comboBox4.Text);
                             if (result == 0)
                             {
                                 break;
