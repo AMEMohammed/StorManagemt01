@@ -138,6 +138,9 @@ namespace Out_
 
                     }
                     dt.Columns.Add("اسم الموظفف");
+                    dt.Columns.Add("أجمالي الكمية");
+                    dt.Columns.Add("اجمالي السعر");
+                    dt.Columns.Add("اجمالي الاجمالي");
                 }
                 catch (Exception ex)
                 {

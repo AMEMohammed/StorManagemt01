@@ -264,13 +264,15 @@ namespace Supplly
 
                     }
                     dt.Columns.Add("اسم الموظفف");
-
+                    dt.Columns.Add("اجمالي الكمية");
+                    dt.Columns.Add("اجمالي السعر");
+                    dt.Columns.Add("اجمالي الاجمالي");
                 }
 
                 catch (Exception ex) { MessageBox.Show(ex.Message); }
                 ///////////////////  أاضافة سطور 
 
-                try
+               // try
                 {
                     int sumQu = 0;
                     int SumPrs = 0;
@@ -287,22 +289,23 @@ namespace Supplly
 
                         int prs = Convert.ToInt32(dr[4].ToString());
                         SumPrs += prs;
-                      int totl = Convert.ToInt32(dr[5].ToString());
+                        int totl = Convert.ToInt32(dr[5].ToString());
                         SumTot += totl;
                         string currn = dr[6].ToString();
                         DateTime dd = DateTime.Parse(dr[7].ToString());
                         string namee = dr[8].ToString();
                         string dec = dr[9].ToString();
                         string nameUser = SuRe.GetUserNameBYIdUser(UserID);
+                        MessageBox.Show(string.Format("{0:##,##}", sumQu));
 
-                        dt.Rows.Add(idS, nmCa, nmty, string.Format("{0:##,##}", Qun), string.Format("{0:##,##}", prs), string.Format("{0:##,##}", totl), currn, dd.Date.ToShortDateString(), namee, dec, " ", nameUser, string.Format("{0:##,##}",sumQu), string.Format("{0:##,##}", SumPrs), string.Format("{0:##,##}", SumTot));
+                        dt.Rows.Add(idS, nmCa, nmty, string.Format("{0:##,##}", Qun), string.Format("{0:##,##}", prs), string.Format("{0:##,##}", totl), currn, dd.Date.ToShortDateString(), namee, dec, nameUser, string.Format("{0:##,##}",sumQu), string.Format("{0:##,##}", SumPrs), string.Format("{0:##,##}", SumTot));
 
 
                     }
                 }
-                catch (Exception ex)
+               // catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                 //   MessageBox.Show(ex.Message);
                 }
                 try
                 {

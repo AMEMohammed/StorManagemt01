@@ -61,8 +61,6 @@ D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\Supplly\obj\Debug\Suppl
 D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\Supplly\bin\Debug\Supplly.dll.config
 D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\Supplly\bin\Debug\Supplly.dll
 D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\Supplly\obj\Debug\Supplly.dll
-D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\Supplly\bin\Debug\Supplly.dll.config
-D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\Supplly\bin\Debug\Supplly.dll
 D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\Supplly\bin\Debug\Supplly.pdb
 D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\Supplly\bin\Debug\FrmRports.dll
 D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\Supplly\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
@@ -90,6 +88,8 @@ D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\Supplly\obj\Debug\Suppl
 D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\Supplly\obj\Debug\Supplly.frmUpdatSupply.resources
 D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\Supplly\obj\Debug\Supplly.Properties.Resources.resources
 D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\Supplly\obj\Debug\Supplly.csproj.GenerateResource.Cache
-D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\Supplly\obj\Debug\Supplly.dll
 D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\Supplly\obj\Debug\Supplly.pdb
 D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\Supplly\obj\Debug\Supplly.csprojResolveAssemblyReference.cache
+D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\Supplly\bin\Debug\Supplly.dll.config
+D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\Supplly\bin\Debug\Supplly.dll
+D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\Supplly\obj\Debug\Supplly.dll

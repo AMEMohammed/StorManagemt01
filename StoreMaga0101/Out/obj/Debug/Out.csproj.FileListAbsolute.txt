@@ -93,8 +93,6 @@ D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\Out\obj\Debug\Out.pdb
 D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\Out\bin\Debug\Out.dll.config
 D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\Out\bin\Debug\Out.dll
 D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\Out\obj\Debug\Out.dll
-D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\Out\bin\Debug\Out.dll.config
-D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\Out\bin\Debug\Out.dll
 D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\Out\bin\Debug\Out.pdb
 D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\Out\bin\Debug\FrmRports.dll
 D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\Out\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
@@ -123,5 +121,7 @@ D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\Out\obj\Debug\Out_.frmU
 D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\Out\obj\Debug\Out_.frmUpdateOut2.resources
 D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\Out\obj\Debug\Out_.Properties.Resources.resources
 D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\Out\obj\Debug\Out.csproj.GenerateResource.Cache
-D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\Out\obj\Debug\Out.dll
 D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\Out\obj\Debug\Out.pdb
+D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\Out\bin\Debug\Out.dll.config
+D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\Out\bin\Debug\Out.dll
+D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\Out\obj\Debug\Out.dll

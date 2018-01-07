@@ -76,7 +76,6 @@ D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\FrmRports\bin\Debug\Cry
 D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\FrmRports\bin\Debug\ShockwaveFlashObjects.dll
 D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\FrmRports\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
 D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\FrmRports\bin\Debug\stdole.dll
-D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\FrmRports\obj\Debug\FrmRports.csprojResolveAssemblyReference.cache
 D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\FrmRports\obj\Debug\FrmRports.frmReprt.resources
 D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\FrmRports\obj\Debug\FrmRports.Properties.Resources.resources
 D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\FrmRports\obj\Debug\FrmRports.csproj.GenerateResource.Cache
