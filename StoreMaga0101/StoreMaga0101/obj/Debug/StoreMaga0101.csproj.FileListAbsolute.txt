@@ -80,7 +80,6 @@ D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\StoreMaga0101\bin\Debug
 D:\progaming\StorMamagent10\StorManagemt01\StoreMaga0101\StoreMaga0101\bin\Debug\Account.pdb
 D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\StoreMaga0101\obj\Debug\StoreMaga0101.pdb
 D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\StoreMaga0101\bin\Debug\StoreMaga0101.pdb
-D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\StoreMaga0101\bin\Debug\Account.dll
 D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\StoreMaga0101\bin\Debug\FrmRports.dll
 D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\StoreMaga0101\bin\Debug\frmWInReprting.dll
 D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\StoreMaga0101\bin\Debug\Out.dll
@@ -120,3 +119,4 @@ D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\StoreMaga0101\bin\Debug
 D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\StoreMaga0101\bin\Debug\StoreMaga0101.exe
 D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\StoreMaga0101\obj\Debug\StoreMaga0101.exe
 D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\StoreMaga0101\obj\Debug\StoreMaga0101.csprojResolveAssemblyReference.cache
+D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\StoreMaga0101\bin\Debug\Account.dll

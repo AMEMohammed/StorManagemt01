@@ -226,39 +226,47 @@ namespace Account
         /// <param name="e"></param>
         private void اضافةحسابفرعيToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (treeView1.SelectedNode.Level >= 0)
+            try
             {
-                try
+                if (treeView1.SelectedNode.Level >= 0)
                 {
-                    TreeNode t = new TreeNode();
-
-                    t = treeView1.SelectedNode;
-                    IdAcount = Convert.ToInt32(t.Tag.ToString());
-                    if (Acn.TypeAccount(IdAcount).Equals("رئيسي"))
+                    try
                     {
-                        textBox1.Text = "";
-                        textBox1.Focus();
-                        comboBox1.Text = t.Text;
+                        TreeNode t = new TreeNode();
 
-                        CodeAddAcount = Convert.ToInt32(t.Name);// رقم حساب الاب
+                        t = treeView1.SelectedNode;
+                        IdAcount = Convert.ToInt32(t.Tag.ToString());
+                        if (Acn.TypeAccount(IdAcount).Equals("رئيسي"))
+                        {
+                            textBox1.Text = "";
+                            textBox1.Focus();
+                            comboBox1.Text = t.Text;
 
-                        int idcode = Acn.GetMaxCode(CodeAddAcount);
-                        idcode += 1;
-                        textBox4.Text = idcode.ToString();
-                        comboBox2.Text = "رئيسي";
-                        ADDing = true;
+                            CodeAddAcount = Convert.ToInt32(t.Name);// رقم حساب الاب
+
+                            int idcode = Acn.GetMaxCode(CodeAddAcount);
+                            idcode += 1;
+                            textBox4.Text = idcode.ToString();
+                            comboBox2.Text = "رئيسي";
+                            ADDing = true;
 
 
+                        }
+                        else
+                        {
+                            MessageBox.Show("لايمكن اضافة حساب الى الحساب الفرعي");
+                        }
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        MessageBox.Show("لايمكن اضافة حساب الى الحساب الفرعي");
+                        MessageBox.Show(ex.Message);
                     }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
+            }
+            catch (Exception ex)
+
+            {
+                MessageBox.Show(ex.Message);
             }
         }
         /// <summary>

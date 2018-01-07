@@ -354,6 +354,7 @@ namespace Supplly
                     {
                         dtExite = null;
                     }
+                   
                     dtSupp = SuRe.PrintRequstSupply(id, UserID, SuRe.GetIdUser(name));
                     frmReprt frmRp = new frmReprt(dtSupp, dtExite, 1);
                     frmRp.ShowDialog();

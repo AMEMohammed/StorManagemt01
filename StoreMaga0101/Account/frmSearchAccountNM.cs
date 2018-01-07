@@ -142,7 +142,7 @@ namespace Account
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
-            if (radioButton2.Checked)
+            if (radioButton2.Checked==true)
             {
                 IDYType = 2;
                 groupBox9.Visible = true;
@@ -245,6 +245,11 @@ namespace Account
                 label3.Visible = false;
 
             }
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

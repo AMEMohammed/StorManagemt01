@@ -26,7 +26,7 @@ namespace Supplly
         {
 
 
-            string Query = "select UserID from Users where Name=@name";
+            string Query = "select IDUSER from Users where Name=@name";
             SqlParameter[] parm = new SqlParameter[1];
             parm[0] = new SqlParameter("@name", NameUser);
             int re = (int)sql.ExcuteQueryValue(Query, parm);
@@ -54,7 +54,7 @@ namespace Supplly
         public DataTable PrintRequstSupply(int IDreqSup, int UserId, int user)
         {
           
-           string Query= "select IDSupply as 'رقم الطلب' ,  Category.NameCategory  as 'الصنف', TypeQuntity.NameType  as'النوع' , RequstSupply.Quntity  as 'الكمية', RequstSupply.Price as 'السعر'  , RequstSupply.Quntity * RequstSupply.Price as 'الاجمالي' ,Currency.NameCurrency as 'العملة', RequstSupply.DateSupply as 'تاريخ' , RequstSupply.NameSupply  as'اسم المورد',Users.Name as 'اسم الموظف', RequstSupply.DescSupply AS 'ملاحظات',t.AcountNm as 'مدين' ,t1.AcountNm as 'دائن'  from AccountNm as t,AccountNm as t1 ,Category,Users,TypeQuntity, RequstSupply,Currency where RequstSupply.IDCategory = Category.IDCategory and t.IDCode=RequstSupply.Debit and t1.IDCode=RequstSupply.Creditor and RequstSupply.IDType = TypeQuntity.IDType and RequstSupply.IDCurrency=Currency.IDCurrency and Users.IDUSER=@UserId  and RequstSupply.chek =@id and RequstSupply.UserId =@uuu ";
+           string Query= "select IDSupply as 'رقم الطلب' ,  Category.NameCategory  as 'الصنف', TypeQuntity.NameType  as'النوع' , RequstSupply.Quntity  as 'الكمية', RequstSupply.Price as 'السعر'  , RequstSupply.Quntity * RequstSupply.Price as 'الاجمالي' ,Currency.NameCurrency as 'العملة', RequstSupply.DateSupply as 'تاريخ' , RequstSupply.NameSupply  as'اسم المورد',Users.Name as 'اسم الموظف', RequstSupply.DescSupply AS 'ملاحظات',t.AcountNm as 'مدين' ,t1.AcountNm as 'دائن'  from AccountNm as t,AccountNm as t1 ,Category,Users,TypeQuntity, RequstSupply,Currency where RequstSupply.IDCategory = Category.IDCategory and t.IDCode=RequstSupply.Debit and t1.IDCode=RequstSupply.Creditor and RequstSupply.IDType = TypeQuntity.IDType and RequstSupply.IDCurrency=Currency.IDCurrency and Users.IDUSER=@UserId  and RequstSupply.chek =@id and RequstSupply.UserId=@uuu ";
             SqlParameter[] parm = new SqlParameter[3];
            parm[0]=new SqlParameter("@id", IDreqSup);
             parm[1]=new SqlParameter("@UserId", UserId);

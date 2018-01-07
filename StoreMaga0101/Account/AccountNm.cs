@@ -434,17 +434,21 @@ namespace Account
             /////// اضافة الرصيد السابق قبل تاريخ البحث
             int OldMony = getOldMony(IDcode, IDCurnncy, d1);
             string nmCurrncy = GETNMCurrncy(IDCurnncy);
+            int sumtotal = 0;
             if (OldMony>0)
             {
+                sumtotal += OldMony;
                 DtResult.Rows.Add(new string[] { string.Format("{0:##,##}", OldMony), "0", nmCurrncy, null, "قبل تاريخ " + d1.ToString(), "رصيد سابق", null });
             }
             else
             {
+                sumtotal += OldMony;
                 DtResult.Rows.Add(new string[] { "0", string.Format("{0:##,##}", OldMony), nmCurrncy, null, "قبل تاريخ " + d1.ToString(), "رصيد سابق", null });
 
             }
             /////////////////
             ///////////////
+           
             DataTable dtre1 = new DataTable();
             dtre1 = GETAcountDitlis(IDcode, IDCurnncy, d1, d2);
             for(int i=0;i<dtre1.Rows.Count; i++)
@@ -462,17 +466,31 @@ namespace Account
                 int userii = Convert.ToInt32(dtre1.Rows[i][7].ToString());
                 if (vale > 0)
                 {
+                    sumtotal += vale;
                     DtResult.Rows.Add(new string[] { string.Format("{0:##,##}", Convert.ToInt32(dtre1.Rows[i][2].ToString())), "0", nmCurrncy, LIKEType, dtre1.Rows[i][6].ToString(), dtre1.Rows[i][5].ToString(), GetUserNM(userii)});
                 }
                else
                 {
-                    DtResult.Rows.Add(new string[] { "0", string.Format("{0:##,##}", Convert.ToInt32(dtre1.Rows[i][2].ToString())), nmCurrncy, LIKEType, dtre1.Rows[i][6].ToString(), dtre1.Rows[i][5].ToString(), GetUserNM(userii) });
+                    sumtotal += vale;
+                    DtResult.Rows.Add(new string[] { "0", string.Format("{0:##,##}",(-1* Convert.ToInt32(dtre1.Rows[i][2].ToString()))), nmCurrncy, LIKEType, dtre1.Rows[i][6].ToString(), dtre1.Rows[i][5].ToString(), GetUserNM(userii) });
                 }
             }
-            DataTable DTAll = new DataTable();
-            DTAll = GetBalanceAccount(IDcode, IDCurnncy, nmCurrncy);
-            DtResult.Rows.Add(new string[] { string.Format("{0:##,##}", DTAll.Rows[0][2].ToString()), string.Format("{0:##,##}", DTAll.Rows[0][3].ToString()), nmCurrncy, "الاجمالي", DateTime.Now.ToString(), DTAll.Rows[0][5].ToString(), null });
+            //   DataTable DTAll = new DataTable();
+            // DTAll = GetBalanceAccount(IDcode, IDCurnncy, nmCurrncy);
+            if (sumtotal > 0)
+            {
+          
+                string deit = "الرصيد لكم بقيمة " + string.Format("{0:##,##}", sumtotal) + " " + nmCurrncy;
+                DtResult.Rows.Add(new string[] { string.Format("{0:##,##}", sumtotal  ), "0", nmCurrncy, "الاجمالي", DateTime.Now.ToString(), deit, null });
+            }
+            else
+            {
+                
+                int total = -1 * sumtotal;
+                string deit = "الرصيد عليكم بقيمة " + string.Format("{0:##,##}",total) + " " + nmCurrncy;
 
+                DtResult.Rows.Add(new string[] {"0" ,string.Format("{0:##,##}", total), nmCurrncy, "الاجمالي", DateTime.Now.ToString(), deit, null });
+            }
             return DtResult;
 
         }

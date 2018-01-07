@@ -60,7 +60,7 @@ namespace Out_
         {
 
 
-            string Query = "select UserID from Users where Name=@name";
+            string Query = "select IDUSER from Users where Name=@name";
              SqlParameter[] parm = new SqlParameter[1];
               parm[0] = new SqlParameter("@name",NameUser);
              int re= (int)sql.ExcuteQueryValue(Query, parm);
