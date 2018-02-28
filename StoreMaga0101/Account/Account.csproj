@@ -37,6 +37,12 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FrmRports">
+      <HintPath>..\..\..\..\New\StoreMaga0101\FrmRports\bin\Debug\FrmRports.dll</HintPath>
+    </Reference>
+    <Reference Include="frmWInReprting">
+      <HintPath>..\..\..\..\New\StoreMaga0101\frmWInReprting\bin\Debug\frmWInReprting.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -48,6 +54,9 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="Users">
+      <HintPath>..\..\..\..\New\StoreMaga0101\Users\bin\Debug\Users.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountNm.cs" />
@@ -117,6 +126,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\printer %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

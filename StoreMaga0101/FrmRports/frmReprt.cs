@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data;
+
 
 namespace FrmRports
 {
@@ -78,6 +78,12 @@ namespace FrmRports
                        PrintUpdteOUt(dt1);
                             break;
                         }
+                    case 8:// repotr for Account Reveal datilys
+                        {
+                            PrintAccountReveal(dt1);
+
+                            break;
+                        }
                 }
 
 
@@ -89,7 +95,15 @@ namespace FrmRports
             }
 
         }
-
+        // repotr for Account Reveal datilys
+        public void PrintAccountReveal(DataTable dt22)
+        {
+            AccountReveal rt = new AccountReveal();// repotr for Account Reveal datilys
+            rt.SetDataSource(dt22);
+            crystalReportViewer1.ReportSource = rt;
+            crystalReportViewer1.Refresh();
+            
+        }
         public void PrintReOut(int id,DataTable dt22,DataTable dt23)
         {
             RequstOut rt = new RequstOut();

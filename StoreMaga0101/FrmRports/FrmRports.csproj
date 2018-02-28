@@ -66,6 +66,15 @@
       <DependentUpon>AccountQintity.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="AccountReveal.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AccountReveal.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DataSet1.cs">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -127,6 +136,10 @@
     <EmbeddedResource Include="AccountQintity.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>AccountQintity1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AccountReveal.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>AccountReveal.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ExitStatement.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

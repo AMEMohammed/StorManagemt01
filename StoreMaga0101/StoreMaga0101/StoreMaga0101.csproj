@@ -61,11 +61,11 @@
       <HintPath>..\frmWInReprting\bin\Debug\frmWInReprting.dll</HintPath>
     </Reference>
     <Reference Include="Out">
-      <HintPath>..\Out\bin\Debug\Out.dll</HintPath>
+      <HintPath>..\..\..\..\New\StoreMaga0101\Out\bin\Debug\Out.dll</HintPath>
     </Reference>
     <Reference Include="Supplly, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Supplly\bin\Debug\Supplly.dll</HintPath>
+      <HintPath>..\..\..\..\New\StoreMaga0101\Supplly\bin\Debug\Supplly.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -81,8 +81,9 @@
     <Reference Include="SystemConfiguration">
       <HintPath>..\SystemConfiguration\bin\Debug\SystemConfiguration.dll</HintPath>
     </Reference>
-    <Reference Include="Users">
-      <HintPath>..\Users\bin\Debug\Users.dll</HintPath>
+    <Reference Include="Users, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\New\StoreMaga0101\Users\bin\Debug\Users.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

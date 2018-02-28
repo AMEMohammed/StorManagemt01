@@ -7,7 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using frmWInReprting;
+using FrmRports;
+using Users;
 namespace Account
 {
     public partial class frmSearchAccountNM : Form
@@ -250,6 +252,32 @@ namespace Account
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        { DataTable dtAccount = new DataTable();
+            dtAccount.Columns.Add("اسم الحساب");
+            dtAccount.Columns.Add("نوع الحساب");
+            dtAccount.Columns.Add("تاريخ البحث");
+            dtAccount.Columns.Add("دائن");
+            dtAccount.Columns.Add("مدين");
+            dtAccount.Columns.Add("عملة العملية");
+            dtAccount.Columns.Add("العملية");
+            dtAccount.Columns.Add("تاريخ العملية");
+            dtAccount.Columns.Add("البيان");
+            dtAccount.Rows[0][0] = comboBox1.SelectedValue;
+            dtAccount.Rows[0][1] = "تفصيلي";
+            dtAccount.Rows[0][2] = dateTimePicker1.Value.Date.ToString();
+            dtAccount.Rows[0][3] = "0";
+            dtAccount.Rows[0][4] = "0";
+            dtAccount.Rows[0][5] = "0";
+            dtAccount.Rows[0][6] = "0";
+            dtAccount.Rows[0][7] = "0";
+            dtAccount.Rows[0][8] = "0";
+
+            frmReprt frmrepot = new frmReprt(dtAccount, dtAccount, 8);
+            frmrepot.ShowDialog();
+          
         }
     }
 }
