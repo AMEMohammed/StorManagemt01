@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Users
 {
-   public  class ConServer
+   public class ConServer
     {
         public static string ServerNM = Properties.Settings.Default.ServerNm;
         public static string DBNM = Properties.Settings.Default.DBNM;

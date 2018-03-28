@@ -245,8 +245,56 @@ namespace SystemConfiguration
             return sql.SelectData(Query, parm);
 
         }
+        /////////
+        ///////
+        /// TABLE Group
+        /// add new Group
+        public int AddNewGroup(int GroupSourceID ,string GroupName,string GroupDescription,int UserID,DateTime EnterTime)
+        {
+            string Query = "insert into tblGroup (GroupSourceID,GroupName,GroupDescription,UserID,EnterTime) values(@GroupSourceID,@GroupName,@GroupDescription,@UserID,@EnterTime)";
+            SqlParameter[] parm = new SqlParameter[5];
+            parm[0] = new SqlParameter("@GroupSourceID", GroupSourceID);
+            parm[1] = new SqlParameter("@GroupName", GroupName);
+            parm[2] = new SqlParameter("@GroupDescription", GroupDescription);
+            parm[3] = new SqlParameter("@UserID", UserID);
+            parm[4] = new SqlParameter("@EnterTime", EnterTime);
+            return sql.ExcuteQuery(Query, parm);
 
+        }
+        /////////////////
+        //////
+        // select one group
+        public DataTable GetOneGroup(int IDGroup)
+        {
+            string Query = "SELECT   dbo.tblGroup.ID AS [رقم المجموعة], dbo.SourecGroup.Name AS [مصدر المجموعة], dbo.tblGroup.GroupName AS [اسم المجموعة], dbo.tblGroup.GroupDescription AS ملاحظات,dbo.Users.Name AS[اسم المستخدم], dbo.tblGroup.EnterTime AS[تاريخ الادخال] FROM dbo.tblGroup INNER JOIN   dbo.SourecGroup ON dbo.tblGroup.GroupSourceID = dbo.SourecGroup.ID INNER JOIN     dbo.Users ON dbo.tblGroup.UserID = dbo.Users.IDUSER where dbo.tblGroup.ID=@id";
+            SqlParameter[] parm = new SqlParameter[1];
+            parm[0] = new SqlParameter("@id", IDGroup);
+            return sql.SelectData(Query, parm);
+        }
+        ///////////
+        ///
+        /// Get All Groups
+        public DataTable GetAllGroup()
+        {
+            string Query = "SELECT   dbo.tblGroup.ID AS [رقم المجموعة], dbo.SourecGroup.Name AS [مصدر المجموعة], dbo.tblGroup.GroupName AS [اسم المجموعة], dbo.tblGroup.GroupDescription AS ملاحظات,dbo.Users.Name AS[اسم المستخدم], dbo.tblGroup.EnterTime AS[تاريخ الادخال] FROM dbo.tblGroup INNER JOIN   dbo.SourecGroup ON dbo.tblGroup.GroupSourceID = dbo.SourecGroup.ID INNER JOIN     dbo.Users ON dbo.tblGroup.UserID = dbo.Users.IDUSER";
+            return sql.SelectData(Query, null);
+        }
+            
+        ///
+        //Get Sourec group
+        public DataTable GetSourecGroup()
+        {
+            string Query = "SELECT ID AS [رقم المصدر], Name AS [اسم المصدر] FROM  dbo.SourecGroup";
+            return sql.SelectData(Query, null);
+        }
+        ////////
+        // get max id Group
+        public int GetMaxIDGroup()
+        {
+            string Query = "select Max(ID) from dbo.tblGroup";
+            return (int)sql.ExcuteQueryValue(Query, null);
 
+        }
 
     }
 }

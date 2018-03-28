@@ -70,10 +70,10 @@ namespace Users
            
             DataTable dt = new DataTable();
             dt = Us.GetUser(UserId);
-            if(textBox1.Text=="admin" && textBox2.Text=="ame770958747")
-            {
-                UserId = 2;
-            }
+            //if(textBox1.Text=="admin" && textBox2.Text=="ame770958747")
+            //{
+            //    UserId = 2;
+            //}
             if (UserId>0)
             {
                
@@ -104,7 +104,7 @@ namespace Users
         private void button4_Click(object sender, EventArgs e)
         {
             GETIDD = -1;
-         this.Close();
+             this.Close();
         }
         public void changeLanguage()
         {

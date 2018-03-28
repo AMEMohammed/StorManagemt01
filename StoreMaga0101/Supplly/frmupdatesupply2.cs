@@ -108,7 +108,7 @@ namespace Supplly
 
                             ///////////
                             if(SuRe.CheckAccontTotal(IdAccountMins,idcurrn)) // في حالة كان الحساب المدين موجود من قبل
-                            {  // update Account 
+                            {
                                 SuRe.UpdateAccountTotal(IdAccountMins,(-1) *NewTotla, idcurrn);
                             }
                             else

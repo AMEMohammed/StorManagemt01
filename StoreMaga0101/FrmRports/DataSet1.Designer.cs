@@ -5020,6 +5020,8 @@ namespace FrmRports {
             
             private global::System.Data.DataColumn columnالبيان;
             
+            private global::System.Data.DataColumn columnاسم_الموظف;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public AccountRevealDataTable() {
@@ -5127,6 +5129,14 @@ namespace FrmRports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn اسم_الموظفColumn {
+                get {
+                    return this.columnاسم_الموظف;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -5162,7 +5172,7 @@ namespace FrmRports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public AccountRevealRow AddAccountRevealRow(string اسم_الحساب, string نوع_الحساب, string تاريخ_البحث, string دائن, string مدين, string عملة_العملية, string العملية, string تاريخ_العملية, string البيان) {
+            public AccountRevealRow AddAccountRevealRow(string اسم_الحساب, string نوع_الحساب, string تاريخ_البحث, string دائن, string مدين, string عملة_العملية, string العملية, string تاريخ_العملية, string البيان, string اسم_الموظف) {
                 AccountRevealRow rowAccountRevealRow = ((AccountRevealRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         اسم_الحساب,
@@ -5173,7 +5183,8 @@ namespace FrmRports {
                         عملة_العملية,
                         العملية,
                         تاريخ_العملية,
-                        البيان};
+                        البيان,
+                        اسم_الموظف};
                 rowAccountRevealRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowAccountRevealRow);
                 return rowAccountRevealRow;
@@ -5196,7 +5207,7 @@ namespace FrmRports {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
-                this.columnاسم_الحساب = base.Columns["اسم الحساب"];
+                this.columnاسم_الحساب = base.Columns["اسم_الحساب"];
                 this.columnنوع_الحساب = base.Columns["نوع الحساب"];
                 this.columnتاريخ_البحث = base.Columns["تاريخ البحث"];
                 this.columnدائن = base.Columns["دائن"];
@@ -5205,12 +5216,13 @@ namespace FrmRports {
                 this.columnالعملية = base.Columns["العملية"];
                 this.columnتاريخ_العملية = base.Columns["تاريخ العملية"];
                 this.columnالبيان = base.Columns["البيان"];
+                this.columnاسم_الموظف = base.Columns["اسم الموظف"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnاسم_الحساب = new global::System.Data.DataColumn("اسم الحساب", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnاسم_الحساب = new global::System.Data.DataColumn("اسم_الحساب", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnاسم_الحساب);
                 this.columnنوع_الحساب = new global::System.Data.DataColumn("نوع الحساب", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnنوع_الحساب);
@@ -5228,6 +5240,8 @@ namespace FrmRports {
                 base.Columns.Add(this.columnتاريخ_العملية);
                 this.columnالبيان = new global::System.Data.DataColumn("البيان", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnالبيان);
+                this.columnاسم_الموظف = new global::System.Data.DataColumn("اسم الموظف", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnاسم_الموظف);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9041,7 +9055,7 @@ namespace FrmRports {
                         return ((string)(this[this.tableAccountReveal.اسم_الحسابColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'اسم الحساب\' in table \'AccountReveal\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'اسم_الحساب\' in table \'AccountReveal\' is DBNull.", e);
                     }
                 }
                 set {
@@ -9179,6 +9193,22 @@ namespace FrmRports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string اسم_الموظف {
+                get {
+                    try {
+                        return ((string)(this[this.tableAccountReveal.اسم_الموظفColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'اسم الموظف\' in table \'AccountReveal\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAccountReveal.اسم_الموظفColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool Isاسم_الحسابNull() {
                 return this.IsNull(this.tableAccountReveal.اسم_الحسابColumn);
             }
@@ -9283,6 +9313,18 @@ namespace FrmRports {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetالبيانNull() {
                 this[this.tableAccountReveal.البيانColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isاسم_الموظفNull() {
+                return this.IsNull(this.tableAccountReveal.اسم_الموظفColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setاسم_الموظفNull() {
+                this[this.tableAccountReveal.اسم_الموظفColumn] = global::System.Convert.DBNull;
             }
         }
         

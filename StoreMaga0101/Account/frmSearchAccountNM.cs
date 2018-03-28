@@ -7,9 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using frmWInReprting;
-using FrmRports;
 using Users;
+using FrmRports;
 namespace Account
 {
     public partial class frmSearchAccountNM : Form
@@ -253,31 +252,121 @@ namespace Account
         {
             this.Close();
         }
-
+        /// <summary>
+        ///  طباعة كشف حساب
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnPrint_Click(object sender, EventArgs e)
-        { DataTable dtAccount = new DataTable();
-            dtAccount.Columns.Add("اسم الحساب");
-            dtAccount.Columns.Add("نوع الحساب");
-            dtAccount.Columns.Add("تاريخ البحث");
-            dtAccount.Columns.Add("دائن");
-            dtAccount.Columns.Add("مدين");
-            dtAccount.Columns.Add("عملة العملية");
-            dtAccount.Columns.Add("العملية");
-            dtAccount.Columns.Add("تاريخ العملية");
-            dtAccount.Columns.Add("البيان");
-            dtAccount.Rows[0][0] = comboBox1.SelectedValue;
-            dtAccount.Rows[0][1] = "تفصيلي";
-            dtAccount.Rows[0][2] = dateTimePicker1.Value.Date.ToString();
-            dtAccount.Rows[0][3] = "0";
-            dtAccount.Rows[0][4] = "0";
-            dtAccount.Rows[0][5] = "0";
-            dtAccount.Rows[0][6] = "0";
-            dtAccount.Rows[0][7] = "0";
-            dtAccount.Rows[0][8] = "0";
+        {
+            this.Cursor = Cursors.WaitCursor;
+            if (radioButton2.Checked)
+            {
+                try
+                {
+                    MessageBox.Show(comboBox1.Text);
+                    DataTable dt = new DataTable();
+                    dt.Columns.Add("اسم_الحساب");
+                    dt.Columns.Add("نوع الحساب");
+                    dt.Columns.Add("تاريخ البحث");
+                    dt.Columns.Add("دائن");
+                    dt.Columns.Add("مدين");
+                    dt.Columns.Add("عملة العملية");
+                    dt.Columns.Add("العملية");
+                    dt.Columns.Add("تاريخ العملية");
+                    dt.Columns.Add("البيان");
+                    dt.Columns.Add("");
+                    dt.Rows.Add();
+                    MessageBox.Show(comboBox1.SelectedText);
+                    dt.Rows[0][0] = comboBox1.Text;// comboBox1.SelectedText;
+                    dt.Rows[0][1] = GetTypeAccount();
+                    dt.Rows[0][2] = GetDateSearching();
+                    int i = 0;
 
-            frmReprt frmrepot = new frmReprt(dtAccount, dtAccount, 8);
-            frmrepot.ShowDialog();
-          
+                    foreach (DataGridViewRow drg in dataGridView1.Rows)
+                    {
+                        DataRow dr = ((DataRowView)drg.DataBoundItem).Row;
+
+                        dt.Rows[i][3] = string.Format("{0:##,##}", dr[0].ToString());
+                        dt.Rows[i][4] = string.Format("{0:##,##}", dr[1].ToString());
+                        dt.Rows[i][5] = dr[2].ToString();
+                        dt.Rows[i][6] = dr[3].ToString();
+                        dt.Rows[i][7] = dr[4].ToString();
+                        dt.Rows[i][8] = dr[5].ToString();
+                        dt.Rows.Add();
+                        i++;
+                    }
+                    dt.Rows[0][9] = Acn.GetUserNM(IDUSER);
+                    frmReprt frmrepot = new frmReprt(dt, dt, 8);
+                    frmrepot.ShowDialog();
+
+                }
+
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            this.Cursor = Cursors.Default;
+
+        }
+
+        private void btnRefrsh_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// // get type Account
+        /// </summary>
+        /// <returns></returns>
+        string GetTypeAccount()
+        {
+            string re = "";
+            if (radioButton1.Checked)
+            {
+               re= "الاجمالي";
+            }
+           else if(radioButton2.Checked)
+            {
+               re="التفصيلي";
+            }
+            return re;
+        }
+        /// <summary>
+        ///  get DataSearching
+        /// </summary>
+        /// <returns></returns>
+        string GetDateSearching()
+        {
+            string date = "";
+            if (comboBox2.SelectedIndex == 4)
+            {
+                date = dateTimePicker1.Value.ToShortDateString() + " الى " + dateTimePicker2.Value.ToShortDateString();
+                  
+            }
+            else if (comboBox2.SelectedIndex == 1)
+            {
+                date = "الى " + dateTimePicker2.Value.ToShortDateString();
+               
+            }
+            else if(comboBox2.SelectedIndex==2)
+            {
+                date = "خلال اسبوع";
+
+            }
+            else if(comboBox2.SelectedIndex==3)
+            {
+                date = "خلال شهر";
+
+            }
+            else if (comboBox2.SelectedIndex == 0)
+            {
+                date = "خلال يوم";
+
+            }
+            return date;
+
         }
     }
 }

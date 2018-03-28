@@ -92,7 +92,7 @@ public     class UsersSQl
          public DataTable GetAllUser()
         {
             string Query= " SELECT  [IDUSER] as 'الرقم' ,[Name] as 'اسم الموظف',[UserName] as 'اسم المستخدم' ,[Password] as 'كلمة المرور'  ,[AddSupply]as 'اضافة طلب توريد' ,[UpdSupply] as 'تعديل طلب توريد' ,[AddOut]as 'اضافة طلب صرف'  ,[UpdOut] as'تعديل طلب صرف' ,[PrintSupply]as'طباعة تقرير التوريد' ,[PrintOut] as 'طباعة تقرير الصرف' ,[PrintQuntity] as 'طباعة المخزون' ,UpdSupp1 as 'تعديلات الوارد' ,UpdOut1 as 'تعديلات الصرف' ,[AddUser] as 'اضافة مستخدم' ,[Active] as'تفعيل',Cate as 'نهيئة الاصناف' ,type1 as 'تهيئة الانواع',account as 'تهيئة الحسابات',Monay as 'تهيئة العملات',Place as'تهيئة الجهات',UserID as 'اسم الموظف'  FROM[Users]";
-           return sql.SelectData(Query, null);
+            return sql.SelectData(Query, null);
         }
 
         // get user
@@ -117,12 +117,8 @@ public     class UsersSQl
             return check;
 
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="IdUs"></param>
-        /// <returns></returns>
-
+        
+        /// GEt AllUsers 
         public DataTable GetUser(int IdUs)
         {
             string Query = " SELECT  IDUSER,Name,UserName,Password,AddSupply,UpdSupply,AddOut,UpdOut,PrintSupply,PrintOut,PrintQuntity,AddUser,Active ,UpdSupp1,UpdOut1,Cate,type1,account,Monay,Place    FROM[Users] where IDUSER=@IDUSER ";

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using Users;
 namespace Account
 { 
     class AccountNm
@@ -26,6 +27,7 @@ namespace Account
             
         }
         /// <summary>
+        /// 
         /// ///Get all Acount
         /// </summary>
         /// <returns></returns>
@@ -303,7 +305,7 @@ namespace Account
         {
             DataTable dt123 = new DataTable();
             DataTable dt = new DataTable();
-            string Query = "select Balance,IDCurrncy from AccountTotal where IDCode=@idCode";
+            string Query = "select Balance,IDCurrncy from AccountTotal where IDCode=@idCode ";
 
             DataTable dt2 = new DataTable();
             dt2 = GETNMAccount(IDcode);
@@ -366,7 +368,7 @@ namespace Account
             string Query;
             if (idcurrncy > 0)
             {
-               Query = "select Balance,IDCurrncy,IDCode from AccountTotal where IDCurrncy=@idcurrncy  ";
+               Query = "select Balance,IDCurrncy,IDCode from AccountTotal where IDCurrncy=@idcurrncy   ";
                 SqlParameter[] parm = new SqlParameter[1];
                 parm[0] = new SqlParameter("@idcurrncy", idcurrncy);
                 dt123 = sql.SelectData(Query, parm);
@@ -533,13 +535,15 @@ namespace Account
             return sql.SelectData(Query, parm);
 
         }
-      string GetUserNM(int IDuser)
+   public   string GetUserNM(int IDuser)
         {
             string Query = "select Name from Users where IDUSER =@iduser";
             SqlParameter[] parm = new SqlParameter[1];
             parm[0] = new SqlParameter("@iduser", IDuser);
             return (string)sql.ExcuteQueryValue(Query, parm);
         }
-
+        /// 
+      
+        /////
     }
 }

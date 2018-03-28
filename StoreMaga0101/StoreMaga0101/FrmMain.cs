@@ -8,16 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Supplly;
-
+using Users;
 using Out_;
 using frmWInReprting;
 using SystemConfiguration;
 using Account;
-using Users;
 namespace StoreMaga0101
 {
     public partial class FrmMain : Form
-    { 
+    {
         int UserID;
      
         frmLogin frm;// Login from
@@ -26,9 +25,8 @@ namespace StoreMaga0101
             InitializeComponent();
             try
             {
-               
+
                 frm = new frmLogin(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql);
-                
             }
             catch(Exception ex)
             {
@@ -50,7 +48,7 @@ namespace StoreMaga0101
             {
                 this.Cursor = Cursors.WaitCursor;
              
-                frmADDSup frmADdSup = new frmADDSup(ConServer.ServerNM,ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID);// from AddSupply
+                frmADDSup frmADdSup = new frmADDSup(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID);// from AddSupply
 
                 FormCollection fromco = Application.OpenForms;
                 bool foundFrom = false;
@@ -89,7 +87,7 @@ namespace StoreMaga0101
                 else
                 {
                     groupBox1.Visible = true;
-                      UsersSQl
+                
                     UsersSQl us = new UsersSQl(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql);
                     DataTable dt = new DataTable();
                     dt = us.GetUser(frmLogin.GETIDD);

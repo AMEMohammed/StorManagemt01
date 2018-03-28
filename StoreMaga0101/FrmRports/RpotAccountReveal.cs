@@ -16,14 +16,14 @@ namespace FrmRports {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class AccountReveal : ReportClass {
+    public class RpotAccountReveal : ReportClass {
         
-        public AccountReveal() {
+        public RpotAccountReveal() {
         }
         
         public override string ResourceName {
             get {
-                return "AccountReveal.rpt";
+                return "RpotAccountReveal.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace FrmRports {
         
         public override string FullResourceName {
             get {
-                return "FrmRports.AccountReveal.rpt";
+                return "FrmRports.RpotAccountReveal.rpt";
             }
             set {
                 // Do nothing
@@ -90,9 +90,9 @@ namespace FrmRports {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedAccountReveal : Component, ICachedReport {
+    public class CachedRpotAccountReveal : Component, ICachedReport {
         
-        public CachedAccountReveal() {
+        public CachedRpotAccountReveal() {
         }
         
         [Browsable(false)]
@@ -129,7 +129,7 @@ namespace FrmRports {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            AccountReveal rpt = new AccountReveal();
+            RpotAccountReveal rpt = new RpotAccountReveal();
             rpt.Site = this.Site;
             return rpt;
         }
