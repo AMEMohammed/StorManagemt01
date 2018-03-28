@@ -64,25 +64,13 @@ namespace SystemConfiguration
         {
             if((int)comboBox1.SelectedValue>0 && txtNameGroup.Text.Length>0)
             {
-               try
-                {   /// add new group
+                try
+                {
                     config.AddNewGroup((int)comboBox1.SelectedValue, txtNameGroup.Text, txtDecr.Text, USERID, DateTime.Now);
-                    
-
-                    if (dataGridView1.RowCount > 0)
-                    {   // عرض البيانات الموجودة مسبقا مع البيانات المضافه 
-                        DataTable dt = new DataTable();
-                        DataTable dt2 = new DataTable();
-                        dt = (DataTable)dataGridView1.DataSource;
-                        dt2  = config.GetOneGroup(config.GetMaxIDGroup());
-                        dt2.Merge(dt);
-                        dataGridView1.DataSource = dt2;
-                    }
-                    else
-                    {
-                        dataGridView1.DataSource= config.GetOneGroup(config.GetMaxIDGroup());
-                    }
-                      
+                    DataTable dt =(DataTable) dataGridView1.DataSource;
+                    DataTable dt2 = config.GetOneGroup(config.GetMaxIDGroup());
+                     dt.Merge(dt2);
+                    dataGridView1.DataSource = config;
                     Refrish();
                 }
                 catch(Exception ex)
@@ -95,7 +83,6 @@ namespace SystemConfiguration
         private void btnRefrish_Click(object sender, EventArgs e)
         {
             Refrish();
-            dataGridView1.DataSource = config.GetAllGroup();
         }
 
         //// refrish Data
@@ -105,12 +92,6 @@ namespace SystemConfiguration
             txtDecr.Text = "";
             txtIDgroup.Text = "";
             txtNameGroup.Text = "";
-
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }

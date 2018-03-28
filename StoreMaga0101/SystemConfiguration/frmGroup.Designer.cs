@@ -28,14 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtIDgroup = new System.Windows.Forms.TextBox();
             this.txtNameGroup = new System.Windows.Forms.TextBox();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.btnRefrish = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.btnRefrsh = new System.Windows.Forms.Button();
+            this.btnAddGroup = new System.Windows.Forms.Button();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.txtDecr = new System.Windows.Forms.GroupBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -43,23 +50,16 @@
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.btnRefrish = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.btnRefrsh = new System.Windows.Forms.Button();
-            this.btnAddGroup = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox11.SuspendLayout();
             this.groupBox10.SuspendLayout();
             this.txtDecr.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox12.SuspendLayout();
-            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -116,6 +116,74 @@
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "العمليات";
             // 
+            // btnRefrish
+            // 
+            this.btnRefrish.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.btnRefrish.Image = global::SystemConfiguration.Properties.Resources.refresh__1_;
+            this.btnRefrish.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRefrish.Location = new System.Drawing.Point(93, 21);
+            this.btnRefrish.Name = "btnRefrish";
+            this.btnRefrish.Size = new System.Drawing.Size(93, 35);
+            this.btnRefrish.TabIndex = 5;
+            this.btnRefrish.Text = "تحديث ";
+            this.btnRefrish.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnRefrish.UseVisualStyleBackColor = true;
+            this.btnRefrish.Click += new System.EventHandler(this.btnRefrish_Click);
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.button1.Image = global::SystemConfiguration.Properties.Resources.delete;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(192, 21);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(81, 35);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "حذف";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.button4.Image = global::SystemConfiguration.Properties.Resources.exit__3_;
+            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button4.Location = new System.Drawing.Point(6, 21);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(81, 35);
+            this.button4.TabIndex = 4;
+            this.button4.Text = "خروج";
+            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // btnRefrsh
+            // 
+            this.btnRefrsh.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.btnRefrsh.Image = global::SystemConfiguration.Properties.Resources.update;
+            this.btnRefrsh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRefrsh.Location = new System.Drawing.Point(279, 21);
+            this.btnRefrsh.Name = "btnRefrsh";
+            this.btnRefrsh.Size = new System.Drawing.Size(81, 35);
+            this.btnRefrsh.TabIndex = 2;
+            this.btnRefrsh.Text = "تعديل";
+            this.btnRefrsh.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnRefrsh.UseVisualStyleBackColor = true;
+            // 
+            // btnAddGroup
+            // 
+            this.btnAddGroup.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.btnAddGroup.Image = global::SystemConfiguration.Properties.Resources.plus;
+            this.btnAddGroup.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddGroup.Location = new System.Drawing.Point(366, 21);
+            this.btnAddGroup.Name = "btnAddGroup";
+            this.btnAddGroup.Size = new System.Drawing.Size(81, 35);
+            this.btnAddGroup.TabIndex = 1;
+            this.btnAddGroup.Text = "اضافة";
+            this.btnAddGroup.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAddGroup.UseVisualStyleBackColor = true;
+            this.btnAddGroup.Click += new System.EventHandler(this.btnAddSup_Click);
+            // 
             // groupBox10
             // 
             this.groupBox10.Controls.Add(this.txtNameGroup);
@@ -141,6 +209,26 @@
             this.txtDecr.Size = new System.Drawing.Size(817, 249);
             this.txtDecr.TabIndex = 16;
             this.txtDecr.TabStop = false;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.textBox1);
+            this.groupBox5.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox5.Location = new System.Drawing.Point(230, 126);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(354, 51);
+            this.groupBox5.TabIndex = 1;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "ملاحظات";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(8, 20);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.textBox1.Size = new System.Drawing.Size(340, 25);
+            this.textBox1.TabIndex = 0;
             // 
             // groupBox4
             // 
@@ -206,14 +294,14 @@
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1135, 323);
@@ -232,93 +320,6 @@
             this.groupBox12.TabStop = false;
             this.groupBox12.Text = "قائمة الجهات";
             // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.textBox1);
-            this.groupBox5.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox5.Location = new System.Drawing.Point(230, 126);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(354, 51);
-            this.groupBox5.TabIndex = 1;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "ملاحظات";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(8, 20);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textBox1.Size = new System.Drawing.Size(340, 25);
-            this.textBox1.TabIndex = 0;
-            // 
-            // btnRefrish
-            // 
-            this.btnRefrish.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btnRefrish.Image = global::SystemConfiguration.Properties.Resources.refresh__1_;
-            this.btnRefrish.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRefrish.Location = new System.Drawing.Point(93, 21);
-            this.btnRefrish.Name = "btnRefrish";
-            this.btnRefrish.Size = new System.Drawing.Size(93, 35);
-            this.btnRefrish.TabIndex = 5;
-            this.btnRefrish.Text = "تحديث ";
-            this.btnRefrish.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnRefrish.UseVisualStyleBackColor = true;
-            this.btnRefrish.Click += new System.EventHandler(this.btnRefrish_Click);
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.button1.Image = global::SystemConfiguration.Properties.Resources.delete;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(192, 21);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(81, 35);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "حذف";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.button4.Image = global::SystemConfiguration.Properties.Resources.exit__3_;
-            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(6, 21);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(81, 35);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "خروج";
-            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // btnRefrsh
-            // 
-            this.btnRefrsh.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btnRefrsh.Image = global::SystemConfiguration.Properties.Resources.update;
-            this.btnRefrsh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRefrsh.Location = new System.Drawing.Point(279, 21);
-            this.btnRefrsh.Name = "btnRefrsh";
-            this.btnRefrsh.Size = new System.Drawing.Size(81, 35);
-            this.btnRefrsh.TabIndex = 2;
-            this.btnRefrsh.Text = "تعديل";
-            this.btnRefrsh.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnRefrsh.UseVisualStyleBackColor = true;
-            // 
-            // btnAddGroup
-            // 
-            this.btnAddGroup.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btnAddGroup.Image = global::SystemConfiguration.Properties.Resources.plus;
-            this.btnAddGroup.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddGroup.Location = new System.Drawing.Point(366, 21);
-            this.btnAddGroup.Name = "btnAddGroup";
-            this.btnAddGroup.Size = new System.Drawing.Size(81, 35);
-            this.btnAddGroup.TabIndex = 1;
-            this.btnAddGroup.Text = "اضافة";
-            this.btnAddGroup.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAddGroup.UseVisualStyleBackColor = true;
-            this.btnAddGroup.Click += new System.EventHandler(this.btnAddSup_Click);
-            // 
             // frmGroup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -330,6 +331,7 @@
             this.Name = "frmGroup";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "دليل المجوعات";
             this.Load += new System.EventHandler(this.frmGroup_Load);
             this.groupBox1.ResumeLayout(false);
@@ -338,14 +340,14 @@
             this.groupBox10.ResumeLayout(false);
             this.groupBox10.PerformLayout();
             this.txtDecr.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox9.ResumeLayout(false);
             this.groupBox9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox12.ResumeLayout(false);
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
 
         }
