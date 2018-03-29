@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtIDgroup = new System.Windows.Forms.TextBox();
@@ -40,9 +40,9 @@
             this.btnRefrsh = new System.Windows.Forms.Button();
             this.btnAddGroup = new System.Windows.Forms.Button();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
-            this.txtDecr = new System.Windows.Forms.GroupBox();
+            this.group = new System.Windows.Forms.GroupBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtDecrp = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -53,7 +53,7 @@
             this.groupBox1.SuspendLayout();
             this.groupBox11.SuspendLayout();
             this.groupBox10.SuspendLayout();
-            this.txtDecr.SuspendLayout();
+            this.group.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -169,6 +169,7 @@
             this.btnRefrsh.Text = "تعديل";
             this.btnRefrsh.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnRefrsh.UseVisualStyleBackColor = true;
+            this.btnRefrsh.Click += new System.EventHandler(this.btnRefrsh_Click);
             // 
             // btnAddGroup
             // 
@@ -195,24 +196,24 @@
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "اسم المجموعة";
             // 
-            // txtDecr
+            // group
             // 
-            this.txtDecr.Controls.Add(this.groupBox5);
-            this.txtDecr.Controls.Add(this.groupBox4);
-            this.txtDecr.Controls.Add(this.groupBox3);
-            this.txtDecr.Controls.Add(this.groupBox11);
-            this.txtDecr.Controls.Add(this.groupBox10);
-            this.txtDecr.Controls.Add(this.groupBox9);
-            this.txtDecr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDecr.Location = new System.Drawing.Point(167, 64);
-            this.txtDecr.Name = "txtDecr";
-            this.txtDecr.Size = new System.Drawing.Size(817, 249);
-            this.txtDecr.TabIndex = 16;
-            this.txtDecr.TabStop = false;
+            this.group.Controls.Add(this.groupBox5);
+            this.group.Controls.Add(this.groupBox4);
+            this.group.Controls.Add(this.groupBox3);
+            this.group.Controls.Add(this.groupBox11);
+            this.group.Controls.Add(this.groupBox10);
+            this.group.Controls.Add(this.groupBox9);
+            this.group.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.group.Location = new System.Drawing.Point(167, 64);
+            this.group.Name = "group";
+            this.group.Size = new System.Drawing.Size(817, 249);
+            this.group.TabIndex = 16;
+            this.group.TabStop = false;
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.textBox1);
+            this.groupBox5.Controls.Add(this.txtDecrp);
             this.groupBox5.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox5.Location = new System.Drawing.Point(230, 126);
             this.groupBox5.Name = "groupBox5";
@@ -221,14 +222,14 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "ملاحظات";
             // 
-            // textBox1
+            // txtDecrp
             // 
-            this.textBox1.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(8, 20);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textBox1.Size = new System.Drawing.Size(340, 25);
-            this.textBox1.TabIndex = 0;
+            this.txtDecrp.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDecrp.Location = new System.Drawing.Point(8, 20);
+            this.txtDecrp.Name = "txtDecrp";
+            this.txtDecrp.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtDecrp.Size = new System.Drawing.Size(340, 25);
+            this.txtDecrp.TabIndex = 0;
             // 
             // groupBox4
             // 
@@ -249,6 +250,7 @@
             this.button2.TabIndex = 0;
             this.button2.Text = "عناصر المجموعة";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // groupBox3
             // 
@@ -294,18 +296,19 @@
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1135, 323);
             this.dataGridView1.TabIndex = 12;
+            this.dataGridView1.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEnter);
             // 
             // groupBox12
             // 
@@ -326,7 +329,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1171, 679);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.txtDecr);
+            this.Controls.Add(this.group);
             this.Controls.Add(this.groupBox12);
             this.Name = "frmGroup";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -339,7 +342,7 @@
             this.groupBox11.ResumeLayout(false);
             this.groupBox10.ResumeLayout(false);
             this.groupBox10.PerformLayout();
-            this.txtDecr.ResumeLayout(false);
+            this.group.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.groupBox4.ResumeLayout(false);
@@ -364,7 +367,7 @@
         private System.Windows.Forms.Button btnRefrsh;
         private System.Windows.Forms.Button btnAddGroup;
         private System.Windows.Forms.GroupBox groupBox10;
-        private System.Windows.Forms.GroupBox txtDecr;
+        private System.Windows.Forms.GroupBox group;
         private System.Windows.Forms.GroupBox groupBox9;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.GroupBox groupBox12;
@@ -373,7 +376,7 @@
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtDecrp;
         private System.Windows.Forms.Button btnRefrish;
     }
 }

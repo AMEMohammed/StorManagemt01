@@ -295,6 +295,26 @@ namespace SystemConfiguration
             return (int)sql.ExcuteQueryValue(Query, null);
 
         }
+        //////////
+        //////////
+        /// update group
+        public int UpdateGroup(int ID, int GroupSourceID, string GroupName, string GroupDescription, int UserID)
+        {
+            string Query = "update dbo.tblGroup set  GroupSourceID=@GroupSourceID , GroupName=@GroupName ,GroupDescription=@GroupDescription,UserID=@UserID where ID=@ID ";
+            SqlParameter[] parm = new SqlParameter[5];
+            parm[0] = new SqlParameter("@ID", ID);
+            parm[1] = new SqlParameter("@GroupSourceID", GroupSourceID);
+            parm[2] = new SqlParameter("@GroupName", GroupName);
+            parm[3] = new SqlParameter("@GroupDescription", GroupDescription);
+            parm[4] = new SqlParameter("@UserID", UserID);
+            return (int)sql.ExcuteQuery(Query, parm);
+        }
+        ////
+        public DataTable GETALLAccountSub()
+        {
+            string Query = "select AccountNm.IDCode as 'رقم الحساب',AccountNm.AcountNm as'اسم الحساب'  from AccountNm where AcountType='فرعي'";
+            return sql.SelectData(Query, null);
+        }
 
     }
 }
