@@ -72,7 +72,12 @@ namespace SystemConfiguration
 
         private void button1_Click(object sender, EventArgs e)
         {
-            comboBox2.Items.Add(comboBox1.Text);
+            Dictionary<int, string> list = new Dictionary<int, string>();
+            list.Add((int)comboBox1.SelectedValue,);
+           
+            comboBox2.Items[0]
+            
+          
         }
     }
 }
