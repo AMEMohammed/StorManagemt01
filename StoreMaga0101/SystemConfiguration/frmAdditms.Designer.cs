@@ -83,6 +83,7 @@
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(188, 246);
             this.comboBox2.TabIndex = 2;
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // button1
             // 
@@ -104,6 +105,7 @@
             this.button2.TabIndex = 3;
             this.button2.Text = ">>";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 

@@ -14,6 +14,7 @@ namespace SystemConfiguration
     {
         Config config;
         int Type1;
+        Dictionary<string, int> ItemsSeleced = new Dictionary<string, int>();
         public frmAdditms()
         {
             InitializeComponent();
@@ -45,6 +46,10 @@ namespace SystemConfiguration
                // comboBox1.DropDownStyle = ComboBoxStyle.DropDown;
                // comboBox1.AutoCompleteMode = AutoCompleteMode.Append;
              //  comboBox1.AutoCompleteSource = AutoCompleteSource.None;
+            foreach(var it in comboBox2.Items)
+                {
+                    
+                }
                 if (Type1 == 1)
                 {
                     comboBox1.DataSource = config.GETALLAccountSub();
@@ -72,12 +77,36 @@ namespace SystemConfiguration
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Dictionary<int, string> list = new Dictionary<int, string>();
-            list.Add((int)comboBox1.SelectedValue,);
+            comboBox2.Items.Add(new { Text = comboBox1.GetItemText(comboBox1.SelectedItem) ,Value=comboBox1.SelectedValue});
+          //  comboBox2.ValueMember = "Value";
+          //  comboBox2.DisplayMember = "Text";
+            comboBox1.Items.RemoveAt(0);
+
+
            
-            comboBox2.Items[0]
-            
-          
+
+
+
+
+        }
+        private class ComboboxItem
+        {
+             public string Text { get; set; }
+            public int Value { get; set; }
+            public override string ToString()
+            {
+                return Text;
+            }
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //MessageBox.Show(comboBox2.SelectedValue.ToString());
         }
     }
 }
