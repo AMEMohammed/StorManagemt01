@@ -163,7 +163,7 @@ namespace SystemConfiguration
         {
             if (txtIDgroup.Text.Length > 0)
             {
-                new frmAdditms().ShowDialog();
+                new frmAdditms(Convert.ToInt32(txtIDgroup.Text)).ShowDialog();
 
             }
 

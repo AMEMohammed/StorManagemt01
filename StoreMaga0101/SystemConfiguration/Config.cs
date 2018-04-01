@@ -315,6 +315,22 @@ namespace SystemConfiguration
             string Query = "select AccountNm.IDCode as 'رقم الحساب',AccountNm.AcountNm as'اسم الحساب'  from AccountNm where AcountType='فرعي'";
             return sql.SelectData(Query, null);
         }
+        //// get Accountes not in Group
+        public DataTable GetAllAccountSubNoInGroup(int GroupID)
+        {
+            string Query = "select AccountNm.IDCode as 'رقم الحساب', AccountNm.AcountNm as'اسم الحساب'  from  AccountNm where AccountNm.AcountType='فرعي' and   AccountNm.IDAcountNm   not in(select GroupDetalis.GroupIDItem from GroupDetalis where GroupDetalis.GroupID=@GroupID) ";
+            SqlParameter[] parm = new SqlParameter[1];
+            parm[0] = new SqlParameter("@GroupID", GroupID);
+            return sql.SelectData(Query, parm);
+        }
+        /// get accounts in group
+        public DataTable GetAllAccountSubInGroup(int GroupID)
+        {
+            string Query = "select AccountNm.IDCode as 'رقم الحساب', AccountNm.AcountNm as'اسم الحساب'  from  AccountNm where AccountNm.AcountType='فرعي' and   AccountNm.IDAcountNm   in(select GroupDetalis.GroupIDItem from GroupDetalis where GroupDetalis.GroupID=@GroupID) ";
+            SqlParameter[] parm = new SqlParameter[1];
+            parm[0] = new SqlParameter("@GroupID", GroupID);
+            return sql.SelectData(Query, parm);
+        }
 
     }
 }
