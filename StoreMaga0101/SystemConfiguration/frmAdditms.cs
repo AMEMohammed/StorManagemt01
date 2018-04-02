@@ -42,14 +42,11 @@ namespace SystemConfiguration
             IdGroup = idgroup;
 
         }
+        //// event Loading
         private void frmAdditms_Load(object sender, EventArgs e)
         {
             try
-            {
-               // comboBox1.DropDownStyle = ComboBoxStyle.DropDown;
-               // comboBox1.AutoCompleteMode = AutoCompleteMode.Append;
-              //  comboBox1.AutoCompleteSource = AutoCompleteSource.None;
-          
+            {                         
                /////// if type is Accountes
                 if (Type1 == 1)
                 {
@@ -72,12 +69,7 @@ namespace SystemConfiguration
                     //
                     comboBox1.SelectedIndex = 0;
 
-                    //comboBox1.DataSource = config.GetAllAccountSubNoInGroup(IdGroup);
-                    //comboBox1.DisplayMember = "اسم الحساب";
-                    //comboBox1.ValueMember = "رقم الحساب";
-                    //comboBox2.DataSource = config.GetAllAccountSubInGroup(IdGroup);
-                    //comboBox2.DisplayMember = "اسم الحساب";
-                    //comboBox2.ValueMember = "رقم الحساب";
+                 
                 }
             }
             catch(Exception ex)
@@ -119,33 +111,35 @@ namespace SystemConfiguration
          }
      
 
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-           
-        }
+       
         ////////
         //////
         /// Move All Item To left
         private void button2_Click(object sender, EventArgs e)
         {
-           // try
+            try
             {
                 if (comboBox1.Items.Count > 0)
                 {
-                    foreach (string Itm in comboBox1.Items)
+                    int count = comboBox1.Items.Count;
+
+                    for (int i=0;i<count;i++)
                     {
-
-
-                        comboBox2.Items.Add(Itm);
-                        comboBox1.Items.Remove(Itm);
-
+                        comboBox2.Items.Add(comboBox1.Items[i].ToString());
+                     
                     }
+                    for (int i = 0; i < count; i++)
+                    {
+                       
+                        comboBox1.Items.Remove(comboBox1.Items[0]);
+                    }
+
 
                 }
             }
-            //catch(Exception ex)
+            catch(Exception ex)
             {
-                //MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message);
             }
         }
         ////////
@@ -159,7 +153,7 @@ namespace SystemConfiguration
                 if (comboBox2.SelectedIndex > 0)
                 {
 
-                    comboBox1.Items.Add(comboBox2.GetItemText(comboBox1.SelectedItem));// add item to right
+                    comboBox1.Items.Add(comboBox2.GetItemText(comboBox2.SelectedItem));// add item to right
 
                     comboBox2.Items.Remove(comboBox2.SelectedItem); // Remove item
                 }
@@ -173,20 +167,29 @@ namespace SystemConfiguration
         // move All item to Right
         private void button4_Click(object sender, EventArgs e)
         {
-           // try
+            try
             {
-                //if (comboBox2.Items.Count > 0)
+                if (comboBox2.Items.Count > 0)
                 {
-                    foreach (string Itm in comboBox2.Items)
+                    int count = comboBox2.Items.Count;
+
+                    for (int i = 0; i < count; i++)
                     {
-                        comboBox1.Items.Add(Itm);
-                        comboBox2.Items.Remove(Itm);
+                        comboBox1.Items.Add(comboBox2.Items[i].ToString());
+
                     }
+                    for (int i = 0; i < count; i++)
+                    {
+
+                        comboBox2.Items.Remove(comboBox2.Items[0]);
+                    }
+
+
                 }
             }
-          //  catch (Exception ex)
+            catch (Exception ex)
             {
-                //MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message);
             }
         }
     }
