@@ -79,11 +79,9 @@ namespace SystemConfiguration
 
         }
 
-        private void groupBox3_Enter(object sender, EventArgs e)
-        {
-
-        }
-
+       
+        //////
+        /// btn Close 
         private void button6_Click(object sender, EventArgs e)
         {
             this.Close();
