@@ -83,7 +83,6 @@
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(188, 246);
             this.comboBox2.TabIndex = 2;
-        ////    this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // button1
             // 
@@ -139,7 +138,6 @@
             this.groupBox3.TabIndex = 6;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "العمليات";
-          //  this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
             // button6
             // 
@@ -159,6 +157,7 @@
             this.button5.TabIndex = 0;
             this.button5.Text = "موافق";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // frmAdditms
             // 

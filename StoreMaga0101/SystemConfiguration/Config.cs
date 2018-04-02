@@ -318,7 +318,7 @@ namespace SystemConfiguration
         //// get Accountes not in Group
         public DataTable GetAllAccountSubNoInGroup(int GroupID)
         {
-            string Query = "select AccountNm.IDCode as 'رقم الحساب', AccountNm.AcountNm as'اسم الحساب'  from  AccountNm where AccountNm.AcountType='فرعي' and   AccountNm.IDAcountNm   not in(select GroupDetalis.GroupIDItem from GroupDetalis where GroupDetalis.GroupID=@GroupID) ";
+            string Query = "select AccountNm.IDCode as 'رقم الحساب', AccountNm.AcountNm as'اسم الحساب'  from  AccountNm where AccountNm.AcountType='فرعي' and   AccountNm.IDCode  not in(select GroupDetalis.GroupIDItem from GroupDetalis where GroupDetalis.GroupID=@GroupID) ";
             SqlParameter[] parm = new SqlParameter[1];
             parm[0] = new SqlParameter("@GroupID", GroupID);
             return sql.SelectData(Query, parm);
@@ -326,11 +326,31 @@ namespace SystemConfiguration
         /// get accounts in group
         public DataTable GetAllAccountSubInGroup(int GroupID)
         {
-            string Query = "select AccountNm.IDCode as 'رقم الحساب', AccountNm.AcountNm as'اسم الحساب'  from  AccountNm where AccountNm.AcountType='فرعي' and   AccountNm.IDAcountNm   in(select GroupDetalis.GroupIDItem from GroupDetalis where GroupDetalis.GroupID=@GroupID) ";
+            string Query = "select AccountNm.IDCode as 'رقم الحساب', AccountNm.AcountNm as'اسم الحساب'  from  AccountNm where AccountNm.AcountType='فرعي' and   AccountNm.IDCode  in(select GroupDetalis.GroupIDItem from GroupDetalis where GroupDetalis.GroupID=@GroupID) ";
             SqlParameter[] parm = new SqlParameter[1];
             parm[0] = new SqlParameter("@GroupID", GroupID);
             return sql.SelectData(Query, parm);
         }
+        /// delete All items From GroupDetalis
+        public int DeleteItemsONGroupDetalis(int IDGroup)
+        {
+            string Query = "delete  from GroupDetalis where GroupDetalis.GroupID=@GroupID";
+            SqlParameter[] parm = new SqlParameter[1];
+            parm[0] = new SqlParameter("@GroupID", IDGroup);
+            return sql.ExcuteQuery(Query, parm);
+        }
+        // add Items  from Group Detalis
+        public int AddItemsONGroupDetalis(int IDGroup,int IDItems,int UserID)
+        {
+            string Query = " insert into GroupDetalis (GroupID,GroupIDItem,UserID) values(@GroupID,@GroupIDItem,@UserID)";
+            SqlParameter[] parm = new SqlParameter[3];
+            parm[0] = new SqlParameter("@GroupID", IDGroup);
+            parm[1] = new SqlParameter("@GroupIDItem", IDItems);
+            parm[2] = new SqlParameter("@UserID", UserID);
+            return sql.ExcuteQuery(Query, parm);
+        }
+
+
 
     }
 }

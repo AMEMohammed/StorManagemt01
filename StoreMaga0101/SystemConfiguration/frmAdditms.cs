@@ -15,6 +15,7 @@ namespace SystemConfiguration
         Config config;
         int Type1;
         int IdGroup;
+        int UserId;
         Dictionary<string, int> ItemsSeleced = new Dictionary<string, int>();
         public frmAdditms(int idgroup)
         {
@@ -25,39 +26,42 @@ namespace SystemConfiguration
 
 
                 Type1 = 1;
+                UserId = 1;
                 IdGroup = idgroup;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
         /////
-        public frmAdditms(int Type,int idgroup, string ServerNm,string DbNm,string UserSql,string PassSql)
+        public frmAdditms(int Type, int idgroup,int UserID, string ServerNm, string DbNm, string UserSql, string PassSql)
         {
             InitializeComponent();
             config = new Config(ServerNm, DbNm, UserSql, PassSql);
-          
+
             Type1 = Type;
+            UserId = UserID;
             IdGroup = idgroup;
+
 
         }
         //// event Loading
         private void frmAdditms_Load(object sender, EventArgs e)
         {
             try
-            {                         
-               /////// if type is Accountes
+            {
+                /////// if type is Accountes
                 if (Type1 == 1)
                 {
                     DataTable dt1 = new DataTable();
                     DataTable dt2 = new DataTable();
                     /// get accountes is no group
-                    dt1= config.GetAllAccountSubNoInGroup(IdGroup);
+                    dt1 = config.GetAllAccountSubNoInGroup(IdGroup);
                     /// get Accountes in group
                     dt2 = config.GetAllAccountSubInGroup(IdGroup);
                     //
-                    foreach(DataRow dr in dt1.Rows )
+                    foreach (DataRow dr in dt1.Rows)
                     {
                         comboBox1.Items.Add(dr["اسم الحساب"]);
                     }
@@ -69,17 +73,17 @@ namespace SystemConfiguration
                     //
                     comboBox1.SelectedIndex = 0;
 
-                 
+
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
 
         }
 
-       
+
         //////
         /// btn Close 
         private void button6_Click(object sender, EventArgs e)
@@ -94,7 +98,7 @@ namespace SystemConfiguration
             try
             {
 
-                if ( comboBox1.SelectedIndex >= 0)
+                if (comboBox1.SelectedIndex >= 0)
                 {
 
                     comboBox2.Items.Add(comboBox1.GetItemText(comboBox1.SelectedItem));// add item to left
@@ -102,14 +106,14 @@ namespace SystemConfiguration
                     comboBox1.Items.Remove(comboBox1.SelectedItem); // Remove item
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-         }
-     
+        }
 
-       
+
+
         ////////
         //////
         /// Move All Item To left
@@ -121,21 +125,21 @@ namespace SystemConfiguration
                 {
                     int count = comboBox1.Items.Count;
 
-                    for (int i=0;i<count;i++)
+                    for (int i = 0; i < count; i++)
                     {
                         comboBox2.Items.Add(comboBox1.Items[i].ToString());
-                     
+
                     }
                     for (int i = 0; i < count; i++)
                     {
-                       
+
                         comboBox1.Items.Remove(comboBox1.Items[0]);
                     }
 
 
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -148,7 +152,7 @@ namespace SystemConfiguration
             try
             {
 
-                if (comboBox2.SelectedIndex > 0)
+                if (comboBox2.SelectedIndex >= 0)
                 {
 
                     comboBox1.Items.Add(comboBox2.GetItemText(comboBox2.SelectedItem));// add item to right
@@ -189,6 +193,42 @@ namespace SystemConfiguration
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+        /// btn Add GroupItems Details
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (Type1 == 1)
+            {   //
+                DataTable dtAllAccount = new DataTable();
+                dtAllAccount = config.GETALLAccountSub();
+                //
+                List<int> NumberAccounts = new List<int>();
+                //get Number account in combox2
+                foreach(DataRow dr in dtAllAccount.Rows)
+                {
+                    for(int i=0;i<comboBox2.Items.Count;i++)
+                    {
+                        if (dr["اسم الحساب"].ToString() == comboBox2.Items[i].ToString())
+                        {
+                            NumberAccounts.Add(Convert.ToInt32(dr["رقم الحساب"].ToString()));
+                        }
+
+                    }
+
+                }
+                // delete items old
+                config.DeleteItemsONGroupDetalis(IdGroup);
+                // add new items
+                for (int i = 0; i < NumberAccounts.Count; i++)
+                {
+                    config.AddItemsONGroupDetalis(IdGroup, NumberAccounts[i], UserId);
+                }
+                //
+                this.Close();
+               
+
+            }
+
         }
     }
 }
