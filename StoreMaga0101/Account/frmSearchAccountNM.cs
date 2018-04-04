@@ -96,13 +96,14 @@ namespace Account
         private void button1_Click(object sender, EventArgs e)
         {
             groupBox4.Enabled = false;
-                groupBox5.Enabled =true;
+            groupBox2.Enabled =false;
+            groupBox5.Enabled = true; 
             IdAllAcount = 2;
             IDTypeAccontPrime = 1;
             IDYType = 1;
-            comboBox1.DataSource = Acn.GETALLAccountPrime();
-            comboBox1.ValueMember = "رقم الحساب";
-            comboBox1.DisplayMember = "اسم الحساب";
+            comboBox1.DataSource = Acn.GetGroupsAsAccounts();
+            comboBox1.ValueMember = "رقم المجموعة";
+            comboBox1.DisplayMember = "اسم المجموعة";
         }
         /// <summary>
         /// ///// الحسابات الفرعية
@@ -214,14 +215,20 @@ namespace Account
 
                 dataGridView1.DataSource = Acn.GETAccountDitalis((int)comboBox1.SelectedValue, IDcurrncy,d1,d2);
             }
+              else if(IDTypeAccontPrime==1)
+            {
+                MessageBox.Show("this is Prime");
+                MessageBox.Show(comboBox1.SelectedValue.ToString());
+                
+            }
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-          
-
-        }
-
+       //
+       /// <summary>
+       /// 
+       /// </summary>
+       /// <param name="sender"></param>
+       /// <param name="e"></param>
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (((ComboBox)sender).SelectedIndex == 4)
@@ -297,6 +304,7 @@ namespace Account
                         i++;
                     }
                     dt.Rows[0][9] = Acn.GetUserNM(IDUSER);
+                    /// print Report
                     frmReprt frmrepot = new frmReprt(dt, dt, 8);
                     frmrepot.ShowDialog();
 

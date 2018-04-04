@@ -38,7 +38,6 @@ D:\programing1\StoreMaga0101\StoreMaga0101\SystemConfiguration\obj\Debug\SystemC
 D:\programing1\StoreMaga0101\StoreMaga0101\SystemConfiguration\obj\Debug\SystemConfiguration.pdb
 D:\programing1\StoreMaga0101\StoreMaga0101\SystemConfiguration\bin\Debug\SystemConfiguration.exe
 D:\programing1\StoreMaga0101\StoreMaga0101\SystemConfiguration\bin\Debug\SystemConfiguration.pdb
-D:\programing1\StoreMaga0101\StoreMaga0101\SystemConfiguration\obj\Debug\SystemConfiguration.csprojResolveAssemblyReference.cache
 D:\programing1\StoreMaga0101\StoreMaga0101\SystemConfiguration\obj\Debug\SystemConfiguration.Cate.resources
 D:\programing1\StoreMaga0101\StoreMaga0101\SystemConfiguration\obj\Debug\SystemConfiguration.frmCuurncy.resources
 D:\programing1\StoreMaga0101\StoreMaga0101\SystemConfiguration\obj\Debug\SystemConfiguration.frmGroup.resources

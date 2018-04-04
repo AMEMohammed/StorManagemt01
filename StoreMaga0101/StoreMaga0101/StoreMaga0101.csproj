@@ -58,10 +58,10 @@
       <HintPath>..\FrmRports\bin\Debug\FrmRports.dll</HintPath>
     </Reference>
     <Reference Include="frmWInReprting">
-      <HintPath>..\frmWInReprting\bin\Debug\frmWInReprting.dll</HintPath>
+      <HintPath>..\..\..\..\progaming\New\StoreMaga0101\frmWInReprting\bin\Debug\frmWInReprting.dll</HintPath>
     </Reference>
     <Reference Include="Out">
-      <HintPath>..\Out\bin\Debug\Out.dll</HintPath>
+      <HintPath>..\..\..\..\progaming\New\StoreMaga0101\Out\bin\Debug\Out.dll</HintPath>
     </Reference>
     <Reference Include="Supplly, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

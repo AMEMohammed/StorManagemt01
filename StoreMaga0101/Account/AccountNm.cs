@@ -524,7 +524,7 @@ namespace Account
             return reslt;
 
         }
-        DataTable GETAcountDitlis(int IDcode, int IDCurnncy, DateTime d1, DateTime d2)
+       public DataTable GETAcountDitlis(int IDcode, int IDCurnncy, DateTime d1, DateTime d2)
         {
             string Query = "select * from AccountDetalis  where IDCode=@idcode and  IDCurrncy=@idcurrncy and DateEnter between @d1  and @d2";
             SqlParameter[] parm = new SqlParameter[4];
@@ -535,7 +535,7 @@ namespace Account
             return sql.SelectData(Query, parm);
 
         }
-   public   string GetUserNM(int IDuser)
+      public string GetUserNM(int IDuser)
         {
             string Query = "select Name from Users where IDUSER =@iduser";
             SqlParameter[] parm = new SqlParameter[1];
@@ -543,6 +543,14 @@ namespace Account
             return (string)sql.ExcuteQueryValue(Query, parm);
         }
         /// 
+      ////// Group Tables
+      ////
+      /// get All Groups Accouunts
+      public DataTable GetGroupsAsAccounts()
+        {
+            string Query = "select tblGroup.ID as'رقم المجموعة' ,tblGroup.GroupName as'اسم المجموعة' from tblGroup where tblGroup.GroupSourceID=1";
+            return sql.SelectData(Query, null);        
+        } 
       
         /////
     }
