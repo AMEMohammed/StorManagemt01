@@ -179,7 +179,6 @@ D:\programing1\StoreMaga0101\StoreMaga0101\Out\bin\Debug\CrystalDecisions.Report
 D:\programing1\StoreMaga0101\StoreMaga0101\Out\bin\Debug\stdole.dll
 D:\programing1\StoreMaga0101\StoreMaga0101\Out\bin\Debug\ShockwaveFlashObjects.dll
 D:\programing1\StoreMaga0101\StoreMaga0101\Out\bin\Debug\FrmRports.pdb
-D:\programing1\StoreMaga0101\StoreMaga0101\Out\obj\Debug\Out.csprojResolveAssemblyReference.cache
 D:\programing1\StoreMaga0101\StoreMaga0101\Out\obj\Debug\Out_.frmAddOut.resources
 D:\programing1\StoreMaga0101\StoreMaga0101\Out\obj\Debug\Out_.frmUpdateOut.resources
 D:\programing1\StoreMaga0101\StoreMaga0101\Out\obj\Debug\Out_.frmUpdateOut2.resources

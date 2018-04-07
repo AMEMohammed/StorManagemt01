@@ -214,12 +214,16 @@ namespace Account
                 int IDcurrncy = (int)comboBox4.SelectedValue;
 
                 dataGridView1.DataSource = Acn.GETAccountDitalis((int)comboBox1.SelectedValue, IDcurrncy,d1,d2);
-            }
+            }// جلب كشف حساب لمجمعة محددة من الحسابات
               else if(IDTypeAccontPrime==1)
             {
-                MessageBox.Show("this is Prime");
-                MessageBox.Show(comboBox1.SelectedValue.ToString());
-                
+                if ((int)comboBox1.SelectedValue >0) {
+                   
+                    dataGridView1.DataSource = Acn.GetAccountesMOnayInGroup(Convert.ToInt32( comboBox1.SelectedValue.ToString()));
+
+                }
+
+
             }
         }
 

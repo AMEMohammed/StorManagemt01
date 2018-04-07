@@ -244,7 +244,6 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(392, 23);
             this.comboBox1.TabIndex = 5;
-       //     this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // groupBox4
             // 
@@ -342,7 +341,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(169, 23);
             this.button1.TabIndex = 0;
-            this.button1.Text = "كشف حساب رئيسي محدد";
+            this.button1.Text = "كشف حساب لمجموعة محددة";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 

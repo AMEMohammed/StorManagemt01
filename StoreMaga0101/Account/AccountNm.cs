@@ -550,7 +550,49 @@ namespace Account
         {
             string Query = "select tblGroup.ID as'رقم المجموعة' ,tblGroup.GroupName as'اسم المجموعة' from tblGroup where tblGroup.GroupSourceID=1";
             return sql.SelectData(Query, null);        
-        } 
+        }
+        
+        public DataTable GetAccountesMOnayInGroup(int IDGroup)
+        {
+            string Query = " select AccountNm.IDCode,AccountNm.AcountNm,AccountTotal.Balance,Currency.NameCurrency  from AccountNm,AccountTotal,Currency where AccountTotal.IDCode=AccountNm.IDCode and   AccountNm.IDCode in(select GroupDetalis.GroupIDItem from GroupDetalis where GroupDetalis.GroupID =@GroupID) and Currency.IDCurrency = AccountTotal.IDCurrncy";
+
+            SqlParameter[] parm = new SqlParameter[1];
+            parm[0] = new SqlParameter("@GroupID", IDGroup);
+            DataTable dt = new DataTable();
+            dt=sql.SelectData(Query, parm);
+            DataTable dt2 = new DataTable();
+            dt2.Columns.Add("رقم الحساب");
+            dt2.Columns.Add("اسم الحساب");
+            dt2.Columns.Add("دائن");
+            dt2.Columns.Add("مدين");
+            dt2.Columns.Add("عملة الحساب");
+            dt2.Columns.Add("البيان");
+         
+            for (int i=0; i<dt.Rows.Count;i++)
+            {
+                string deit;
+                int Mony = 0;
+                Mony = Convert.ToInt32(dt.Rows[i]["Balance"].ToString());
+               
+                if (Mony>0)
+                {
+                  
+                  deit = "الرصيد لكم بقيمة " + string.Format("{0:##,##}",Mony )  + " " + dt.Rows[i]["NameCurrency"].ToString();
+                    dt2.Rows.Add(new string[] { dt.Rows[i]["IDCode"].ToString(), dt.Rows[i]["AcountNm"].ToString(), Mony.ToString(), "0", dt.Rows[i]["NameCurrency"].ToString(),deit });
+                }
+               else
+                {
+                    Mony *= -1;
+                     deit = "الرصيد عليكم بقيمة " + string.Format("{0:##,##}", Mony)  + " " + dt.Rows[i]["NameCurrency"].ToString();
+                    dt2.Rows.Add(new string[] { dt.Rows[i]["IDCode"].ToString(), dt.Rows[i]["AcountNm"].ToString(),"0", Mony.ToString(), dt.Rows[i]["NameCurrency"].ToString(), deit });
+                }
+              
+            
+                
+            }
+            return dt2;
+
+        }
       
         /////
     }
