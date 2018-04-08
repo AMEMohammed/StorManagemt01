@@ -43,8 +43,13 @@ namespace SystemConfiguration
         private void Cate_Load(object sender, EventArgs e)
         { try
             {
+                combAccont.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                combAccont.AutoCompleteSource = AutoCompleteSource.ListItems;
                 textBox4.Focus();
                 dataGridView1.DataSource = config.GetAllCategoryAR();
+                combAccont.DataSource = config.GETALLAccountSub();
+                combAccont.ValueMember = "رقم الحساب";
+                combAccont.DisplayMember = "اسم الحساب";
             }
             catch(Exception ex)
             {
@@ -62,6 +67,7 @@ namespace SystemConfiguration
                 {
                     config.AddNewCategory(textBox4.Text);
                 dataGridView1.DataSource = config.GetAllCategoryAR();
+                    
                     textBox4.Text = "";
                     textBox4.Focus();
 
@@ -150,6 +156,17 @@ namespace SystemConfiguration
                     MessageBox.Show(ex.Message);
                 }
             }
+        }
+
+      
+
+        private void checkBox1_CheckedChanged_1(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+                combAccont.Enabled = true;
+            else
+                combAccont.Enabled = false;
+
         }
     }
 }

@@ -551,7 +551,7 @@ namespace Account
             string Query = "select tblGroup.ID as'رقم المجموعة' ,tblGroup.GroupName as'اسم المجموعة' from tblGroup where tblGroup.GroupSourceID=1";
             return sql.SelectData(Query, null);        
         }
-        
+        // جلب قيمة الحسابات المحددة داخل المجموعة
         public DataTable GetAccountesMOnayInGroup(int IDGroup)
         {
             string Query = " select AccountNm.IDCode,AccountNm.AcountNm,AccountTotal.Balance,Currency.NameCurrency  from AccountNm,AccountTotal,Currency where AccountTotal.IDCode=AccountNm.IDCode and   AccountNm.IDCode in(select GroupDetalis.GroupIDItem from GroupDetalis where GroupDetalis.GroupID =@GroupID) and Currency.IDCurrency = AccountTotal.IDCurrncy";
