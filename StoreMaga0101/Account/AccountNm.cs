@@ -567,29 +567,44 @@ namespace Account
             dt2.Columns.Add("مدين");
             dt2.Columns.Add("عملة الحساب");
             dt2.Columns.Add("البيان");
-         
+            int totalMany = 0;
+            int Mony = 0;
             for (int i=0; i<dt.Rows.Count;i++)
             {
                 string deit;
-                int Mony = 0;
+              
                 Mony = Convert.ToInt32(dt.Rows[i]["Balance"].ToString());
                
                 if (Mony>0)
                 {
-                  
-                  deit = "الرصيد لكم بقيمة " + string.Format("{0:##,##}",Mony )  + " " + dt.Rows[i]["NameCurrency"].ToString();
-                    dt2.Rows.Add(new string[] { dt.Rows[i]["IDCode"].ToString(), dt.Rows[i]["AcountNm"].ToString(), Mony.ToString(), "0", dt.Rows[i]["NameCurrency"].ToString(),deit });
+                    totalMany += Mony;
+                   deit = "الرصيد لكم بقيمة " + string.Format("{0:##,##}",Mony )  + " " + dt.Rows[i]["NameCurrency"].ToString();
+                    dt2.Rows.Add(new string[] { dt.Rows[i]["IDCode"].ToString(), dt.Rows[i]["AcountNm"].ToString(), string.Format("{0:##,##}", Mony), "0", dt.Rows[i]["NameCurrency"].ToString(),deit });
                 }
                else
                 {
+                   
+                    totalMany += Mony;
                     Mony *= -1;
                      deit = "الرصيد عليكم بقيمة " + string.Format("{0:##,##}", Mony)  + " " + dt.Rows[i]["NameCurrency"].ToString();
-                    dt2.Rows.Add(new string[] { dt.Rows[i]["IDCode"].ToString(), dt.Rows[i]["AcountNm"].ToString(),"0", Mony.ToString(), dt.Rows[i]["NameCurrency"].ToString(), deit });
+                    dt2.Rows.Add(new string[] { dt.Rows[i]["IDCode"].ToString(), dt.Rows[i]["AcountNm"].ToString(),"0", string.Format("{0:##,##}", Mony), dt.Rows[i]["NameCurrency"].ToString(), deit });
                 }
-              
-            
+
+           
                 
             }
+
+            //if (totalMany > 0)
+            //{
+            //    MessageBox.Show("this yes");
+            //    dt2.Rows.Add(new string[] { " ", "الاجمالي", string.Format("{0:##,##}", totalMany), "0 ", dt.Rows[0]["NameCurrency"].ToString(), " " });
+
+            //}
+            //else
+            //{
+            //    MessageBox.Show("this no");
+            //    dt2.Rows.Add(new string[] { " ", "الاجمالي", "0 ", string.Format("{0:##,##}", totalMany), dt.Rows[0]["NameCurrency"].ToString(), " " });
+            //}
             return dt2;
 
         }

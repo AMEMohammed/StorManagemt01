@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem20 = new System.Windows.Forms.ToolStripMenuItem();
@@ -62,7 +63,7 @@
             this.toolStripMenuItem17 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem19 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem18 = new System.Windows.Forms.ToolStripMenuItem();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.toolStripMenuItem33 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -88,6 +89,18 @@
             this.menuStrip1.Size = new System.Drawing.Size(1099, 40);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.BackgroundImage = global::StoreMaga0101.Properties.Resources.B;
+            this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Location = new System.Drawing.Point(0, 40);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(1099, 663);
+            this.groupBox1.TabIndex = 5;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Visible = false;
             // 
             // toolStripMenuItem3
             // 
@@ -219,7 +232,8 @@
             this.toolStripMenuItem21.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.toolStripMenuItem21.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem22,
-            this.toolStripMenuItem26});
+            this.toolStripMenuItem26,
+            this.toolStripMenuItem33});
             this.toolStripMenuItem21.Image = global::StoreMaga0101.Properties.Resources.bank_account__1_;
             this.toolStripMenuItem21.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItem21.Name = "toolStripMenuItem21";
@@ -490,17 +504,16 @@
             this.toolStripMenuItem18.Visible = false;
             this.toolStripMenuItem18.Click += new System.EventHandler(this.toolStripMenuItem18_Click);
             // 
-            // groupBox1
+            // toolStripMenuItem33
             // 
-            this.groupBox1.BackgroundImage = global::StoreMaga0101.Properties.Resources.B;
-            this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(0, 40);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1099, 663);
-            this.groupBox1.TabIndex = 5;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Visible = false;
+            this.toolStripMenuItem33.AutoSize = false;
+            this.toolStripMenuItem33.Image = global::StoreMaga0101.Properties.Resources.networking;
+            this.toolStripMenuItem33.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripMenuItem33.Name = "toolStripMenuItem33";
+            this.toolStripMenuItem33.Size = new System.Drawing.Size(210, 50);
+            this.toolStripMenuItem33.Text = "تهيئة المجموعات";
+            this.toolStripMenuItem33.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.toolStripMenuItem33.Click += new System.EventHandler(this.toolStripMenuItem33_Click);
             // 
             // FrmMain
             // 
@@ -560,6 +573,7 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem22;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem26;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem33;
     }
 }
 

@@ -710,15 +710,25 @@ namespace StoreMaga0101
 
         private void toolStripMenuItem29_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void toolStripMenuItem13_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripMenuItem33_Click(object sender, EventArgs e)
+        {
             try
             {
                 this.Cursor = Cursors.WaitCursor;
-                Users.FrmConServer frmCurrncy = new Users.FrmConServer();
+                frmGroup frmgroup = new frmGroup();
                 FormCollection fromco = Application.OpenForms;
                 bool foundFrom = false;
                 foreach (Form frm in fromco)
                 {
-                    if (frm.Name == "FrmConServer")
+                    if (frm.Name == "frmGroupr")
                     {
                         frm.Focus();
 
@@ -729,19 +739,14 @@ namespace StoreMaga0101
                 }
                 if (foundFrom == false)
                 {
-                    frmCurrncy.Show();
+                    frmgroup.Show();
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
             this.Cursor = Cursors.Default;
-        }
-
-        private void toolStripMenuItem13_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
