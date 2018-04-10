@@ -158,7 +158,6 @@ D:\programing1\StoreMaga0101\StoreMaga0101\frmWInReprting\bin\Debug\CrystalDecis
 D:\programing1\StoreMaga0101\StoreMaga0101\frmWInReprting\bin\Debug\stdole.dll
 D:\programing1\StoreMaga0101\StoreMaga0101\frmWInReprting\bin\Debug\ShockwaveFlashObjects.dll
 D:\programing1\StoreMaga0101\StoreMaga0101\frmWInReprting\bin\Debug\FrmRports.pdb
-D:\programing1\StoreMaga0101\StoreMaga0101\frmWInReprting\obj\Debug\frmWInReprting.csprojResolveAssemblyReference.cache
 D:\programing1\StoreMaga0101\StoreMaga0101\frmWInReprting\obj\Debug\frmWInReprting.frmOutRepting.resources
 D:\programing1\StoreMaga0101\StoreMaga0101\frmWInReprting\obj\Debug\frmWInReprting.frmQuntityRepting.resources
 D:\programing1\StoreMaga0101\StoreMaga0101\frmWInReprting\obj\Debug\frmWInReprting.frmSuppRepring.resources
@@ -168,3 +167,4 @@ D:\programing1\StoreMaga0101\StoreMaga0101\frmWInReprting\obj\Debug\frmWInReprti
 D:\programing1\StoreMaga0101\StoreMaga0101\frmWInReprting\obj\Debug\frmWInReprting.csproj.GenerateResource.Cache
 D:\programing1\StoreMaga0101\StoreMaga0101\frmWInReprting\obj\Debug\frmWInReprting.dll
 D:\programing1\StoreMaga0101\StoreMaga0101\frmWInReprting\obj\Debug\frmWInReprting.pdb
+D:\programing1\StoreMaga0101\StoreMaga0101\frmWInReprting\obj\Debug\frmWInReprting.csprojResolveAssemblyReference.cache

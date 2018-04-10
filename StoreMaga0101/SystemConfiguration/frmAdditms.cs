@@ -17,7 +17,7 @@ namespace SystemConfiguration
         int IdGroup;
         int UserId;
         Dictionary<string, int> ItemsSeleced = new Dictionary<string, int>();
-        public frmAdditms(int idgroup)
+        public frmAdditms(int idgroup,int type)
         {
             InitializeComponent();
             try
@@ -25,7 +25,7 @@ namespace SystemConfiguration
                 config = new Config(@".\s2008", "StoreManagement1", null, null);
 
 
-                Type1 = 1;
+                Type1 = type;
                 UserId = 1;
                 IdGroup = idgroup;
             }
@@ -75,6 +75,11 @@ namespace SystemConfiguration
 
 
                 }
+                else if (Type1 == 2)
+                {
+
+                }
+                    
             }
             catch (Exception ex)
             {

@@ -62,6 +62,13 @@ namespace frmWInReprting
 
         }
         /////////////
+        // get  groups Cate
+        public DataTable GetGroupsCate()
+        {
+            string Query = "  select tblGroup.ID as 'رقم المجموعة' ,tblGroup.GroupName as 'اسم المجموعة'  from tblGroup where tblGroup.GroupSourceID=2";
+            return sql.SelectData(Query, null);
+           
+        }
         //// Get All Users
         public DataTable GetAllUser()
         {
@@ -270,6 +277,15 @@ namespace frmWInReprting
             SqlParameter[] parm = new SqlParameter[1];
             
             parm[0] = new SqlParameter("@idcur", idcu);
+            return sql.SelectData(Query, parm);
+
+        }
+        ////// Get Quntity withGroup
+        public DataTable PrintAccountQuntityWithGroup(int IDGroup)
+        {
+            string Query = "SELECT     dbo.Category.NameCategory as 'اسم الصنف',dbo.TypeQuntity.NameType as 'نوع الكمية',dbo.Account.Quntity as 'الكمية الحالية', dbo.Account.Price as 'السعر'  ,dbo.Currency.NameCurrency as 'العملة' FROM   dbo.Account INNER JOIN  dbo.Category ON dbo.Account.IDCategory = dbo.Category.IDCategory INNER JOIN dbo.TypeQuntity ON dbo.Account.IDType = dbo.TypeQuntity.IDType INNER JOIN   dbo.Currency ON dbo.Account.IDCurrency = dbo.Currency.IDCurrency  where dbo.Account.IDCategory in(select GroupIDItem from GroupDetalis where GroupID=@GroupID)";
+            SqlParameter[] parm = new SqlParameter[1];
+            parm[0] = new SqlParameter("@GroupID", IDGroup);
             return sql.SelectData(Query, parm);
 
         }

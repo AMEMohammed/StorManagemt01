@@ -54,6 +54,8 @@ namespace frmWInReprting
                 comboBox1.AutoCompleteSource = AutoCompleteSource.ListItems;
                 comboBox3.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
                 comboBox3.AutoCompleteSource = AutoCompleteSource.ListItems;
+                CombboxGroup.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                CombboxGroup.AutoCompleteSource = AutoCompleteSource.ListItems;
                 GetData1();
                 MessageBoxManager.Yes = "نعم";
                 MessageBoxManager.No = "الغاء";
@@ -81,6 +83,9 @@ namespace frmWInReprting
                 comboBox3.DisplayMember = "اسم العملة";
                 comboBox3.ValueMember = "رقم العملة";
                 comboBox3.DataSource = rf.GetAllCurrency();
+                CombboxGroup.DisplayMember = "اسم المجموعة";
+                CombboxGroup.ValueMember = "رقم المجموعة";
+                CombboxGroup.DataSource = rf.GetGroupsCate();
             }
             catch (Exception ex)
             {
@@ -92,13 +97,22 @@ namespace frmWInReprting
         { try
             {
                 this.Cursor = Cursors.WaitCursor;
-                if (checkBox2.Checked == false && checkBox3.Checked == false && checkBox4.Checked == false)
+                if (checkBox1.Checked == false && checkBox3.Checked == false && checkBox4.Checked == false)
                 {
                     dataGridView1.DataSource = rf.PrintAccountQuntity(Convert.ToInt32(comboBox1.SelectedValue), Convert.ToInt32(comboBox2.SelectedValue), Convert.ToInt32(comboBox3.SelectedValue));
                 }
-                else if (checkBox2.Checked == false)
+                else if (checkBox1.Checked == false)
                 {
                     dataGridView1.DataSource = rf.PrintAccountQuntityIDac(Convert.ToInt32(comboBox1.SelectedValue));
+
+                }
+                else if(checkBox2.Checked) // select data from Group
+                {
+                    //MessageBox.Show(CombboxGroup.SelectedValue.ToString());
+                    if ((int)CombboxGroup.SelectedValue > 0)
+                    {
+                        rf.PrintAccountQuntityWithGroup((int)CombboxGroup.SelectedValue);
+                    }
 
                 }
                 else
@@ -217,18 +231,6 @@ namespace frmWInReprting
             }   
         }
 
-        private void checkBox2_CheckedChanged(object sender, EventArgs e)
-        {
-            if(checkBox2.Checked==true)
-            {
-                comboBox1.Enabled = false;
-            }
-            else
-
-            {
-                comboBox1.Enabled = true;
-            }
-        }
 
         private void checkBox3_CheckedChanged(object sender, EventArgs e)
         {
@@ -243,6 +245,8 @@ namespace frmWInReprting
             }
         }
 
+
+
         private void checkBox4_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox4.Checked == true)
@@ -255,18 +259,38 @@ namespace frmWInReprting
                 comboBox3.Enabled = true;
             }
         }
-        // checkBox Group
-        private void checkBoxGroup_CheckedChanged(object sender, EventArgs e)
+       
+
+      
+        
+
+        
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            if(checkBoxGroup.Checked)
+            if (checkBox1.Checked == true)
+            {
+                comboBox1.Enabled = false;
+            }
+            else
+
+            {
+                comboBox1.Enabled = true;
+            }
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox2.Checked)
             {
                 CombboxGroup.Enabled = true;
+
 
             }
             else
             {
-                comboBox1.Enabled = false;
+                CombboxGroup.Enabled = false;
             }
+
         }
     }
 }
