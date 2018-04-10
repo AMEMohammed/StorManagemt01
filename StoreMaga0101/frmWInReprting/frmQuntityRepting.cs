@@ -255,5 +255,18 @@ namespace frmWInReprting
                 comboBox3.Enabled = true;
             }
         }
+        // checkBox Group
+        private void checkBoxGroup_CheckedChanged(object sender, EventArgs e)
+        {
+            if(checkBoxGroup.Checked)
+            {
+                CombboxGroup.Enabled = true;
+
+            }
+            else
+            {
+                comboBox1.Enabled = false;
+            }
+        }
     }
 }
