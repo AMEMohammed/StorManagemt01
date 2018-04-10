@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 namespace SystemConfiguration
 {
     class Config
@@ -26,28 +27,65 @@ namespace SystemConfiguration
         }
         public DataTable GetAllCategoryAR()
         {
-            string Query= "SELECT [IDCategory] as 'رقم الصنف',[NameCategory] as 'اسم الصنف' FROM  [Category] order by IDCategory desc ";
+            string Query= "SELECT dbo.Category.IDCategory as 'رقم الصنف', dbo.Category.NameCategory as 'اسم الصنف' , dbo.AccountNm.AcountNm as 'اسم الحساب' FROM  dbo.Category LEFT OUTER JOIN   dbo.AccountNm ON dbo.Category.IDAccount = dbo.AccountNm.IDCode order by   dbo.Category.IDCategory desc";
             return sql.SelectData(Query, null);
+         
 
         }
         // </summary>
         /// <param name="NameCategory"></param> this name a category
         /// <returns></returns>
-        public int AddNewCategory(string NameCategory)
+        public int AddNewCategory(string NameCategory,object IDAccount)
         {
-            string Query = "INSERT INTO [Category]([NameCategory])VALUES(@name)";
-            SqlParameter[] parm = new SqlParameter[1];
-            parm[0] = new SqlParameter("@name", NameCategory);
+            string Query = "INSERT INTO [Category]([NameCategory],IDAccount)VALUES(@name,@IDAccount)";
+            SqlParameter[] parm = new SqlParameter[2];
+            if (IDAccount == null)
+            {
+                parm[0] = new SqlParameter("@name", NameCategory);
+                parm[1] = new SqlParameter("@IDAccount", null);
+            }
+            else
+            {
+                parm[0] = new SqlParameter("@name", NameCategory);
+                parm[1] = new SqlParameter("@IDAccount",(int) IDAccount);
+            }
             return sql.ExcuteQuery(Query, parm);
         }
-      // Update Category
-        public int UpdateCategory(int id, string name)
+        //////
+        //get max Cate iD
+        public int GetMaxIDCate()
         {
-            
-            string Query="UPDATE [Category] SET [NameCategory]=@name1  WHERE  IDCategory=@id1";
-            SqlParameter[] parm = new SqlParameter[2];
-            parm[0]=new SqlParameter("@name1", name);
-            parm[1]=new SqlParameter("@id1", id);
+            string Query = "select MAX(Category.IDCategory) from Category";
+            return (int)sql.ExcuteQueryValue(Query, null);
+        }
+        // 
+        
+
+      // Update Category
+        public int UpdateCategory(int id, string name,object IDAccount)
+        {
+
+
+            string Query;
+                  SqlParameter[] parm;
+            if (IDAccount == null)
+            {
+                Query = "UPDATE [Category] SET [NameCategory]=@name1  WHERE  IDCategory=@id1";
+                parm = new SqlParameter[2];
+                parm[0] = new SqlParameter("@name1", name);
+                parm[1] = new SqlParameter("@id1", id);
+        
+              
+
+            }
+            else
+            {
+                Query = "UPDATE [Category] SET [NameCategory]=@name1,[IDAccount]=@IDAccount  WHERE  IDCategory=@id1";
+                parm = new SqlParameter[3];
+                parm[0] = new SqlParameter("@name1", name);
+                parm[1] = new SqlParameter("@id1", id);
+                parm[2] = new SqlParameter("@IDAccount", (int)IDAccount);
+            }
             return sql.ExcuteQuery(Query, parm);
 
 
