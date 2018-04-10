@@ -369,6 +369,22 @@ namespace Supplly
         {
             this.Close();
         }
+        //
+        // event Combbox Leave when select categaory and link with cate
+        private void comboBox1_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                int IDACCOunt = SuRe.GetAccountLinkCate((int)comboBox1.SelectedValue);
+                if (IDACCOunt > 0)
+                    comboBox4.SelectedValue = IDACCOunt;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+           
+        }
     }
 }
 

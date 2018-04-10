@@ -88,6 +88,23 @@ namespace Out_
 
             return sql.SelectData(Query, null);
         }
+        //Get Account Link Cate
+        public int GetAccountLinkCate(int IDcate)
+        {
+            int ii = 0;
+            try
+            {
+                string Query = "select IDAccount from Category where IDCategory=@IDCategory";
+                SqlParameter[] parm = new SqlParameter[1];
+                parm[0] = new SqlParameter("@IDCategory", IDcate);
+                ii = (int)sql.ExcuteQueryValue(Query, parm);
+            }
+            catch
+            {
+                ii = 0;
+            }
+            return ii;
+        }
         //Get All Place send
         public DataTable GetAllPlace()
         {

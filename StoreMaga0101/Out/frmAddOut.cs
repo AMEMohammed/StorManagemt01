@@ -163,6 +163,9 @@ namespace Out_
                 comboBox2.DisplayMember = "اسم النوع";
                 comboBox2.ValueMember = "رقم النوع";
                 comboBox2.DataSource = OutFun.GetTypeInAccount((int)comboBox1.SelectedValue);
+                int IDACCOunt = OutFun.GetAccountLinkCate((int)comboBox1.SelectedValue);
+                if (IDACCOunt > 0)
+                    comboBox6.SelectedValue = IDACCOunt;
             }
             catch (Exception ex)
             {

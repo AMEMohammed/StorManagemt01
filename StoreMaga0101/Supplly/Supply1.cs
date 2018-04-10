@@ -74,7 +74,25 @@ namespace Supplly
             parm[2]=new SqlParameter("@uuu", user);
             return sql.SelectData(Query, parm);
         }
+        //
+        //Get Account Link Cate
+        public int GetAccountLinkCate(int IDcate)
+        { int ii = 0;
+            try
+            {
+                string Query = "select IDAccount from Category where IDCategory=@IDCategory";
+                SqlParameter[] parm = new SqlParameter[1];
+                parm[0] = new SqlParameter("@IDCategory", IDcate);
+                ii = (int)sql.ExcuteQueryValue(Query, parm);
+            }
+            catch
+            {
+                ii = 0;
+            }
+            return ii;
+        }
 
+        
         public int AddNewRequsetSupply(int IDCategory, int IDType, int Quntity, int Price, int idcurrnt, string NameSupply, string DescSupply, DateTime DateSupply, int IDuser, int chek, int debi, int cred)
         {
             int resl = 0;
