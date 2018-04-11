@@ -209,9 +209,9 @@ namespace SystemConfiguration
                 //
                 List<int> NumberAccounts = new List<int>();
                 //get Number account in combox2
-                foreach(DataRow dr in dtAllAccount.Rows)
+                foreach (DataRow dr in dtAllAccount.Rows)
                 {
-                    for(int i=0;i<comboBox2.Items.Count;i++)
+                    for (int i = 0; i < comboBox2.Items.Count; i++)
                     {
                         if (dr["اسم الحساب"].ToString() == comboBox2.Items[i].ToString())
                         {
@@ -228,12 +228,18 @@ namespace SystemConfiguration
                 {
                     config.AddItemsONGroupDetalis(IdGroup, NumberAccounts[i], UserId);
                 }
-                //
-                this.Close();
-               
+            }
+            //
+            else if (Type1 == 2)
+            {
 
             }
 
+
+
+
+            this.Close();
+        }
         }
     }
 }
