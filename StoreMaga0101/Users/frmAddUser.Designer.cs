@@ -28,35 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.btnRefrsh = new System.Windows.Forms.Button();
+            this.btnPrint = new System.Windows.Forms.Button();
+            this.btnAddSup = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.groupBox11 = new System.Windows.Forms.GroupBox();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.btnAddSup = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnRefrsh = new System.Windows.Forms.Button();
-            this.btnPrint = new System.Windows.Forms.Button();
             this.groupBox12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
+            this.groupBox11.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            this.groupBox11.SuspendLayout();
             this.groupBox10.SuspendLayout();
             this.groupBox9.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -87,14 +86,14 @@
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1154, 204);
@@ -104,7 +103,6 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.groupBox11);
             this.groupBox2.Controls.Add(this.groupBox4);
             this.groupBox2.Controls.Add(this.groupBox3);
@@ -119,6 +117,91 @@
             this.groupBox2.TabIndex = 10;
             this.groupBox2.TabStop = false;
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+            // 
+            // groupBox11
+            // 
+            this.groupBox11.Controls.Add(this.button1);
+            this.groupBox11.Controls.Add(this.button4);
+            this.groupBox11.Controls.Add(this.btnRefrsh);
+            this.groupBox11.Controls.Add(this.btnPrint);
+            this.groupBox11.Controls.Add(this.btnAddSup);
+            this.groupBox11.Location = new System.Drawing.Point(288, 302);
+            this.groupBox11.Name = "groupBox11";
+            this.groupBox11.Size = new System.Drawing.Size(523, 64);
+            this.groupBox11.TabIndex = 4;
+            this.groupBox11.TabStop = false;
+            this.groupBox11.Text = "العمليات";
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.button1.Image = global::Users.Properties.Resources.padlock__2_;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(180, 19);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(158, 35);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "اعادة تعين كلمة المرور";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button4
+            // 
+            this.button4.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.button4.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.button4.Image = global::Users.Properties.Resources.exit__3_;
+            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button4.Location = new System.Drawing.Point(6, 19);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(81, 35);
+            this.button4.TabIndex = 7;
+            this.button4.Text = "خروج";
+            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // btnRefrsh
+            // 
+            this.btnRefrsh.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.btnRefrsh.Image = global::Users.Properties.Resources.update;
+            this.btnRefrsh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRefrsh.Location = new System.Drawing.Point(344, 19);
+            this.btnRefrsh.Name = "btnRefrsh";
+            this.btnRefrsh.Size = new System.Drawing.Size(81, 35);
+            this.btnRefrsh.TabIndex = 5;
+            this.btnRefrsh.Text = "تعديل";
+            this.btnRefrsh.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnRefrsh.UseVisualStyleBackColor = true;
+            this.btnRefrsh.Click += new System.EventHandler(this.btnRefrsh_Click);
+            // 
+            // btnPrint
+            // 
+            this.btnPrint.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.btnPrint.Image = global::Users.Properties.Resources.printer__3_;
+            this.btnPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPrint.Location = new System.Drawing.Point(93, 19);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(81, 35);
+            this.btnPrint.TabIndex = 6;
+            this.btnPrint.Text = "طباعة";
+            this.btnPrint.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
+            // btnAddSup
+            // 
+            this.btnAddSup.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.btnAddSup.Image = global::Users.Properties.Resources.plus;
+            this.btnAddSup.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddSup.Location = new System.Drawing.Point(431, 19);
+            this.btnAddSup.Name = "btnAddSup";
+            this.btnAddSup.Size = new System.Drawing.Size(81, 35);
+            this.btnAddSup.TabIndex = 4;
+            this.btnAddSup.Text = "اضافة";
+            this.btnAddSup.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAddSup.UseVisualStyleBackColor = true;
+            this.btnAddSup.Click += new System.EventHandler(this.btnAddSup_Click);
             // 
             // groupBox4
             // 
@@ -179,20 +262,6 @@
             this.label2.Size = new System.Drawing.Size(84, 16);
             this.label2.TabIndex = 3;
             this.label2.Text = "توقيف المستخدم";
-            // 
-            // groupBox11
-            // 
-            this.groupBox11.Controls.Add(this.button1);
-            this.groupBox11.Controls.Add(this.button4);
-            this.groupBox11.Controls.Add(this.btnRefrsh);
-            this.groupBox11.Controls.Add(this.btnPrint);
-            this.groupBox11.Controls.Add(this.btnAddSup);
-            this.groupBox11.Location = new System.Drawing.Point(288, 302);
-            this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(523, 64);
-            this.groupBox11.TabIndex = 4;
-            this.groupBox11.TabStop = false;
-            this.groupBox11.Text = "العمليات";
             // 
             // groupBox10
             // 
@@ -255,86 +324,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "مستخدمين النظام";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(666, 208);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(145, 16);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "كلمة المرور الافتراضية هي 1";
-            // 
-            // btnAddSup
-            // 
-            this.btnAddSup.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btnAddSup.Image = global::Users.Properties.Resources.plus;
-            this.btnAddSup.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddSup.Location = new System.Drawing.Point(431, 19);
-            this.btnAddSup.Name = "btnAddSup";
-            this.btnAddSup.Size = new System.Drawing.Size(81, 35);
-            this.btnAddSup.TabIndex = 4;
-            this.btnAddSup.Text = "اضافة";
-            this.btnAddSup.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAddSup.UseVisualStyleBackColor = true;
-            this.btnAddSup.Click += new System.EventHandler(this.btnAddSup_Click);
-            // 
-            // button4
-            // 
-            this.button4.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button4.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.button4.Image = global::Users.Properties.Resources.exit__3_;
-            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(6, 19);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(81, 35);
-            this.button4.TabIndex = 7;
-            this.button4.Text = "خروج";
-            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.button1.Image = global::Users.Properties.Resources.padlock__2_;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(180, 19);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(158, 35);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "اعادة تعين كلمة المرور";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // btnRefrsh
-            // 
-            this.btnRefrsh.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btnRefrsh.Image = global::Users.Properties.Resources.update;
-            this.btnRefrsh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRefrsh.Location = new System.Drawing.Point(344, 19);
-            this.btnRefrsh.Name = "btnRefrsh";
-            this.btnRefrsh.Size = new System.Drawing.Size(81, 35);
-            this.btnRefrsh.TabIndex = 5;
-            this.btnRefrsh.Text = "تعديل";
-            this.btnRefrsh.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnRefrsh.UseVisualStyleBackColor = true;
-            this.btnRefrsh.Click += new System.EventHandler(this.btnRefrsh_Click);
-            // 
-            // btnPrint
-            // 
-            this.btnPrint.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btnPrint.Image = global::Users.Properties.Resources.printer__3_;
-            this.btnPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPrint.Location = new System.Drawing.Point(93, 19);
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(81, 35);
-            this.btnPrint.TabIndex = 6;
-            this.btnPrint.Text = "طباعة";
-            this.btnPrint.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnPrint.UseVisualStyleBackColor = true;
-            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
-            // 
             // frmAddUser
             // 
             this.AcceptButton = this.btnAddSup;
@@ -355,10 +344,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox11.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            this.groupBox11.ResumeLayout(false);
             this.groupBox10.ResumeLayout(false);
             this.groupBox10.PerformLayout();
             this.groupBox9.ResumeLayout(false);
@@ -391,7 +380,6 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button1;
     }
 }

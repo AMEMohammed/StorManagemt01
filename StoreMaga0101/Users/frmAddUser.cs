@@ -352,7 +352,7 @@ namespace Users
             {
                 Us.UpatePassword(idd, ChangePass("1"));
                 LoadDate();
-                MessageBox.Show("تم اعادة تعين كلمة المرور ", "رسالة", MessageBoxButtons.OK);
+                MessageBox.Show("تم اعادة تعين كلمة المرور .. كلمة المرور هي 1 .يرجى تغيرها ", "رسالة", MessageBoxButtons.OK);
 
             }
             catch(Exception ex)

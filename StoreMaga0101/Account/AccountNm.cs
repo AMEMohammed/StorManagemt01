@@ -442,12 +442,13 @@ namespace Account
                 sumtotal += OldMony;
                 DtResult.Rows.Add(new string[] { string.Format("{0:##,##}", OldMony), "0", nmCurrncy, null, "قبل تاريخ " + d1.ToString(), "رصيد سابق", null });
             }
-            else
+            else if(OldMony<0)
             {
                 sumtotal += OldMony;
                 DtResult.Rows.Add(new string[] { "0", string.Format("{0:##,##}", OldMony), nmCurrncy, null, "قبل تاريخ " + d1.ToString(), "رصيد سابق", null });
 
             }
+           
             /////////////////
             ///////////////
            
@@ -516,7 +517,7 @@ namespace Account
                 reslt =Convert.ToInt32(sql.ExcuteQueryValue(Query, parm));
                
             }
-            catch(Exception ex)
+            catch
             {
                 reslt = 0;
               //  MessageBox.Show(ex.Message);

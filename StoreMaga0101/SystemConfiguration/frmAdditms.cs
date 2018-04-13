@@ -240,6 +240,6 @@ namespace SystemConfiguration
 
             this.Close();
         }
-        }
+        
     }
 }
