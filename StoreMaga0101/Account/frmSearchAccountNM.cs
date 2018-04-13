@@ -155,76 +155,82 @@ namespace Account
 
         private void btnAddSup_Click(object sender, EventArgs e)
         {
-            DateTime d1 = DateTime.Now ;
-            DateTime d2= DateTime.Now;
-            if (comboBox2.SelectedIndex == 0)
+            try
             {
-                d1 = DateTime.Now.AddDays(-1);
-                d2 = DateTime.Now;
-            }           
-           if(comboBox2.SelectedIndex==1)
-            {
-                d1 = Convert.ToDateTime("01/01/2017");
-                d2 = dateTimePicker2.Value;
-            }
-           if(comboBox2.SelectedIndex==2)
-            {
-                d1 = DateTime.Now.AddDays(-7);
-                d2 = DateTime.Now;
-
-            }
-           if(comboBox2.SelectedIndex==3)
-            {
-                d1 = DateTime.Now.AddDays(-30);
-                d2 = DateTime.Now;
-            }
-           if(comboBox2.SelectedIndex==4)
-            {
-                d1 = dateTimePicker1.Value;
-                d2 = dateTimePicker2.Value;
-
-            }
-            ///  جلب كشاف حساب فرعي بجميع العملات اجمالي
-              if (IDYType == 1 && checkBox1.Checked && IDTypeAccontPrime==2 && IdAllAcount==2)//نوع الحساب اجمالي ,وكافة العملات
-            {
-                dataGridView1.DataSource = Acn.GetBalanceAccountALLCunncy((int)comboBox1.SelectedValue);
-
-
-            }// جلب كشف حساب فرعي بعملة واحدة اجمالي 
-          else if (IDYType == 1 && checkBox1.Checked == false && IDTypeAccontPrime == 2 && IdAllAcount == 2)//نوع الحساب اجمالي وعملة محددة
-            {
-                int IDcurrncy = (int)comboBox4.SelectedValue;
-
-                 dataGridView1.DataSource= Acn.GetBalanceAccount((int)comboBox1.SelectedValue, IDcurrncy,comboBox4.Text);
-            }
-           ///   جلب كشف حسابات جميع الحسابات الفرعية بجميع العملات اجمالي
-           else if(IDYType == 1 && checkBox1.Checked  && IDTypeAccontPrime == 2 && IdAllAcount == 1)
-            {
-              dataGridView1.DataSource = Acn.GetBalanceALLAccountALLCunncy(-1);
-            }
-           // جلب جميع الحسابات الفرعية بعملة واحدة اجمالي
-          else if(IDYType == 1 && checkBox1.Checked == false && IDTypeAccontPrime == 2 && IdAllAcount == 1)
-            {
-                int IDcurrncy = (int)comboBox4.SelectedValue;
-               dataGridView1.DataSource = Acn.GetBalanceALLAccountALLCunncy(IDcurrncy);
-            } 
-              // جلب كشف حساب فرعي تفصليلي عملة واحدة
-            else if (IDYType == 2 && checkBox1.Checked == false && IDTypeAccontPrime == 2 && IdAllAcount == 2)//نوع الحساب تفصيلي وعملة محددة
-            {
-                int IDcurrncy = (int)comboBox4.SelectedValue;
-
-                dataGridView1.DataSource = Acn.GETAccountDitalis((int)comboBox1.SelectedValue, IDcurrncy,d1,d2);
-            }// جلب كشف حساب لمجمعة محددة من الحسابات
-              else if(IDTypeAccontPrime==1)
-            {
-                if ((int)comboBox1.SelectedValue >0) {
-                   
-                    dataGridView1.DataSource = Acn.GetAccountesMOnayInGroup(Convert.ToInt32( comboBox1.SelectedValue.ToString()));
+                DateTime d1 = DateTime.Now;
+                DateTime d2 = DateTime.Now;
+                if (comboBox2.SelectedIndex == 0)
+                {
+                    d1 = DateTime.Now.AddDays(-1);
+                    d2 = DateTime.Now;
+                }
+                if (comboBox2.SelectedIndex == 1)
+                {
+                    d1 = Convert.ToDateTime("01/01/2017");
+                    d2 = dateTimePicker2.Value;
+                }
+                if (comboBox2.SelectedIndex == 2)
+                {
+                    d1 = DateTime.Now.AddDays(-7);
+                    d2 = DateTime.Now;
 
                 }
+                if (comboBox2.SelectedIndex == 3)
+                {
+                    d1 = DateTime.Now.AddDays(-30);
+                    d2 = DateTime.Now;
+                }
+                if (comboBox2.SelectedIndex == 4)
+                {
+                    d1 = dateTimePicker1.Value;
+                    d2 = dateTimePicker2.Value;
+
+                }
+                ///  جلب كشاف حساب فرعي بجميع العملات اجمالي
+                if (IDYType == 1 && checkBox1.Checked && IDTypeAccontPrime == 2 && IdAllAcount == 2)//نوع الحساب اجمالي ,وكافة العملات
+                {
+                    dataGridView1.DataSource = Acn.GetBalanceAccountALLCunncy((int)comboBox1.SelectedValue);
 
 
+                }// جلب كشف حساب فرعي بعملة واحدة اجمالي 
+                else if (IDYType == 1 && checkBox1.Checked == false && IDTypeAccontPrime == 2 && IdAllAcount == 2)//نوع الحساب اجمالي وعملة محددة
+                {
+                    int IDcurrncy = (int)comboBox4.SelectedValue;
+
+                    dataGridView1.DataSource = Acn.GetBalanceAccount((int)comboBox1.SelectedValue, IDcurrncy, comboBox4.Text);
+                }
+                ///   جلب كشف حسابات جميع الحسابات الفرعية بجميع العملات اجمالي
+                else if (IDYType == 1 && checkBox1.Checked && IDTypeAccontPrime == 2 && IdAllAcount == 1)
+                {
+                    dataGridView1.DataSource = Acn.GetBalanceALLAccountALLCunncy(-1);
+                }
+                // جلب جميع الحسابات الفرعية بعملة واحدة اجمالي
+                else if (IDYType == 1 && checkBox1.Checked == false && IDTypeAccontPrime == 2 && IdAllAcount == 1)
+                {
+                    int IDcurrncy = (int)comboBox4.SelectedValue;
+                    dataGridView1.DataSource = Acn.GetBalanceALLAccountALLCunncy(IDcurrncy);
+                }
+                // جلب كشف حساب فرعي تفصليلي عملة واحدة
+                else if (IDYType == 2 && checkBox1.Checked == false && IDTypeAccontPrime == 2 && IdAllAcount == 2)//نوع الحساب تفصيلي وعملة محددة
+                {
+                    int IDcurrncy = (int)comboBox4.SelectedValue;
+
+                    dataGridView1.DataSource = Acn.GETAccountDitalis((int)comboBox1.SelectedValue, IDcurrncy, d1, d2);
+                }// جلب كشف حساب لمجمعة محددة من الحسابات
+                else if (IDTypeAccontPrime == 1)
+                {
+                    if ((int)comboBox1.SelectedValue > 0)
+                    {
+
+                        dataGridView1.DataSource = Acn.GetAccountesMOnayInGroup(Convert.ToInt32(comboBox1.SelectedValue.ToString()));
+
+                    }
+
+
+                }
             }
+            catch(Exception ex)
+            { MessageBox.Show(ex.Message); }
         }
 
        //

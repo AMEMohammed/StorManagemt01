@@ -480,13 +480,13 @@ namespace Account
             }
             //   DataTable DTAll = new DataTable();
             // DTAll = GetBalanceAccount(IDcode, IDCurnncy, nmCurrncy);
-            if (sumtotal > 0)
+            if (sumtotal > 0) // في حالة الدائن
             {
           
                 string deit = "الرصيد لكم بقيمة " + string.Format("{0:##,##}", sumtotal) + " " + nmCurrncy;
                 DtResult.Rows.Add(new string[] { string.Format("{0:##,##}", sumtotal  ), "0", nmCurrncy, "الاجمالي", DateTime.Now.ToString(), deit, null });
             }
-            else
+            else if(sumtotal<0) // في حالة المدين
             {
                 
                 int total = -1 * sumtotal;
@@ -494,6 +494,7 @@ namespace Account
 
                 DtResult.Rows.Add(new string[] {"0" ,string.Format("{0:##,##}", total), nmCurrncy, "الاجمالي", DateTime.Now.ToString(), deit, null });
             }
+          
             return DtResult;
 
         }
