@@ -456,15 +456,21 @@ namespace Account
             dtre1 = GETAcountDitlis(IDcode, IDCurnncy, d1, d2);
             for(int i=0;i<dtre1.Rows.Count; i++)
             { int vale = Convert.ToInt32(dtre1.Rows[i][2].ToString());
-              int cha= Convert.ToInt32(dtre1.Rows[i][3].ToString());
-                string LIKEType;
-                if (cha>0)
+              int cha1 = Convert.ToInt32(dtre1.Rows[i][3].ToString());
+                int cha2 = Convert.ToInt32(dtre1.Rows[i][4].ToString());
+                int cha3 = Convert.ToInt32(dtre1.Rows[i][9].ToString());
+                string LIKEType="";
+                if (cha1>0)
                 {
                     LIKEType = "امر توريد";
                 }
-                else
+                else if(cha2>0)
                 {
                     LIKEType = "امر صرف";
+                }
+                else if(cha3>0)
+                {
+                    LIKEType = "قيد بسيط";
                 }
                 int userii = Convert.ToInt32(dtre1.Rows[i][7].ToString());
                 if (vale > 0)
