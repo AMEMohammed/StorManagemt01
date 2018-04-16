@@ -616,7 +616,118 @@ namespace Account
             return dt2;
 
         }
-      
+        //////////
+        // Chack AcoountTotal is Here
+        public bool CheckAccontTotal(int IDcode, int IDCurrncy)
+        {
+            bool x;
+            try
+            {
+                string Query = "select AccountTotal.IDCode from AccountTotal where AccountTotal.IDCode=@idc and AccountTotal.IDCurrncy=@idcu ";
+                SqlParameter[] parm = new SqlParameter[2];
+                parm[0] = new SqlParameter("@idc", IDcode);
+                parm[1] = new SqlParameter("@idcu", IDCurrncy);
+                int zzz = (int)sql.ExcuteQueryValue(Query, parm);
+                x = true;
+            }
+            catch
+            {
+                x = false;
+            }
+            return x;
+
+        }
+        ///Get  Balance for AccountTotal
+        public int GetBalance(int Idcode, int IDCur)
+        {
+            string Query = "select AccountTotal.Balance from AccountTotal where AccountTotal.IDCode=@idco and AccountTotal.IDCurrncy=@idCu";
+            SqlParameter[] parm = new SqlParameter[2];
+            parm[0] = new SqlParameter("@idco", Idcode);
+            parm[1] = new SqlParameter("@idCu", IDCur);
+            return (int)sql.ExcuteQueryValue(Query, parm);
+        }
+        // /// update Account Total
+        ///
+        public int UpdateAccountTotal(int IDCOde, int Mony, int idCurrncy)
+        {
+            int NewBalance = GetBalance(IDCOde, idCurrncy) + Mony;
+
+            string Query = " update AccountTotal set Balance=@balanc where IDCode=@idco and IDCurrncy=@idcur";
+            SqlParameter[] parm = new SqlParameter[3];
+            parm[0] = new SqlParameter("@idco", IDCOde);
+            parm[1] = new SqlParameter("@balanc", NewBalance);
+            parm[2] = new SqlParameter("@idcur", idCurrncy);
+            return sql.ExcuteQuery(Query, parm);
+
+        }
+        /// /// add new AccountTotal 
+        /// // 
+        /// </summary>
+        public int AddNewAccountTotal(int IDCOde, int Mony, int idCurrncy)
+        {
+            string Query = "insert into AccountTotal (IDCode,Balance,IDCurrncy) values(@idco,@many,@idcur)";
+            SqlParameter[] parm = new SqlParameter[3];
+            parm[0] = new SqlParameter("@idco", IDCOde);
+            parm[1] = new SqlParameter("@many", Mony);
+            parm[2] = new SqlParameter("@idcur", idCurrncy);
+            return sql.ExcuteQuery(Query, parm);
+
+        }
         /////
+        //////////
+        //// Add new AccountDetalis 
+        public int AddNewAccountDetalis(int idcode, int monay, int idsupply, int idout, string Detalis, DateTime d1, int userid, int idCurrnt, int IDSimple)
+        {
+            string Query = "insert into AccountDetalis(IDCode,Mony,IDSupply,IDOut,Detalis,DateEnter,UserID,IDCurrncy,IDSimpleConstraint) values(@IDCode,@Mony,@IDSupply,@IDOut,@Detalis,@DateEnter,@UserID,@IDCurrncy,@IDSimpleConstraint)";
+            SqlParameter[] parm = new SqlParameter[9];
+            parm[0] = new SqlParameter("@IDCode", idcode);
+            parm[1] = new SqlParameter("@Mony", monay);
+            parm[2] = new SqlParameter("@IDSupply", idsupply);
+            parm[3] = new SqlParameter("@IDOut", idout);
+            parm[4] = new SqlParameter("@Detalis", Detalis);
+            parm[5] = new SqlParameter("@DateEnter", d1);
+            parm[6] = new SqlParameter("@UserID", userid);
+            parm[7] = new SqlParameter("@IDCurrncy", idCurrnt);
+            parm[8] = new SqlParameter("IDSimpleConstraint", IDSimple);
+
+            return sql.ExcuteQuery(Query, parm);
+        }
+        //////////////////////
+        ////////////
+        //
+        ///SimpleConstraint
+        //////
+        public int AddSimpleConstraint(int IDdaan,int IdMAden,int Mony,int UserId,DateTime datetime,string Note)
+        {
+            string Query = "insert into tblSimpleConstraint (IDDaanAccont,IDMaddenAccount,Mony,IDUser,EnterTime,Note)values(@IDDaanAccont,@IDMaddenAccount,@Mony,@IDUser,@EnterTime,@Note)";
+            SqlParameter[] parm = new SqlParameter[6];
+            parm[0] = new SqlParameter("@IDDaanAccont",IDdaan);
+            parm[1] = new SqlParameter("@IDMaddenAccount", IdMAden);
+            parm[2] = new SqlParameter("@Mony", Mony);
+            parm[3] = new SqlParameter("@IDUser", UserId);
+            parm[4] = new SqlParameter("@EnterTime", datetime);
+            parm[5] = new SqlParameter("@Note", Note);
+            return sql.ExcuteQuery(Query, parm);
+        }
+        ///
+        /// get max IDSimpleConstraint
+        public int GetMaxIDSimpleConstraint()
+        {
+            string Query = "select max(IDSimpleConstraint) from  tblSimpleConstraint";
+            return (int)sql.ExcuteQueryValue(Query, null);
+
+        }
+        /////
+        // get all simple Constraint for one day
+        public DataTable GetAllSimpleConstraintOneDay(DateTime day1,DateTime day2)
+        {
+            string Query = "select AccountNm1.AcountNm as 'الحساب المدين',AccountNm.AcountNm as 'الحساب الدائن'  ,tblSimpleConstraint.Mony as 'المبلغ' ,tblSimpleConstraint.Note as'ملاحظات' ,tblSimpleConstraint.EnterTime as 'تاريخ القيد',Users.UserName as'الموظف' from  tblSimpleConstraint  left join AccountNm as AccountNm1 on AccountNm1.IDCode=tblSimpleConstraint.IDMaddenAccount  left join AccountNm on AccountNm.IDCode=tblSimpleConstraint.IDDaanAccont  left join Users on Users.IDUSER=tblSimpleConstraint.IDUser  where tblSimpleConstraint.EnterTime between @entertime1 and @entertime2 ";
+            SqlParameter[] parm = new SqlParameter[2];
+            parm[0] = new SqlParameter("@entertime1", day1);
+            parm[1] = new SqlParameter("@entertime2", day2);
+            return sql.SelectData(Query, parm);
+
+        } 
+
     }
 }

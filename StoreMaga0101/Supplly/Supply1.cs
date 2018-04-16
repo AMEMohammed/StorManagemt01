@@ -368,25 +368,25 @@ namespace Supplly
             return sql.ExcuteQuery(query, parm);
 
             
-                    }
+        }
         /// 
         public int UPateRequstSupply(int IDSup, int IDCategory, int IDType, int Quntity, int Price, int idcurrn, string NameSupply, string DescSupply, int debit, int crd)
         {
             
            string Query="Update RequstSupply set IDCategory=@IDCategory,IDType=@IDType,Quntity=@Quntity,Price=@Price,NameSupply=@NameSupply,DescSupply=@DescSupply,IDCurrency=@idcurrn ,Debit=@debit,Creditor=@crd where IDSupply=@IDSupply";
-            SqlParameter[] parm = new SqlParameter[10];
+           SqlParameter[] parm = new SqlParameter[10];
 
-          parm[0]=new SqlParameter("@IDSupply", IDSup);
-         parm[1]=new SqlParameter("@IDCategory", IDCategory);
-            parm[2]=new SqlParameter("@IDType", IDType);
-         parm[3]=new SqlParameter("@Quntity", Quntity);
+           parm[0]=new SqlParameter("@IDSupply", IDSup);
+           parm[1]=new SqlParameter("@IDCategory", IDCategory);
+           parm[2]=new SqlParameter("@IDType", IDType);
+           parm[3]=new SqlParameter("@Quntity", Quntity);
            parm[4]=new SqlParameter("@Price", Price);
-            parm[5]=new SqlParameter("@NameSupply", NameSupply);
+           parm[5]=new SqlParameter("@NameSupply", NameSupply);
            parm[6]=new SqlParameter("@DescSupply", DescSupply);
-            parm[7]=new SqlParameter("@idcurrn", idcurrn);
-          parm[8]=new SqlParameter("@debit", debit);
-            parm[9]=new SqlParameter("@crd", crd);
-            return sql.ExcuteQuery(Query, parm);
+           parm[7]=new SqlParameter("@idcurrn", idcurrn);
+           parm[8]=new SqlParameter("@debit", debit);
+           parm[9]=new SqlParameter("@crd", crd);
+           return sql.ExcuteQuery(Query, parm);
           
         }
         ////////////////////
@@ -472,10 +472,10 @@ namespace Supplly
         ////////////
         //////////
         //// Add new AccountDetalis 
-        public int AddNewAccountDetalis(int idcode,int monay,int idsupply,int idout,string Detalis,DateTime d1,int userid,int idCurrnt)
+        public int AddNewAccountDetalis(int idcode,int monay,int idsupply,int idout,string Detalis,DateTime d1,int userid,int idCurrnt,int IDSimple)
         {
-            string Query = "insert into AccountDetalis(IDCode,Mony,IDSupply,IDOut,Detalis,DateEnter,UserID,IDCurrncy) values(@IDCode,@Mony,@IDSupply,@IDOut,@Detalis,@DateEnter,@UserID,@IDCurrncy)";
-            SqlParameter[] parm = new SqlParameter[8];
+            string Query = "insert into AccountDetalis(IDCode,Mony,IDSupply,IDOut,Detalis,DateEnter,UserID,IDCurrncy,IDSimpleConstraint) values(@IDCode,@Mony,@IDSupply,@IDOut,@Detalis,@DateEnter,@UserID,@IDCurrncy,@IDSimpleConstraint)";
+            SqlParameter[] parm = new SqlParameter[9];
             parm[0] = new SqlParameter("@IDCode", idcode);
             parm[1] = new SqlParameter("@Mony", monay);
             parm[2] = new SqlParameter("@IDSupply", idsupply);
@@ -484,7 +484,8 @@ namespace Supplly
             parm[5] = new SqlParameter("@DateEnter", d1);
             parm[6] = new SqlParameter("@UserID", userid);
             parm[7] = new SqlParameter("@IDCurrncy", idCurrnt);
-                
+            parm[8] = new SqlParameter("IDSimpleConstraint", IDSimple);
+            
             return sql.ExcuteQuery(Query,parm);
         }
         public int DeleteSuuplyFrmAccountDitalis(int idSupply)

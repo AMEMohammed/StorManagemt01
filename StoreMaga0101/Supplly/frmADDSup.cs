@@ -218,7 +218,7 @@ namespace Supplly
                             ///////////
                             string.Format("{0:##,##}", (qunt * price).ToString());
                             ////////////////
-                            ////////////// من حساب mins
+                            ////////////// من حساب mins المدين
                             if (SuRe.CheckAccontTotal(mins, idCurrnt))// الحساب مضاف مسبقا
                             {
                                 SuRe.UpdateAccountTotal(mins, (-1 * qunt * price), idCurrnt);
@@ -229,10 +229,10 @@ namespace Supplly
                             }
                             //// (اضافة الامر الى جدول تفاصيل الحساب )مدين(
                             string DitalisMis = "تم قيد عليكم مبلغ وقدره " + string.Format("{0:##,##}", (qunt * price).ToString())+" " +comboBox3.Text+"  "+ "مقابل امر توريد ب  " + qunt.ToString() + " " + comboBox1.Text + " " + comboBox2.Text+"  الى حساب  "+comboBox5.Text+"رقم الطلب "+ SuRe.GetMaxIdSupply();
-                            SuRe.AddNewAccountDetalis(mins, (-1 * qunt * price), SuRe.GetMaxIdSupply(),0, DitalisMis, DateTime.Now, UserID, idCurrnt);//// اضافة الى جدول التفاصيل
+                            SuRe.AddNewAccountDetalis(mins, (-1 * qunt * price), SuRe.GetMaxIdSupply(),0, DitalisMis, DateTime.Now, UserID, idCurrnt,0);//// اضافة الى جدول التفاصيل
                           /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                           //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                          ////// الى حساب plus
+                          ////// الى حساب plus الدائن
                           //////////////////
                           if(SuRe.CheckAccontTotal(plus,idCurrnt)) // الحساب مضاف مسبقا
                             {
@@ -246,7 +246,7 @@ namespace Supplly
                             //  اضافة الامر الى جدول التفاصيل (دائن)
                           string DitalisPlus = "تم قيد لكم مبلغ وقدره" + string.Format("{0:##,##}", (qunt * price).ToString()) + " " + comboBox3.Text + "  "+ "مقابل امر توريد ب " + qunt.ToString() + " " + comboBox1.Text + " " + comboBox2.Text + "  من حساب " + comboBox4.Text + "رقم الطلب " + SuRe.GetMaxIdSupply();
                          
-                          SuRe.AddNewAccountDetalis(plus, ( qunt * price), SuRe.GetMaxIdSupply(), 0, DitalisPlus, DateTime.Now, UserID, idCurrnt);//// اضافة الى جدول التفاصيل
+                          SuRe.AddNewAccountDetalis(plus, ( qunt * price), SuRe.GetMaxIdSupply(), 0, DitalisPlus, DateTime.Now, UserID, idCurrnt,0);//// اضافة الى جدول التفاصيل
 
                             //////////////////////
                             ////////

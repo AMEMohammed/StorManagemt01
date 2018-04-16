@@ -44,9 +44,10 @@
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.combCurrncy = new System.Windows.Forms.DataGridView();
+            this.dataGrideSimple = new System.Windows.Forms.DataGridView();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.txtNote = new System.Windows.Forms.TextBox();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox7.SuspendLayout();
@@ -55,14 +56,15 @@
             this.groupBox4.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.combCurrncy)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGrideSimple)).BeginInit();
+            this.groupBox9.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.groupBox3.Controls.Add(this.label1);
-            this.groupBox3.Location = new System.Drawing.Point(293, 12);
+            this.groupBox3.Location = new System.Drawing.Point(287, 12);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(423, 46);
             this.groupBox3.TabIndex = 16;
@@ -80,6 +82,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.groupBox9);
             this.groupBox1.Controls.Add(this.dateTimePicker1);
             this.groupBox1.Controls.Add(this.groupBox7);
             this.groupBox1.Controls.Add(this.groupBox6);
@@ -88,25 +91,26 @@
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Location = new System.Drawing.Point(12, 64);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(986, 214);
+            this.groupBox1.Size = new System.Drawing.Size(986, 268);
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "بيان القيد";
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(786, 176);
+            this.dateTimePicker1.Location = new System.Drawing.Point(777, 230);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker1.TabIndex = 5;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // groupBox7
             // 
             this.groupBox7.Controls.Add(this.button4);
             this.groupBox7.Controls.Add(this.btnAddSup);
-            this.groupBox7.Location = new System.Drawing.Point(6, 142);
+            this.groupBox7.Location = new System.Drawing.Point(6, 197);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(180, 66);
+            this.groupBox7.Size = new System.Drawing.Size(180, 65);
             this.groupBox7.TabIndex = 4;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "العمليات";
@@ -136,13 +140,14 @@
             this.btnAddSup.Text = "اضافة";
             this.btnAddSup.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAddSup.UseVisualStyleBackColor = true;
+            this.btnAddSup.Click += new System.EventHandler(this.btnAddSup_Click);
             // 
             // groupBox6
             // 
             this.groupBox6.Controls.Add(this.combAccount2);
             this.groupBox6.Location = new System.Drawing.Point(6, 77);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(480, 58);
+            this.groupBox6.Size = new System.Drawing.Size(481, 58);
             this.groupBox6.TabIndex = 3;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "الحساب الدائن";
@@ -153,15 +158,15 @@
             this.combAccount2.FormattingEnabled = true;
             this.combAccount2.Location = new System.Drawing.Point(6, 19);
             this.combAccount2.Name = "combAccount2";
-            this.combAccount2.Size = new System.Drawing.Size(468, 25);
+            this.combAccount2.Size = new System.Drawing.Size(469, 25);
             this.combAccount2.TabIndex = 7;
             // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.combAccount1);
-            this.groupBox5.Location = new System.Drawing.Point(492, 77);
+            this.groupBox5.Location = new System.Drawing.Point(493, 77);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(488, 58);
+            this.groupBox5.Size = new System.Drawing.Size(487, 58);
             this.groupBox5.TabIndex = 2;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "الحساب المدين";
@@ -172,7 +177,7 @@
             this.combAccount1.FormattingEnabled = true;
             this.combAccount1.Location = new System.Drawing.Point(6, 19);
             this.combAccount1.Name = "combAccount1";
-            this.combAccount1.Size = new System.Drawing.Size(476, 25);
+            this.combAccount1.Size = new System.Drawing.Size(475, 25);
             this.combAccount1.TabIndex = 6;
             // 
             // groupBox4
@@ -216,30 +221,30 @@
             // 
             // groupBox8
             // 
-            this.groupBox8.Controls.Add(this.combCurrncy);
-            this.groupBox8.Location = new System.Drawing.Point(12, 284);
+            this.groupBox8.Controls.Add(this.dataGrideSimple);
+            this.groupBox8.Location = new System.Drawing.Point(12, 338);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(986, 383);
+            this.groupBox8.Size = new System.Drawing.Size(986, 339);
             this.groupBox8.TabIndex = 6;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "القيود البسيطه لليوم المحدد";
             // 
-            // combCurrncy
+            // dataGrideSimple
             // 
-            this.combCurrncy.AllowUserToAddRows = false;
-            this.combCurrncy.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dataGrideSimple.AllowUserToAddRows = false;
+            this.dataGrideSimple.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.combCurrncy.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            this.combCurrncy.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
-            this.combCurrncy.ColumnHeadersHeight = 35;
-            this.combCurrncy.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.combCurrncy.GridColor = System.Drawing.SystemColors.Control;
-            this.combCurrncy.Location = new System.Drawing.Point(9, 22);
-            this.combCurrncy.Margin = new System.Windows.Forms.Padding(6);
-            this.combCurrncy.MultiSelect = false;
-            this.combCurrncy.Name = "combCurrncy";
-            this.combCurrncy.ReadOnly = true;
+            this.dataGrideSimple.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dataGrideSimple.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
+            this.dataGrideSimple.ColumnHeadersHeight = 35;
+            this.dataGrideSimple.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dataGrideSimple.GridColor = System.Drawing.SystemColors.Control;
+            this.dataGrideSimple.Location = new System.Drawing.Point(9, 32);
+            this.dataGrideSimple.Margin = new System.Windows.Forms.Padding(6);
+            this.dataGrideSimple.MultiSelect = false;
+            this.dataGrideSimple.Name = "dataGrideSimple";
+            this.dataGrideSimple.ReadOnly = true;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ActiveCaption;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -247,18 +252,36 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.combCurrncy.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.combCurrncy.RowHeadersWidth = 60;
-            this.combCurrncy.RowTemplate.Height = 30;
-            this.combCurrncy.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.combCurrncy.Size = new System.Drawing.Size(968, 352);
-            this.combCurrncy.TabIndex = 13;
+            this.dataGrideSimple.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGrideSimple.RowHeadersWidth = 60;
+            this.dataGrideSimple.RowTemplate.Height = 30;
+            this.dataGrideSimple.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGrideSimple.Size = new System.Drawing.Size(968, 298);
+            this.dataGrideSimple.TabIndex = 13;
+            // 
+            // groupBox9
+            // 
+            this.groupBox9.Controls.Add(this.txtNote);
+            this.groupBox9.Location = new System.Drawing.Point(6, 141);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(974, 50);
+            this.groupBox9.TabIndex = 7;
+            this.groupBox9.TabStop = false;
+            this.groupBox9.Text = "ملاحظات";
+            // 
+            // txtNote
+            // 
+            this.txtNote.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.txtNote.Location = new System.Drawing.Point(6, 19);
+            this.txtNote.Name = "txtNote";
+            this.txtNote.Size = new System.Drawing.Size(959, 24);
+            this.txtNote.TabIndex = 0;
             // 
             // SimpleConstraint
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1010, 679);
+            this.ClientSize = new System.Drawing.Size(1010, 684);
             this.Controls.Add(this.groupBox8);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox3);
@@ -278,7 +301,9 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox8.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.combCurrncy)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGrideSimple)).EndInit();
+            this.groupBox9.ResumeLayout(false);
+            this.groupBox9.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -297,11 +322,12 @@
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.ComboBox combAccount1;
         private System.Windows.Forms.GroupBox groupBox7;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button btnAddSup;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.GroupBox groupBox8;
-        private System.Windows.Forms.DataGridView combCurrncy;
+        private System.Windows.Forms.DataGridView dataGrideSimple;
+        private System.Windows.Forms.GroupBox groupBox9;
+        private System.Windows.Forms.TextBox txtNote;
     }
 }
