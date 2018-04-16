@@ -44,6 +44,8 @@
             this.toolStripMenuItem21 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem22 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem26 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem34 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem33 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
@@ -63,7 +65,6 @@
             this.toolStripMenuItem17 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem19 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem18 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem33 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -162,7 +163,7 @@
             this.toolStripMenuItem13.Size = new System.Drawing.Size(150, 38);
             this.toolStripMenuItem13.Text = "طلبات التوريد";
             this.toolStripMenuItem13.Visible = false;
-            this.toolStripMenuItem13.Click += new System.EventHandler(this.toolStripMenuItem13_Click);
+        //    this.toolStripMenuItem13.Click += new System.EventHandler(this.toolStripMenuItem13_Click);
             // 
             // toolStripMenuItem14
             // 
@@ -233,6 +234,7 @@
             this.toolStripMenuItem21.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem22,
             this.toolStripMenuItem26,
+            this.toolStripMenuItem34,
             this.toolStripMenuItem33});
             this.toolStripMenuItem21.Image = global::StoreMaga0101.Properties.Resources.bank_account__1_;
             this.toolStripMenuItem21.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
@@ -265,6 +267,28 @@
             this.toolStripMenuItem26.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.toolStripMenuItem26.Visible = false;
             this.toolStripMenuItem26.Click += new System.EventHandler(this.toolStripMenuItem26_Click);
+            // 
+            // toolStripMenuItem34
+            // 
+            this.toolStripMenuItem34.AutoSize = false;
+            this.toolStripMenuItem34.Image = global::StoreMaga0101.Properties.Resources.bank_transfer__1_;
+            this.toolStripMenuItem34.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripMenuItem34.Name = "toolStripMenuItem34";
+            this.toolStripMenuItem34.Size = new System.Drawing.Size(210, 50);
+            this.toolStripMenuItem34.Text = "قيد بسيط";
+            this.toolStripMenuItem34.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.toolStripMenuItem34.Click += new System.EventHandler(this.toolStripMenuItem34_Click);
+            // 
+            // toolStripMenuItem33
+            // 
+            this.toolStripMenuItem33.AutoSize = false;
+            this.toolStripMenuItem33.Image = global::StoreMaga0101.Properties.Resources.networking;
+            this.toolStripMenuItem33.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripMenuItem33.Name = "toolStripMenuItem33";
+            this.toolStripMenuItem33.Size = new System.Drawing.Size(210, 50);
+            this.toolStripMenuItem33.Text = "تهيئة المجموعات";
+            this.toolStripMenuItem33.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.toolStripMenuItem33.Click += new System.EventHandler(this.toolStripMenuItem33_Click);
             // 
             // toolStripMenuItem1
             // 
@@ -432,7 +456,7 @@
             this.toolStripMenuItem29.Size = new System.Drawing.Size(210, 50);
             this.toolStripMenuItem29.Text = "الاتصال بالسيرفر";
             this.toolStripMenuItem29.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.toolStripMenuItem29.Click += new System.EventHandler(this.toolStripMenuItem29_Click);
+          //  this.toolStripMenuItem29.Click += new System.EventHandler(this.toolStripMenuItem29_Click);
             // 
             // toolStripMenuItem30
             // 
@@ -504,17 +528,6 @@
             this.toolStripMenuItem18.Visible = false;
             this.toolStripMenuItem18.Click += new System.EventHandler(this.toolStripMenuItem18_Click);
             // 
-            // toolStripMenuItem33
-            // 
-            this.toolStripMenuItem33.AutoSize = false;
-            this.toolStripMenuItem33.Image = global::StoreMaga0101.Properties.Resources.networking;
-            this.toolStripMenuItem33.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripMenuItem33.Name = "toolStripMenuItem33";
-            this.toolStripMenuItem33.Size = new System.Drawing.Size(210, 50);
-            this.toolStripMenuItem33.Text = "تهيئة المجموعات";
-            this.toolStripMenuItem33.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.toolStripMenuItem33.Click += new System.EventHandler(this.toolStripMenuItem33_Click);
-            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -574,6 +587,7 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem26;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem33;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem34;
     }
 }
 

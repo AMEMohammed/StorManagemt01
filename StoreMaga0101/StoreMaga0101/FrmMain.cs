@@ -708,27 +708,49 @@ namespace StoreMaga0101
             this.Cursor = Cursors.Default;
         }
 
-        private void toolStripMenuItem29_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void toolStripMenuItem13_Click(object sender, EventArgs e)
-        {
-
-        }
-
+      
         private void toolStripMenuItem33_Click(object sender, EventArgs e)
         {
             try
             {
                 this.Cursor = Cursors.WaitCursor;
-                frmGroup frmgroup = new frmGroup();
+                frmGroup frmgroup = new frmGroup(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID);
                 FormCollection fromco = Application.OpenForms;
                 bool foundFrom = false;
                 foreach (Form frm in fromco)
                 {
                     if (frm.Name == "frmGroupr")
+                    {
+                        frm.Focus();
+
+                        foundFrom = true;
+
+                    }
+
+                }
+                if (foundFrom == false)
+                {
+                    frmgroup.Show();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            this.Cursor = Cursors.Default;
+        }
+
+        private void toolStripMenuItem34_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Cursor = Cursors.WaitCursor;
+                SimpleConstraint frmgroup = new SimpleConstraint(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID);
+                FormCollection fromco = Application.OpenForms;
+                bool foundFrom = false;
+                foreach (Form frm in fromco)
+                {
+                    if (frm.Name == "SimpleConstraint")
                     {
                         frm.Focus();
 

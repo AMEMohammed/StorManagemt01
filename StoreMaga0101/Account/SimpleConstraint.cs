@@ -136,6 +136,7 @@ namespace Account
                         string DitalisPlus = "تم قيد لكم مبلغ وقدره" + string.Format("{0:##,##}", (Mony).ToString()) + " " + comboBox3.Text + "  " + "مقابل قيد بسيط ب " + "  من حساب " + combAccount1.Text + " رقم القيد  " + Acn.GetMaxIDSimpleConstraint();
 
                         Acn.AddNewAccountDetalis(IDdaenAccount, (Mony), 0, 0, DitalisPlus, DateTime.Now, IDUSER, idCurrnt, Acn.GetMaxIDSimpleConstraint());//// اضافة الى جدول التفاصيل
+                        dataGrideSimple.DataSource = Acn.GetAllSimpleConstraintOneDay(DateTime.Now.Date, DateTime.Now.Date.AddDays(1));
                     }
                 }
                 catch (Exception ex)

@@ -74,7 +74,6 @@ D:\programing1\StoreMaga0101\StoreMaga0101\Account\obj\Debug\Account.Properties.
 D:\programing1\StoreMaga0101\StoreMaga0101\Account\obj\Debug\Account.csproj.GenerateResource.Cache
 D:\programing1\StoreMaga0101\StoreMaga0101\Account\obj\Debug\Account.pdb
 D:\programing1\StoreMaga0101\StoreMaga0101\Account\obj\Debug\Account.SimpleConstraint.resources
-D:\programing1\StoreMaga0101\StoreMaga0101\Account\bin\Debug\Account.exe.config
-D:\programing1\StoreMaga0101\StoreMaga0101\Account\bin\Debug\Account.exe
-D:\programing1\StoreMaga0101\StoreMaga0101\Account\obj\Debug\Account.exe
-D:\programing1\StoreMaga0101\StoreMaga0101\Account\obj\Debug\Account.csprojResolveAssemblyReference.cache
+D:\programing1\StoreMaga0101\StoreMaga0101\Account\bin\Debug\Account.dll.config
+D:\programing1\StoreMaga0101\StoreMaga0101\Account\bin\Debug\Account.dll
+D:\programing1\StoreMaga0101\StoreMaga0101\Account\obj\Debug\Account.dll

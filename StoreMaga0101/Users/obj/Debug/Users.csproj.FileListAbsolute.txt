@@ -28,8 +28,6 @@ D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\Users\bin\Debug\Users.d
 D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\Users\obj\Debug\Users.dll
 D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\Users\obj\Debug\Users.frmChangPass.resources
 D:\progaming\StorManagent01\StorManagemt01\StoreMaga0101\Users\obj\Debug\Users.FrmConServer.resources
-D:\programing1\StoreMaga0101\StoreMaga0101\Users\bin\Debug\Users.dll.config
-D:\programing1\StoreMaga0101\StoreMaga0101\Users\bin\Debug\Users.dll
 D:\programing1\StoreMaga0101\StoreMaga0101\Users\bin\Debug\Users.pdb
 D:\programing1\StoreMaga0101\StoreMaga0101\Users\obj\Debug\Users.frmChangPass.resources
 D:\programing1\StoreMaga0101\StoreMaga0101\Users\obj\Debug\Users.frmAddUser.resources
@@ -37,5 +35,8 @@ D:\programing1\StoreMaga0101\StoreMaga0101\Users\obj\Debug\Users.FrmConServer.re
 D:\programing1\StoreMaga0101\StoreMaga0101\Users\obj\Debug\Users.frmLogin.resources
 D:\programing1\StoreMaga0101\StoreMaga0101\Users\obj\Debug\Users.Properties.Resources.resources
 D:\programing1\StoreMaga0101\StoreMaga0101\Users\obj\Debug\Users.csproj.GenerateResource.Cache
-D:\programing1\StoreMaga0101\StoreMaga0101\Users\obj\Debug\Users.dll
 D:\programing1\StoreMaga0101\StoreMaga0101\Users\obj\Debug\Users.pdb
+D:\programing1\StoreMaga0101\StoreMaga0101\Users\bin\Debug\Users.dll.config
+D:\programing1\StoreMaga0101\StoreMaga0101\Users\bin\Debug\Users.dll
+D:\programing1\StoreMaga0101\StoreMaga0101\Users\obj\Debug\Users.dll
+D:\programing1\StoreMaga0101\StoreMaga0101\Users\obj\Debug\Users.csprojResolveAssemblyReference.cache
