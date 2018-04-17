@@ -119,7 +119,7 @@ namespace Account
                         }
                         //// (اضافة الامر الى جدول تفاصيل الحساب )مدين(
 
-                        string DitalisMis = "تم قيد عليكم مبلغ وقدره " + string.Format("{0:##,##}", (Mony).ToString()) + " " + comboBox3.Text + "  " + "مقابل قيد بسيط ب  " + "  الى حساب  " + combAccount2.Text + " رقم القيد" + Acn.GetMaxIDSimpleConstraint();
+                        string DitalisMis = "تم قيد عليكم مبلغ وقدره " + string.Format("{0:##,##}", (Mony).ToString()) + " " + comboBox3.Text + "  " + "مقابل قيد بسيط   " + "  الى حساب  " + combAccount2.Text + " رقم القيد" + Acn.GetMaxIDSimpleConstraint();
                         Acn.AddNewAccountDetalis(IDMadenAccount, (-1 * Mony), 0, 0, DitalisMis, DateTime.Now, IDUSER, idCurrnt, Acn.GetMaxIDSimpleConstraint());
                         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                         ///      الحساب الدائن                                                                                                                     
@@ -133,7 +133,7 @@ namespace Account
                         }
                         /////////////////////////////
                         //  اضافة الامر الى جدول التفاصيل (دائن)
-                        string DitalisPlus = "تم قيد لكم مبلغ وقدره" + string.Format("{0:##,##}", (Mony).ToString()) + " " + comboBox3.Text + "  " + "مقابل قيد بسيط ب " + "  من حساب " + combAccount1.Text + " رقم القيد  " + Acn.GetMaxIDSimpleConstraint();
+                        string DitalisPlus = "تم قيد لكم مبلغ وقدره" + string.Format("{0:##,##}", (Mony).ToString()) + " " + comboBox3.Text + "  " + "مقابل قيد بسيط  " + "  من حساب " + combAccount1.Text + " رقم القيد  " + Acn.GetMaxIDSimpleConstraint();
 
                         Acn.AddNewAccountDetalis(IDdaenAccount, (Mony), 0, 0, DitalisPlus, DateTime.Now, IDUSER, idCurrnt, Acn.GetMaxIDSimpleConstraint());//// اضافة الى جدول التفاصيل
                         dataGrideSimple.DataSource = Acn.GetAllSimpleConstraintOneDay(DateTime.Now.Date, DateTime.Now.Date.AddDays(1));

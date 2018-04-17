@@ -77,3 +77,4 @@ D:\programing1\StoreMaga0101\StoreMaga0101\Account\obj\Debug\Account.SimpleConst
 D:\programing1\StoreMaga0101\StoreMaga0101\Account\bin\Debug\Account.dll.config
 D:\programing1\StoreMaga0101\StoreMaga0101\Account\bin\Debug\Account.dll
 D:\programing1\StoreMaga0101\StoreMaga0101\Account\obj\Debug\Account.dll
+D:\programing1\StoreMaga0101\StoreMaga0101\Account\obj\Debug\Account.csprojResolveAssemblyReference.cache
