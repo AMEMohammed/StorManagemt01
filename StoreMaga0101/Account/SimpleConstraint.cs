@@ -107,7 +107,7 @@ namespace Account
 
                         ///add new tblSimpleConstraint
                         ///// اضافة القيد الى جدول القيود
-                        Acn.AddSimpleConstraint(IDdaenAccount, IDMadenAccount, Mony, IDUSER, DateTime.Now, txtNote.Text);
+                        Acn.AddSimpleConstraint(IDdaenAccount, IDMadenAccount, Mony,idCurrnt, IDUSER, DateTime.Now, txtNote.Text);
                         ////////////// من حساب mins المدين
                         if (Acn.CheckAccontTotal(IDMadenAccount, idCurrnt))// الحساب مضاف مسبقا
                         {

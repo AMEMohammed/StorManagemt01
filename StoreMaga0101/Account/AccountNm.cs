@@ -697,16 +697,17 @@ namespace Account
         //
         ///SimpleConstraint
         //////
-        public int AddSimpleConstraint(int IDdaan,int IdMAden,int Mony,int UserId,DateTime datetime,string Note)
+        public int AddSimpleConstraint(int IDdaan,int IdMAden,int Mony,int idCurnncy,int UserId,DateTime datetime,string Note)
         {
-            string Query = "insert into tblSimpleConstraint (IDDaanAccont,IDMaddenAccount,Mony,IDUser,EnterTime,Note)values(@IDDaanAccont,@IDMaddenAccount,@Mony,@IDUser,@EnterTime,@Note)";
-            SqlParameter[] parm = new SqlParameter[6];
+            string Query = "insert into tblSimpleConstraint (IDDaanAccont,IDMaddenAccount,Mony,IDCurnncy,IDUser,EnterTime,Note)values(@IDDaanAccont,@IDMaddenAccount,@Mony,@IDCurnncy,@IDUser,@EnterTime,@Note)";
+            SqlParameter[] parm = new SqlParameter[7];
             parm[0] = new SqlParameter("@IDDaanAccont",IDdaan);
             parm[1] = new SqlParameter("@IDMaddenAccount", IdMAden);
             parm[2] = new SqlParameter("@Mony", Mony);
             parm[3] = new SqlParameter("@IDUser", UserId);
             parm[4] = new SqlParameter("@EnterTime", datetime);
             parm[5] = new SqlParameter("@Note", Note);
+            parm[6] = new SqlParameter("@IDCurnncy", idCurnncy);
             return sql.ExcuteQuery(Query, parm);
         }
         ///
@@ -721,7 +722,7 @@ namespace Account
         // get all simple Constraint for one day
         public DataTable GetAllSimpleConstraintOneDay(DateTime day1,DateTime day2)
         {
-            string Query = "select AccountNm1.AcountNm as 'الحساب المدين',AccountNm.AcountNm as 'الحساب الدائن'  ,tblSimpleConstraint.Mony as 'المبلغ' ,tblSimpleConstraint.Note as'ملاحظات' ,tblSimpleConstraint.EnterTime as 'تاريخ القيد',Users.UserName as'الموظف' from  tblSimpleConstraint  left join AccountNm as AccountNm1 on AccountNm1.IDCode=tblSimpleConstraint.IDMaddenAccount  left join AccountNm on AccountNm.IDCode=tblSimpleConstraint.IDDaanAccont  left join Users on Users.IDUSER=tblSimpleConstraint.IDUser  where tblSimpleConstraint.EnterTime between @entertime1 and @entertime2 ";
+            //string Query = "select AccountNm1.AcountNm as 'الحساب المدين',AccountNm.AcountNm as 'الحساب الدائن'  ,tblSimpleConstraint.Mony as 'المبلغ',Currency.NameCurrency as 'العملة' ,tblSimpleConstraint.Note as'ملاحظات' ,tblSimpleConstraint.EnterTime as 'تاريخ القيد',Users.UserName as'الموظف' from  tblSimpleConstraint  left join AccountNm as AccountNm1 on AccountNm1.IDCode=tblSimpleConstraint.IDMaddenAccount  left join AccountNm on AccountNm.IDCode=tblSimpleConstraint.IDDaanAccont  left join Users on Users.IDUSER=tblSimpleConstraint.IDUser  left Join Currency on Currency.IDCurrency = tblSimpleConstraint.IDCurnncy  where tblSimpleConstraint.EnterTime between @entertime1 and @entertime2 ";
             SqlParameter[] parm = new SqlParameter[2];
             parm[0] = new SqlParameter("@entertime1", day1);
             parm[1] = new SqlParameter("@entertime2", day2);

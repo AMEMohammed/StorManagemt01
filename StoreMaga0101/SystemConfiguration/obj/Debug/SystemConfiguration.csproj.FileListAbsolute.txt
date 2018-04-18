@@ -46,3 +46,6 @@ D:\programing1\StoreMaga0101\StoreMaga0101\SystemConfiguration\obj\Debug\SystemC
 D:\programing1\StoreMaga0101\StoreMaga0101\SystemConfiguration\bin\Debug\SystemConfiguration.dll.config
 D:\programing1\StoreMaga0101\StoreMaga0101\SystemConfiguration\bin\Debug\SystemConfiguration.dll
 D:\programing1\StoreMaga0101\StoreMaga0101\SystemConfiguration\obj\Debug\SystemConfiguration.dll
+D:\programing1\StoreMaga0101\StoreMaga0101\SystemConfiguration\bin\Debug\Users.dll
+D:\programing1\StoreMaga0101\StoreMaga0101\SystemConfiguration\bin\Debug\Users.pdb
+D:\programing1\StoreMaga0101\StoreMaga0101\SystemConfiguration\obj\Debug\SystemConfiguration.csprojResolveAssemblyReference.cache

@@ -163,7 +163,7 @@ namespace SystemConfiguration
         {
             if (txtIDgroup.Text.Length > 0)
             {
-                new frmAdditms(Convert.ToInt32(txtIDgroup.Text),(int)comboBox1.SelectedValue).ShowDialog();
+                new frmAdditms(Convert.ToInt32(txtIDgroup.Text),(int)comboBox1.SelectedValue, USERID, Users.ConServer.ServerNM,Users. ConServer.DBNM, Users.ConServer.UserSql, Users.ConServer.PassSql).ShowDialog();
 
             }
 
