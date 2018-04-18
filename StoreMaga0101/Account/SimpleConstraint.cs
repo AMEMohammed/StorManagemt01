@@ -138,6 +138,8 @@ namespace Account
                         Acn.AddNewAccountDetalis(IDdaenAccount, (Mony), 0, 0, DitalisPlus, DateTime.Now, IDUSER, idCurrnt, Acn.GetMaxIDSimpleConstraint());//// اضافة الى جدول التفاصيل
                         dataGrideSimple.DataSource = Acn.GetAllSimpleConstraintOneDay(DateTime.Now.Date, DateTime.Now.Date.AddDays(1));
                         LoadData();
+                        textBox2.Text = "";
+                        txtNote.Text = "";
                     }
                 }
                 catch (Exception ex)
