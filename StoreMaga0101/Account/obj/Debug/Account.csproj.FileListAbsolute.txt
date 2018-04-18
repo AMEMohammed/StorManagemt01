@@ -48,6 +48,8 @@ D:\programing1\StoreMaga0101\Account\bin\Debug\Users.pdb
 D:\programing1\StoreMaga0101\Account\bin\Debug\Account.dll.config
 D:\programing1\StoreMaga0101\Account\bin\Debug\Account.dll
 D:\programing1\StoreMaga0101\Account\obj\Debug\Account.dll
+D:\programing1\StoreMaga0101\StoreMaga0101\Account\bin\Debug\Account.dll.config
+D:\programing1\StoreMaga0101\StoreMaga0101\Account\bin\Debug\Account.dll
 D:\programing1\StoreMaga0101\StoreMaga0101\Account\bin\Debug\Account.pdb
 D:\programing1\StoreMaga0101\StoreMaga0101\Account\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
 D:\programing1\StoreMaga0101\StoreMaga0101\Account\bin\Debug\CrystalDecisions.Shared.dll
@@ -71,9 +73,7 @@ D:\programing1\StoreMaga0101\StoreMaga0101\Account\bin\Debug\ShockwaveFlashObjec
 D:\programing1\StoreMaga0101\StoreMaga0101\Account\obj\Debug\Account.frmAcount.resources
 D:\programing1\StoreMaga0101\StoreMaga0101\Account\obj\Debug\Account.frmSearchAccountNM.resources
 D:\programing1\StoreMaga0101\StoreMaga0101\Account\obj\Debug\Account.Properties.Resources.resources
-D:\programing1\StoreMaga0101\StoreMaga0101\Account\obj\Debug\Account.csproj.GenerateResource.Cache
-D:\programing1\StoreMaga0101\StoreMaga0101\Account\obj\Debug\Account.pdb
 D:\programing1\StoreMaga0101\StoreMaga0101\Account\obj\Debug\Account.SimpleConstraint.resources
-D:\programing1\StoreMaga0101\StoreMaga0101\Account\bin\Debug\Account.dll.config
-D:\programing1\StoreMaga0101\StoreMaga0101\Account\bin\Debug\Account.dll
+D:\programing1\StoreMaga0101\StoreMaga0101\Account\obj\Debug\Account.csproj.GenerateResource.Cache
 D:\programing1\StoreMaga0101\StoreMaga0101\Account\obj\Debug\Account.dll
+D:\programing1\StoreMaga0101\StoreMaga0101\Account\obj\Debug\Account.pdb

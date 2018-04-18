@@ -167,5 +167,11 @@ namespace Account
 
     
         }
+        ////
+        //// 
+        void Refrish()
+        {
+            LoadData();
+        }
     }
 }
