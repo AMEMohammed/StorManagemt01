@@ -67,7 +67,7 @@ namespace SystemConfiguration
         // btn add New Cate
         private void btnAddSup_Click(object sender, EventArgs e)
         {
-            if(textBox4.Text.Length>0)
+            if(textBox4.Text.Length>0 &&(int) combAccont.SelectedValue>0)
             {
                 try
                 {
@@ -92,6 +92,10 @@ namespace SystemConfiguration
                     MessageBox.Show(ex.Message);
                 }
             }
+            else
+            {
+                MessageBox.Show("يرجى تعبة جميع البيانات");
+            }
         }
         /// <summary>
         /// تعديل
@@ -100,7 +104,7 @@ namespace SystemConfiguration
         /// <param name="e"></param>
         private void btnRefrsh_Click(object sender, EventArgs e)
         {
-            if (textBox4.Text.Length > 0)
+            if (textBox4.Text.Length > 0 && (int) combAccont.SelectedValue>0)
             {
                 try
                 { if (MessageBox.Show("هل تريد التعديل", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
