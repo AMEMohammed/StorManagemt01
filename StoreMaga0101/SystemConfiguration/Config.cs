@@ -385,9 +385,9 @@ namespace SystemConfiguration
         /////Chack Group have ITem
         public bool CheckGroupItems(int IDGROUP)
         {
-            string Query = "  select * from GroupDetalis where GroupDetalis.GroupID=@IDGROUP ";
+            string Query = "select * from GroupDetalis where GroupDetalis.GroupID=@IDGROUP";
             SqlParameter[] parm = new SqlParameter[1];
-            parm[0] = new SqlParameter("@IDGOUP", IDGROUP);
+            parm[0] = new SqlParameter("@IDGROUP", IDGROUP);
             DataTable dt = new DataTable();
             dt = sql.SelectData(Query, parm);
             if (dt.Rows.Count > 0)

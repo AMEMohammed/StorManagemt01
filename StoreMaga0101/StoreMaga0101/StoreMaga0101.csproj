@@ -50,6 +50,9 @@
   <PropertyGroup>
     <StartupObject>StoreMaga0101.Program</StartupObject>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>12_DHr_icon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Account">
       <HintPath>..\Account\bin\Debug\Account.dll</HintPath>
@@ -260,6 +263,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\bank-transfer %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="12_DHr_icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
