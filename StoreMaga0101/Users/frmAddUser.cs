@@ -199,7 +199,7 @@ namespace Users
                 {
                     active = false;
                 }
-                if (textBox3.Text.Length > 0 && textBox4.Text.Length > 0 && textBox1.Text.Length > 0)
+                if (textBox3.Text.Length > 0  && textBox1.Text.Length > 0)
                 {
 
                     Us.AddNewUser(textBox1.Text, textBox3.Text,ChangePass("1"), GetBool[0], GetBool[1], GetBool[2], GetBool[3], GetBool[4], GetBool[5], GetBool[6], GetBool[7], GetBool[8], GetBool[9], active, GetBool[10], GetBool[11], GetBool[12], GetBool[13], GetBool[14], UserID);
