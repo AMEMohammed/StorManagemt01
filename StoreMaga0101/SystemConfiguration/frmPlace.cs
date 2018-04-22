@@ -145,6 +145,23 @@ namespace SystemConfiguration
                 }
             }
         }
+        /// <summary>
+        /// /sreach name place
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void textBox4_KeyDown(object sender, KeyEventArgs e)
+        { if(e.Shift &&e.KeyCode==Keys.Shift)
+            {
+                dataGridView1.DataSource = config.GetPlaceByName(textBox4.Text);
+            }
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
     }
 

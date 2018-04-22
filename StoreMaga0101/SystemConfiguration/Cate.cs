@@ -212,5 +212,13 @@ namespace SystemConfiguration
             combAccont.DataSource = config.GETALLAccountSub();
 
         }
+
+        private void textBox4_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Shift && e.KeyCode == Keys.Enter)
+            {
+                dataGridView1.DataSource = config.GetCategoryByName(textBox4.Text);
+            }
+        }
     }
 }

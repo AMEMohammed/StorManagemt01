@@ -141,11 +141,23 @@ namespace SystemConfiguration
 
 
                 }
-                catch (Exception ex)
+                catch (Exception )
                 {
                     // MessageBox.Show(ex.Message);
                 }
             }
+        }
+        /// <summary>
+        /// search name Type
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void textBox4_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Shift && e.KeyCode==Keys.Enter)
+            {
+                dataGridView1.DataSource = config.GetTypeQuntityByName(textBox4.Text);
+                    }
         }
     }
 }

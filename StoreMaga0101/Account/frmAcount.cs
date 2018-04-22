@@ -164,10 +164,16 @@ namespace Account
                             IdType = 1;
                         }
 
-
-                        Acn.AddNewAcountNm(textBox1.Text, Convert.ToInt32(textBox4.Text), CodeAddAcount, comboBox2.Text, IdType, DateTime.Now, IDUSER);
-                        RefrshTreeNode();
-                        textBox1.Text = "";
+                        if (!Acn.GetCheckAccountHere(Convert.ToInt32(textBox4.Text)))
+                        { 
+                            Acn.AddNewAcountNm(textBox1.Text, Convert.ToInt32(textBox4.Text), CodeAddAcount, comboBox2.Text, IdType, DateTime.Now, IDUSER);
+                            RefrshTreeNode();
+                            textBox1.Text = "";
+                        }
+                        else
+                        {
+                            MessageBox.Show("رقم الحساب مضاف مسبقا يرجى التاكد من رقم الحساب");
+                        }
                     }
 
                     catch (Exception ex)
@@ -414,6 +420,8 @@ namespace Account
 
                 }
             }
-        
+
+
+     
     }
 }

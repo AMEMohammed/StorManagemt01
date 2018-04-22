@@ -32,6 +32,15 @@ namespace SystemConfiguration
          
 
         }
+        ///get Name CAtegory by name
+        public DataTable GetCategoryByName(string NMCate)
+        {
+            NMCate = "%"+ NMCate +"%";
+            string Query = "SELECT dbo.Category.IDCategory as 'رقم الصنف', dbo.Category.NameCategory as 'اسم الصنف' , dbo.AccountNm.AcountNm as 'اسم الحساب' FROM  dbo.Category LEFT OUTER JOIN   dbo.AccountNm ON dbo.Category.IDAccount = dbo.AccountNm.IDCode where dbo.Category.NameCategory like @nameCate order by   dbo.Category.IDCategory desc ";
+            SqlParameter[] parm = new SqlParameter[1];
+            parm[0] = new SqlParameter("@nameCate", NMCate);
+            return sql.SelectData(Query, parm);
+        }
         // </summary>
         /// <param name="NameCategory"></param> this name a category
         /// <returns></returns>
@@ -122,6 +131,18 @@ namespace SystemConfiguration
             string Query = "SELECT [IDType] as 'رقم النوع' ,[NameType] as 'اسم النوع' FROM [TypeQuntity] order by IDType desc";
             return sql.SelectData(Query, null);
         }
+
+        ///    //Get  TypeQuntity by name
+        ///    
+        public DataTable GetTypeQuntityByName(string nameTYPe)
+        {
+            nameTYPe = "%" + nameTYPe + "%";
+            string Query = "SELECT [IDType] as 'رقم النوع' ,[NameType] as 'اسم النوع' FROM [TypeQuntity] where NameType like @nameTYPe  order by IDType desc";
+            SqlParameter[] parm = new SqlParameter[1];
+            parm[0] = new SqlParameter("@nameTYPe", nameTYPe);
+
+            return sql.SelectData(Query, parm);
+        }
         //add new TypeQuntity
         public int AddNewTypeQuntity(string name)
         {
@@ -177,6 +198,18 @@ namespace SystemConfiguration
 
         }
 
+        //////////////////
+        //// place
+        //Get Place send by name
+        public DataTable GetPlaceByName(string NAMEPLACE)
+        {
+            NAMEPLACE = "%" + NAMEPLACE + "%";
+            string Query = "SELECT [IDPlace]as 'رقم الجهة' ,[NamePlace] as 'اسم الجهة'  FROM [PlaceSend] where NamePlace like @NAMEPLACE order by IDPlace  desc";
+            SqlParameter[] parm = new SqlParameter[1];
+            parm[0] = new SqlParameter("@NAMEPLACE", NAMEPLACE);
+            return sql.SelectData(Query, parm);
+
+        }
 
 
         // add new PlaceSend
@@ -237,6 +270,20 @@ namespace SystemConfiguration
 
         }
         /////
+        /// <summary>
+        /// GET Currency BY NAME
+        public DataTable GETCurrencyBYName(string NameCurrncy)
+        { NameCurrncy = "%" + NameCurrncy + "%";
+            string Query = "select IDCurrency as'رقم العملة',NameCurrency as 'اسم العملة' from Currency where NameCurrency like @NAMeCUr";
+            SqlParameter[] parm = new SqlParameter[1];
+            parm[0] = new SqlParameter("@NAMeCUr", NameCurrncy);
+            return sql.SelectData(Query, parm);
+           
+        }
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+
         //////// جدول العملاتط
         // 
         public int AddNewCurrency(string name)
@@ -317,7 +364,38 @@ namespace SystemConfiguration
             string Query = "SELECT   dbo.tblGroup.ID AS [رقم المجموعة], dbo.SourecGroup.Name AS [مصدر المجموعة], dbo.tblGroup.GroupName AS [اسم المجموعة], dbo.tblGroup.GroupDescription AS ملاحظات,dbo.Users.Name AS[اسم المستخدم], dbo.tblGroup.EnterTime AS[تاريخ الادخال] FROM dbo.tblGroup INNER JOIN   dbo.SourecGroup ON dbo.tblGroup.GroupSourceID = dbo.SourecGroup.ID INNER JOIN     dbo.Users ON dbo.tblGroup.UserID = dbo.Users.IDUSER";
             return sql.SelectData(Query, null);
         }
-            
+        /// Get  Groups by name
+        public DataTable GetGroupByName( string NAME)
+        {
+            string Query = "SELECT   dbo.tblGroup.ID AS [رقم المجموعة], dbo.SourecGroup.Name AS [مصدر المجموعة], dbo.tblGroup.GroupName AS [اسم المجموعة], dbo.tblGroup.GroupDescription AS ملاحظات,dbo.Users.Name AS[اسم المستخدم], dbo.tblGroup.EnterTime AS[تاريخ الادخال] FROM dbo.tblGroup INNER JOIN   dbo.SourecGroup ON dbo.tblGroup.GroupSourceID = dbo.SourecGroup.ID INNER JOIN     dbo.Users ON dbo.tblGroup.UserID = dbo.Users.IDUSER where dbo.SourecGroup.Name like @NAMEGROUP";
+            SqlParameter[] parm = new SqlParameter[1];
+            parm[0] = new SqlParameter("@NAMEGROUP", NAME);
+
+            return sql.SelectData(Query, parm);
+        }
+        /////delelte Group
+        public DataTable DeleteGroup(int IDGROUP)
+        {
+            string Query = "delete  from tblGroup where ID = @IDGOUP";
+            SqlParameter[] parm = new SqlParameter[1];
+            parm[0] = new SqlParameter("@IDGOUP", IDGROUP);
+            return sql.SelectData(Query, parm);
+             
+        }
+        /////Chack Group have ITem
+        public bool CheckGroupItems(int IDGROUP)
+        {
+            string Query = "  select * from GroupDetalis where GroupDetalis.GroupID=@IDGROUP ";
+            SqlParameter[] parm = new SqlParameter[1];
+            parm[0] = new SqlParameter("@IDGOUP", IDGROUP);
+            DataTable dt = new DataTable();
+            dt = sql.SelectData(Query, parm);
+            if (dt.Rows.Count > 0)
+                return true;
+            else
+                return false;
+
+        }
         ///
         //Get Sourec group
         public DataTable GetSourecGroup()

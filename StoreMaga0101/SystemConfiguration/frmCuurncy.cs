@@ -152,5 +152,13 @@ namespace SystemConfiguration
                 }
             }
         }
+
+        private void textBox4_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Shift && e.KeyCode==Keys.Enter)
+            {
+                dataGridView1.DataSource = config.GETCurrencyBYName(textBox4.Text);
+            }
+        }
     }
 }

@@ -169,5 +169,35 @@ namespace SystemConfiguration
 
 
         }
+
+        private void txtNameGroup_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Shift && e.KeyCode==Keys.Enter)
+            {
+               dataGridView1.DataSource= config.GetGroupByName(txtNameGroup.Text);
+            }
+        }
+        /// <summary>
+        /// btn delete group
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (txtIDgroup.Text.Length > 0)
+            {
+                if (config.CheckGroupItems((Convert.ToInt32(txtIDgroup.Text))))
+                {
+                    MessageBox.Show("لا يمكن حذف المجوعة لانها تحتوي على عناصر");
+
+                }
+                else
+                {
+                    config.DeleteGroup(Convert.ToInt32(txtIDgroup.Text));
+                }
+
+
+           }
+        }
     }
 }

@@ -204,11 +204,14 @@ namespace Out_
         }
 
         private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
-        {
+        { 
+            
+
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
             {
                 e.Handled = true;
             }
+            
         }
 
         private void textBox2_Leave(object sender, EventArgs e)
@@ -488,9 +491,9 @@ namespace Out_
             GetDate2();
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
+      
 
-        }
+
+       
     }
 }

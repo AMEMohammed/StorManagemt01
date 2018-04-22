@@ -140,7 +140,23 @@ namespace Account
             parm[0] = new SqlParameter("@id", IDAccount);
             return (bool)sql.ExcuteQueryValue(Query, parm);
         }
-        /// <summary>
+        ///       /// <summary>
+        ///       chech acount ID is Here
+        public bool GetCheckAccountHere(int IDAccount)
+        {
+            string Query = "select count(IDAcountNm) from AccountNm where IDCode=@id ";
+            SqlParameter[] parm = new SqlParameter[1];
+            parm[0] = new SqlParameter("@id", IDAccount);
+            int i=(int)   sql.ExcuteQueryValue(Query, parm);
+            if(i>0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         /// /Get Max IDCODde
         /// </summary>
         /// <param name="CodeParent"></param>
@@ -729,6 +745,7 @@ namespace Account
             return sql.SelectData(Query, parm);
 
         } 
+       
 
     }
 }
