@@ -395,7 +395,8 @@ namespace Account
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(idcode >= 1)
+         
+            if (idcode >= 1)
             {
            if( MessageBox.Show("هل تريد حذف الحساب المحدد", "تاكيد", MessageBoxButtons.YesNo, MessageBoxIcon.Question)==DialogResult.Yes)
                 { 
@@ -421,7 +422,5 @@ namespace Account
                 }
             }
 
-
-     
     }
 }
