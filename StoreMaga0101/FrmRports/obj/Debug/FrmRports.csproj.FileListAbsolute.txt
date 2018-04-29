@@ -135,3 +135,4 @@ D:\programing1\StoreMaga0101\StoreMaga0101\FrmRports\obj\Debug\FrmRports.Propert
 D:\programing1\StoreMaga0101\StoreMaga0101\FrmRports\obj\Debug\FrmRports.csproj.GenerateResource.Cache
 D:\programing1\StoreMaga0101\StoreMaga0101\FrmRports\obj\Debug\FrmRports.dll
 D:\programing1\StoreMaga0101\StoreMaga0101\FrmRports\obj\Debug\FrmRports.pdb
+D:\programing1\StoreMaga0101\StoreMaga0101\FrmRports\obj\Debug\FrmRports.csprojResolveAssemblyReference.cache

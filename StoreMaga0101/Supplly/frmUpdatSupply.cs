@@ -21,11 +21,18 @@ namespace Supplly
             UserID = 1;
 
         }
-        
+        string Serv = "";
+        string DBNm = "";
+        string UserSQl = "";
+        string passSql = "";
 
         public frmUpdatSupply(string ServerNm, string DBnm,string UserSql,string PassSql, int UserId)
         {
             InitializeComponent();
+            Serv = ServerNm;
+            DBNm = DBnm;
+            UserSQl = UserSql;
+            passSql = PassSql;
             SuRe = new SupplyRequset(ServerNm, DBnm,UserSql,PassSql);
             UserID = UserId;
         }
@@ -194,7 +201,7 @@ namespace Supplly
                 try
                 {
                     int id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
-                  frmupdatesupply2 frmu = new frmupdatesupply2();
+                  frmupdatesupply2 frmu = new frmupdatesupply2(Serv,DBNm,UserSQl,passSql,UserID);
                     frmu.Tag = id;
                     this.Cursor = Cursors.WaitCursor;
 

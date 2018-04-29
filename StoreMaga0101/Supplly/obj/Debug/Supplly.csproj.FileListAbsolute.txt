@@ -124,3 +124,4 @@ D:\programing1\StoreMaga0101\StoreMaga0101\Supplly\obj\Debug\Supplly.Properties.
 D:\programing1\StoreMaga0101\StoreMaga0101\Supplly\obj\Debug\Supplly.csproj.GenerateResource.Cache
 D:\programing1\StoreMaga0101\StoreMaga0101\Supplly\obj\Debug\Supplly.dll
 D:\programing1\StoreMaga0101\StoreMaga0101\Supplly\obj\Debug\Supplly.pdb
+D:\programing1\StoreMaga0101\StoreMaga0101\Supplly\obj\Debug\Supplly.csprojResolveAssemblyReference.cache
