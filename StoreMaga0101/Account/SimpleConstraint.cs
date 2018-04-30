@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using Excel = Microsoft.Office.Interop.Excel;
 namespace Account
 {
     public partial class SimpleConstraint : Form
@@ -170,8 +170,80 @@ namespace Account
 
     
         }
+        /// <summary>
+        /// تصدير الى اكسل
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void تصديرالىاكسلToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dataGrideSimple.Rows.Count > 0)
+            {
+                SaveFileDialog ofd = new SaveFileDialog();
+                ofd.Filter = "EXCEL FILE | *.xls";
+                ofd.ShowDialog();
+
+                if (ofd.FileName != "")
+                {
+                    Excel.Application xlApp;
+                    Excel.Workbook xlWorkBook;
+                    Excel.Worksheet xlWorkSheet;
+                    object misValue = System.Reflection.Missing.Value;
+
+                    xlApp = new Excel.Application();
+                    xlWorkBook = xlApp.Workbooks.Add(misValue);
+                    xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+                    xlWorkSheet.Name = this.Text;
+                    // storing header part in Excel  
+                    for (int i1 = 1; i1 < dataGrideSimple.Columns.Count + 1; i1++)
+                    {
+                        xlWorkSheet.Cells[1, i1] = dataGrideSimple.Columns[i1 - 1].HeaderText;
+                    }
+                    int i = 0;
+                    int j = 0;
+
+                    for (i = 0; i <= dataGrideSimple.RowCount - 1; i++)
+                    {
+                        for (j = 0; j <= dataGrideSimple.ColumnCount - 1; j++)
+                        {
+                            DataGridViewCell cell = dataGrideSimple[j, i];
+                            xlWorkSheet.Cells[i + 2, j + 1] = cell.Value;
+                        }
+                    }
+
+                    xlWorkBook.SaveAs(ofd.FileName + ".xls", Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+
+                    xlWorkBook.Close(true, misValue, misValue);
+
+                    xlApp.Quit();
+
+                    releaseObject(xlWorkSheet);
+                    releaseObject(xlWorkBook);
+                    releaseObject(xlApp);
+                }
+            }
+        }
+        private void releaseObject(object obj)
+        {
+            try
+            {
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(obj);
+                obj = null;
+            }
+            catch (Exception ex)
+            {
+                obj = null;
+                MessageBox.Show("Exception Occured while releasing object " + ex.ToString());
+            }
+            finally
+            {
+                GC.Collect();
+            }
+        }
+
+    
         ////
         //// 
-       
+
     }
 }

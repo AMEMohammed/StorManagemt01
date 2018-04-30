@@ -44,6 +44,10 @@
             this.checkBox5 = new System.Windows.Forms.CheckBox();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.btnRefrsh = new System.Windows.Forms.Button();
+            this.btnPrint = new System.Windows.Forms.Button();
+            this.btnAddSup = new System.Windows.Forms.Button();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
@@ -63,10 +67,7 @@
             this.اجماليالكميةالمحددةToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.اجماليالسعرالمحددToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.اجماليالاجماليالمحددToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnExit = new System.Windows.Forms.Button();
-            this.btnRefrsh = new System.Windows.Forms.Button();
-            this.btnPrint = new System.Windows.Forms.Button();
-            this.btnAddSup = new System.Windows.Forms.Button();
+            this.تصديرالىاكسلToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -245,6 +246,62 @@
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "العمليات";
             // 
+            // btnExit
+            // 
+            this.btnExit.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.btnExit.Image = global::frmWInReprting.Properties.Resources.exit__3_;
+            this.btnExit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnExit.Location = new System.Drawing.Point(6, 19);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(81, 35);
+            this.btnExit.TabIndex = 15;
+            this.btnExit.Text = "خروج";
+            this.btnExit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // btnRefrsh
+            // 
+            this.btnRefrsh.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.btnRefrsh.Image = global::frmWInReprting.Properties.Resources.printer__3_;
+            this.btnRefrsh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRefrsh.Location = new System.Drawing.Point(218, 19);
+            this.btnRefrsh.Name = "btnRefrsh";
+            this.btnRefrsh.Size = new System.Drawing.Size(135, 35);
+            this.btnRefrsh.TabIndex = 13;
+            this.btnRefrsh.Text = "طباعة المحدد";
+            this.btnRefrsh.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnRefrsh.UseVisualStyleBackColor = true;
+            this.btnRefrsh.Click += new System.EventHandler(this.btnRefrsh_Click);
+            // 
+            // btnPrint
+            // 
+            this.btnPrint.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.btnPrint.Image = global::frmWInReprting.Properties.Resources.printer__3_;
+            this.btnPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPrint.Location = new System.Drawing.Point(93, 19);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(119, 35);
+            this.btnPrint.TabIndex = 14;
+            this.btnPrint.Text = "طباعة الكل";
+            this.btnPrint.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
+            // btnAddSup
+            // 
+            this.btnAddSup.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.btnAddSup.Image = global::frmWInReprting.Properties.Resources.search;
+            this.btnAddSup.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddSup.Location = new System.Drawing.Point(359, 19);
+            this.btnAddSup.Name = "btnAddSup";
+            this.btnAddSup.Size = new System.Drawing.Size(81, 35);
+            this.btnAddSup.TabIndex = 12;
+            this.btnAddSup.Text = "بحث";
+            this.btnAddSup.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAddSup.UseVisualStyleBackColor = true;
+            this.btnAddSup.Click += new System.EventHandler(this.btnAddSup_Click);
+            // 
             // groupBox10
             // 
             this.groupBox10.Controls.Add(this.textBox4);
@@ -415,10 +472,11 @@
             this.عددجميعالاسطرToolStripMenuItem,
             this.اجماليالكميةالمحددةToolStripMenuItem,
             this.اجماليالسعرالمحددToolStripMenuItem,
-            this.اجماليالاجماليالمحددToolStripMenuItem});
+            this.اجماليالاجماليالمحددToolStripMenuItem,
+            this.تصديرالىاكسلToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.contextMenuStrip1.Size = new System.Drawing.Size(189, 114);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(189, 158);
             // 
             // عددالاسطرالمحددةToolStripMenuItem
             // 
@@ -455,61 +513,12 @@
             this.اجماليالاجماليالمحددToolStripMenuItem.Text = "اجمالي الاجمالي المحدد";
             this.اجماليالاجماليالمحددToolStripMenuItem.Click += new System.EventHandler(this.اجماليالاجماليالمحددToolStripMenuItem_Click);
             // 
-            // btnExit
+            // تصديرالىاكسلToolStripMenuItem
             // 
-            this.btnExit.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btnExit.Image = global::frmWInReprting.Properties.Resources.exit__3_;
-            this.btnExit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExit.Location = new System.Drawing.Point(6, 19);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(81, 35);
-            this.btnExit.TabIndex = 15;
-            this.btnExit.Text = "خروج";
-            this.btnExit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
-            // btnRefrsh
-            // 
-            this.btnRefrsh.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btnRefrsh.Image = global::frmWInReprting.Properties.Resources.printer__3_;
-            this.btnRefrsh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRefrsh.Location = new System.Drawing.Point(218, 19);
-            this.btnRefrsh.Name = "btnRefrsh";
-            this.btnRefrsh.Size = new System.Drawing.Size(135, 35);
-            this.btnRefrsh.TabIndex = 13;
-            this.btnRefrsh.Text = "طباعة المحدد";
-            this.btnRefrsh.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnRefrsh.UseVisualStyleBackColor = true;
-            this.btnRefrsh.Click += new System.EventHandler(this.btnRefrsh_Click);
-            // 
-            // btnPrint
-            // 
-            this.btnPrint.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btnPrint.Image = global::frmWInReprting.Properties.Resources.printer__3_;
-            this.btnPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPrint.Location = new System.Drawing.Point(93, 19);
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(119, 35);
-            this.btnPrint.TabIndex = 14;
-            this.btnPrint.Text = "طباعة الكل";
-            this.btnPrint.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnPrint.UseVisualStyleBackColor = true;
-            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
-            // 
-            // btnAddSup
-            // 
-            this.btnAddSup.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btnAddSup.Image = global::frmWInReprting.Properties.Resources.search;
-            this.btnAddSup.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddSup.Location = new System.Drawing.Point(359, 19);
-            this.btnAddSup.Name = "btnAddSup";
-            this.btnAddSup.Size = new System.Drawing.Size(81, 35);
-            this.btnAddSup.TabIndex = 12;
-            this.btnAddSup.Text = "بحث";
-            this.btnAddSup.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAddSup.UseVisualStyleBackColor = true;
-            this.btnAddSup.Click += new System.EventHandler(this.btnAddSup_Click);
+            this.تصديرالىاكسلToolStripMenuItem.Name = "تصديرالىاكسلToolStripMenuItem";
+            this.تصديرالىاكسلToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.تصديرالىاكسلToolStripMenuItem.Text = "تصدير الى اكسل";
+            this.تصديرالىاكسلToolStripMenuItem.Click += new System.EventHandler(this.تصديرالىاكسلToolStripMenuItem_Click);
             // 
             // frmSuppRepring
             // 
@@ -588,6 +597,7 @@
         private System.Windows.Forms.ToolStripMenuItem اجماليالكميةالمحددةToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem اجماليالسعرالمحددToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem اجماليالاجماليالمحددToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem تصديرالىاكسلToolStripMenuItem;
     }
 }
 

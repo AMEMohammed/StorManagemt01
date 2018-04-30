@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -35,6 +36,10 @@
             this.groupBox13 = new System.Windows.Forms.GroupBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.button4 = new System.Windows.Forms.Button();
+            this.btnRefrsh = new System.Windows.Forms.Button();
+            this.btnPrint = new System.Windows.Forms.Button();
+            this.btnAddSup = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
@@ -54,10 +59,8 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
-            this.btnRefrsh = new System.Windows.Forms.Button();
-            this.btnPrint = new System.Windows.Forms.Button();
-            this.btnAddSup = new System.Windows.Forms.Button();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.تصديرالىاكسلToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -72,6 +75,7 @@
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox12
@@ -95,6 +99,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.ContextMenuStrip = this.contextMenuStrip1;
             this.dataGridView1.Location = new System.Drawing.Point(6, 19);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
@@ -165,6 +170,62 @@
             this.groupBox11.TabIndex = 10;
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "العمليات";
+            // 
+            // button4
+            // 
+            this.button4.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.button4.Image = global::Supplly.Properties.Resources.exit__3_;
+            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button4.Location = new System.Drawing.Point(6, 19);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(81, 35);
+            this.button4.TabIndex = 13;
+            this.button4.Text = "خروج";
+            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // btnRefrsh
+            // 
+            this.btnRefrsh.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.btnRefrsh.Image = global::Supplly.Properties.Resources.rotate;
+            this.btnRefrsh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRefrsh.Location = new System.Drawing.Point(180, 19);
+            this.btnRefrsh.Name = "btnRefrsh";
+            this.btnRefrsh.Size = new System.Drawing.Size(81, 35);
+            this.btnRefrsh.TabIndex = 11;
+            this.btnRefrsh.Text = "تحديث";
+            this.btnRefrsh.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnRefrsh.UseVisualStyleBackColor = true;
+            this.btnRefrsh.Click += new System.EventHandler(this.btnRefrsh_Click);
+            // 
+            // btnPrint
+            // 
+            this.btnPrint.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.btnPrint.Image = global::Supplly.Properties.Resources.printer__3_;
+            this.btnPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPrint.Location = new System.Drawing.Point(93, 19);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(81, 35);
+            this.btnPrint.TabIndex = 12;
+            this.btnPrint.Text = "طباعة";
+            this.btnPrint.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
+            // btnAddSup
+            // 
+            this.btnAddSup.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.btnAddSup.Image = global::Supplly.Properties.Resources.plus;
+            this.btnAddSup.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddSup.Location = new System.Drawing.Point(267, 19);
+            this.btnAddSup.Name = "btnAddSup";
+            this.btnAddSup.Size = new System.Drawing.Size(81, 35);
+            this.btnAddSup.TabIndex = 10;
+            this.btnAddSup.Text = "اضافة";
+            this.btnAddSup.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAddSup.UseVisualStyleBackColor = true;
+            this.btnAddSup.Click += new System.EventHandler(this.btnAddSup_Click);
             // 
             // checkBox1
             // 
@@ -359,61 +420,20 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "أضافة طلب توريد";
             // 
-            // button4
+            // contextMenuStrip1
             // 
-            this.button4.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.button4.Image = global::Supplly.Properties.Resources.exit__3_;
-            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(6, 19);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(81, 35);
-            this.button4.TabIndex = 13;
-            this.button4.Text = "خروج";
-            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.تصديرالىاكسلToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.contextMenuStrip1.Size = new System.Drawing.Size(156, 48);
             // 
-            // btnRefrsh
+            // تصديرالىاكسلToolStripMenuItem
             // 
-            this.btnRefrsh.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btnRefrsh.Image = global::Supplly.Properties.Resources.rotate;
-            this.btnRefrsh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRefrsh.Location = new System.Drawing.Point(180, 19);
-            this.btnRefrsh.Name = "btnRefrsh";
-            this.btnRefrsh.Size = new System.Drawing.Size(81, 35);
-            this.btnRefrsh.TabIndex = 11;
-            this.btnRefrsh.Text = "تحديث";
-            this.btnRefrsh.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnRefrsh.UseVisualStyleBackColor = true;
-            this.btnRefrsh.Click += new System.EventHandler(this.btnRefrsh_Click);
-            // 
-            // btnPrint
-            // 
-            this.btnPrint.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btnPrint.Image = global::Supplly.Properties.Resources.printer__3_;
-            this.btnPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPrint.Location = new System.Drawing.Point(93, 19);
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(81, 35);
-            this.btnPrint.TabIndex = 12;
-            this.btnPrint.Text = "طباعة";
-            this.btnPrint.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnPrint.UseVisualStyleBackColor = true;
-            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
-            // 
-            // btnAddSup
-            // 
-            this.btnAddSup.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btnAddSup.Image = global::Supplly.Properties.Resources.plus;
-            this.btnAddSup.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddSup.Location = new System.Drawing.Point(267, 19);
-            this.btnAddSup.Name = "btnAddSup";
-            this.btnAddSup.Size = new System.Drawing.Size(81, 35);
-            this.btnAddSup.TabIndex = 10;
-            this.btnAddSup.Text = "اضافة";
-            this.btnAddSup.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAddSup.UseVisualStyleBackColor = true;
-            this.btnAddSup.Click += new System.EventHandler(this.btnAddSup_Click);
+            this.تصديرالىاكسلToolStripMenuItem.Name = "تصديرالىاكسلToolStripMenuItem";
+            this.تصديرالىاكسلToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.تصديرالىاكسلToolStripMenuItem.Text = "تصدير الى اكسل";
+            this.تصديرالىاكسلToolStripMenuItem.Click += new System.EventHandler(this.تصديرالىاكسلToolStripMenuItem_Click);
             // 
             // frmADDSup
             // 
@@ -450,6 +470,7 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -485,6 +506,8 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem تصديرالىاكسلToolStripMenuItem;
     }
 }
 

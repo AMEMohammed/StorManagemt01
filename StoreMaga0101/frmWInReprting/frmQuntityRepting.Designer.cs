@@ -58,6 +58,7 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
             this.CombboxGroup = new System.Windows.Forms.ComboBox();
+            this.تصديرالىاكسلToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox11.SuspendLayout();
             this.groupBox12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -225,10 +226,11 @@
             this.عددجميعالاسطرToolStripMenuItem,
             this.اجماليالكميةالمحددةToolStripMenuItem,
             this.اجماليالسعرالمحددToolStripMenuItem,
-            this.اجماليالاجماليالمحددToolStripMenuItem});
+            this.اجماليالاجماليالمحددToolStripMenuItem,
+            this.تصديرالىاكسلToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.contextMenuStrip1.Size = new System.Drawing.Size(189, 114);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(189, 158);
             // 
             // عددالاسطرالمحددةToolStripMenuItem
             // 
@@ -387,6 +389,13 @@
             this.CombboxGroup.Size = new System.Drawing.Size(258, 23);
             this.CombboxGroup.TabIndex = 2;
             // 
+            // تصديرالىاكسلToolStripMenuItem
+            // 
+            this.تصديرالىاكسلToolStripMenuItem.Name = "تصديرالىاكسلToolStripMenuItem";
+            this.تصديرالىاكسلToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.تصديرالىاكسلToolStripMenuItem.Text = "تصدير الى اكسل";
+            this.تصديرالىاكسلToolStripMenuItem.Click += new System.EventHandler(this.تصديرالىاكسلToolStripMenuItem_Click);
+            // 
             // frmQuntityRepting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -448,5 +457,6 @@
         private System.Windows.Forms.ComboBox CombboxGroup;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.ToolStripMenuItem تصديرالىاكسلToolStripMenuItem;
     }
 }

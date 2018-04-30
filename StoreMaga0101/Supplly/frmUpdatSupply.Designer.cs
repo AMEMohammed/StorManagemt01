@@ -53,6 +53,7 @@
             this.تعديلToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.حذفToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
+            this.تصديرالىاكسلToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.groupBox11.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -306,16 +307,17 @@
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.تعديلToolStripMenuItem,
-            this.حذفToolStripMenuItem});
+            this.حذفToolStripMenuItem,
+            this.تصديرالىاكسلToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(156, 92);
             // 
             // تعديلToolStripMenuItem
             // 
             this.تعديلToolStripMenuItem.Image = global::Supplly.Properties.Resources.update;
             this.تعديلToolStripMenuItem.Name = "تعديلToolStripMenuItem";
-            this.تعديلToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.تعديلToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.تعديلToolStripMenuItem.Text = "تعديل ";
             this.تعديلToolStripMenuItem.Click += new System.EventHandler(this.تعديلToolStripMenuItem_Click);
             // 
@@ -323,7 +325,7 @@
             // 
             this.حذفToolStripMenuItem.Image = global::Supplly.Properties.Resources.delete;
             this.حذفToolStripMenuItem.Name = "حذفToolStripMenuItem";
-            this.حذفToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.حذفToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.حذفToolStripMenuItem.Text = "حذف";
             this.حذفToolStripMenuItem.Click += new System.EventHandler(this.حذفToolStripMenuItem_Click);
             // 
@@ -339,6 +341,13 @@
             this.groupBox12.TabIndex = 11;
             this.groupBox12.TabStop = false;
             this.groupBox12.Text = "طلبات التوريد ";
+            // 
+            // تصديرالىاكسلToolStripMenuItem
+            // 
+            this.تصديرالىاكسلToolStripMenuItem.Name = "تصديرالىاكسلToolStripMenuItem";
+            this.تصديرالىاكسلToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.تصديرالىاكسلToolStripMenuItem.Text = "تصدير الى اكسل";
+            this.تصديرالىاكسلToolStripMenuItem.Click += new System.EventHandler(this.تصديرالىاكسلToolStripMenuItem_Click);
             // 
             // frmUpdatSupply
             // 
@@ -397,5 +406,6 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem تعديلToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem حذفToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem تصديرالىاكسلToolStripMenuItem;
     }
 }
