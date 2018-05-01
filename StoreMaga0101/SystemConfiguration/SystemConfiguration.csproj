@@ -70,6 +70,12 @@
     <Compile Include="frmAdditms.Designer.cs">
       <DependentUpon>frmAdditms.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmConnectionPlaceWithAccounts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConnectionPlaceWithAccounts.Designer.cs">
+      <DependentUpon>frmConnectionPlaceWithAccounts.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCuurncy.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +108,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAdditms.resx">
       <DependentUpon>frmAdditms.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmConnectionPlaceWithAccounts.resx">
+      <DependentUpon>frmConnectionPlaceWithAccounts.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCuurncy.resx">
       <DependentUpon>frmCuurncy.cs</DependentUpon>
