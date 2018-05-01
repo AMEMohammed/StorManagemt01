@@ -599,6 +599,18 @@ namespace Out_
             parm[0] = new SqlParameter("@idsup", idout);
             return sql.ExcuteQuery(Query, parm);
         }
+       ///
+       ///جلب رقم الحساب المرتبط بالفرع وحساب الدائن
+       public int GetIDAccountPalce(int IDACcount,int idplace)
+        {
+            string Query = "select IDAccountMadden from tblConnectionAccountWithPlace where IDPalce=@IDPalce and IDAcccountDaan=@IDAcccountDaan";
+            SqlParameter[] parm = new SqlParameter[2];
+            parm[0] = new SqlParameter("@IDPalce", idplace);
+            parm[1] = new SqlParameter("@IDAcccountDaan", IDACcount);
+            return (int)sql.ExcuteQueryValue(Query,  parm);
+
+        }
+
     }
 
 }

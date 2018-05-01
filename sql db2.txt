@@ -1,0 +1,424 @@
+CREATE TABLE [dbo].[Debit](
+	[IdTypeAccount] [int] IDENTITY(1,1) NOT NULL,
+	[NameTypeAccount] [nvarchar](350) NULL,
+ CONSTRAINT [PK_TypeAccount] PRIMARY KEY CLUSTERED 
+(
+	[IdTypeAccount] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Currency]    Script Date: 05/01/2018 18:25:34 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Currency](
+	[IDCurrency] [int] IDENTITY(1,1) NOT NULL,
+	[NameCurrency] [nvarchar](50) NULL,
+ CONSTRAINT [PK_Currency] PRIMARY KEY CLUSTERED 
+(
+	[IDCurrency] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Creditor]    Script Date: 05/01/2018 18:25:34 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Creditor](
+	[IdTypeAccount] [int] IDENTITY(1,1) NOT NULL,
+	[NameTypeAccount] [nvarchar](150) NULL,
+ CONSTRAINT [PK_Creditor] PRIMARY KEY CLUSTERED 
+(
+	[IdTypeAccount] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[CheckQuntity]    Script Date: 05/01/2018 18:25:34 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[CheckQuntity](
+	[IDCheck] [int] IDENTITY(1,1) NOT NULL,
+	[IDCategory] [int] NULL,
+	[IDType] [int] NULL,
+	[LessQuntity] [int] NULL,
+	[CurrntQuntity] [int] NULL,
+ CONSTRAINT [PK_CheckQuntity] PRIMARY KEY CLUSTERED 
+(
+	[IDCheck] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Category]    Script Date: 05/01/2018 18:25:34 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Category](
+	[IDCategory] [int] IDENTITY(1,1) NOT NULL,
+	[NameCategory] [nvarchar](150) NULL,
+	[IDAccount] [int] NULL,
+ CONSTRAINT [PK_Category] PRIMARY KEY CLUSTERED 
+(
+	[IDCategory] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[AccountTotal]    Script Date: 05/01/2018 18:25:34 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[AccountTotal](
+	[IDTotal] [int] IDENTITY(1,1) NOT NULL,
+	[IDCode] [int] NULL,
+	[Balance] [int] NULL,
+	[IDCurrncy] [int] NULL,
+ CONSTRAINT [PK_AccountTotal] PRIMARY KEY CLUSTERED 
+(
+	[IDTotal] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[AccountNm]    Script Date: 05/01/2018 18:25:34 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[AccountNm](
+	[IDAcountNm] [int] IDENTITY(1,1) NOT NULL,
+	[IDCode] [int] NULL,
+	[AcountNm] [nvarchar](150) NULL,
+	[IDParentAcount] [int] NULL,
+	[AcountType] [nvarchar](50) NULL,
+	[Active] [bit] NULL,
+	[StartEnter] [datetime] NULL,
+	[UserID] [int] NULL,
+ CONSTRAINT [PK_AccounNm] PRIMARY KEY CLUSTERED 
+(
+	[IDAcountNm] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[AccountDetalis]    Script Date: 05/01/2018 18:25:34 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[AccountDetalis](
+	[IDDetalis] [int] IDENTITY(1,1) NOT NULL,
+	[IDCode] [int] NULL,
+	[Mony] [float] NULL,
+	[IDSupply] [int] NULL,
+	[IDOut] [int] NULL,
+	[Detalis] [nvarchar](500) NULL,
+	[DateEnter] [datetime] NULL,
+	[UserID] [int] NULL,
+	[IDCurrncy] [int] NULL,
+	[IDSimpleConstraint] [int] NULL,
+ CONSTRAINT [PK_AccountDetalis] PRIMARY KEY CLUSTERED 
+(
+	[IDDetalis] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Account]    Script Date: 05/01/2018 18:25:34 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Account](
+	[IDAccount] [int] IDENTITY(1,1) NOT NULL,
+	[IDCategory] [int] NULL,
+	[IDType] [int] NULL,
+	[Quntity] [int] NULL,
+	[Price] [int] NULL,
+	[IDCurrency] [int] NULL,
+ CONSTRAINT [PK_Account] PRIMARY KEY CLUSTERED 
+(
+	[IDAccount] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Users]    Script Date: 05/01/2018 18:25:34 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Users](
+	[IDUSER] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](150) NULL,
+	[UserName] [nvarchar](150) NULL,
+	[Password] [varchar](50) NULL,
+	[AddSupply] [bit] NULL,
+	[UpdSupply] [bit] NULL,
+	[PrintSupply] [bit] NULL,
+	[PrintOut] [bit] NULL,
+	[PrintQuntity] [bit] NULL,
+	[AddUser] [bit] NULL,
+	[Active] [bit] NULL,
+	[AddOut] [bit] NULL,
+	[UpdOut] [bit] NULL,
+	[UserID] [int] NULL,
+	[UpdSupp1] [bit] NULL,
+	[UpdOut1] [bit] NULL,
+	[Cate] [bit] NULL,
+	[type1] [bit] NULL,
+	[account] [bit] NULL,
+	[Monay] [bit] NULL,
+	[Place] [bit] NULL,
+ CONSTRAINT [PK_Users] PRIMARY KEY CLUSTERED 
+(
+	[IDUSER] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[UpdSupply]    Script Date: 05/01/2018 18:25:34 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[UpdSupply](
+	[IDUpt] [int] IDENTITY(1,1) NOT NULL,
+	[IDSupply] [int] NULL,
+	[IDCategory] [int] NULL,
+	[IDType] [int] NULL,
+	[Quntity] [int] NULL,
+	[Price] [int] NULL,
+	[NameSupply] [nvarchar](150) NULL,
+	[DateSupply] [datetime] NULL,
+	[DescUpd] [nvarchar](250) NULL,
+	[dateUpd] [datetime] NULL,
+	[IDCurrency] [int] NULL,
+	[UserId] [int] NULL,
+ CONSTRAINT [PK_UpdSupply] PRIMARY KEY CLUSTERED 
+(
+	[IDUpt] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[UpdateOut]    Script Date: 05/01/2018 18:25:34 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[UpdateOut](
+	[IdUpdate] [int] IDENTITY(1,1) NOT NULL,
+	[IdCate] [int] NULL,
+	[IdType] [int] NULL,
+	[IdPlace] [int] NULL,
+	[Quntity] [int] NULL,
+	[NameOUt] [nvarchar](150) NULL,
+	[DateUpdate] [datetime] NULL,
+	[NameSend] [nvarchar](150) NULL,
+	[Price] [int] NULL,
+	[IdCurrent] [int] NULL,
+	[TxtReson] [nvarchar](250) NULL,
+	[IDOut] [int] NULL,
+	[UserId] [int] NULL,
+ CONSTRAINT [PK_UpdateOut] PRIMARY KEY CLUSTERED 
+(
+	[IdUpdate] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[TypeQuntity]    Script Date: 05/01/2018 18:25:34 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[TypeQuntity](
+	[IDType] [int] IDENTITY(1,1) NOT NULL,
+	[NameType] [nvarchar](150) NULL,
+ CONSTRAINT [PK_TypeQuntity] PRIMARY KEY CLUSTERED 
+(
+	[IDType] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[tblSimpleConstraint]    Script Date: 05/01/2018 18:25:34 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tblSimpleConstraint](
+	[IDSimpleConstraint] [int] IDENTITY(1,1) NOT NULL,
+	[IDDaanAccont] [int] NULL,
+	[IDMaddenAccount] [int] NULL,
+	[Mony] [int] NULL,
+	[IDUser] [int] NULL,
+	[EnterTime] [datetime] NULL,
+	[Note] [nvarchar](150) NULL,
+	[IDCurnncy] [int] NULL,
+ CONSTRAINT [PK_tblSimpleConstraint] PRIMARY KEY CLUSTERED 
+(
+	[IDSimpleConstraint] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[tblGroup]    Script Date: 05/01/2018 18:25:34 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tblGroup](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[GroupSourceID] [int] NULL,
+	[GroupName] [nvarchar](150) NULL,
+	[GroupDescription] [nvarchar](150) NULL,
+	[UserID] [int] NULL,
+	[EnterTime] [datetime] NULL,
+ CONSTRAINT [PK_tblGroup] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[tblConnectionAccountWithPlace]    Script Date: 05/01/2018 18:25:34 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tblConnectionAccountWithPlace](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[IDPalce] [int] NULL,
+	[IDAcccountDaan] [int] NULL,
+	[IDAccountMadden] [int] NULL,
+ CONSTRAINT [PK_tblConnectionAccountWithPlace] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[SourecGroup]    Script Date: 05/01/2018 18:25:34 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[SourecGroup](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](50) NULL,
+ CONSTRAINT [PK_SourecGroup] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Setting]    Script Date: 05/01/2018 18:25:34 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Setting](
+	[SttingID] [int] IDENTITY(1,1) NOT NULL,
+	[SttingNM] [nvarchar](50) NULL,
+	[SttingValue] [nvarchar](50) NULL,
+ CONSTRAINT [PK_Setting] PRIMARY KEY CLUSTERED 
+(
+	[SttingID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[RequstSupply]    Script Date: 05/01/2018 18:25:34 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[RequstSupply](
+	[IDSupply] [int] IDENTITY(1,1) NOT NULL,
+	[IDCategory] [int] NULL,
+	[IDType] [int] NULL,
+	[Quntity] [int] NULL,
+	[Price] [int] NULL,
+	[NameSupply] [nvarchar](150) NULL,
+	[DescSupply] [nvarchar](250) NULL,
+	[DateSupply] [datetime] NULL,
+	[IDCurrency] [int] NULL,
+	[UserId] [int] NULL,
+	[chek] [int] NULL,
+	[Creditor] [int] NULL,
+	[Debit] [int] NULL,
+ CONSTRAINT [PK_RequstSupply] PRIMARY KEY CLUSTERED 
+(
+	[IDSupply] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[RequstOut]    Script Date: 05/01/2018 18:25:34 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[RequstOut](
+	[IDOut] [int] IDENTITY(1,1) NOT NULL,
+	[IDCategory] [int] NULL,
+	[IDType] [int] NULL,
+	[IDPlace] [int] NULL,
+	[Quntity] [int] NULL,
+	[NameOut] [nvarchar](150) NULL,
+	[DesOut] [nvarchar](150) NULL,
+	[DateOut] [datetime] NULL,
+	[Chack] [int] NULL,
+	[NameSend] [nvarchar](150) NULL,
+	[Price] [int] NULL,
+	[IDCurrency] [int] NULL,
+	[UserId] [int] NULL,
+	[Creditor] [int] NULL,
+	[Debit] [int] NULL,
+ CONSTRAINT [PK_RequstOut] PRIMARY KEY CLUSTERED 
+(
+	[IDOut] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[PlaceSend]    Script Date: 05/01/2018 18:25:34 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[PlaceSend](
+	[IDPlace] [int] IDENTITY(1,1) NOT NULL,
+	[NamePlace] [nvarchar](150) NULL,
+ CONSTRAINT [PK_PlaceSend] PRIMARY KEY CLUSTERED 
+(
+	[IDPlace] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[GroupDetalis]    Script Date: 05/01/2018 18:25:34 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[GroupDetalis](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[GroupID] [int] NULL,
+	[GroupIDItem] [int] NULL,
+	[UserID] [int] NULL,
+ CONSTRAINT [PK_GroupDetalis] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  StoredProcedure [dbo].[GetRequsetSupply]    Script Date: 05/01/2018 18:25:31 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create proc [dbo].[GetRequsetSupply]
+@idSupply int
+as
+ SELECT  Category.NameCategory as'«”„ «·’‰›' ,TypeQuntity.NameType as '‰Ê⁄ «·’‰›',
+RequstSupply.DateSupply as ' «—ÌŒ «· Ê—Ìœ',RequstSupply.DescSupply as 'Ê’› «· Ê—Ìœ',
+RequstSupply.NameSupply as '«”„ «·„Ê—œ',RequstSupply.Price as '«·”⁄—',RequstSupply.Quntity as '«·ﬂ„Ì… «·„Ê—œ…'
+from Category,TypeQuntity,RequstSupply 
+where RequstSupply.IDCategory=Category.IDCategory and RequstSupply.IDType=TypeQuntity.IDType and RequstSupply.IDSupply=@idSupply
+GO

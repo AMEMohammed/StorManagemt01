@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem20 = new System.Windows.Forms.ToolStripMenuItem();
@@ -65,6 +64,8 @@
             this.toolStripMenuItem17 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem19 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem18 = new System.Windows.Forms.ToolStripMenuItem();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.toolStripMenuItem35 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -90,18 +91,6 @@
             this.menuStrip1.Size = new System.Drawing.Size(1099, 40);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.BackgroundImage = global::StoreMaga0101.Properties.Resources.B;
-            this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(0, 40);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1099, 663);
-            this.groupBox1.TabIndex = 5;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Visible = false;
             // 
             // toolStripMenuItem3
             // 
@@ -163,7 +152,6 @@
             this.toolStripMenuItem13.Size = new System.Drawing.Size(150, 38);
             this.toolStripMenuItem13.Text = "طلبات التوريد";
             this.toolStripMenuItem13.Visible = false;
-        //    this.toolStripMenuItem13.Click += new System.EventHandler(this.toolStripMenuItem13_Click);
             // 
             // toolStripMenuItem14
             // 
@@ -375,7 +363,8 @@
             this.toolStripMenuItem24,
             this.toolStripMenuItem25,
             this.toolStripMenuItem27,
-            this.toolStripMenuItem28});
+            this.toolStripMenuItem28,
+            this.toolStripMenuItem35});
             this.toolStripMenuItem23.Image = global::StoreMaga0101.Properties.Resources.windows;
             this.toolStripMenuItem23.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItem23.Name = "toolStripMenuItem23";
@@ -456,7 +445,6 @@
             this.toolStripMenuItem29.Size = new System.Drawing.Size(210, 50);
             this.toolStripMenuItem29.Text = "الاتصال بالسيرفر";
             this.toolStripMenuItem29.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-          //  this.toolStripMenuItem29.Click += new System.EventHandler(this.toolStripMenuItem29_Click);
             // 
             // toolStripMenuItem30
             // 
@@ -528,6 +516,30 @@
             this.toolStripMenuItem18.Visible = false;
             this.toolStripMenuItem18.Click += new System.EventHandler(this.toolStripMenuItem18_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.BackgroundImage = global::StoreMaga0101.Properties.Resources.B;
+            this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Location = new System.Drawing.Point(0, 40);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(1099, 663);
+            this.groupBox1.TabIndex = 5;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Visible = false;
+            // 
+            // toolStripMenuItem35
+            // 
+            this.toolStripMenuItem35.AutoSize = false;
+            this.toolStripMenuItem35.Image = global::StoreMaga0101.Properties.Resources.networking;
+            this.toolStripMenuItem35.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripMenuItem35.Name = "toolStripMenuItem35";
+            this.toolStripMenuItem35.Size = new System.Drawing.Size(210, 50);
+            this.toolStripMenuItem35.Text = "الحسابات والجهات";
+            this.toolStripMenuItem35.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.toolStripMenuItem35.Visible = false;
+            this.toolStripMenuItem35.Click += new System.EventHandler(this.toolStripMenuItem35_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -588,6 +600,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem33;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem34;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem35;
     }
 }
 

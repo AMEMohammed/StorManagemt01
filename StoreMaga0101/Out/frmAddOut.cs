@@ -561,6 +561,27 @@ namespace Out_
                 GC.Collect();
             }
         }
+        /// <summary>
+        /// المغادرة من صندوق الجهة وتحديد الحساب لمدين
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void comboBox3_Leave(object sender, EventArgs e)
+        {
+           try
+            {
+                comboBox5.SelectedValue = OutFun.GetIDAccountPalce((int)comboBox6.SelectedValue, (int)comboBox3.SelectedValue);
+           OutFun.GetIDAccountPalce((int)comboBox6.SelectedValue, (int)comboBox3.SelectedValue).ToString();
+
+
+            }
+            catch
+            {
+               comboBox5.ValueMember = "رقم الحساب";
+               comboBox5.DisplayMember = "اسم الحساب";
+               comboBox5.DataSource = OutFun.GetALLAcountNm();
+            }
+        }
     }
     }
 

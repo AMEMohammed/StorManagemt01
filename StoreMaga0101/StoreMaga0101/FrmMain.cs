@@ -111,12 +111,13 @@ namespace StoreMaga0101
                     toolStripMenuItem18.Visible = Convert.ToBoolean(dt.Rows[0][11].ToString());// update User
                     toolStripMenuItem12.Visible = Convert.ToBoolean(dt.Rows[0][13].ToString());
                     toolStripMenuItem16.Visible = Convert.ToBoolean(dt.Rows[0][14].ToString());
-                    toolStripMenuItem24.Visible = Convert.ToBoolean(dt.Rows[0][15].ToString());
+                    toolStripMenuItem24.Visible = Convert.ToBoolean(dt.Rows[0][15].ToString()); // add cate
                     toolStripMenuItem25.Visible = Convert.ToBoolean(dt.Rows[0][16].ToString());
                     toolStripMenuItem26.Visible = Convert.ToBoolean(dt.Rows[0][17].ToString());
                     toolStripMenuItem22.Visible = Convert.ToBoolean(dt.Rows[0][17].ToString());
                     toolStripMenuItem27.Visible = Convert.ToBoolean(dt.Rows[0][18].ToString());
                     toolStripMenuItem28.Visible = Convert.ToBoolean(dt.Rows[0][19].ToString());
+                    toolStripMenuItem35.Visible= Convert.ToBoolean(dt.Rows[0][15].ToString());
 
                 }
             }
@@ -547,7 +548,7 @@ namespace StoreMaga0101
             this.Cursor = Cursors.Default;
 
         }
-
+        //تهيئة الجهات
         private void toolStripMenuItem28_Click(object sender, EventArgs e)
         {
             try
@@ -762,6 +763,37 @@ namespace StoreMaga0101
                 if (foundFrom == false)
                 {
                     frmgroup.Show();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            this.Cursor = Cursors.Default;
+        }
+        // الحسابات والجهات
+        private void toolStripMenuItem35_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Cursor = Cursors.WaitCursor;
+                frmConnectionPlaceWithAccounts frmConnectionPlaceWithAccounts1 = new frmConnectionPlaceWithAccounts(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql);
+                FormCollection fromco = Application.OpenForms;
+                bool foundFrom = false;
+                foreach (Form frm in fromco)
+                {
+                    if (frm.Name == "frmConnectionPlaceWithAccounts")
+                    {
+                        frm.Focus();
+
+                        foundFrom = true;
+
+                    }
+
+                }
+                if (foundFrom == false)
+                {
+                    frmConnectionPlaceWithAccounts1.Show();
                 }
             }
             catch (Exception ex)

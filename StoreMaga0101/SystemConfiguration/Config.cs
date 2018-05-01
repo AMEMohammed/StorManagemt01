@@ -465,6 +465,46 @@ namespace SystemConfiguration
             parm[2] = new SqlParameter("@UserID", UserID);
             return sql.ExcuteQuery(Query, parm);
         }
+        //////////
+        //////////
+        ///////
+        /// tbl Connection Account with 
+        /// add Connection account with place
+        public int AddConnectionAccountwithPlace(int palce,int idMadeen,int idDaan)
+        {
+            string Query = "insert into tblConnectionAccountWithPlace (IDPalce,IDAcccountDaan,IDAccountMadden)values(@IDPalce,@IDAcccountDaan,@IDAccountMadden)";
+            SqlParameter[] parm = new SqlParameter[3];
+            parm[0] = new SqlParameter("@IDPalce", palce);
+            parm[1] = new SqlParameter("@IDAccountMadden", idMadeen);
+            parm[2] = new SqlParameter("@IDAcccountDaan", idDaan);
+            return sql.ExcuteQuery(Query,parm);
+        }
+        /// update  Connection account with place
+        public int UpdateConnectionAccountwithPlace(int ID,int palce, int idMadeen, int idDaan)
+        {
+            string Query = "update tblConnectionAccountWithPlace  set IDPalce=@IDPalce ,IDAcccountDaan=@IDAcccountDaan,IDAccountMadden=@IDAccountMadden where ID=@ID ";
+            SqlParameter[] parm = new SqlParameter[4];
+            parm[0] = new SqlParameter("@IDPalce",palce);
+            parm[1] = new SqlParameter("@IDAcccountDaan",idDaan);
+            parm[2] = new SqlParameter("@IDAccountMadden",idMadeen);
+            parm[3] = new SqlParameter("@ID",ID);
+            return sql.ExcuteQuery(Query,parm);
+        }
+        ///  delete  Connection account with place
+        public int DeleteConnectionAccountwithPlace(int ID)
+        {
+            string Query = "delete from  tblConnectionAccountWithPlace where ID=@ID";
+            SqlParameter[] parm = new SqlParameter[1];
+            parm[0] = new SqlParameter("@ID", ID);
+            return sql.ExcuteQuery(Query, parm);
+        }
+        /// get all  Connectiones account with place
+        public DataTable GetConnectionAccountwithPlace()
+        {
+            string Query = "  select tblConnectionAccountWithPlace.ID as 'الرقم' ,PlaceSend.NamePlace as 'اسم الجهة',AccountNm.AcountNm as 'الحساب الدائن' ,AccountNm1.AcountNm as 'الحساب المدين'   from tblConnectionAccountWithPlace inner join PlaceSend on PlaceSend.IDPlace = tblConnectionAccountWithPlace.IDPalce   inner   join AccountNm on tblConnectionAccountWithPlace.IDAcccountDaan = AccountNm.IDCode inner  join AccountNm as AccountNm1 on tblConnectionAccountWithPlace.IDAccountMadden = AccountNm1.IDCode order by tblConnectionAccountWithPlace.ID";
+            return sql.SelectData(Query, null);
+        }
+
 
 
 
