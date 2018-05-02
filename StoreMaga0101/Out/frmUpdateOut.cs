@@ -15,8 +15,11 @@ namespace Out_
     {
         int UserID;
         OutFunction OutFun;
-  
-        public frmUpdateOut()
+        string sevnm = "";
+        string dbnm = "";
+        string sqluser = "";
+        string sqlpass = "";
+            public frmUpdateOut()
         {
             InitializeComponent();
             UserID = 1;
@@ -39,6 +42,10 @@ namespace Out_
             try
             {
                 OutFun = new OutFunction(ServerNm, DbNm,UserSql,PassSql);
+                sevnm = ServerNm;
+                dbnm = DbNm;
+                sqluser = UserSql;
+                sqlpass = PassSql;
             }
             catch (Exception ex)
             {
@@ -232,7 +239,7 @@ namespace Out_
                 try
                 {
                     int id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
-                    frmUpdateOut2 frmu = new frmUpdateOut2();
+                    frmUpdateOut2 frmu = new frmUpdateOut2(sevnm,dbnm,sqluser,sqlpass,UserID);
                     frmu.Tag = id;
                     this.Cursor = Cursors.WaitCursor;
 
