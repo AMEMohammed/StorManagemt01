@@ -256,7 +256,7 @@ namespace Supplly
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-
+                                                                      
             if (dataGridView1.SelectedRows.Count > 0)
             {
                 DataTable dt = new DataTable();
@@ -304,7 +304,7 @@ namespace Supplly
                         string namee = dr[8].ToString();
                         string dec = dr[9].ToString();
                         string nameUser = SuRe.GetUserNameBYIdUser(UserID);
-                        MessageBox.Show(string.Format("{0:##,##}", sumQu));
+                     
 
                         dt.Rows.Add(idS, nmCa, nmty, string.Format("{0:##,##}", Qun), string.Format("{0:##,##}", prs), string.Format("{0:##,##}", totl), currn, dd.Date.ToShortDateString(), namee, dec, nameUser, string.Format("{0:##,##}",sumQu), string.Format("{0:##,##}", SumPrs), string.Format("{0:##,##}", SumTot));
 

@@ -46,9 +46,10 @@ namespace Out_
         /// <returns></returns>
         public DataTable printrequstOutExit(int Check, int UserId, int user)
         {
-           
 
-            string Query= "select RequstOut.IDOut as  'الرقم المخزني',Category.NameCategory as 'الاسم',TypeQuntity.NameType as 'النوع',RequstOut.Quntity as'الكمية',RequstOut.NameSend as'اسم المستلم',Users.Name as 'اسم الموظف' ,Users.Name as 'العنوان' ,PlaceSend.NamePlace as 'الجهة' from Users,RequstOut,Category,TypeQuntity,PlaceSend,Currency,Debit,Creditor where RequstOut.IDCategory = Category.IDCategory and Users.IDUSER=@idUser and RequstOut.IDType = TypeQuntity.IDType and RequstOut.IDCurrency=Currency.IDCurrency and Debit.IdTypeAccount=RequstOut.Debit and Creditor.IdTypeAccount=RequstOut.Creditor  and RequstOut.IDPlace = PlaceSend.IDPlace and RequstOut.Chack=@check and RequstOut.UserId=@uuu ";
+
+            //   string Query= "select RequstOut.IDOut as  'الرقم المخزني',Category.NameCategory as 'الاسم',TypeQuntity.NameType as 'النوع',RequstOut.Quntity as'الكمية',RequstOut.NameSend as'اسم المستلم',Users.Name as 'اسم الموظف' ,Users.Name as 'العنوان' ,PlaceSend.NamePlace as 'الجهة' from Users,RequstOut,Category,TypeQuntity,PlaceSend,Currency,Debit,Creditor where RequstOut.IDCategory = Category.IDCategory and Users.IDUSER=@idUser and RequstOut.IDType = TypeQuntity.IDType and RequstOut.IDCurrency=Currency.IDCurrency and Debit.IdTypeAccount=RequstOut.Debit and Creditor.IdTypeAccount=RequstOut.Creditor  and RequstOut.IDPlace = PlaceSend.IDPlace and RequstOut.Chack=@check and RequstOut.UserId=@uuu ";
+            string Query = "SELECT     dbo.RequstOut.IDOut as 'الرقم المخزني' , dbo.Category.NameCategory as 'الاسم' , dbo.TypeQuntity.NameType as 'النوع', dbo.RequstOut.Quntity as 'الكمية', dbo.RequstOut.NameSend as 'اسم المستلم',dbo.Users.Name as 'اسم الموظف' ,dbo.Users.Name as 'العنوان'  ,dbo.PlaceSend.NamePlace as 'الجهة' FROM   dbo.RequstOut INNER JOIN  dbo.Category ON dbo.RequstOut.IDCategory = dbo.Category.IDCategory INNER JOIN    dbo.TypeQuntity ON dbo.RequstOut.IDType = dbo.TypeQuntity.IDType INNER JOIN      dbo.PlaceSend ON dbo.RequstOut.IDType = dbo.PlaceSend.IDPlace inner join   Users on Users.IDUSER=@idUser where dbo.RequstOut.Chack=@check and dbo.RequstOut.UserId=@uuu ";
             SqlParameter[] parm = new SqlParameter[3];
             parm[0] =new SqlParameter("@check", Check);
             parm[1]=new SqlParameter("@idUser", UserId);
@@ -357,7 +358,7 @@ namespace Out_
         public DataTable SearchINRequsetOutTxtAndDate(string s, DateTime d1, DateTime d2)
         {
             s = "%" + s + "%";
-
+            
 
             string Query = "select RequstOut.IDOut as 'رقم الطلب',Category.NameCategory as 'اسم الصنف' ,TypeQuntity.NameType as 'نوع الكمية',PlaceSend.NamePlace as'الجهة المستفيدة' ,RequstOut.Quntity as'الكمية',RequstOut.Price as 'سعر الوحدة',RequstOut.Quntity*RequstOut.Price as'الاجمالي', Currency.NameCurrency as 'العملة',RequstOut.NameOut as'يصرف بامر',RequstOut.NameSend as'باستلام',RequstOut.DateOut as'تاريخ الصرف' ,Users.Name as 'اسم الموظف',RequstOut.DesOut as 'ملاحظات',RequstOut.Chack from Users, Category,TypeQuntity,PlaceSend,RequstOut,Currency where RequstOut.IDCategory=Category.IDCategory and RequstOut.IDType=TypeQuntity.IDType and RequstOut.IDPlace =PlaceSend.IDPlace and RequstOut.IDCurrency =Currency.IDCurrency  and RequstOut.UserId =Users.UserID and Category.NameCategory + TypeQuntity.NameType + PlaceSend.NamePlace +RequstOut.DesOut+RequstOut.NameOut+ RequstOut.NameSend+CONVERT(varchar,RequstOut.IDOut)+CONVERT(varchar,RequstOut.Price)+CONVERT(varchar,RequstOut.Quntity) like @txt and DateOut between @d1 and @d2 order by RequstOut.IDCategory,RequstOut.IDPlace,RequstOut.IDType,RequstOut.IDCurrency,RequstOut.Chack,RequstOut.DateOut ";
             SqlParameter[] parm = new SqlParameter[3];
@@ -371,6 +372,18 @@ namespace Out_
 
         }
         /// 
+        public DataTable SearchINRequsetOutTxtAndDate2(string s, DateTime d1, DateTime d2)
+        {
+            s = "%" + s + "%";
+         
+
+            string Query = "select RequstOut.IDOut as 'رقم الطلب',Category.NameCategory as 'اسم الصنف' ,TypeQuntity.NameType as 'نوع الكمية',PlaceSend.NamePlace as'الجهة المستفيدة' ,RequstOut.Quntity as'الكمية',RequstOut.Price as 'سعر الوحدة',RequstOut.Quntity*RequstOut.Price as'الاجمالي', Currency.NameCurrency as 'العملة',RequstOut.NameOut as'يصرف بامر',RequstOut.NameSend as'باستلام',RequstOut.DateOut as'تاريخ الصرف' ,Users.Name as 'اسم الموظف',RequstOut.DesOut as 'ملاحظات',RequstOut.Chack from Users, Category,TypeQuntity,PlaceSend,RequstOut,Currency where RequstOut.IDCategory=Category.IDCategory and RequstOut.IDType=TypeQuntity.IDType and RequstOut.IDPlace =PlaceSend.IDPlace and RequstOut.IDCurrency =Currency.IDCurrency  and RequstOut.UserId =Users.UserID  order by RequstOut.IDCategory,RequstOut.IDPlace,RequstOut.IDType,RequstOut.IDCurrency,RequstOut.Chack,RequstOut.DateOut ";
+            
+
+            return sql.SelectData(Query, null);
+
+
+        }
         public string GetUserNameBYIdUser(int IdUser)
         {
 

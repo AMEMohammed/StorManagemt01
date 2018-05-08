@@ -474,7 +474,16 @@ namespace Account
             { int vale = Convert.ToInt32(dtre1.Rows[i][2].ToString());
               int cha1 = Convert.ToInt32(dtre1.Rows[i][3].ToString());
                 int cha2 = Convert.ToInt32(dtre1.Rows[i][4].ToString());
-                int cha3 = Convert.ToInt32(dtre1.Rows[i][9].ToString());
+                int cha3;
+                try
+                {
+                  cha3  = Convert.ToInt32(dtre1.Rows[i][9].ToString());
+                }
+                catch
+                {
+                    cha3 = 0;
+                }
+               
                 string LIKEType="";
                 if (cha1>0)
                 {
@@ -484,9 +493,9 @@ namespace Account
                 {
                     LIKEType = "امر صرف";
                 }
-                else if(cha3>0)
+              else if(cha3>0)
                 {
-                    LIKEType = "قيد بسيط";
+                  LIKEType = "قيد بسيط";
                 }
                 int userii = Convert.ToInt32(dtre1.Rows[i][7].ToString());
                 if (vale > 0)

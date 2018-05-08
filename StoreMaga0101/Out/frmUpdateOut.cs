@@ -65,7 +65,7 @@ namespace Out_
             try
             {
                 changeLanguage();
-                dataGridView1.DataSource = OutFun.SearchINRequstOutDate(DateTime.Now.AddDays(-1), DateTime.Now);
+                dataGridView1.DataSource = OutFun.SearchINRequstOutDate(DateTime.Now.AddDays(-30), DateTime.Now);
                 comboBox1.SelectedIndex = 0;
             }
             catch (Exception ex)
@@ -263,7 +263,7 @@ namespace Out_
             }
             else if(comboBox1.SelectedIndex==1)
             {
-                dataGridView1.DataSource = OutFun.SearchINRequsetOutTxtAndDate(textBox3.Text,Convert.ToDateTime("2016/01/01"), dateTimePicker2.Value);
+                dataGridView1.DataSource = OutFun.SearchINRequsetOutTxtAndDate2(textBox3.Text,Convert.ToDateTime("2016/01/01"), dateTimePicker2.Value);
             }
             else if(comboBox1.SelectedIndex==2)
             {

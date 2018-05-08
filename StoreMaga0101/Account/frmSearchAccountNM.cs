@@ -156,8 +156,8 @@ namespace Account
 
         private void btnAddSup_Click(object sender, EventArgs e)
         {
-            try
-            {
+           // try
+         //   {
                 DateTime d1 = DateTime.Now;
                 DateTime d2 = DateTime.Now;
                 if (comboBox2.SelectedIndex == 0)
@@ -215,7 +215,7 @@ namespace Account
                 else if (IDYType == 2 && checkBox1.Checked == false && IDTypeAccontPrime == 2 && IdAllAcount == 2)//نوع الحساب تفصيلي وعملة محددة
                 {
                     int IDcurrncy = (int)comboBox4.SelectedValue;
-
+                   
                     dataGridView1.DataSource = Acn.GETAccountDitalis((int)comboBox1.SelectedValue, IDcurrncy, d1, d2);
                 }// جلب كشف حساب لمجمعة محددة من الحسابات
                 else if (IDTypeAccontPrime == 1)
@@ -229,9 +229,9 @@ namespace Account
 
 
                 }
-            }
-            catch(Exception ex)
-            { MessageBox.Show(ex.Message); }
+           // }
+           // catch(Exception ex)
+           // { MessageBox.Show(ex.Message); }
         }
 
        //

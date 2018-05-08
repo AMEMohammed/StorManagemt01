@@ -44,6 +44,7 @@ namespace FrmRports
                 {
                     case 1:
                         {
+                           
                             PrintReSupply(Id);
                             break;
                         }
@@ -142,7 +143,7 @@ namespace FrmRports
             crystalReportViewer1.Refresh();
             if (dt2 != null)
             {
-
+                
                 ExitStatement rt1 = new ExitStatement();
 
                 for (int i = 0; i < dt2.Rows.Count; i++)
@@ -151,8 +152,14 @@ namespace FrmRports
                     dt2.Rows[i][6] = "تصريح توريد مخزني";
                     dt2.Rows[i][7] = "المخازن";
                 }
+
+             
+
+
                 rt1.SetDataSource(dt2);
-                rt1.PrintToPrinter(1, false, 0, 0); //print dicret
+               // crystalReportViewer1.ReportSource = rt1;
+               // crystalReportViewer1.Refresh();
+               rt1.PrintToPrinter(1, false, 0, 0); //print dicret
 
 
 

@@ -155,7 +155,7 @@ namespace Supplly
         /// <param name="e"></param>
         private void btnAddSup_Click(object sender, EventArgs e)
         {
-            try
+             try
             {
                 if (textBox1.Text.Length > 0 && textBox2.Text.Length > 0 && (int)comboBox1.SelectedValue > 0 && (int)comboBox2.SelectedValue > 0 && (int)comboBox4.SelectedValue > 0 && (int)comboBox5.SelectedValue > 0 && (int)comboBox3.SelectedValue > 0)
                 {
@@ -275,6 +275,7 @@ namespace Supplly
                                         if (checkBox1.Checked)
                                         {
                                             dtExite = SuRe.printrequstOutExit1(IDRequstSupply, UserID, UserID);
+                                           
                                         }
                                         else
                                         {
@@ -342,14 +343,16 @@ namespace Supplly
                 {
                     int id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[11].Value.ToString());
                     string name = dataGridView1.SelectedRows[0].Cells[9].Value.ToString();
-
+                  
                     DataTable dtSupp = new DataTable();
                     DataTable dtExite = new DataTable();
                     this.Cursor = Cursors.WaitCursor;
                    
                     if (checkBox1.Checked)
                     {
-                        dtExite = SuRe.printrequstOutExit1(id, UserID, SuRe.GetIdUser(name));
+                       
+                         dtExite = SuRe.printrequstOutExit1(id, UserID, SuRe.GetIdUser(name));
+                       
                     }
                     else
                     {

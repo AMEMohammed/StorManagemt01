@@ -35,6 +35,7 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.تعديلToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.حذفToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.تصديرالىاكسلToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -53,7 +54,6 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.تصديرالىاكسلToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -111,7 +111,7 @@
             this.تصديرالىاكسلToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.contextMenuStrip1.Size = new System.Drawing.Size(156, 92);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(156, 70);
             // 
             // تعديلToolStripMenuItem
             // 
@@ -129,8 +129,16 @@
             this.حذفToolStripMenuItem.Text = "حذف";
             this.حذفToolStripMenuItem.Click += new System.EventHandler(this.حذفToolStripMenuItem_Click);
             // 
+            // تصديرالىاكسلToolStripMenuItem
+            // 
+            this.تصديرالىاكسلToolStripMenuItem.Name = "تصديرالىاكسلToolStripMenuItem";
+            this.تصديرالىاكسلToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.تصديرالىاكسلToolStripMenuItem.Text = "تصدير الى اكسل";
+            this.تصديرالىاكسلToolStripMenuItem.Click += new System.EventHandler(this.تصديرالىاكسلToolStripMenuItem_Click);
+            // 
             // dateTimePicker2
             // 
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePicker2.Location = new System.Drawing.Point(124, 22);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(200, 21);
@@ -159,6 +167,7 @@
             // 
             // dateTimePicker1
             // 
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePicker1.Location = new System.Drawing.Point(378, 22);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 21);
@@ -338,13 +347,6 @@
             this.label1.Size = new System.Drawing.Size(118, 19);
             this.label1.TabIndex = 0;
             this.label1.Text = "البحث عن أمر صرف";
-            // 
-            // تصديرالىاكسلToolStripMenuItem
-            // 
-            this.تصديرالىاكسلToolStripMenuItem.Name = "تصديرالىاكسلToolStripMenuItem";
-            this.تصديرالىاكسلToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
-            this.تصديرالىاكسلToolStripMenuItem.Text = "تصدير الى اكسل";
-            this.تصديرالىاكسلToolStripMenuItem.Click += new System.EventHandler(this.تصديرالىاكسلToolStripMenuItem_Click);
             // 
             // frmUpdateOut
             // 
