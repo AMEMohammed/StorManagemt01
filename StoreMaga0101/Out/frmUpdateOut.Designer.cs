@@ -317,7 +317,7 @@
             this.groupBox9.Size = new System.Drawing.Size(805, 51);
             this.groupBox9.TabIndex = 5;
             this.groupBox9.TabStop = false;
-            this.groupBox9.Text = "البحث";
+            this.groupBox9.Text = "رقم امر الصرف";
             // 
             // textBox3
             // 

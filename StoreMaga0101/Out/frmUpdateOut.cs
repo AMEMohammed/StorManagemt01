@@ -65,7 +65,7 @@ namespace Out_
             try
             {
                 changeLanguage();
-                dataGridView1.DataSource = OutFun.SearchINRequstOutDate(DateTime.Now.AddDays(-30), DateTime.Now);
+                dataGridView1.DataSource = OutFun.SearchINRequstOutDate(DateTime.Now.AddDays(-15), DateTime.Now);
                 comboBox1.SelectedIndex = 0;
             }
             catch (Exception ex)
@@ -256,27 +256,70 @@ namespace Out_
         }
 
         private void btnAddSup_Click(object sender, EventArgs e)
-        {
-            if(comboBox1.SelectedIndex==0)
-            {
-                dataGridView1.DataSource = OutFun.SearchINRequsetOutTxtAndDate(textBox3.Text, DateTime.Now.AddDays(-1), DateTime.Now);
+        { try {
+                if (comboBox1.SelectedIndex == 0)
+                {
+                    try
+                    {
+                        dataGridView1.DataSource = OutFun.SearchINRequsetOutTxtAndDate(Convert.ToInt32(textBox3.Text), DateTime.Now.AddDays(-1), DateTime.Now);
+                    }
+                    catch
+                    {
+                        dataGridView1.DataSource = OutFun.SearchINRequstOutDate(DateTime.Now.AddDays(-1), DateTime.Now);
+                    }
+                }
+                else if (comboBox1.SelectedIndex == 1)
+                {
+
+                    try
+                    {
+                        dataGridView1.DataSource = OutFun.SearchINRequsetOutTxtAndDate(Convert.ToInt32(textBox3.Text), Convert.ToDateTime("2016-01-01"), dateTimePicker2.Value);
+                    }
+                    catch
+                    {
+                        dataGridView1.DataSource = OutFun.SearchINRequstOutDate(Convert.ToDateTime("2016-01-01"), dateTimePicker2.Value);
+                    }
+                }
+                else if (comboBox1.SelectedIndex == 2)
+                {
+                    try
+                    {
+                        dataGridView1.DataSource = OutFun.SearchINRequsetOutTxtAndDate(Convert.ToInt32(textBox3.Text), DateTime.Now.AddDays(-7), DateTime.Now);
+                    }
+                    catch
+                    {
+                        dataGridView1.DataSource = OutFun.SearchINRequstOutDate(DateTime.Now.AddDays(-7), DateTime.Now);
+                    }
+                }
+                else if (comboBox1.SelectedIndex == 3)
+                {
+                    try
+                    {
+                        dataGridView1.DataSource = OutFun.SearchINRequsetOutTxtAndDate(Convert.ToInt32(textBox3.Text), DateTime.Now.AddDays(-30), DateTime.Now);
+                    }
+                    catch
+                    {
+                        dataGridView1.DataSource = OutFun.SearchINRequstOutDate(DateTime.Now.AddDays(-30), DateTime.Now);
+                    }
+                }
+                else if (comboBox1.SelectedIndex == 4)
+                {
+                    try
+                    {
+                        dataGridView1.DataSource = OutFun.SearchINRequsetOutTxtAndDate(Convert.ToInt32(textBox3.Text), dateTimePicker1.Value, dateTimePicker2.Value);
+                    }
+                    catch
+                    {
+                        dataGridView1.DataSource = OutFun.SearchINRequstOutDate(dateTimePicker1.Value, dateTimePicker2.Value);
+                    }
+                }
             }
-            else if(comboBox1.SelectedIndex==1)
+
+            catch(Exception ex)
             {
-                dataGridView1.DataSource = OutFun.SearchINRequsetOutTxtAndDate2(textBox3.Text,Convert.ToDateTime("2016/01/01"), dateTimePicker2.Value);
+                MessageBox.Show(ex.Message);
             }
-            else if(comboBox1.SelectedIndex==2)
-            {
-                dataGridView1.DataSource = OutFun.SearchINRequsetOutTxtAndDate(textBox3.Text, DateTime.Now.AddDays(-7), DateTime.Now);
-            }
-            else if(comboBox1.SelectedIndex==3)
-            {
-                dataGridView1.DataSource = OutFun.SearchINRequsetOutTxtAndDate(textBox3.Text, DateTime.Now.AddDays(-30), DateTime.Now);
-            }
-            else  if(comboBox1.SelectedIndex==4)
-            {
-                dataGridView1.DataSource = OutFun.SearchINRequsetOutTxtAndDate(textBox3.Text, dateTimePicker1.Value, dateTimePicker2.Value);
-            }
+           
 
         }
 
