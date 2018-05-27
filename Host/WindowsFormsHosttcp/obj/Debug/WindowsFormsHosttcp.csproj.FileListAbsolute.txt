@@ -1,0 +1,20 @@
+C:\Users\MOHAMMED ALHAZMI\Desktop\WCFHOSTANDCLIENT\wcfservierAndhostSelfTCP\WindowsFormsHosttcp\bin\Debug\WindowsFormsHosttcp.exe.config
+C:\Users\MOHAMMED ALHAZMI\Desktop\WCFHOSTANDCLIENT\wcfservierAndhostSelfTCP\WindowsFormsHosttcp\bin\Debug\WindowsFormsHosttcp.exe
+C:\Users\MOHAMMED ALHAZMI\Desktop\WCFHOSTANDCLIENT\wcfservierAndhostSelfTCP\WindowsFormsHosttcp\bin\Debug\WindowsFormsHosttcp.pdb
+C:\Users\MOHAMMED ALHAZMI\Desktop\WCFHOSTANDCLIENT\wcfservierAndhostSelfTCP\WindowsFormsHosttcp\obj\Debug\WindowsFormsHosttcp.csprojResolveAssemblyReference.cache
+C:\Users\MOHAMMED ALHAZMI\Desktop\WCFHOSTANDCLIENT\wcfservierAndhostSelfTCP\WindowsFormsHosttcp\obj\Debug\WindowsFormsHosttcp.Form1.resources
+C:\Users\MOHAMMED ALHAZMI\Desktop\WCFHOSTANDCLIENT\wcfservierAndhostSelfTCP\WindowsFormsHosttcp\obj\Debug\WindowsFormsHosttcp.Properties.Resources.resources
+C:\Users\MOHAMMED ALHAZMI\Desktop\WCFHOSTANDCLIENT\wcfservierAndhostSelfTCP\WindowsFormsHosttcp\obj\Debug\WindowsFormsHosttcp.csproj.GenerateResource.Cache
+C:\Users\MOHAMMED ALHAZMI\Desktop\WCFHOSTANDCLIENT\wcfservierAndhostSelfTCP\WindowsFormsHosttcp\obj\Debug\WindowsFormsHosttcp.exe
+C:\Users\MOHAMMED ALHAZMI\Desktop\WCFHOSTANDCLIENT\wcfservierAndhostSelfTCP\WindowsFormsHosttcp\obj\Debug\WindowsFormsHosttcp.pdb
+D:\programing1\StoreMaga0101\Host\WindowsFormsHosttcp\bin\Debug\WindowsFormsHosttcp.exe.config
+D:\programing1\StoreMaga0101\Host\WindowsFormsHosttcp\obj\Debug\WindowsFormsHosttcp.exe
+D:\programing1\StoreMaga0101\Host\WindowsFormsHosttcp\obj\Debug\WindowsFormsHosttcp.pdb
+D:\programing1\StoreMaga0101\Host\WindowsFormsHosttcp\bin\Debug\WindowsFormsHosttcp.exe
+D:\programing1\StoreMaga0101\Host\WindowsFormsHosttcp\bin\Debug\WindowsFormsHosttcp.pdb
+D:\programing1\StoreMaga0101\Host\WindowsFormsHosttcp\obj\Debug\WindowsFormsHosttcp.csprojResolveAssemblyReference.cache
+D:\programing1\StoreMaga0101\Host\WindowsFormsHosttcp\obj\Debug\WindowsFormsHosttcp.Form1.resources
+D:\programing1\StoreMaga0101\Host\WindowsFormsHosttcp\obj\Debug\WindowsFormsHosttcp.Properties.Resources.resources
+D:\programing1\StoreMaga0101\Host\WindowsFormsHosttcp\obj\Debug\WindowsFormsHosttcp.csproj.GenerateResource.Cache
+D:\programing1\StoreMaga0101\Host\WindowsFormsHosttcp\bin\Debug\Users.dll
+D:\programing1\StoreMaga0101\Host\WindowsFormsHosttcp\bin\Debug\Users.pdb

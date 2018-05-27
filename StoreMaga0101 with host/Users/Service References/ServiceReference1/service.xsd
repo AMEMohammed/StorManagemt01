@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/System.IO" />
+  <xs:element name="SENDUSERTOSERVER">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="falg" type="xs:int" />
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SENDUSERTOSERVERResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="User" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Pass" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LoginUserResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddNewUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="user" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pass" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Addsupply" type="xs:boolean" />
+        <xs:element minOccurs="0" name="UpdSupply" type="xs:boolean" />
+        <xs:element minOccurs="0" name="Addoutt" type="xs:boolean" />
+        <xs:element minOccurs="0" name="updOut" type="xs:boolean" />
+        <xs:element minOccurs="0" name="PrintSupply" type="xs:boolean" />
+        <xs:element minOccurs="0" name="PrintOut" type="xs:boolean" />
+        <xs:element minOccurs="0" name="PrintQuntity" type="xs:boolean" />
+        <xs:element minOccurs="0" name="UpdSupp1" type="xs:boolean" />
+        <xs:element minOccurs="0" name="UpdOut1" type="xs:boolean" />
+        <xs:element minOccurs="0" name="userAdd" type="xs:boolean" />
+        <xs:element minOccurs="0" name="Active" type="xs:boolean" />
+        <xs:element minOccurs="0" name="Cate" type="xs:boolean" />
+        <xs:element minOccurs="0" name="type1" type="xs:boolean" />
+        <xs:element minOccurs="0" name="account" type="xs:boolean" />
+        <xs:element minOccurs="0" name="Monay" type="xs:boolean" />
+        <xs:element minOccurs="0" name="Place" type="xs:boolean" />
+        <xs:element minOccurs="0" name="UserID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddNewUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddNewUserResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpatePassword">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idUser" type="xs:int" />
+        <xs:element minOccurs="0" name="Pass" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpatePasswordResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpatePasswordResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdUsers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IDUser" type="xs:int" />
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="user" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pass" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Addsupply" type="xs:boolean" />
+        <xs:element minOccurs="0" name="UpdSupply" type="xs:boolean" />
+        <xs:element minOccurs="0" name="Addoutt" type="xs:boolean" />
+        <xs:element minOccurs="0" name="updOut" type="xs:boolean" />
+        <xs:element minOccurs="0" name="PrintSupply" type="xs:boolean" />
+        <xs:element minOccurs="0" name="PrintOut" type="xs:boolean" />
+        <xs:element minOccurs="0" name="PrintQuntity" type="xs:boolean" />
+        <xs:element minOccurs="0" name="UpdSupp1" type="xs:boolean" />
+        <xs:element minOccurs="0" name="UpdOut1" type="xs:boolean" />
+        <xs:element minOccurs="0" name="userAdd" type="xs:boolean" />
+        <xs:element minOccurs="0" name="Active" type="xs:boolean" />
+        <xs:element minOccurs="0" name="Cate" type="xs:boolean" />
+        <xs:element minOccurs="0" name="type1" type="xs:boolean" />
+        <xs:element minOccurs="0" name="account" type="xs:boolean" />
+        <xs:element minOccurs="0" name="Monay" type="xs:boolean" />
+        <xs:element minOccurs="0" name="Place" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdUsersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdUsersResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllUser">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAllUserResult" nillable="true" type="q1:MemoryStream" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IdUs" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetUserResult" nillable="true" type="q2:MemoryStream" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

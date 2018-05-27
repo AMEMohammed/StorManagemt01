@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="07722510-c195-416e-8929-d382ac57c90d" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="net.tcp://localhost:9002/MyMathService/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="229bbff0-9de5-490e-b4f9-810942904957" SourceId="1" SourceUrl="net.tcp://localhost:9002/MyMathService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="289bc64d-b77a-44a9-a865-31cd1cf2b6ab" SourceId="1" SourceUrl="net.tcp://localhost:9002/MyMathService/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="ae328d62-6fe7-4525-aa8c-3f03784efdfc" SourceId="1" SourceUrl="net.tcp://localhost:9002/MyMathService/mex" />
+    <MetadataFile FileName="System.IO.xsd" MetadataType="Schema" ID="96e285d2-625c-408b-a3da-d67d36701000" SourceId="1" SourceUrl="net.tcp://localhost:9002/MyMathService/mex" />
+    <MetadataFile FileName="System.xsd" MetadataType="Schema" ID="d2a01e32-8e45-430b-a23e-d28cc9f6ce4f" SourceId="1" SourceUrl="net.tcp://localhost:9002/MyMathService/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
