@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,7 +15,9 @@ namespace Account
     public partial class SimpleConstraint : Form
     {
         AccountNm Acn;
+        ServiceReference1.IserviceClient AcnHost;
         int IDUSER;
+        bool HostConnection = false;
         public SimpleConstraint()
         {
             InitializeComponent();
@@ -29,7 +33,7 @@ namespace Account
 
             }
         }
-        public SimpleConstraint(string ServNm, string DbNm, string UesrSql, string PassSql, int UserId)
+        public SimpleConstraint(string ServNm, string DbNm, string UesrSql, string PassSql, int UserId,bool hostCOnnection)
         {
             InitializeComponent();
             try
@@ -240,8 +244,16 @@ namespace Account
                 GC.Collect();
             }
         }
+        ///  //convert MemmoryToDB
+        DataTable ConvertMemorytoDB(MemoryStream ms)
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            ms.Seek(0, SeekOrigin.Begin);
+            DataTable dt = (DataTable)formatter.Deserialize(ms);
+            return dt;
+        }
 
-    
+
         ////
         //// 
 

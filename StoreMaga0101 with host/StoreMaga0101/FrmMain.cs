@@ -23,6 +23,7 @@ namespace StoreMaga0101
         int UserID;
       
         frmLogin frm;// Login from
+       
         public FrmMain()
         {
             InitializeComponent();
@@ -668,7 +669,7 @@ namespace StoreMaga0101
             try
             {
                 this.Cursor = Cursors.WaitCursor;
-                frmSearchAccountNM frmCurrncy = new frmSearchAccountNM(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID);
+                frmSearchAccountNM frmCurrncy = new frmSearchAccountNM(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID,ConServer.ConnectionWithHost);
                 FormCollection fromco = Application.OpenForms;
                 bool foundFrom = false;
                 foreach (Form frm in fromco)
@@ -762,7 +763,7 @@ namespace StoreMaga0101
             try
             {
                 this.Cursor = Cursors.WaitCursor;
-                SimpleConstraint frmgroup = new SimpleConstraint(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID);
+                SimpleConstraint frmgroup = new SimpleConstraint(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID,ConServer.ConnectionWithHost);
                 FormCollection fromco = Application.OpenForms;
                 bool foundFrom = false;
                 foreach (Form frm in fromco)

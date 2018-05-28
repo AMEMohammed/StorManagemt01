@@ -99,7 +99,6 @@ D:\programing1\StoreMaga0101\StoreMaga0101 with host\Account\bin\Debug\FlashCont
 D:\programing1\StoreMaga0101\StoreMaga0101 with host\Account\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
 D:\programing1\StoreMaga0101\StoreMaga0101 with host\Account\bin\Debug\stdole.dll
 D:\programing1\StoreMaga0101\StoreMaga0101 with host\Account\bin\Debug\ShockwaveFlashObjects.dll
-D:\programing1\StoreMaga0101\StoreMaga0101 with host\Account\obj\Debug\Account.csprojResolveAssemblyReference.cache
 D:\programing1\StoreMaga0101\StoreMaga0101 with host\Account\obj\Debug\Account.frmAcount.resources
 D:\programing1\StoreMaga0101\StoreMaga0101 with host\Account\obj\Debug\Account.frmSearchAccountNM.resources
 D:\programing1\StoreMaga0101\StoreMaga0101 with host\Account\obj\Debug\Account.Properties.Resources.resources
@@ -107,3 +106,4 @@ D:\programing1\StoreMaga0101\StoreMaga0101 with host\Account\obj\Debug\Account.S
 D:\programing1\StoreMaga0101\StoreMaga0101 with host\Account\obj\Debug\Account.csproj.GenerateResource.Cache
 D:\programing1\StoreMaga0101\StoreMaga0101 with host\Account\obj\Debug\Account.dll
 D:\programing1\StoreMaga0101\StoreMaga0101 with host\Account\obj\Debug\Account.pdb
+D:\programing1\StoreMaga0101\StoreMaga0101 with host\Account\obj\Debug\Account.csprojResolveAssemblyReference.cache

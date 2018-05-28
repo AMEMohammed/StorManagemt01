@@ -225,9 +225,9 @@ namespace Account
                         }
                     }
 
-                    catch (Exception ex)
+                   catch (Exception ex)
                     {
-                        MessageBox.Show(ex.Message);
+                       MessageBox.Show(ex.Message);
                     }
                 }
                 }
@@ -272,27 +272,37 @@ namespace Account
         /// ////////تحديث البيانات
         /// </summary>
         void RefrshTreeNode()
-        {  if (HostConnection == false)
+        {
+            try
             {
-                dt = Acn.GetAllAccount();
+                if (HostConnection == false)
+                {
+                    dt = Acn.GetAllAccount();
+                }
+                else
+                {
+                    dt = ConvertMemorytoDB(AcnHost.GetAllAccount());
+                }
+                treeView1.Nodes.Clear();
+                PopulateTreeView(0, null);
+                IdAcount = -1;
+                if (HostConnection == false)
+                {
+                    dataGridView1.DataSource = Acn.GetAllAcountnAr();
+                }
+                else
+                {
+                 
+                    dataGridView1.DataSource =ConvertMemorytoDB( AcnHost.GetAllAcountnAr());
+
+                }
+
+                dataGridView1.Columns[8].Visible = false;
             }
-        else
+            catch
             {
-                dt = ConvertMemorytoDB(AcnHost.GetAllAccount());
-            }
-            treeView1.Nodes.Clear();
-            PopulateTreeView(0, null);
-            IdAcount = -1;
-            if (HostConnection == false)
-            {
-                dataGridView1.DataSource = Acn.GetAllAcountnAr();
-            }
-            else
-            {
-                dataGridView1.DataSource = AcnHost.GetAllAcountnAr();
 
             }
-            dataGridView1.Columns[8].Visible = false;
         }
         /// <summary>
         /// ////اضافة حساب  رئيسي
@@ -471,7 +481,7 @@ namespace Account
                 }
                 else
                 {
-                    dataGridView1.DataSource = AcnHost.SearchAcount(txtSaerch.Text);
+                    dataGridView1.DataSource = ConvertMemorytoDB( AcnHost.SearchAcount(txtSaerch.Text));
                 }
 
             }

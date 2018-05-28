@@ -379,51 +379,62 @@ namespace Account
         //////////////
         public DataTable GetBalanceALLAccountALLCunncy(int idcurrncy)
         {
-            DataTable dt123 = new DataTable();
             DataTable dt = new DataTable();
-            string Query;
-            if (idcurrncy > 0)
+            try
             {
-               Query = "select Balance,IDCurrncy,IDCode from AccountTotal where IDCurrncy=@idcurrncy   ";
-                SqlParameter[] parm = new SqlParameter[1];
-                parm[0] = new SqlParameter("@idcurrncy", idcurrncy);
-                dt123 = sql.SelectData(Query, parm);
-            }
-            else
-
-            {
-                Query = "select Balance, IDCurrncy,IDCode from AccountTotal order by IDCode ";
-                dt123 = sql.SelectData(Query, null);
-            }
-            dt.Columns.Add("رقم الحساب");
-            dt.Columns.Add("اسم الحساب");
-            dt.Columns.Add("دائن");
-            dt.Columns.Add("مدين");
-            dt.Columns.Add("عملة الحساب");
-            dt.Columns.Add("البيان");
-            string Detilas;
-            for (int i = 0; i < dt123.Rows.Count; i++)
-            {
-                int Valu = Convert.ToInt32(dt123.Rows[i][0].ToString());
-                string NmIDcurrmcy = GETNMCurrncy(Convert.ToInt32(dt123.Rows[i][1].ToString()));
-                DataTable dtAc = new DataTable();
-                dtAc = GETNMAccount(Convert.ToInt32(dt123.Rows[i][2].ToString()));
-                string IDCodeAC = dtAc.Rows[0][0].ToString();
-                string NMACOUNT= dtAc.Rows[0][1].ToString();
-                if (Valu > 0)
+                DataTable dt123 = new DataTable();
+              
+                string Query;
+                if (idcurrncy > 0)
                 {
-                    Detilas = "الرصيد لكم بقيمة " + string.Format("{0:##,##}", Valu) + "  " + NmIDcurrmcy;
-                    dt.Rows.Add(new string[] { IDCodeAC, NMACOUNT, string.Format("{0:##,##}", Valu), "0", NmIDcurrmcy, Detilas });
-
+                    Query = "select Balance,IDCurrncy,IDCode from AccountTotal where IDCurrncy=@idcurrncy   ";
+                    SqlParameter[] parm = new SqlParameter[1];
+                    parm[0] = new SqlParameter("@idcurrncy", idcurrncy);
+                    dt123 = sql.SelectData(Query, parm);
                 }
                 else
+
                 {
-                    Valu = -1 * Valu;
-                    Detilas = "الرصيد عليكم  بقيمة " + string.Format("{0:##,##}", Valu) + "  " + NmIDcurrmcy;
-                    dt.Rows.Add(new string[] { IDCodeAC, NMACOUNT, "0", string.Format("{0:##,##}", Valu), NmIDcurrmcy, Detilas });
+                    Query = "select Balance, IDCurrncy,IDCode from AccountTotal order by IDCode ";
+                    dt123 = sql.SelectData(Query, null);
+                }
+                dt.Columns.Add("رقم الحساب");
+                dt.Columns.Add("اسم الحساب");
+                dt.Columns.Add("دائن");
+                dt.Columns.Add("مدين");
+                dt.Columns.Add("عملة الحساب");
+                dt.Columns.Add("البيان");
+                string Detilas;
+                for (int i = 0; i < dt123.Rows.Count; i++)
+                {
+                    int Valu = Convert.ToInt32(dt123.Rows[i][0].ToString());
+                    string NmIDcurrmcy = GETNMCurrncy(Convert.ToInt32(dt123.Rows[i][1].ToString()));
+                    DataTable dtAc = new DataTable();
+                    dtAc = GETNMAccount(Convert.ToInt32(dt123.Rows[i][2].ToString()));
+                    string IDCodeAC = dtAc.Rows[0][0].ToString();
+                    string NMACOUNT = dtAc.Rows[0][1].ToString();
+                    if (Valu > 0)
+                    {
+                        Detilas = "الرصيد لكم بقيمة " + string.Format("{0:##,##}", Valu) + "  " + NmIDcurrmcy;
+                        dt.Rows.Add(new string[] { IDCodeAC, NMACOUNT, string.Format("{0:##,##}", Valu), "0", NmIDcurrmcy, Detilas });
+
+                    }
+                    else
+                    {
+                        Valu = -1 * Valu;
+                        Detilas = "الرصيد عليكم  بقيمة " + string.Format("{0:##,##}", Valu) + "  " + NmIDcurrmcy;
+                        dt.Rows.Add(new string[] { IDCodeAC, NMACOUNT, "0", string.Format("{0:##,##}", Valu), NmIDcurrmcy, Detilas });
+                    }
                 }
             }
-            return dt;
+            catch
+            {
+
+            }
+         
+                return dt;
+            
+          
 
         }
         ////جلب اسم رقم واسمه ومن رقم الحساب

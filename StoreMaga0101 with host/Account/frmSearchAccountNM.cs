@@ -10,11 +10,16 @@ using System.Windows.Forms;
 using Users;
 using FrmRports;
 using Excel = Microsoft.Office.Interop.Excel;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+
 namespace Account
 {
     public partial class frmSearchAccountNM : Form
     {
         AccountNm Acn;
+        ServiceReference1.IserviceClient AcnHost;
+        bool HostConnection = false;
         int IDUSER;
         public frmSearchAccountNM()
         {
@@ -32,12 +37,20 @@ namespace Account
 
         }
         ///
-        public frmSearchAccountNM(string ServNm, string DbNm, string UesrSql, string PassSql, int UserId)
+        public frmSearchAccountNM(string ServNm, string DbNm, string UesrSql, string PassSql, int UserId,bool hostConnection)
         {
             InitializeComponent();
             try
             {
-                Acn = new AccountNm(ServNm, DbNm, UesrSql, PassSql);
+                HostConnection = hostConnection;
+                if (hostConnection == false)
+                {
+                    Acn = new AccountNm(ServNm, DbNm, UesrSql, PassSql);
+                }
+                else
+                {
+                    AcnHost = new ServiceReference1.IserviceClient();
+                }
                 IDUSER = UserId;
                
             }
@@ -71,8 +84,14 @@ namespace Account
             }
         }
         void GETCurrncy()
-        {
-            comboBox4.DataSource = Acn.GetAllCurrency();
+        {  if (HostConnection == false)
+            {
+                comboBox4.DataSource = Acn.GetAllCurrency();
+            }
+        else
+            {
+                comboBox4.DataSource =ConvertMemorytoDB(AcnHost.GetAllCurrency());
+            }
             comboBox4.ValueMember = "رقم العملة";
             comboBox4.DisplayMember = "اسم العملة";
         }
@@ -102,7 +121,15 @@ namespace Account
             IdAllAcount = 2;
             IDTypeAccontPrime = 1;
             IDYType = 1;
-            comboBox1.DataSource = Acn.GetGroupsAsAccounts();
+            if (HostConnection == false)
+            {
+                comboBox1.DataSource = Acn.GetGroupsAsAccounts();
+            }
+            else
+            {
+                comboBox1.DataSource = ConvertMemorytoDB(AcnHost.GetGroupsAsAccounts());
+            }
+
             comboBox1.ValueMember = "رقم المجموعة";
             comboBox1.DisplayMember = "اسم المجموعة";
         }
@@ -118,7 +145,14 @@ namespace Account
             IdAllAcount = 1;
             IDTypeAccontPrime = 2;
             IDYType = 1;
-            comboBox1.DataSource = Acn.GETALLAccountSub();
+            if (HostConnection == false)
+            {
+                comboBox1.DataSource = Acn.GETALLAccountSub();
+            }
+            else
+            {
+                comboBox1.DataSource = ConvertMemorytoDB( AcnHost.GETALLAccountSub());
+            }
             comboBox1.ValueMember = "رقم الحساب";
             comboBox1.DisplayMember = "اسم الحساب";
         }
@@ -130,7 +164,14 @@ namespace Account
             IdAllAcount = 2;
             IDTypeAccontPrime = 2;
             IDYType = 1;
-            comboBox1.DataSource = Acn.GETALLAccountSub();
+            if (HostConnection == false)
+            {
+                comboBox1.DataSource = Acn.GETALLAccountSub();
+            }
+            else
+            {
+                comboBox1.DataSource =ConvertMemorytoDB ( AcnHost.GETALLAccountSub());
+            }
             comboBox1.ValueMember = "رقم الحساب";
             comboBox1.DisplayMember = "اسم الحساب";
         }
@@ -156,82 +197,104 @@ namespace Account
 
         private void btnAddSup_Click(object sender, EventArgs e)
         {
-           // try
-         //   {
-                DateTime d1 = DateTime.Now;
-                DateTime d2 = DateTime.Now;
-                if (comboBox2.SelectedIndex == 0)
-                {
-                    d1 = DateTime.Now.AddDays(-1);
-                    d2 = DateTime.Now;
-                }
-                if (comboBox2.SelectedIndex == 1)
-                {
-                    d1 = Convert.ToDateTime("01/01/2017");
-                    d2 = dateTimePicker2.Value;
-                }
-                if (comboBox2.SelectedIndex == 2)
-                {
-                    d1 = DateTime.Now.AddDays(-7);
-                    d2 = DateTime.Now;
+            // try
+            //   {
+            DateTime d1 = DateTime.Now;
+            DateTime d2 = DateTime.Now;
+            if (comboBox2.SelectedIndex == 0)
+            {
+                d1 = DateTime.Now.AddDays(-1);
+                d2 = DateTime.Now;
+            }
+            if (comboBox2.SelectedIndex == 1)
+            {
+                d1 = Convert.ToDateTime("01/01/2017");
+                d2 = dateTimePicker2.Value;
+            }
+            if (comboBox2.SelectedIndex == 2)
+            {
+                d1 = DateTime.Now.AddDays(-7);
+                d2 = DateTime.Now;
 
-                }
-                if (comboBox2.SelectedIndex == 3)
-                {
-                    d1 = DateTime.Now.AddDays(-30);
-                    d2 = DateTime.Now;
-                }
-                if (comboBox2.SelectedIndex == 4)
-                {
-                    d1 = dateTimePicker1.Value;
-                    d2 = dateTimePicker2.Value;
+            }
+            if (comboBox2.SelectedIndex == 3)
+            {
+                d1 = DateTime.Now.AddDays(-30);
+                d2 = DateTime.Now;
+            }
+            if (comboBox2.SelectedIndex == 4)
+            {
+                d1 = dateTimePicker1.Value;
+                d2 = dateTimePicker2.Value;
 
-                }
-                ///  جلب كشاف حساب فرعي بجميع العملات اجمالي
-                if (IDYType == 1 && checkBox1.Checked && IDTypeAccontPrime == 2 && IdAllAcount == 2)//نوع الحساب اجمالي ,وكافة العملات
+            }
+            ///  جلب كشاف حساب فرعي بجميع العملات اجمالي
+            if (IDYType == 1 && checkBox1.Checked && IDTypeAccontPrime == 2 && IdAllAcount == 2)//نوع الحساب اجمالي ,وكافة العملات
+            {
+                if (HostConnection == false)
                 {
                     dataGridView1.DataSource = Acn.GetBalanceAccountALLCunncy((int)comboBox1.SelectedValue);
-
-
-                }// جلب كشف حساب فرعي بعملة واحدة اجمالي 
-                else if (IDYType == 1 && checkBox1.Checked == false && IDTypeAccontPrime == 2 && IdAllAcount == 2)//نوع الحساب اجمالي وعملة محددة
+                }
+                else
                 {
-                    int IDcurrncy = (int)comboBox4.SelectedValue;
+                    dataGridView1.DataSource = ConvertMemorytoDB(AcnHost.GetBalanceAccountALLCunncy((int)comboBox1.SelectedValue));
 
+                }
+
+            }// جلب كشف حساب فرعي بعملة واحدة اجمالي 
+            else if (IDYType == 1 && checkBox1.Checked == false && IDTypeAccontPrime == 2 && IdAllAcount == 2)//نوع الحساب اجمالي وعملة محددة
+            {
+                int IDcurrncy = (int)comboBox4.SelectedValue;
+                if (HostConnection == false)
+                {
                     dataGridView1.DataSource = Acn.GetBalanceAccount((int)comboBox1.SelectedValue, IDcurrncy, comboBox4.Text);
                 }
-                ///   جلب كشف حسابات جميع الحسابات الفرعية بجميع العملات اجمالي
-                else if (IDYType == 1 && checkBox1.Checked && IDTypeAccontPrime == 2 && IdAllAcount == 1)
+                else
                 {
+                    dataGridView1.DataSource = ConvertMemorytoDB(AcnHost.GetBalanceAccount((int)comboBox1.SelectedValue, IDcurrncy, comboBox4.Text));
+                }
+            }
+            ///   جلب كشف حسابات جميع الحسابات الفرعية بجميع العملات اجمالي
+            else if (IDYType == 1 && checkBox1.Checked && IDTypeAccontPrime == 2 && IdAllAcount == 1)
+            {
+                if (HostConnection == false)
                     dataGridView1.DataSource = Acn.GetBalanceALLAccountALLCunncy(-1);
-                }
-                // جلب جميع الحسابات الفرعية بعملة واحدة اجمالي
-                else if (IDYType == 1 && checkBox1.Checked == false && IDTypeAccontPrime == 2 && IdAllAcount == 1)
-                {
-                    int IDcurrncy = (int)comboBox4.SelectedValue;
+                else
+                    dataGridView1.DataSource = ConvertMemorytoDB(AcnHost.GetBalanceALLAccountALLCunncy(-1));
+            }
+            // جلب جميع الحسابات الفرعية بعملة واحدة اجمالي
+            else if (IDYType == 1 && checkBox1.Checked == false && IDTypeAccontPrime == 2 && IdAllAcount == 1)
+            {
+                int IDcurrncy = (int)comboBox4.SelectedValue;
+                if (HostConnection == false)
                     dataGridView1.DataSource = Acn.GetBalanceALLAccountALLCunncy(IDcurrncy);
-                }
-                // جلب كشف حساب فرعي تفصليلي عملة واحدة
-                else if (IDYType == 2 && checkBox1.Checked == false && IDTypeAccontPrime == 2 && IdAllAcount == 2)//نوع الحساب تفصيلي وعملة محددة
-                {
-                    int IDcurrncy = (int)comboBox4.SelectedValue;
-                   
+                else
+                    dataGridView1.DataSource = ConvertMemorytoDB(AcnHost.GetBalanceALLAccountALLCunncy(IDcurrncy));
+            }
+            // جلب كشف حساب فرعي تفصليلي عملة واحدة
+            else if (IDYType == 2 && checkBox1.Checked == false && IDTypeAccontPrime == 2 && IdAllAcount == 2)//نوع الحساب تفصيلي وعملة محددة
+            {
+                int IDcurrncy = (int)comboBox4.SelectedValue;
+                if (HostConnection == false)
                     dataGridView1.DataSource = Acn.GETAccountDitalis((int)comboBox1.SelectedValue, IDcurrncy, d1, d2);
-                }// جلب كشف حساب لمجمعة محددة من الحسابات
-                else if (IDTypeAccontPrime == 1)
+                else
+                    dataGridView1.DataSource = ConvertMemorytoDB(AcnHost.GETAccountDitalis((int)comboBox1.SelectedValue, IDcurrncy, d1, d2));
+            }// جلب كشف حساب لمجمعة محددة من الحسابات
+            else if (IDTypeAccontPrime == 1)
+            {
+                if ((int)comboBox1.SelectedValue > 0)
                 {
-                    if ((int)comboBox1.SelectedValue > 0)
-                    {
-
+                    if (HostConnection == false)
                         dataGridView1.DataSource = Acn.GetAccountesMOnayInGroup(Convert.ToInt32(comboBox1.SelectedValue.ToString()));
-
-                    }
-
-
+                    else
+                        dataGridView1.DataSource = ConvertMemorytoDB(AcnHost.GetAccountesMOnayInGroup(Convert.ToInt32(comboBox1.SelectedValue.ToString())));
                 }
-           // }
-           // catch(Exception ex)
-           // { MessageBox.Show(ex.Message); }
+
+
+            }
+            // }
+            // catch(Exception ex)
+            // { MessageBox.Show(ex.Message); }
         }
 
        //
@@ -295,7 +358,7 @@ namespace Account
                     dt.Columns.Add("البيان");
                     dt.Columns.Add("");
                     dt.Rows.Add();
-                    MessageBox.Show(comboBox1.SelectedText);
+                  
                     dt.Rows[0][0] = comboBox1.Text;// comboBox1.SelectedText;
                     dt.Rows[0][1] = GetTypeAccount();
                     dt.Rows[0][2] = GetDateSearching();
@@ -314,7 +377,14 @@ namespace Account
                         dt.Rows.Add();
                         i++;
                     }
-                    dt.Rows[0][9] = Acn.GetUserNM(IDUSER);
+                    if (HostConnection == false)
+                    {
+                        dt.Rows[0][9] = Acn.GetUserNM(IDUSER);
+                    }
+                    else
+                    {
+                        dt.Rows[0][9] =AcnHost.GetUserNM(IDUSER);
+                    }
                     /// print Report
                     frmReprt frmrepot = new frmReprt(dt, dt, 8);
                     frmrepot.ShowDialog();
@@ -456,6 +526,14 @@ namespace Account
             {
                 GC.Collect();
             }
+        }
+        ///  //convert MemmoryToDB
+        DataTable ConvertMemorytoDB(MemoryStream ms)
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            ms.Seek(0, SeekOrigin.Begin);
+            DataTable dt = (DataTable)formatter.Deserialize(ms);
+            return dt;
         }
     }
 }
