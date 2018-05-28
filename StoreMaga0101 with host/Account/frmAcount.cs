@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,6 +16,7 @@ namespace Account
     {
         DataTable dt = new DataTable();
         AccountNm Acn;
+        ServiceReference1.IserviceClient AcnHost;
         int IDUSER;
         int IdAcount;
         int CodeAddAcount;
@@ -21,11 +24,14 @@ namespace Account
         int IDParentAdd;
         bool ADDing = false;
         bool chak1;
+        bool HostConnection =false;
+
         public frmAcount()
         {
             InitializeComponent();
             try
             {
+                
                 Acn = new AccountNm(@".\s2008", "StoreManagement1", null, null);
                 IDUSER = 1;
                 dt = Acn.GetAllAccount();
@@ -37,14 +43,24 @@ namespace Account
 
         }
         ///
-        public frmAcount(string ServNm, string DbNm, string UesrSql, string PassSql, int UserId)
+        public frmAcount(string ServNm, string DbNm, string UesrSql, string PassSql, int UserId,bool ConectionHost)
         {
             InitializeComponent();
             try
             {
-                Acn = new AccountNm(ServNm, DbNm, UesrSql, PassSql);
                 IDUSER = UserId;
-                dt = Acn.GetAllAccount();
+                HostConnection = ConectionHost;
+                if (HostConnection ==false)
+                {
+                    Acn = new AccountNm(ServNm, DbNm, UesrSql, PassSql);
+                    dt = Acn.GetAllAccount();
+                }
+                else
+                {
+                    AcnHost = new ServiceReference1.IserviceClient();
+                    dt =ConvertMemorytoDB (AcnHost.GetAllAccount());
+                }
+
             }
             catch (Exception ex)
             {
@@ -92,7 +108,16 @@ namespace Account
         { try
             {
                 PopulateTreeView(0, null);
-                dataGridView1.DataSource = Acn.GetAllAcountnAr();
+                if (HostConnection == false)
+                {
+                    dataGridView1.DataSource = Acn.GetAllAcountnAr();
+                }
+                else
+                {
+                    dataGridView1.DataSource =ConvertMemorytoDB( AcnHost.GetAllAcountnAr());
+                }
+                
+                
                 dataGridView1.Columns[8].Visible = false;
             }
             catch(Exception ex)
@@ -133,9 +158,17 @@ namespace Account
            
             IdAcount = Convert.ToInt32(t.Tag.ToString());
             idcode = Convert.ToInt32(t.Name);
-            comboBox2.Text = Acn.TypeAccount(IdAcount);//get Type Account;
-            checkBox1.Checked = !Acn.GetCheckAccount(IdAcount);
+            if (HostConnection == false)
+            {
+                comboBox2.Text = Acn.TypeAccount(IdAcount);//get Type Account;
+                checkBox1.Checked = !Acn.GetCheckAccount(IdAcount);
 
+            }
+            else
+            {
+                comboBox2.Text = AcnHost.TypeAccount(IdAcount);//get Type Account;
+                checkBox1.Checked = !AcnHost.GetCheckAccount(IdAcount);
+            }
 
 
 
@@ -163,16 +196,32 @@ namespace Account
                         {
                             IdType = 1;
                         }
-
-                        if (!Acn.GetCheckAccountHere(Convert.ToInt32(textBox4.Text)))
-                        { 
-                            Acn.AddNewAcountNm(textBox1.Text, Convert.ToInt32(textBox4.Text), CodeAddAcount, comboBox2.Text, IdType, DateTime.Now, IDUSER);
-                            RefrshTreeNode();
-                            textBox1.Text = "";
-                        }
-                        else
+                        if (HostConnection == false)
                         {
-                            MessageBox.Show("رقم الحساب مضاف مسبقا يرجى التاكد من رقم الحساب");
+                            if (!Acn.GetCheckAccountHere(Convert.ToInt32(textBox4.Text)))
+                            {
+                                Acn.AddNewAcountNm(textBox1.Text, Convert.ToInt32(textBox4.Text), CodeAddAcount, comboBox2.Text, IdType, DateTime.Now, IDUSER);
+                                RefrshTreeNode();
+                                textBox1.Text = "";
+                            }
+                            else
+                            {
+                                MessageBox.Show("رقم الحساب مضاف مسبقا يرجى التاكد من رقم الحساب");
+                            }
+                        }
+                        else // connection host
+                        {
+                            if (!AcnHost.GetCheckAccountHere(Convert.ToInt32(textBox4.Text)))
+                            {
+                                AcnHost.AddNewAcountNm(textBox1.Text, Convert.ToInt32(textBox4.Text), CodeAddAcount, comboBox2.Text, IdType, DateTime.Now, IDUSER);
+                                RefrshTreeNode();
+                                textBox1.Text = "";
+                            }
+                            else
+                            {
+                                MessageBox.Show("رقم الحساب مضاف مسبقا يرجى التاكد من رقم الحساب");
+                            }
+
                         }
                     }
 
@@ -198,8 +247,14 @@ namespace Account
                    
                     string AccounNm = new String(textBox1.Text.Where(c => c != '-' && (c < '0' || c > '9')).ToArray());
                     int chackAccount;
-                   
-                    Acn.UpdateAccountNm(IdAcount, AccounNm, !checkBox1.Checked);
+                    if (HostConnection == false)
+                    {
+                        Acn.UpdateAccountNm(IdAcount, AccounNm, !checkBox1.Checked);
+                    }
+                    else
+                    {
+                        AcnHost.UpdateAccountNm(IdAcount, AccounNm, !checkBox1.Checked);
+                    }
                     RefrshTreeNode();
                     ADDing = false;
                     textBox1.Text = "";
@@ -217,12 +272,26 @@ namespace Account
         /// ////////تحديث البيانات
         /// </summary>
         void RefrshTreeNode()
-        { 
-            dt = Acn.GetAllAccount();
+        {  if (HostConnection == false)
+            {
+                dt = Acn.GetAllAccount();
+            }
+        else
+            {
+                dt = ConvertMemorytoDB(AcnHost.GetAllAccount());
+            }
             treeView1.Nodes.Clear();
             PopulateTreeView(0, null);
             IdAcount = -1;
-            dataGridView1.DataSource = Acn.GetAllAcountnAr();
+            if (HostConnection == false)
+            {
+                dataGridView1.DataSource = Acn.GetAllAcountnAr();
+            }
+            else
+            {
+                dataGridView1.DataSource = AcnHost.GetAllAcountnAr();
+
+            }
             dataGridView1.Columns[8].Visible = false;
         }
         /// <summary>
@@ -242,26 +311,49 @@ namespace Account
 
                         t = treeView1.SelectedNode;
                         IdAcount = Convert.ToInt32(t.Tag.ToString());
-                        if (Acn.TypeAccount(IdAcount).Equals("رئيسي"))
+                        if (HostConnection == false)
                         {
-                            textBox1.Text = "";
-                            textBox1.Focus();
-                            comboBox1.Text = t.Text;
+                            if (Acn.TypeAccount(IdAcount).Equals("رئيسي"))
+                            {
+                                textBox1.Text = "";
+                                textBox1.Focus();
+                                comboBox1.Text = t.Text;
 
-                            CodeAddAcount = Convert.ToInt32(t.Name);// رقم حساب الاب
+                                CodeAddAcount = Convert.ToInt32(t.Name);// رقم حساب الاب
 
-                            int idcode = Acn.GetMaxCode(CodeAddAcount);
-                            idcode += 1;
-                            textBox4.Text = idcode.ToString();
-                            comboBox2.Text = "رئيسي";
-                            ADDing = true;
-
-
+                                int idcode = Acn.GetMaxCode(CodeAddAcount);
+                                idcode += 1;
+                                textBox4.Text = idcode.ToString();
+                                comboBox2.Text = "رئيسي";
+                                ADDing = true;
+                            }
+                            else
+                            {
+                                MessageBox.Show("لايمكن اضافة حساب الى الحساب الفرعي");
+                            }
                         }
                         else
                         {
-                            MessageBox.Show("لايمكن اضافة حساب الى الحساب الفرعي");
+                            if (AcnHost.TypeAccount(IdAcount).Equals("رئيسي"))
+                            {
+                                textBox1.Text = "";
+                                textBox1.Focus();
+                                comboBox1.Text = t.Text;
+
+                                CodeAddAcount = Convert.ToInt32(t.Name);// رقم حساب الاب
+
+                                int idcode = AcnHost.GetMaxCode(CodeAddAcount);
+                                idcode += 1;
+                                textBox4.Text = idcode.ToString();
+                                comboBox2.Text = "رئيسي";
+                                ADDing = true;
+                            }
+                            else
+                            {
+                                MessageBox.Show("لايمكن اضافة حساب الى الحساب الفرعي");
+                            }
                         }
+
                     }
                     catch (Exception ex)
                     {
@@ -291,24 +383,49 @@ namespace Account
 
                     t = treeView1.SelectedNode;
                     IdAcount = Convert.ToInt32(t.Tag.ToString());
-                    if (Acn.TypeAccount(IdAcount).Equals("رئيسي"))
+                    if (HostConnection == false)
                     {
-                        textBox1.Text = "";
-                        textBox1.Focus();
-                        comboBox1.Text = t.Text;
+                        if (Acn.TypeAccount(IdAcount).Equals("رئيسي"))
+                        {
+                            textBox1.Text = "";
+                            textBox1.Focus();
+                            comboBox1.Text = t.Text;
 
-                        CodeAddAcount = Convert.ToInt32(t.Name);// رقم حساب الاب
+                            CodeAddAcount = Convert.ToInt32(t.Name);// رقم حساب الاب
 
-                        int idcode = Acn.GetMaxCode(CodeAddAcount);
-                        idcode += 1;
-                        textBox4.Text = idcode.ToString();
-                        comboBox2.Text = "فرعي";
-                        ADDing = true;
+                            int idcode = Acn.GetMaxCode(CodeAddAcount);
+                            idcode += 1;
+                            textBox4.Text = idcode.ToString();
+                            comboBox2.Text = "فرعي";
+                            ADDing = true;
 
+                        }
+                        else
+                        {
+                            MessageBox.Show("لايمكن اضافة حساب الى الحساب الفرعي");
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("لايمكن اضافة حساب الى الحساب الفرعي");
+                        if (AcnHost.TypeAccount(IdAcount).Equals("رئيسي"))
+                        {
+                            textBox1.Text = "";
+                            textBox1.Focus();
+                            comboBox1.Text = t.Text;
+
+                            CodeAddAcount = Convert.ToInt32(t.Name);// رقم حساب الاب
+
+                            int idcode = AcnHost.GetMaxCode(CodeAddAcount);
+                            idcode += 1;
+                            textBox4.Text = idcode.ToString();
+                            comboBox2.Text = "فرعي";
+                            ADDing = true;
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("لايمكن اضافة حساب الى الحساب الفرعي");
+                        }
                     }
                 
             }
@@ -348,13 +465,21 @@ namespace Account
         {
             try
             {
-                dataGridView1.DataSource = Acn.SearchAcount(txtSaerch.Text);
+                if (HostConnection == false)
+                {
+                    dataGridView1.DataSource = Acn.SearchAcount(txtSaerch.Text);
+                }
+                else
+                {
+                    dataGridView1.DataSource = AcnHost.SearchAcount(txtSaerch.Text);
+                }
 
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-            }
+        }
 
         private void treeView1_Click(object sender, EventArgs e)
         {
@@ -395,32 +520,59 @@ namespace Account
 
         private void button1_Click(object sender, EventArgs e)
         {
-         
-            if (idcode >= 1)
-            {
-           if( MessageBox.Show("هل تريد حذف الحساب المحدد", "تاكيد", MessageBoxButtons.YesNo, MessageBoxIcon.Question)==DialogResult.Yes)
-                { 
-                    if(Acn.CheckAccountinDetlis(idcode) || Acn.CheckAccounthaschalid(idcode))
-                    { 
-                        MessageBox.Show("لا يمكن حذف السجل لانه مرتبط بسجلات اخرى", "رسالة", MessageBoxButtons.OK);
-                    }
-                    else
+            try {
+                if (idcode >= 1)
+                {
+                    if (MessageBox.Show("هل تريد حذف الحساب المحدد", "تاكيد", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        MessageBox.Show(idcode.ToString ());
-                       Acn.DelteAccount2(idcode);
-                        
-                        RefrshTreeNode();
-                  
-                        textBox1.Text = "";
-                        comboBox1.Text = "";
-                        comboBox2.Text = "";
-                        textBox4.Text = "";
-                    }
+                        if (HostConnection == false)
+                        {
+                            if (Acn.CheckAccountinDetlis(idcode) || Acn.CheckAccounthaschalid(idcode))
+                            {
+                                MessageBox.Show("لا يمكن حذف السجل لانه مرتبط بسجلات اخرى", "رسالة", MessageBoxButtons.OK);
+                            }
+                            else
+                            {
+
+                                Acn.DelteAccount2(idcode);
+
+                                RefrshTreeNode();
+
+                                textBox1.Text = "";
+                                comboBox1.Text = "";
+                                comboBox2.Text = "";
+                                textBox4.Text = "";
+                            }
+                        }
+                        else
+                        {
+                            if (AcnHost.CheckAccountinDetlis(idcode) || AcnHost.CheckAccounthaschalid(idcode))
+                            {
+                                MessageBox.Show("لا يمكن حذف السجل لانه مرتبط بسجلات اخرى", "رسالة", MessageBoxButtons.OK);
+                            }
+                            else
+                            {
+
+                                AcnHost.DelteAccount2(idcode);
+
+                                RefrshTreeNode();
+
+                                textBox1.Text = "";
+                                comboBox1.Text = "";
+                                comboBox2.Text = "";
+                                textBox4.Text = "";
+                            }
+                        }
 
                     }
 
                 }
             }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
         /// <summary>
         /// تصدير الى اكسل
         /// </summary>
@@ -490,6 +642,14 @@ namespace Account
             {
                 GC.Collect();
             }
+        }
+        ///  //convert MemmoryToDB
+        DataTable ConvertMemorytoDB(MemoryStream ms)
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            ms.Seek(0, SeekOrigin.Begin);
+            DataTable dt = (DataTable)formatter.Deserialize(ms);
+            return dt;
         }
     }
     }

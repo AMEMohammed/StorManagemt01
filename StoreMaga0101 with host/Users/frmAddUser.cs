@@ -216,7 +216,8 @@ namespace Users
             }
          else
             {
-                dataGridView1.DataSource = ConvertMemorytoDB(UsHost.GetAllUser());
+                 dataGridView1.DataSource = ConvertMemorytoDB(UsHost.GetAllUser());
+              
             }
         }
 

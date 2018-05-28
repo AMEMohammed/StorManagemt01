@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Out", "..\Out\Out.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreMaga0101", "..\StoreMaga0101\StoreMaga0101.csproj", "{A90DB41F-2008-4437-8C3D-95A12D7C6C4D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Account", "..\Account\Account.csproj", "{F5B38AC2-90F4-4A8A-87D1-D04ED4C2E144}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{A90DB41F-2008-4437-8C3D-95A12D7C6C4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A90DB41F-2008-4437-8C3D-95A12D7C6C4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A90DB41F-2008-4437-8C3D-95A12D7C6C4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5B38AC2-90F4-4A8A-87D1-D04ED4C2E144}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5B38AC2-90F4-4A8A-87D1-D04ED4C2E144}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5B38AC2-90F4-4A8A-87D1-D04ED4C2E144}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5B38AC2-90F4-4A8A-87D1-D04ED4C2E144}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
