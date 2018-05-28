@@ -36,9 +36,17 @@ namespace Account
         public SimpleConstraint(string ServNm, string DbNm, string UesrSql, string PassSql, int UserId,bool hostCOnnection)
         {
             InitializeComponent();
+            HostConnection = hostCOnnection;
             try
-            {
-                Acn = new AccountNm(ServNm, DbNm, UesrSql, PassSql);
+            {  if (HostConnection == false)
+                {
+                    Acn = new AccountNm(ServNm, DbNm, UesrSql, PassSql);
+                }
+                else
+                {
+                   
+                    AcnHost = new ServiceReference1.IserviceClient();
+                }
                 IDUSER = UserId;
                 
             }
@@ -79,18 +87,33 @@ namespace Account
         //
         private void LoadData()
         {
-            comboBox3.DataSource = Acn.GetAllCurrency();
+            if (HostConnection == false)
+            {
+                comboBox3.DataSource = Acn.GetAllCurrency();
+                combAccount1.DataSource = Acn.GETALLAccountSub();
+                combAccount2.DataSource = Acn.GETALLAccountSub();
+            }
+         else
+            {
+               
+                comboBox3.DataSource =ConvertMemorytoDB(AcnHost.GetAllCurrency());
+                combAccount1.DataSource =ConvertMemorytoDB(AcnHost.GETALLAccountSub());
+                combAccount2.DataSource =ConvertMemorytoDB(AcnHost.GETALLAccountSub());
+            }
             comboBox3.DisplayMember = "اسم العملة";
             comboBox3.ValueMember = "رقم العملة";
-            combAccount1.DataSource = Acn.GETALLAccountSub();
+           
             combAccount1.DisplayMember = "اسم الحساب";
             combAccount1.ValueMember = "رقم الحساب";
-            combAccount2.DataSource = Acn.GETALLAccountSub();
+         
             combAccount2.DisplayMember = "اسم الحساب";
             combAccount2.ValueMember = "رقم الحساب";
            //جلب القيود ليوم واحد
-            dataGrideSimple.DataSource = Acn.GetAllSimpleConstraintOneDay(DateTime.Now.Date, DateTime.Now.Date.AddDays(1));
-            
+           if(HostConnection==false)
+                dataGrideSimple.DataSource = Acn.GetAllSimpleConstraintOneDay(DateTime.Now.Date, DateTime.Now.Date.AddDays(1));
+           else
+                dataGrideSimple.DataSource =ConvertMemorytoDB(AcnHost.GetAllSimpleConstraintOneDay(DateTime.Now.Date, DateTime.Now.Date.AddDays(1)));
+
 
         }
 
@@ -111,36 +134,71 @@ namespace Account
 
                         ///add new tblSimpleConstraint
                         ///// اضافة القيد الى جدول القيود
-                        Acn.AddSimpleConstraint(IDdaenAccount, IDMadenAccount, Mony,idCurrnt, IDUSER, DateTime.Now, txtNote.Text);
-                        ////////////// من حساب mins المدين
-                        if (Acn.CheckAccontTotal(IDMadenAccount, idCurrnt))// الحساب مضاف مسبقا
+                        if (HostConnection == false)
                         {
-                            Acn.UpdateAccountTotal(IDMadenAccount, (-1 * Mony), idCurrnt);
-                        }
-                        else //   في جدول الاجمالي اضافة حساب جديد
-                        {
-                            Acn.AddNewAccountTotal(IDMadenAccount, (-1 * Mony), idCurrnt);
-                        }
-                        //// (اضافة الامر الى جدول تفاصيل الحساب )مدين(
+                            Acn.AddSimpleConstraint(IDdaenAccount, IDMadenAccount, Mony, idCurrnt, IDUSER, DateTime.Now, txtNote.Text);
+                            ////////////// من حساب mins المدين
+                            if (Acn.CheckAccontTotal(IDMadenAccount, idCurrnt))// الحساب مضاف مسبقا
+                            {
+                                Acn.UpdateAccountTotal(IDMadenAccount, (-1 * Mony), idCurrnt);
+                            }
+                            else //   في جدول الاجمالي اضافة حساب جديد
+                            {
+                                Acn.AddNewAccountTotal(IDMadenAccount, (-1 * Mony), idCurrnt);
+                            }
+                            //// (اضافة الامر الى جدول تفاصيل الحساب )مدين(
 
-                        string DitalisMis = "تم قيد عليكم مبلغ وقدره " + string.Format("{0:##,##}", (Mony).ToString()) + " " + comboBox3.Text + "  " + "مقابل قيد بسيط   " + "  الى حساب  " + combAccount2.Text + " رقم القيد" + Acn.GetMaxIDSimpleConstraint();
-                        Acn.AddNewAccountDetalis(IDMadenAccount, (-1 * Mony), 0, 0, DitalisMis, DateTime.Now, IDUSER, idCurrnt, Acn.GetMaxIDSimpleConstraint());
-                        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                        ///      الحساب الدائن                                                                                                                     
-                        if (Acn.CheckAccontTotal(IDdaenAccount, idCurrnt)) // الحساب مضاف مسبقا
-                        {
-                            Acn.UpdateAccountTotal(IDdaenAccount, Mony, idCurrnt);
+                            string DitalisMis = "تم قيد عليكم مبلغ وقدره " + string.Format("{0:##,##}", (Mony).ToString()) + " " + comboBox3.Text + "  " + "مقابل قيد بسيط   " + "  الى حساب  " + combAccount2.Text + " رقم القيد" + Acn.GetMaxIDSimpleConstraint();
+                            Acn.AddNewAccountDetalis(IDMadenAccount, (-1 * Mony), 0, 0, DitalisMis, DateTime.Now, IDUSER, idCurrnt, Acn.GetMaxIDSimpleConstraint());
+                            /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                            ///      الحساب الدائن                                                                                                                     
+                            if (Acn.CheckAccontTotal(IDdaenAccount, idCurrnt)) // الحساب مضاف مسبقا
+                            {
+                                Acn.UpdateAccountTotal(IDdaenAccount, Mony, idCurrnt);
+                            }
+                            else // اضافة حساب جديد في جدول الاجمالي
+                            {
+                                Acn.AddNewAccountTotal(IDdaenAccount, Mony, idCurrnt);
+                            }
+                            //  اضافة الامر الى جدول التفاصيل (دائن)
+                            string DitalisPlus = "تم قيد لكم مبلغ وقدره" + string.Format("{0:##,##}", (Mony).ToString()) + " " + comboBox3.Text + "  " + "مقابل قيد بسيط  " + "  من حساب " + combAccount1.Text + " رقم القيد  " + Acn.GetMaxIDSimpleConstraint();
+                            Acn.AddNewAccountDetalis(IDdaenAccount, (Mony), 0, 0, DitalisPlus, DateTime.Now, IDUSER, idCurrnt, Acn.GetMaxIDSimpleConstraint());//// اضافة الى جدول التفاصيل
+                            dataGrideSimple.DataSource = Acn.GetAllSimpleConstraintOneDay(DateTime.Now.Date, DateTime.Now.Date.AddDays(1));
                         }
-                        else // اضافة حساب جديد في جدول الاجمالي
+                        ///// connection host
+                        else
                         {
-                            Acn.AddNewAccountTotal(IDdaenAccount, Mony, idCurrnt);
-                        }
-                        /////////////////////////////
-                        //  اضافة الامر الى جدول التفاصيل (دائن)
-                        string DitalisPlus = "تم قيد لكم مبلغ وقدره" + string.Format("{0:##,##}", (Mony).ToString()) + " " + comboBox3.Text + "  " + "مقابل قيد بسيط  " + "  من حساب " + combAccount1.Text + " رقم القيد  " + Acn.GetMaxIDSimpleConstraint();
+                            AcnHost.AddSimpleConstraint(IDdaenAccount, IDMadenAccount, Mony, idCurrnt, IDUSER, DateTime.Now, txtNote.Text);
+                            ////////////// من حساب mins المدين
+                            if (AcnHost.CheckAccontTotal(IDMadenAccount, idCurrnt))// الحساب مضاف مسبقا
+                            {
+                                AcnHost.UpdateAccountTotal(IDMadenAccount, (-1 * Mony), idCurrnt);
+                            }
+                            else //   في جدول الاجمالي اضافة حساب جديد
+                            {
+                                AcnHost.AddNewAccountTotal(IDMadenAccount, (-1 * Mony), idCurrnt);
+                            }
+                            //// (اضافة الامر الى جدول تفاصيل الحساب )مدين(
 
-                        Acn.AddNewAccountDetalis(IDdaenAccount, (Mony), 0, 0, DitalisPlus, DateTime.Now, IDUSER, idCurrnt, Acn.GetMaxIDSimpleConstraint());//// اضافة الى جدول التفاصيل
-                        dataGrideSimple.DataSource = Acn.GetAllSimpleConstraintOneDay(DateTime.Now.Date, DateTime.Now.Date.AddDays(1));
+
+                            string DitalisMis = "تم قيد عليكم مبلغ وقدره " + string.Format("{0:##,##}", (Mony).ToString()) + " " + comboBox3.Text + "  " + "مقابل قيد بسيط   " + "  الى حساب  " + combAccount2.Text + " رقم القيد" + AcnHost.GetMaxIDSimpleConstraint();
+                            AcnHost.AddNewAccountDetalis(IDMadenAccount, (-1 * Mony), 0, 0, DitalisMis, DateTime.Now, IDUSER, idCurrnt, AcnHost.GetMaxIDSimpleConstraint());
+                            /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                            ///      الحساب الدائن                                                                                                                     
+                            if (AcnHost.CheckAccontTotal(IDdaenAccount, idCurrnt)) // الحساب مضاف مسبقا
+                            {
+                                AcnHost.UpdateAccountTotal(IDdaenAccount, Mony, idCurrnt);
+                            }
+                            else // اضافة حساب جديد في جدول الاجمالي
+                            {
+                                AcnHost.AddNewAccountTotal(IDdaenAccount, Mony, idCurrnt);
+                            }
+                            string DitalisPlus = "تم قيد لكم مبلغ وقدره" + string.Format("{0:##,##}", (Mony).ToString()) + " " + comboBox3.Text + "  " + "مقابل قيد بسيط  " + "  من حساب " + combAccount1.Text + " رقم القيد  " + AcnHost.GetMaxIDSimpleConstraint();
+
+                            AcnHost.AddNewAccountDetalis(IDdaenAccount, (Mony), 0, 0, DitalisPlus, DateTime.Now, IDUSER, idCurrnt, AcnHost.GetMaxIDSimpleConstraint());//// اضافة الى جدول التفاصيل
+                            dataGrideSimple.DataSource = ConvertMemorytoDB(AcnHost.GetAllSimpleConstraintOneDay(DateTime.Now.Date, DateTime.Now.Date.AddDays(1)));
+                        }
+                    
                         LoadData();
                         textBox2.Text = "";
                         txtNote.Text = "";
@@ -148,7 +206,7 @@ namespace Account
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                   MessageBox.Show(ex.Message);
                 }
             }
             else
@@ -164,7 +222,14 @@ namespace Account
             try
             {
                 //جلب القيود ليوم واحد
-                dataGrideSimple.DataSource = Acn.GetAllSimpleConstraintOneDay(dateTimePicker1.Value.Date, dateTimePicker1.Value.Date.AddDays(1));
+                if (HostConnection == false)
+                {
+                    dataGrideSimple.DataSource = Acn.GetAllSimpleConstraintOneDay(dateTimePicker1.Value.Date, dateTimePicker1.Value.Date.AddDays(1));
+                }
+                else
+                {
+                    dataGrideSimple.DataSource =ConvertMemorytoDB(AcnHost.GetAllSimpleConstraintOneDay(dateTimePicker1.Value.Date, dateTimePicker1.Value.Date.AddDays(1)));
+                }
                
             }
             catch(Exception ex)

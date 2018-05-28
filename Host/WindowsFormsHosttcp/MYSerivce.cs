@@ -255,7 +255,7 @@ namespace WindowsFormsHosttcp
             return ConvertDBtoMomery(accountNm.GetAllSimpleConstraintOneDay(day1, day2));
         }
 
-       
+      
         #endregion
         //end Account
     }
