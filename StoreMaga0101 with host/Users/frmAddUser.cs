@@ -46,7 +46,7 @@ namespace Users
                 MessageBox.Show(ex.Message);
             }
         }
-        public frmAddUser(string SerNm, string DbNm, string UserSql, string PassSql, int UserI)
+        public frmAddUser(string SerNm, string DbNm, string UserSql, string PassSql, int UserI, string HostIp)
         {
             InitializeComponent();
             try
@@ -59,6 +59,8 @@ namespace Users
                 else
                 {  // connection host
                     UsHost = new ServiceReference1.IserviceClient();
+                    EndpointAddress endp = new EndpointAddress(HostIp);
+                    UsHost.Endpoint.Address = endp;
                 }
             }
             catch (Exception ex)

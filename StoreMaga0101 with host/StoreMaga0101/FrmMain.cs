@@ -35,12 +35,12 @@ namespace StoreMaga0101
                 if (ConServer.ConnectionWithHost)
                 {
                     serHost=new ServiceReference1.IserviceClient();
-                    EndpointAddress endp = new EndpointAddress(@"net.tcp://192.168.1.123:9002/MyMathService");
+                    EndpointAddress endp = new EndpointAddress(ConServer.HostIp);
                     serHost.Endpoint.Address = endp;
                     
                    
                 }
-                frm = new frmLogin(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, @"net.tcp://192.168.1.123:9002/MyMathService");
+                frm = new frmLogin(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, ConServer.HostIp);
             }
             catch(Exception ex)
             {
@@ -211,7 +211,7 @@ namespace StoreMaga0101
             try
             {
                 this.Cursor = Cursors.WaitCursor;
-                frmAddOut frmou = new frmAddOut(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID,ConServer.ConnectionWithHost, @"net.tcp://192.168.1.123:9002/MyMathService"); //from update Supply
+                frmAddOut frmou = new frmAddOut(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID,ConServer.ConnectionWithHost, ConServer.HostIp); //from update Supply
                 FormCollection fromco = Application.OpenForms;
                 bool foundFrom = false;
                 foreach (Form frm in fromco)
@@ -247,7 +247,7 @@ namespace StoreMaga0101
             try
             {
                 this.Cursor = Cursors.WaitCursor;
-                frmAddUser frmAddUser = new frmAddUser(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID); //from update Supply
+                frmAddUser frmAddUser = new frmAddUser(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID,ConServer.HostIp); //from update Supply
                 FormCollection fromco = Application.OpenForms;
                 bool foundFrom = false;
                 foreach (Form frm in fromco)
@@ -284,7 +284,7 @@ namespace StoreMaga0101
 
 
                 this.Cursor = Cursors.WaitCursor;
-                frmAddUser frmAddUser = new frmAddUser(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID); //from update Supply
+                frmAddUser frmAddUser = new frmAddUser(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID,ConServer.HostIp); //from update Supply
                 FormCollection fromco = Application.OpenForms;
                 bool foundFrom = false;
                 foreach (Form frm in fromco)
@@ -319,7 +319,7 @@ namespace StoreMaga0101
             try
             {
                 this.Cursor = Cursors.WaitCursor;
-                frmUpdateOut frmupdout = new frmUpdateOut(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID); //from update Supply
+                frmUpdateOut frmupdout = new frmUpdateOut(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID,ConServer.ConnectionWithHost,ConServer.HostIp); //from update Supply
                 FormCollection fromco = Application.OpenForms;
                 bool foundFrom = false;
                 foreach (Form frm in fromco)
@@ -679,7 +679,7 @@ namespace StoreMaga0101
             try
             {
                 this.Cursor = Cursors.WaitCursor;
-                frmSearchAccountNM frmCurrncy = new frmSearchAccountNM(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID,ConServer.ConnectionWithHost);
+                frmSearchAccountNM frmCurrncy = new frmSearchAccountNM(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID,ConServer.ConnectionWithHost,ConServer.HostIp);
                 FormCollection fromco = Application.OpenForms;
                 bool foundFrom = false;
                 foreach (Form frm in fromco)

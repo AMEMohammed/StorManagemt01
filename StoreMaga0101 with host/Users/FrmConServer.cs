@@ -62,6 +62,7 @@ namespace Users
                 txtDB.Text = Properties.Settings.Default.DBNM;
                 txtUser.Text = Properties.Settings.Default.UserSql;
                 txtpass.Text = Properties.Settings.Default.PassSql;
+                texthostip.Text = Properties.Settings.Default.HostIP;
             }
             catch (Exception ex)
             {
@@ -76,6 +77,7 @@ namespace Users
             Properties.Settings.Default.UserSql = txtUser.Text;
             Properties.Settings.Default.PassSql = txtpass.Text;
             Properties.Settings.Default.ConnectionHost = checkConnectionHost.Checked;
+            Properties.Settings.Default.HostIP = texthostip.Text;
             Properties.Settings.Default.Save();
             this.Close();
         }
@@ -87,22 +89,22 @@ namespace Users
 
         private void checkConnectionHost_CheckedChanged(object sender, EventArgs e)
         {
-            if(checkConnectionHost.Checked)
-            {
-                txtDB.Enabled = false;
-                txtpass.Enabled = false;
-                txtServer.Enabled = false;
-                txtUser.Enabled = false;
-                btnCHek.Enabled = false;
+            
+        }
+
+        private void checkConnectionHost_CheckedChanged_1(object sender, EventArgs e)
+        {
+            if (checkConnectionHost.Checked)
+             {
+                groupBox1.Enabled = false;
+                groupBox2.Enabled = false;
+                groupBox3.Enabled = true;
             }
             else
             {
-                txtDB.Enabled = true;
-                txtpass.Enabled = true;
-                txtServer.Enabled = true;
-                txtUser.Enabled = true;
-                btnCHek.Enabled = true;
-
+                groupBox1.Enabled =true;
+                groupBox2.Enabled = true;
+                groupBox3.Enabled = false;
             }
         }
     }

@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.ServiceModel;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Out_
 {
@@ -14,6 +17,8 @@ namespace Out_
     {
         int UserID;
         OutFunction OutFun;
+        bool Hostconection;
+        ServiceReference1.IserviceClient OutFunHost;
         public frmUpdateOut2()
         {
             InitializeComponent();
@@ -28,13 +33,24 @@ namespace Out_
             }
         }
       
-        public frmUpdateOut2(string ServerNm, string DbNm,string UserSql,string PassSql ,int UserId)
+        public frmUpdateOut2(string ServerNm, string DbNm,string UserSql,string PassSql ,int UserId, bool hostCOnnection, string hostIp)
         {
             InitializeComponent();
             UserID = UserId;
+            Hostconection = hostCOnnection;
             try
             {
-                OutFun = new OutFunction(ServerNm, DbNm, UserSql, PassSql);
+                if (Hostconection == false)
+                {
+                    OutFun = new OutFunction(ServerNm, DbNm, UserSql, PassSql);
+                }
+                else
+                {
+                    OutFunHost = new ServiceReference1.IserviceClient();
+                    EndpointAddress endp = new EndpointAddress(hostIp);
+                    OutFunHost.Endpoint.Address = endp;
+
+                }
             }
             catch (Exception ex)
             {
@@ -45,9 +61,15 @@ namespace Out_
         private void frmUpdateOut2_Load(object sender, EventArgs e)
         {
             IdOut = (int)this.Tag;
-      
-         
-            OutFun.GetRequstOutSngle(IdOut);
+
+            if (Hostconection == false)
+            {
+                OutFun.GetRequstOutSngle(IdOut);
+            }
+            else
+            {
+                OutFunHost.GetRequstOutSngle(IdOut);
+            }
             comboBox1.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             comboBox1.AutoCompleteSource = AutoCompleteSource.ListItems;
             comboBox2.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
@@ -77,22 +99,38 @@ namespace Out_
             {
                 comboBox1.DisplayMember = "اسم الصنف";
                 comboBox1.ValueMember = "رقم الصنف";
-                comboBox1.DataSource = OutFun.GetCatagoryInAccount();
+               
                 comboBox2.DisplayMember = "اسم النوع";
                 comboBox2.ValueMember = "رقم النوع";
-                comboBox2.DataSource = OutFun.GetTypeInAccount((int)comboBox1.SelectedValue);
+              
                 comboBox3.ValueMember = "رقم العملة";
                 comboBox3.DisplayMember = "اسم العملة";
-                comboBox3.DataSource = OutFun.GetCurrencyINAccount((int)comboBox1.SelectedValue, (int)comboBox2.SelectedValue);
+               
                 comboBox4.ValueMember = "رقم الجهة";
                 comboBox4.DisplayMember = "اسم الجهة";
-                comboBox4.DataSource = OutFun.GetAllPlace();
+              
                 comboBox5.ValueMember = "رقم الحساب";
                 comboBox5.DisplayMember = "اسم الحساب";
-                comboBox5.DataSource = OutFun.GetALLAcountNm();
+               
                 comboBox6.ValueMember = "رقم الحساب";
                 comboBox6.DisplayMember = "اسم الحساب";
-                comboBox6.DataSource = OutFun.GetALLAcountNm();
+                if (Hostconection == false)
+                {   comboBox1.DataSource = OutFun.GetCatagoryInAccount();
+                    comboBox2.DataSource = OutFun.GetTypeInAccount((int)comboBox1.SelectedValue);
+                    comboBox3.DataSource = OutFun.GetCurrencyINAccount((int)comboBox1.SelectedValue, (int)comboBox2.SelectedValue);
+                    comboBox6.DataSource = OutFun.GetALLAcountNm();
+                    comboBox5.DataSource = OutFun.GetALLAcountNm();
+                    comboBox4.DataSource = OutFun.GetAllPlace();
+                }
+                else//conection host
+                {
+                    comboBox1.DataSource =ConvertMemorytoDB(OutFunHost.GetCatagoryInAccount());
+                    comboBox2.DataSource =ConvertMemorytoDB(OutFunHost.GetTypeInAccount((int)comboBox1.SelectedValue));
+                    comboBox3.DataSource =ConvertMemorytoDB( OutFunHost.GetCurrencyINAccount((int)comboBox1.SelectedValue, (int)comboBox2.SelectedValue));
+                    comboBox6.DataSource =ConvertMemorytoDB(OutFunHost.GetALLAcountNm());
+                    comboBox5.DataSource =ConvertMemorytoDB( OutFunHost.GetALLAcountNm());
+                    comboBox4.DataSource =ConvertMemorytoDB( OutFunHost.GetAllPlace());
+                }
             }
             catch(Exception ex)
             {
@@ -123,8 +161,14 @@ namespace Out_
         /////////////////
         public void ConfDate()
         {
-
-            dt = OutFun.GetRequstOutSngle(IdOut);
+            if (Hostconection == false)
+            {
+                dt = OutFun.GetRequstOutSngle(IdOut);
+            }
+            else
+            {
+                dt=ConvertMemorytoDB(OutFunHost.GetRequstOutSngle(IdOut));
+            }
             comboBox1.SelectedValue = Convert.ToInt32(dt.Rows[0]["IDCategory"].ToString());
             comboBox2.SelectedValue = Convert.ToInt32(dt.Rows[0]["IDType"].ToString());
             comboBox3.SelectedValue = Convert.ToInt32(dt.Rows[0]["IDCurrency"].ToString());
@@ -145,58 +189,113 @@ namespace Out_
         /// <param name="e"></param>
         private void btnupdate_Click(object sender, EventArgs e)
         {
-            if ((int)comboBox4.SelectedValue > 0 && (int)comboBox5.SelectedValue > 0 && (int)comboBox6.SelectedValue > 0 && textBox4.Text.Length > 0 && textBox5.Text.Length > 0 && textBox3.Text.Length > 0)
+            try
             {
-                if ((MessageBox.Show("هل تريد ترحيل طلب  تعديل الصرف واعتماده ؟", "تاكيد", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign) == DialogResult.Yes))
+                if ((int)comboBox4.SelectedValue > 0 && (int)comboBox5.SelectedValue > 0 && (int)comboBox6.SelectedValue > 0 && textBox4.Text.Length > 0 && textBox5.Text.Length > 0 && textBox3.Text.Length > 0)
                 {
-                    OutFun.DeleteSuuplyFrmAccountDitalis2(IdOut);/// حذف الطلب من جدول التفاصيل 
-                    int IDcounoldPlus = Convert.ToInt32(dt.Rows[0]["Creditor"].ToString());
-                    int IdCountOldMins = Convert.ToInt32(dt.Rows[0]["Debit"].ToString());
-                    int OldMony= Convert.ToInt32(dt.Rows[0]["Quntity"].ToString()) * Convert.ToInt32(dt.Rows[0]["Price"].ToString());
-                    int oldIDCurrncy= Convert.ToInt32(dt.Rows[0]["IDCurrency"].ToString()); ;
-                    int IDcoutNEWPlus = (int)comboBox6.SelectedValue;
-                    int IdCoutNEWMins = (int)comboBox5.SelectedValue;
-                    int mony = Convert.ToInt32(textBox1.Text) * Convert.ToInt32(textBox2.Text);
-                    int idcurncy = Convert.ToInt32(dt.Rows[0]["IDCurrency"].ToString());
+                    if ((MessageBox.Show("هل تريد ترحيل طلب  تعديل الصرف واعتماده ؟", "تاكيد", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign) == DialogResult.Yes))
+                    {
+                        if (Hostconection == false)
+                        {
+                            OutFun.DeleteSuuplyFrmAccountDitalis2(IdOut);/// حذف الطلب من جدول التفاصيل 
+                            int IDcounoldPlus = Convert.ToInt32(dt.Rows[0]["Creditor"].ToString());
+                            int IdCountOldMins = Convert.ToInt32(dt.Rows[0]["Debit"].ToString());
+                            int OldMony = Convert.ToInt32(dt.Rows[0]["Quntity"].ToString()) * Convert.ToInt32(dt.Rows[0]["Price"].ToString());
+                            int oldIDCurrncy = Convert.ToInt32(dt.Rows[0]["IDCurrency"].ToString()); ;
+                            int IDcoutNEWPlus = (int)comboBox6.SelectedValue;
+                            int IdCoutNEWMins = (int)comboBox5.SelectedValue;
+                            int mony = Convert.ToInt32(textBox1.Text) * Convert.ToInt32(textBox2.Text);
+                            int idcurncy = Convert.ToInt32(dt.Rows[0]["IDCurrency"].ToString());
 
-                    string DitalisMis = "تم قيد عليكم مبلغ وقدره " + string.Format("{0:##,##}", (mony).ToString()) + " " + comboBox3.Text + "مقابل امر صرف ب  " +textBox1.Text + " " + comboBox1.Text+ " " + comboBox2.Text + "  الى حساب  " + comboBox6.Text + "رقم الطلب " + IdOut;
-                    string DatlisPlus = "تم قيد لكم مبلغ وقدره" + string.Format("{0:##,##}", (mony).ToString()) + " " + comboBox3.Text + "مقابل امر توريد ب " + textBox1.Text+ " " +comboBox1.Text+ " " + comboBox2.Text + "  من حساب " + comboBox5.Text + "رقم الطلب " + IdOut;
-                    OutFun.AddNewAccountDetalis(IDcoutNEWPlus, mony, 0, IdOut, DatlisPlus, DateTime.Now, UserID, idcurncy);////اضافة الدائن الى جدول التفاصيل
-                    OutFun.AddNewAccountDetalis(IdCoutNEWMins, (-1 * mony), 0, IdOut, DitalisMis, DateTime.Now, UserID, idcurncy);//// اضافة المدين لى جدول التفاصيل
-                    //////////////
-                    /////// التعديل جدول اجمالي الحسابات
-                    OutFun.UpdateAccountTotal(IDcounoldPlus, (-1 * OldMony), idcurncy);// حذف القمية من حساب الدائن
-                    OutFun.UpdateAccountTotal(IdCountOldMins, OldMony, idcurncy);//  ارجاع القمية الى حساب المدين
-                    if (OutFun.CheckAccontTotal(IDcoutNEWPlus, idcurncy))/// في حالة انم الحساب الدائن موجود مسبقا
-                    {
-                        OutFun.UpdateAccountTotal(IDcoutNEWPlus, mony, idcurncy);
+                            string DitalisMis = "تم قيد عليكم مبلغ وقدره " + string.Format("{0:##,##}", (mony).ToString()) + " " + comboBox3.Text + "مقابل امر صرف ب  " + textBox1.Text + " " + comboBox1.Text + " " + comboBox2.Text + "  الى حساب  " + comboBox6.Text + "رقم الطلب " + IdOut;
+                            string DatlisPlus = "تم قيد لكم مبلغ وقدره" + string.Format("{0:##,##}", (mony).ToString()) + " " + comboBox3.Text + "مقابل امر توريد ب " + textBox1.Text + " " + comboBox1.Text + " " + comboBox2.Text + "  من حساب " + comboBox5.Text + "رقم الطلب " + IdOut;
+                            OutFun.AddNewAccountDetalis(IDcoutNEWPlus, mony, 0, IdOut, DatlisPlus, DateTime.Now, UserID, idcurncy);////اضافة الدائن الى جدول التفاصيل
+                            OutFun.AddNewAccountDetalis(IdCoutNEWMins, (-1 * mony), 0, IdOut, DitalisMis, DateTime.Now, UserID, idcurncy);//// اضافة المدين لى جدول التفاصيل
+                                                                                                                                          //////////////
+                                                                                                                                          /////// التعديل جدول اجمالي الحسابات
+                            OutFun.UpdateAccountTotal(IDcounoldPlus, (-1 * OldMony), idcurncy);// حذف القمية من حساب الدائن
+                            OutFun.UpdateAccountTotal(IdCountOldMins, OldMony, idcurncy);//  ارجاع القمية الى حساب المدين
+                            if (OutFun.CheckAccontTotal(IDcoutNEWPlus, idcurncy))/// في حالة انم الحساب الدائن موجود مسبقا
+                            {
+                                OutFun.UpdateAccountTotal(IDcoutNEWPlus, mony, idcurncy);
+                            }
+                            else// في حالة الحساب الدائن جديد نضيف حساب جديد
+                            {
+                                OutFun.AddNewAccountTotal(IDcoutNEWPlus, mony, idcurncy);//
+                            }
+                            if (OutFun.CheckAccontTotal(IdCoutNEWMins, idcurncy)) //في حالة الحساب المدين موجودمسبقا
+                            {
+                                OutFun.UpdateAccountTotal(IdCoutNEWMins, (-1 * mony), idcurncy);
+                            }
+                            else //في حالة الحساب المدين جديد اضافة حساب جديد
+                            {
+                                OutFun.AddNewAccountTotal(IdCoutNEWMins, (-1 * mony), idcurncy);
+                            }
+                            OutFun.UpdateRequstOut(IdOut, (int)comboBox4.SelectedValue, textBox3.Text, textBox4.Text, textBox5.Text, DateTime.Now, UserID, (int)comboBox5.SelectedValue, (int)comboBox6.SelectedValue);
+                        }
+                        else //connection host
+                        {
+                            OutFunHost.DeleteSuuplyFrmAccountDitalis2(IdOut);/// حذف الطلب من جدول التفاصيل 
+                            int IDcounoldPlus = Convert.ToInt32(dt.Rows[0]["Creditor"].ToString());
+                            int IdCountOldMins = Convert.ToInt32(dt.Rows[0]["Debit"].ToString());
+                            int OldMony = Convert.ToInt32(dt.Rows[0]["Quntity"].ToString()) * Convert.ToInt32(dt.Rows[0]["Price"].ToString());
+                            int oldIDCurrncy = Convert.ToInt32(dt.Rows[0]["IDCurrency"].ToString()); ;
+                            int IDcoutNEWPlus = (int)comboBox6.SelectedValue;
+                            int IdCoutNEWMins = (int)comboBox5.SelectedValue;
+                            int mony = Convert.ToInt32(textBox1.Text) * Convert.ToInt32(textBox2.Text);
+                            int idcurncy = Convert.ToInt32(dt.Rows[0]["IDCurrency"].ToString());
+
+                            string DitalisMis = "تم قيد عليكم مبلغ وقدره " + string.Format("{0:##,##}", (mony).ToString()) + " " + comboBox3.Text + "مقابل امر صرف ب  " + textBox1.Text + " " + comboBox1.Text + " " + comboBox2.Text + "  الى حساب  " + comboBox6.Text + "رقم الطلب " + IdOut;
+                            string DatlisPlus = "تم قيد لكم مبلغ وقدره" + string.Format("{0:##,##}", (mony).ToString()) + " " + comboBox3.Text + "مقابل امر توريد ب " + textBox1.Text + " " + comboBox1.Text + " " + comboBox2.Text + "  من حساب " + comboBox5.Text + "رقم الطلب " + IdOut;
+                            OutFunHost.AddNewAccountDetalisInOut(IDcoutNEWPlus, mony, 0, IdOut, DatlisPlus, DateTime.Now, UserID, idcurncy);////اضافة الدائن الى جدول التفاصيل
+                            OutFunHost.AddNewAccountDetalisInOut(IdCoutNEWMins, (-1 * mony), 0, IdOut, DitalisMis, DateTime.Now, UserID, idcurncy);//// اضافة المدين لى جدول التفاصيل
+                                                                                                                                          //////////////
+                                                                                                                                          /////// التعديل جدول اجمالي الحسابات
+                            OutFunHost.UpdateAccountTotalInOut(IDcounoldPlus, (-1 * OldMony), idcurncy);// حذف القمية من حساب الدائن
+                            OutFunHost.UpdateAccountTotalInOut(IdCountOldMins, OldMony, idcurncy);//  ارجاع القمية الى حساب المدين
+                            if (OutFunHost.CheckAccontTotalInOut(IDcoutNEWPlus, idcurncy))/// في حالة انم الحساب الدائن موجود مسبقا
+                            {
+                                OutFunHost.UpdateAccountTotalInOut(IDcoutNEWPlus, mony, idcurncy);
+                            }
+                            else// في حالة الحساب الدائن جديد نضيف حساب جديد
+                            {
+                                OutFunHost.AddNewAccountTotalInOut(IDcoutNEWPlus, mony, idcurncy);//
+                            }
+                            if (OutFunHost.CheckAccontTotalInOut(IdCoutNEWMins, idcurncy)) //في حالة الحساب المدين موجودمسبقا
+                            {
+                                OutFunHost.UpdateAccountTotalInOut(IdCoutNEWMins, (-1 * mony), idcurncy);
+                            }
+                            else //في حالة الحساب المدين جديد اضافة حساب جديد
+                            {
+                                OutFunHost.AddNewAccountTotalInOut(IdCoutNEWMins, (-1 * mony), idcurncy);
+                            }
+                            OutFunHost.UpdateRequstOut(IdOut, (int)comboBox4.SelectedValue, textBox3.Text, textBox4.Text, textBox5.Text, DateTime.Now, UserID, (int)comboBox5.SelectedValue, (int)comboBox6.SelectedValue);
+                        }
+                        this.Close();
                     }
-                    else// في حالة الحساب الدائن جديد نضيف حساب جديد
-                    {
-                        OutFun.AddNewAccountTotal(IDcoutNEWPlus, mony, idcurncy);//
-                    }
-                    if (OutFun.CheckAccontTotal(IdCoutNEWMins, idcurncy)) //في حالة الحساب المدين موجودمسبقا
-                      {
-                        OutFun.UpdateAccountTotal(IdCoutNEWMins, (-1 * mony), idcurncy);
-                    }
-                    else //في حالة الحساب المدين جديد اضافة حساب جديد
-                    {
-                        OutFun.AddNewAccountTotal(IdCoutNEWMins, (-1 * mony), idcurncy);
-                    }
-                    OutFun.UpdateRequstOut(IdOut, (int)comboBox4.SelectedValue, textBox3.Text, textBox4.Text, textBox5.Text, DateTime.Now, UserID, (int)comboBox5.SelectedValue, (int)comboBox6.SelectedValue);
-                    
-                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("تاكد من تعبئة جميع الصناديق");
                 }
             }
-            else
+            catch(Exception ex)
             {
-                MessageBox.Show("تاكد من تعبئة جميع الصناديق");
+                MessageBox.Show(ex.Message);
             }
         }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+        ///  //convert MemmoryToDB
+        DataTable ConvertMemorytoDB(MemoryStream ms)
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            ms.Seek(0, SeekOrigin.Begin);
+            DataTable dt = (DataTable)formatter.Deserialize(ms);
+            return dt;
         }
     }
 }

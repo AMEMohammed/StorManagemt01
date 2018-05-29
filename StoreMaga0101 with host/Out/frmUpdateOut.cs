@@ -9,24 +9,31 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using FrmRports;
 using Excel = Microsoft.Office.Interop.Excel;
+using System.ServiceModel;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+
 namespace Out_
 {
     public partial class frmUpdateOut : Form
     {
         int UserID;
         OutFunction OutFun;
+        string HostIp;
+        ServiceReference1.IserviceClient OutFunHost;
+        bool HostConnection;
         string sevnm = "";
         string dbnm = "";
         string sqluser = "";
         string sqlpass = "";
-            public frmUpdateOut()
+        public frmUpdateOut()
         {
             InitializeComponent();
             UserID = 1;
-       
+
             try
             {
-                OutFun = new OutFunction(@".\s2008", "StoreManagement1",null,null);
+                OutFun = new OutFunction(@".\s2008", "StoreManagement1", null, null);
             }
             catch (Exception ex)
             {
@@ -34,14 +41,23 @@ namespace Out_
             }
 
         }
-        
-        public frmUpdateOut(string ServerNm, string DbNm,string UserSql,string PassSql, int UserId)
+
+        public frmUpdateOut(string ServerNm, string DbNm, string UserSql, string PassSql, int UserId, bool hostCOnnection, string hostIp)
         {
             InitializeComponent();
             UserID = UserId;
             try
-            {
-                OutFun = new OutFunction(ServerNm, DbNm,UserSql,PassSql);
+            { HostConnection = hostCOnnection;
+                if (HostConnection == false)
+                    OutFun = new OutFunction(ServerNm, DbNm, UserSql, PassSql);
+                else
+                {
+                    OutFunHost = new ServiceReference1.IserviceClient();
+                    EndpointAddress endp = new EndpointAddress(hostIp);
+                    OutFunHost.Endpoint.Address = endp;
+                    HostIp = hostIp;
+                }
+
                 sevnm = ServerNm;
                 dbnm = DbNm;
                 sqluser = UserSql;
@@ -52,11 +68,11 @@ namespace Out_
                 MessageBox.Show(ex.Message);
             }
         }
-         /// <summary>
-         ///
-         /// </summary>
-         /// <param name="sender"></param>
-         /// <param name="e"></param>
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void frmUpdateOut_Load(object sender, EventArgs e)
         {
             MessageBoxManager.Yes = "نعم";
@@ -65,7 +81,14 @@ namespace Out_
             try
             {
                 changeLanguage();
-                dataGridView1.DataSource = OutFun.SearchINRequstOutDate(DateTime.Now.AddDays(-15), DateTime.Now);
+                if (HostConnection == false)
+                {
+                    dataGridView1.DataSource = OutFun.SearchINRequstOutDate(DateTime.Now.AddDays(-15), DateTime.Now);
+                }
+                else
+                {
+                    dataGridView1.DataSource = OutFunHost.SearchINRequstOutDate(DateTime.Now.AddDays(-15), DateTime.Now);
+                }
                 comboBox1.SelectedIndex = 0;
             }
             catch (Exception ex)
@@ -102,21 +125,28 @@ namespace Out_
                 {
                     int IDcheck = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[13].Value.ToString());
                     string name = dataGridView1.SelectedRows[0].Cells[11].Value.ToString();
-                   
+
                     DataTable dtexit = new DataTable();
                     DataTable dtOut = new DataTable();
                     if (checkBox2.Checked)
                     {
-                        dtexit = OutFun.printrequstOutExit(IDcheck, UserID, OutFun.GetIdUser(name));
+                        if (HostConnection == false)
+                            dtexit = OutFun.printrequstOutExit(IDcheck, UserID, OutFun.GetIdUser(name));
+                        else
+                            dtexit = ConvertMemorytoDB(OutFunHost.printrequstOutExit(IDcheck, UserID, OutFun.GetIdUser(name)));
+
                     }
                     else
                     {
                         dtexit = null;
                     }
                     //  frmREPORT frm = new frmREPORT(IDcheck, 2, dbsql.GetIdUser(name), printExit);
-                    dtOut = OutFun.PrintRequstOut(IDcheck, UserID, OutFun.GetIdUser(name));
+                    if(HostConnection==false)
+                        dtOut = OutFun.PrintRequstOut(IDcheck, UserID, OutFun.GetIdUser(name));
+                    else
+                        dtOut =ConvertMemorytoDB(OutFunHost.PrintRequstOut(IDcheck, UserID, OutFun.GetIdUser(name)));
                     this.Cursor = Cursors.WaitCursor;
-                    frmReprt frmrepprt = new frmReprt(dtOut ,dtexit, 2);
+                    frmReprt frmrepprt = new frmReprt(dtOut, dtexit, 2);
                     frmrepprt.ShowDialog();
                     this.Cursor = Cursors.Default;
                 }
@@ -180,17 +210,21 @@ namespace Out_
                         DateTime dd = DateTime.Parse(dr[10].ToString());
 
                         string dec = dr[11].ToString();
-                        string nameUser = OutFun.GetUserNameBYIdUser(UserID);
+                        string nameUser;
+                        if (HostConnection==false)
+                           nameUser = OutFun.GetUserNameBYIdUser(UserID);
+                        else
+                            nameUser = OutFunHost.GetUserNameBYIdUser(UserID);
                         dt.Rows.Add(ido, nmCa, nmty, palce, string.Format("{0:##,##}", Qun), string.Format("{0:##,##}", prs), string.Format("{0:##,##}", totl), currn, amer, astalm, dd.Date.ToShortDateString(), dec, " ", nameUser, string.Format("{0:##,##}", sumQu), string.Format("{0:##,##}", sumPrice), string.Format("{0:##,##}", sumAll));
                         this.Cursor = Cursors.Default;
-                  
+
                     }
                 }
                 catch (Exception ex) { MessageBox.Show(ex.Message); }
                 this.Cursor = Cursors.WaitCursor;
                 try
                 {
-                    frmReprt frmrepprt = new frmReprt(dt,dt, 4);
+                    frmReprt frmrepprt = new frmReprt(dt, dt, 4);
                     frmrepprt.ShowDialog();
                 }
                 catch (Exception ex)
@@ -239,13 +273,16 @@ namespace Out_
                 try
                 {
                     int id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
-                    frmUpdateOut2 frmu = new frmUpdateOut2(sevnm,dbnm,sqluser,sqlpass,UserID);
+                    frmUpdateOut2 frmu = new frmUpdateOut2(sevnm, dbnm, sqluser, sqlpass, UserID,HostConnection,HostIp);
                     frmu.Tag = id;
                     this.Cursor = Cursors.WaitCursor;
 
                     frmu.ShowDialog();
                     this.Cursor = Cursors.Default;
-                    dataGridView1.DataSource = OutFun.SearchINRequstOutDate(DateTime.Now.AddDays(-3), DateTime.Now);
+                    if(HostConnection==false)
+                          dataGridView1.DataSource = OutFun.SearchINRequstOutDate(DateTime.Now.AddDays(-3), DateTime.Now);
+                    else
+                        dataGridView1.DataSource =ConvertMemorytoDB(OutFunHost.SearchINRequstOutDate(DateTime.Now.AddDays(-3), DateTime.Now));
                 }
                 catch (Exception ex)
                 {
@@ -259,67 +296,139 @@ namespace Out_
         { try {
                 if (comboBox1.SelectedIndex == 0)
                 {
-                    try
+                    if (HostConnection == false)
                     {
-                        dataGridView1.DataSource = OutFun.SearchINRequsetOutTxtAndDate(Convert.ToInt32(textBox3.Text), DateTime.Now.AddDays(-1), DateTime.Now);
+                        try
+                        {
+                            dataGridView1.DataSource = OutFun.SearchINRequsetOutTxtAndDate(Convert.ToInt32(textBox3.Text), DateTime.Now.AddDays(-1), DateTime.Now);
+                        }
+                        catch
+                        {
+                            dataGridView1.DataSource = OutFun.SearchINRequstOutDate(DateTime.Now.AddDays(-1), DateTime.Now);
+                        }
                     }
-                    catch
+                    else
                     {
-                        dataGridView1.DataSource = OutFun.SearchINRequstOutDate(DateTime.Now.AddDays(-1), DateTime.Now);
+                        try
+                        {
+                            dataGridView1.DataSource = ConvertMemorytoDB(OutFunHost.SearchINRequsetOutTxtAndDate(Convert.ToInt32(textBox3.Text), DateTime.Now.AddDays(-1), DateTime.Now));
+                        }
+                        catch
+                        {
+                            dataGridView1.DataSource = ConvertMemorytoDB(OutFunHost.SearchINRequstOutDate(DateTime.Now.AddDays(-1), DateTime.Now));
+                        }
+
                     }
                 }
                 else if (comboBox1.SelectedIndex == 1)
                 {
-
-                    try
+                    if (HostConnection == false)
                     {
-                        dataGridView1.DataSource = OutFun.SearchINRequsetOutTxtAndDate(Convert.ToInt32(textBox3.Text), Convert.ToDateTime("2016-01-01"), dateTimePicker2.Value);
+                        try
+                        {
+                            dataGridView1.DataSource = OutFun.SearchINRequsetOutTxtAndDate(Convert.ToInt32(textBox3.Text), Convert.ToDateTime("2016-01-01"), dateTimePicker2.Value);
+                        }
+                        catch
+                        {
+                            dataGridView1.DataSource = OutFun.SearchINRequstOutDate(Convert.ToDateTime("2016-01-01"), dateTimePicker2.Value);
+                        }
                     }
-                    catch
+                    else// conection host
                     {
-                        dataGridView1.DataSource = OutFun.SearchINRequstOutDate(Convert.ToDateTime("2016-01-01"), dateTimePicker2.Value);
+                        try
+                        {
+                            dataGridView1.DataSource = ConvertMemorytoDB(OutFunHost.SearchINRequsetOutTxtAndDate(Convert.ToInt32(textBox3.Text), Convert.ToDateTime("2016-01-01"), dateTimePicker2.Value));
+                        }
+                        catch
+                        {
+                            dataGridView1.DataSource = ConvertMemorytoDB(OutFunHost.SearchINRequstOutDate(Convert.ToDateTime("2016-01-01"), dateTimePicker2.Value));
+                        }
                     }
                 }
                 else if (comboBox1.SelectedIndex == 2)
                 {
-                    try
+                    if (HostConnection == false)
                     {
-                        dataGridView1.DataSource = OutFun.SearchINRequsetOutTxtAndDate(Convert.ToInt32(textBox3.Text), DateTime.Now.AddDays(-7), DateTime.Now);
+                        try
+                        {
+                            dataGridView1.DataSource = OutFun.SearchINRequsetOutTxtAndDate(Convert.ToInt32(textBox3.Text), DateTime.Now.AddDays(-7), DateTime.Now);
+                        }
+                        catch
+                        {
+                            dataGridView1.DataSource = OutFun.SearchINRequstOutDate(DateTime.Now.AddDays(-7), DateTime.Now);
+                        }
                     }
-                    catch
+                    else//conection host
                     {
-                        dataGridView1.DataSource = OutFun.SearchINRequstOutDate(DateTime.Now.AddDays(-7), DateTime.Now);
+                        try
+                        {
+                            dataGridView1.DataSource = ConvertMemorytoDB(OutFunHost.SearchINRequsetOutTxtAndDate(Convert.ToInt32(textBox3.Text), DateTime.Now.AddDays(-7), DateTime.Now));
+                        }
+                        catch
+                        {
+                            dataGridView1.DataSource = ConvertMemorytoDB(OutFunHost.SearchINRequstOutDate(DateTime.Now.AddDays(-7), DateTime.Now));
+                        }
                     }
+
                 }
                 else if (comboBox1.SelectedIndex == 3)
                 {
-                    try
+                    if (HostConnection == false)
                     {
-                        dataGridView1.DataSource = OutFun.SearchINRequsetOutTxtAndDate(Convert.ToInt32(textBox3.Text), DateTime.Now.AddDays(-30), DateTime.Now);
+                        try
+                        {
+                            dataGridView1.DataSource = OutFun.SearchINRequsetOutTxtAndDate(Convert.ToInt32(textBox3.Text), DateTime.Now.AddDays(-30), DateTime.Now);
+                        }
+                        catch
+                        {
+                            dataGridView1.DataSource = OutFun.SearchINRequstOutDate(DateTime.Now.AddDays(-30), DateTime.Now);
+                        }
                     }
-                    catch
+                    else//conection host
                     {
-                        dataGridView1.DataSource = OutFun.SearchINRequstOutDate(DateTime.Now.AddDays(-30), DateTime.Now);
+                        try
+                        {
+                            dataGridView1.DataSource = ConvertMemorytoDB(OutFunHost.SearchINRequsetOutTxtAndDate(Convert.ToInt32(textBox3.Text), DateTime.Now.AddDays(-30), DateTime.Now));
+                        }
+                        catch
+                        {
+                            dataGridView1.DataSource = ConvertMemorytoDB(OutFunHost.SearchINRequstOutDate(DateTime.Now.AddDays(-30), DateTime.Now));
+                        }
+
                     }
                 }
                 else if (comboBox1.SelectedIndex == 4)
                 {
-                    try
+                    if (HostConnection == false)
                     {
-                        dataGridView1.DataSource = OutFun.SearchINRequsetOutTxtAndDate(Convert.ToInt32(textBox3.Text), dateTimePicker1.Value, dateTimePicker2.Value);
+                        try
+                        {
+                            dataGridView1.DataSource = OutFun.SearchINRequsetOutTxtAndDate(Convert.ToInt32(textBox3.Text), dateTimePicker1.Value, dateTimePicker2.Value);
+                        }
+                        catch
+                        {
+                            dataGridView1.DataSource = OutFun.SearchINRequstOutDate(dateTimePicker1.Value, dateTimePicker2.Value);
+                        }
                     }
-                    catch
+                    else //conection host
                     {
-                        dataGridView1.DataSource = OutFun.SearchINRequstOutDate(dateTimePicker1.Value, dateTimePicker2.Value);
+                        try
+                        {
+                            dataGridView1.DataSource =ConvertMemorytoDB( OutFunHost.SearchINRequsetOutTxtAndDate(Convert.ToInt32(textBox3.Text), dateTimePicker1.Value, dateTimePicker2.Value));
+                        }
+                        catch
+                        {
+                            dataGridView1.DataSource =ConvertMemorytoDB( OutFunHost.SearchINRequstOutDate(dateTimePicker1.Value, dateTimePicker2.Value));
+                        }
                     }
                 }
             }
 
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-           
+
 
         }
 
@@ -331,26 +440,44 @@ namespace Out_
                 {
                     int IdOut = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
                     //MessageBox.Show(IdOut.ToString());
-               if (MessageBox.Show("هل تريد استرداد الكمية المصروفة رقم الطلب " + IdOut + "", "استرداد طلب صرف", MessageBoxButtons.YesNo, MessageBoxIcon.None, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign) == DialogResult.Yes)
+                    if (MessageBox.Show("هل تريد استرداد الكمية المصروفة رقم الطلب " + IdOut + "", "استرداد طلب صرف", MessageBoxButtons.YesNo, MessageBoxIcon.None, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign) == DialogResult.Yes)
                     {
 
                         DataTable dt12 = new DataTable();
                         ////////////////
                         ///////// Account Nm
-                        dt12 = OutFun.GetRequstOutSngle(IdOut);
-                        int IDACCOuntPlus =Convert.ToInt32( dt12.Rows[0]["Creditor"].ToString());
-                        int IDAccountMins = Convert.ToInt32(dt12.Rows[0]["Debit"].ToString());
-                        int IDCuurncy = Convert.ToInt32(dt12.Rows[0]["IDCurrency"].ToString());
-                        int Total = Convert.ToInt32(dt12.Rows[0]["Price"].ToString()) * Convert.ToInt32(dt12.Rows[0]["Quntity"].ToString());
-                        OutFun.UpdateAccountTotal(IDACCOuntPlus, (-1 * Total), IDCuurncy);//حذف القيمة من حساب الدائن
-                        OutFun.UpdateAccountTotal(IDAccountMins,  Total, IDCuurncy);// ارجاع القيمة من حساب المدين
-                        OutFun.DeleteSuuplyFrmAccountDitalis2(IdOut); // حذف الطلب من جدول التفاصيل
+                        if (HostConnection == false)
+                        {
+                            dt12 = OutFun.GetRequstOutSngle(IdOut);
+                            int IDACCOuntPlus = Convert.ToInt32(dt12.Rows[0]["Creditor"].ToString());
+                            int IDAccountMins = Convert.ToInt32(dt12.Rows[0]["Debit"].ToString());
+                            int IDCuurncy = Convert.ToInt32(dt12.Rows[0]["IDCurrency"].ToString());
+                            int Total = Convert.ToInt32(dt12.Rows[0]["Price"].ToString()) * Convert.ToInt32(dt12.Rows[0]["Quntity"].ToString());
+                            OutFun.UpdateAccountTotal(IDACCOuntPlus, (-1 * Total), IDCuurncy);//حذف القيمة من حساب الدائن
+                            OutFun.UpdateAccountTotal(IDAccountMins, Total, IDCuurncy);// ارجاع القيمة من حساب المدين
+                            OutFun.DeleteSuuplyFrmAccountDitalis2(IdOut); // حذف الطلب من جدول التفاصيل
 
                             ///////////////////// حذف الطلب من جدول طلبات الصرف
-                        OutFun.DeleteRqustOut(IdOut, UserID);
-                        dataGridView1.DataSource = OutFun.SearchINRequstOutDate(DateTime.Now.AddDays(-3), DateTime.Now);
-                       
-                       
+                            OutFun.DeleteRqustOut(IdOut, UserID);
+                            dataGridView1.DataSource = OutFun.SearchINRequstOutDate(DateTime.Now.AddDays(-3), DateTime.Now);
+                        }
+                        else//conection host
+                        {
+                            dt12 =ConvertMemorytoDB( OutFunHost.GetRequstOutSngle(IdOut));
+                            int IDACCOuntPlus = Convert.ToInt32(dt12.Rows[0]["Creditor"].ToString());
+                            int IDAccountMins = Convert.ToInt32(dt12.Rows[0]["Debit"].ToString());
+                            int IDCuurncy = Convert.ToInt32(dt12.Rows[0]["IDCurrency"].ToString());
+                            int Total = Convert.ToInt32(dt12.Rows[0]["Price"].ToString()) * Convert.ToInt32(dt12.Rows[0]["Quntity"].ToString());
+                            OutFunHost.UpdateAccountTotalInOut(IDACCOuntPlus, (-1 * Total), IDCuurncy);//حذف القيمة من حساب الدائن
+                            OutFunHost.UpdateAccountTotalInOut(IDAccountMins, Total, IDCuurncy);// ارجاع القيمة من حساب المدين
+                            OutFunHost.DeleteSuuplyFrmAccountDitalis2(IdOut); // حذف الطلب من جدول التفاصيل
+
+                            ///////////////////// حذف الطلب من جدول طلبات الصرف
+                            OutFunHost.DeleteRqustOut(IdOut, UserID);
+                            dataGridView1.DataSource =ConvertMemorytoDB(OutFunHost.SearchINRequstOutDate(DateTime.Now.AddDays(-3), DateTime.Now));
+
+                        }
+
                     }
                 }
                 catch (Exception ex)
@@ -363,14 +490,14 @@ namespace Out_
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(comboBox1.SelectedIndex==4)
+            if (comboBox1.SelectedIndex == 4)
             {
                 dateTimePicker1.Visible = true;
                 dateTimePicker2.Visible = true;
                 label2.Visible = true;
                 label3.Visible = true;
             }
-            else if(comboBox1.SelectedIndex == 1)
+            else if (comboBox1.SelectedIndex == 1)
             {
                 dateTimePicker1.Visible = false;
                 dateTimePicker2.Visible = true;
@@ -454,9 +581,17 @@ namespace Out_
             {
                 GC.Collect();
             }
-        }
 
+
+        }
+        ///  //convert MemmoryToDB
+        DataTable ConvertMemorytoDB(MemoryStream ms)
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            ms.Seek(0, SeekOrigin.Begin);
+            DataTable dt = (DataTable)formatter.Deserialize(ms);
+            return dt;
+        }
     }
-    
 }
 

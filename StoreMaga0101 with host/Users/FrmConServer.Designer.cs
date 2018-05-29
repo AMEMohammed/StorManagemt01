@@ -44,17 +44,20 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtUser = new System.Windows.Forms.TextBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.checkConnectionHost = new System.Windows.Forms.CheckBox();
+            this.texthostip = new System.Windows.Forms.TextBox();
             this.groupBox5.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.btnExit);
             this.groupBox5.Controls.Add(this.btnsave);
-            this.groupBox5.Location = new System.Drawing.Point(143, 218);
+            this.groupBox5.Location = new System.Drawing.Point(143, 290);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(144, 55);
             this.groupBox5.TabIndex = 17;
@@ -93,7 +96,7 @@
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.txtDB);
-            this.groupBox2.Location = new System.Drawing.Point(7, 140);
+            this.groupBox2.Location = new System.Drawing.Point(7, 214);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(280, 72);
             this.groupBox2.TabIndex = 16;
@@ -153,7 +156,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtUser);
-            this.groupBox1.Location = new System.Drawing.Point(7, 8);
+            this.groupBox1.Location = new System.Drawing.Point(7, 87);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(280, 126);
             this.groupBox1.TabIndex = 15;
@@ -178,7 +181,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(208, 96);
+            this.label3.Location = new System.Drawing.Point(203, 93);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(69, 13);
             this.label3.TabIndex = 5;
@@ -187,7 +190,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(203, 22);
+            this.label1.Location = new System.Drawing.Point(197, 26);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(79, 13);
             this.label1.TabIndex = 2;
@@ -196,7 +199,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(197, 59);
+            this.label2.Location = new System.Drawing.Point(181, 56);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(91, 13);
             this.label2.TabIndex = 3;
@@ -209,23 +212,42 @@
             this.txtUser.Size = new System.Drawing.Size(151, 20);
             this.txtUser.TabIndex = 2;
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.texthostip);
+            this.groupBox3.Enabled = false;
+            this.groupBox3.Location = new System.Drawing.Point(7, 32);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(280, 49);
+            this.groupBox3.TabIndex = 18;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "عنوان الهوست";
+            // 
             // checkConnectionHost
             // 
             this.checkConnectionHost.AutoSize = true;
-            this.checkConnectionHost.Location = new System.Drawing.Point(8, 237);
+            this.checkConnectionHost.Location = new System.Drawing.Point(7, 9);
             this.checkConnectionHost.Name = "checkConnectionHost";
             this.checkConnectionHost.Size = new System.Drawing.Size(88, 17);
-            this.checkConnectionHost.TabIndex = 18;
+            this.checkConnectionHost.TabIndex = 19;
             this.checkConnectionHost.Text = "اتصال هوست";
             this.checkConnectionHost.UseVisualStyleBackColor = true;
-            this.checkConnectionHost.CheckedChanged += new System.EventHandler(this.checkConnectionHost_CheckedChanged);
+            this.checkConnectionHost.CheckedChanged += new System.EventHandler(this.checkConnectionHost_CheckedChanged_1);
+            // 
+            // texthostip
+            // 
+            this.texthostip.Location = new System.Drawing.Point(6, 19);
+            this.texthostip.Name = "texthostip";
+            this.texthostip.Size = new System.Drawing.Size(269, 20);
+            this.texthostip.TabIndex = 0;
             // 
             // FrmConServer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(295, 281);
+            this.ClientSize = new System.Drawing.Size(295, 351);
             this.Controls.Add(this.checkConnectionHost);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -240,6 +262,8 @@
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -263,6 +287,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtUser;
+        private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.CheckBox checkConnectionHost;
+        private System.Windows.Forms.TextBox texthostip;
     }
 }

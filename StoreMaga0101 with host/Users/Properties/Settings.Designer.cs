@@ -82,5 +82,17 @@ namespace Users.Properties {
                 this["ConnectionHost"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("net.tcp://192.168.1.115:9002/MyMathService")]
+        public string HostIP {
+            get {
+                return ((string)(this["HostIP"]));
+            }
+            set {
+                this["HostIP"] = value;
+            }
+        }
     }
 }

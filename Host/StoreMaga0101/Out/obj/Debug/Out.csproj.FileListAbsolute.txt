@@ -217,3 +217,4 @@ D:\programing1\StoreMaga0101\Host\StoreMaga0101\Out\obj\Debug\Out_.Properties.Re
 D:\programing1\StoreMaga0101\Host\StoreMaga0101\Out\obj\Debug\Out.csproj.GenerateResource.Cache
 D:\programing1\StoreMaga0101\Host\StoreMaga0101\Out\obj\Debug\Out.dll
 D:\programing1\StoreMaga0101\Host\StoreMaga0101\Out\obj\Debug\Out.pdb
+D:\programing1\StoreMaga0101\Host\StoreMaga0101\Out\obj\Debug\Out.csprojResolveAssemblyReference.cache

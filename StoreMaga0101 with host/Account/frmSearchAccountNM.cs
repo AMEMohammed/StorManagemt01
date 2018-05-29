@@ -12,7 +12,7 @@ using FrmRports;
 using Excel = Microsoft.Office.Interop.Excel;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
-
+using System.ServiceModel;
 namespace Account
 {
     public partial class frmSearchAccountNM : Form
@@ -37,7 +37,7 @@ namespace Account
 
         }
         ///
-        public frmSearchAccountNM(string ServNm, string DbNm, string UesrSql, string PassSql, int UserId,bool hostConnection)
+        public frmSearchAccountNM(string ServNm, string DbNm, string UesrSql, string PassSql, int UserId,bool hostConnection,string HostIp)
         {
             InitializeComponent();
             try
@@ -50,6 +50,8 @@ namespace Account
                 else
                 {
                     AcnHost = new ServiceReference1.IserviceClient();
+                    EndpointAddress endp = new EndpointAddress(HostIp);
+                    AcnHost.Endpoint.Address = endp;
                 }
                 IDUSER = UserId;
                

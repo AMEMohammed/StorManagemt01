@@ -434,7 +434,7 @@ namespace WindowsFormsHosttcp
 
         public int AddNewAccountDetalisInOut(int idcode, int monay, int idsupply, int idout, string Detalis, DateTime d1, int userid, int idcurrn)
         {
-            return OutFun.AddNewAccountDetalis( idcode,  monay,  idsupply,  idout,  Detalis,  d1,  userid,  idcurrn);
+            return OutFun.AddNewAccountDetalis( idcode,monay,  idsupply,  idout,  Detalis,  d1,  userid,  idcurrn);
         }
 
         public int DeleteSuuplyFrmAccountDitalis(int idSupply)
