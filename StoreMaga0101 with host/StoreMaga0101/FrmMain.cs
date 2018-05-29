@@ -15,7 +15,7 @@ using SystemConfiguration;
 using Account;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
-
+using System.ServiceModel;
 namespace StoreMaga0101
 {
     public partial class FrmMain : Form
@@ -23,14 +23,24 @@ namespace StoreMaga0101
         int UserID;
       
         frmLogin frm;// Login from
+        ServiceReference1.IserviceClient serHost;
        
         public FrmMain()
         {
             InitializeComponent();
+          
             try
             {
-
-                frm = new frmLogin(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql);
+              
+                if (ConServer.ConnectionWithHost)
+                {
+                    serHost=new ServiceReference1.IserviceClient();
+                    EndpointAddress endp = new EndpointAddress(@"net.tcp://192.168.1.123:9002/MyMathService");
+                    serHost.Endpoint.Address = endp;
+                    
+                   
+                }
+                frm = new frmLogin(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, @"net.tcp://192.168.1.123:9002/MyMathService");
             }
             catch(Exception ex)
             {
@@ -100,8 +110,8 @@ namespace StoreMaga0101
                     else //connection Host
                     {
 
-                        ServiceReference1.IserviceClient UsHost = new ServiceReference1.IserviceClient();
-                        dt = ConvertMemorytoDB(UsHost.GetUser(frmLogin.GETIDD));
+                      
+                        dt = ConvertMemorytoDB(serHost.GetUser(frmLogin.GETIDD));
 
 
                     }
@@ -201,7 +211,7 @@ namespace StoreMaga0101
             try
             {
                 this.Cursor = Cursors.WaitCursor;
-                frmAddOut frmou = new frmAddOut(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID); //from update Supply
+                frmAddOut frmou = new frmAddOut(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID,ConServer.ConnectionWithHost, @"net.tcp://192.168.1.123:9002/MyMathService"); //from update Supply
                 FormCollection fromco = Application.OpenForms;
                 bool foundFrom = false;
                 foreach (Form frm in fromco)

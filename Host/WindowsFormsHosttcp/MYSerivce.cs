@@ -9,6 +9,7 @@ using System.Data.SqlClient;
 using System.IO;
 using Users;
 using Account;
+using Out_;
 namespace WindowsFormsHosttcp
 { [ServiceBehavior(InstanceContextMode =InstanceContextMode.Single)]
     class MYSerivce : Iservice
@@ -17,6 +18,8 @@ namespace WindowsFormsHosttcp
         UsersSQl users = new UsersSQl(Properties.Settings.Default.ServerNm, Properties.Settings.Default.DBNM, null, null);
         // Account
         AccountNm accountNm = new AccountNm(Properties.Settings.Default.ServerNm, Properties.Settings.Default.DBNM, null, null);
+        //Out
+        OutFunction OutFun = new OutFunction(Properties.Settings.Default.ServerNm, Properties.Settings.Default.DBNM, null, null);
        /// end Classes
        /// 
         public delegate void ResDT(int falg,string nm);
@@ -254,10 +257,205 @@ namespace WindowsFormsHosttcp
         {
             return ConvertDBtoMomery(accountNm.GetAllSimpleConstraintOneDay(day1, day2));
         }
-
-      
         #endregion
         //end Account
+        //
+        //Out
+        #region 
+        public MemoryStream PrintRequstOut(int Check, int UserId, int user)
+        {
+            return ConvertDBtoMomery(OutFun.PrintRequstOut(Check, UserId, user));
+        }
+
+        public MemoryStream printrequstOutExit(int Check, int UserId, int user)
+        {
+            return ConvertDBtoMomery(OutFun.printrequstOutExit(Check, UserId, user));
+        }
+
+        public int GetIdUser(string NameUser)
+        {
+            return OutFun.GetIdUser(NameUser);
+        }
+
+        public MemoryStream GetCatagoryInAccount()
+        {
+            return ConvertDBtoMomery(OutFun.GetCatagoryInAccount());
+        }
+
+        public int GetAccountLinkCate(int IDcate)
+        {
+            return OutFun.GetAccountLinkCate(IDcate);
+        }
+
+        public MemoryStream GetAllPlace()
+        {
+            return ConvertDBtoMomery(OutFun.GetAllPlace());
+        }
+
+        public MemoryStream GetAllDebit()
+        {
+            return ConvertDBtoMomery(OutFun.GetAllDebit());
+        }
+
+        public MemoryStream GetAllCreditor()
+        {
+            return ConvertDBtoMomery(OutFun.GetAllCreditor());
+        }
+
+        public MemoryStream SearchINRequstOutDate(DateTime d1, DateTime d2)
+        {
+            return ConvertDBtoMomery(OutFun.SearchINRequstOutDate(d1, d2));
+        }
+
+        public MemoryStream GetTypeInAccount(int IdCate)
+        {
+            return ConvertDBtoMomery(OutFun.GetTypeInAccount(IdCate));
+        }
+
+        public MemoryStream GetCurrencyINAccount(int idcat, int idtyp)
+        {
+            return ConvertDBtoMomery(OutFun.GetCurrencyINAccount(idcat, idtyp));
+        }
+
+        public MemoryStream GetAccountIDs(int IdCAte, int IdTpe, int idcurrnt)
+        {
+            return ConvertDBtoMomery(OutFun.GetAccountIDs(IdCAte, IdTpe, idcurrnt));
+        }
+
+        public int GetMaxCheckInRequsetOut()
+        {
+            return OutFun.GetMaxCheckInRequsetOut();
+        }
+
+        public int GetQuntityInAccount(int IDAcount)
+        {
+            return OutFun.GetQuntityInAccount(IDAcount);
+        }
+
+        public int GetPriceAccount(int iDAccount)
+        {
+            return OutFun.GetPriceAccount(iDAccount);
+        }
+
+        public int UpdateQuntityAccount(int IDAccount, int newquntity)
+        {
+            return OutFun.UpdateQuntityAccount(IDAccount, newquntity);
+        }
+
+        public int AddNewRequstOut(int Quntity, int IDCategory, int IDType, int idcurrnt, int IDPlace, string NameOut, string DesOut, DateTime DateOut, int Chack, string NameSend, int price, int UserId, int debit, int cred)
+        {
+            return OutFun.AddNewRequstOut( Quntity,  IDCategory,  IDType, idcurrnt, IDPlace,  NameOut,  DesOut,  DateOut,  Chack,  NameSend,  price,  UserId,  debit, cred);
+        }
+
+        public int GetAndCheckQuntityAccountAndAddRqustNew(int IDAccount, int QuntityMust, int IDCategory, int IDType, int idcurrn, int IDPlace, string NameOut, string DesOut, DateTime DateOut, int Chack, string NameSend, int debit, int credi, int UserId, string NMIDCA, string NMTYpe, string NMPlus, string NMMins, string nmCurnncy)
+        {
+            return OutFun.GetAndCheckQuntityAccountAndAddRqustNew( IDAccount,  QuntityMust, IDCategory, IDType,  idcurrn, IDPlace,  NameOut,  DesOut,  DateOut,  Chack,  NameSend, debit,  credi,  UserId,  NMIDCA, NMTYpe,  NMPlus,  NMMins, nmCurnncy);
+        }
+
+        public int GetQunitiyinAccount2(int Idcae, int IdType, int idcurrnt)
+        {
+            return OutFun.GetQunitiyinAccount2(Idcae,  IdType,  idcurrnt);
+        }
+
+        public MemoryStream SearchINRequsetOuttxt(string s)
+        {
+            return ConvertDBtoMomery(OutFun.SearchINRequsetOuttxt( s));
+        }
+
+        public MemoryStream SearchINRequsetOutTxtAndDate(int s, DateTime d1, DateTime d2)
+        {
+            return ConvertDBtoMomery(OutFun.SearchINRequsetOutTxtAndDate(s, d1, d2));
+        }
+
+        public MemoryStream SearchINRequsetOutTxtAndDate2(string s, DateTime d1, DateTime d2)
+        {
+            return ConvertDBtoMomery(OutFun.SearchINRequsetOutTxtAndDate2(s, d1, d2));
+        }
+
+        public string GetUserNameBYIdUser(int IdUser)
+        {
+            return OutFun.GetUserNameBYIdUser(IdUser);
+        }
+
+        public MemoryStream GetRequstOutSngle(int IDOutRequst)
+        {
+            return ConvertDBtoMomery(OutFun.GetRequstOutSngle(IDOutRequst));
+        }
+
+        public int AddNewUpdOut(int IDOut, int IdCate, int IdType, int IdPlace, int Quntity, string NameOUt, string NameSend, int Price, int IdCurrent, string TxtReson, DateTime DateUpdate, int UserId)
+        {
+            return OutFun.AddNewUpdOut( IDOut,  IdCate,IdType,  IdPlace,  Quntity,  NameOUt,  NameSend,  Price,  IdCurrent,  TxtReson,  DateUpdate, UserId);
+        }
+
+        public int CheckAccountIsHere(int IDCategory, int IDType, int price, int idcurrnt)
+        {
+            return OutFun.CheckAccountIsHere( IDCategory, IDType,  price,  idcurrnt);
+        }
+
+        public int DeleteRqustOut(int IdRequstOut, int IdUser)
+        {
+            return OutFun.DeleteRqustOut(IdRequstOut, IdUser);
+        }
+
+        public int UpdateRequstOut(int IDOut, int IdPlace, string NameOut, string NameSend, string Reson, DateTime d1, int UserId, int debt, int crd)
+        {
+            return OutFun.UpdateRequstOut( IDOut, IdPlace,  NameOut,  NameSend,  Reson,  d1,  UserId,  debt,  crd);
+        }
+
+        public int GetMAxIDOUt()
+        {
+            return OutFun.GetMAxIDOUt();
+        }
+
+        public MemoryStream GetALLAcountNm()
+        {
+            return ConvertDBtoMomery(OutFun.GetALLAcountNm());
+        }
+
+        public bool CheckAccontTotalInOut(int IDcode, int IDCurrncy)
+        {
+            return OutFun.CheckAccontTotal( IDcode,  IDCurrncy);
+        }
+
+        public int AddNewAccountTotalInOut(int IDCOde, int Mony, int idCurrncy)
+        {
+            return OutFun.AddNewAccountTotal(IDCOde,  Mony,  idCurrncy);
+        }
+
+        public int GetBalanceInOut(int Idcode, int IDCur)
+        {
+            return OutFun.GetBalance( Idcode,  IDCur);
+        }
+
+        public int UpdateAccountTotalInOut(int IDCOde, int Mony, int idCurrncy)
+        {
+            return OutFun.UpdateAccountTotal( IDCOde,  Mony,  idCurrncy);
+        }
+
+        public int AddNewAccountDetalisInOut(int idcode, int monay, int idsupply, int idout, string Detalis, DateTime d1, int userid, int idcurrn)
+        {
+            return OutFun.AddNewAccountDetalis( idcode,  monay,  idsupply,  idout,  Detalis,  d1,  userid,  idcurrn);
+        }
+
+        public int DeleteSuuplyFrmAccountDitalis(int idSupply)
+        {
+            return OutFun.DeleteSuuplyFrmAccountDitalis( idSupply);
+        }
+
+        public int DeleteSuuplyFrmAccountDitalis2(int idout)
+        {
+            return OutFun.DeleteSuuplyFrmAccountDitalis2(idout);
+        }
+
+        public int GetIDAccountPalce(int IDACcount, int idplace)
+        {
+            return OutFun.GetIDAccountPalce( IDACcount,  idplace);
+
+        }
+
+
+        #endregion
+        //end Out
     }
 
 }

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.ServiceModel;
 
 namespace Users
 {
@@ -39,21 +40,26 @@ namespace Users
                 MessageBox.Show(ex.Message);
             }
         }
-        public frmLogin(string SerNm, string DbNm, string UserSql, string PassSql)
+        public frmLogin(string SerNm, string DbNm, string UserSql, string PassSql,string HostIp)
         {
             InitializeComponent();
             try
             {
-                MessageBox.Show(ConServer.ConnectionWithHost.ToString());
+               MessageBox.Show(ConServer.ConnectionWithHost.ToString());
                 if (!ConServer.ConnectionWithHost)
                 {
 
                     Us = new UsersSQl(SerNm, DbNm, UserSql, PassSql);
                 }
                 else
-                { 
-                    US1 = new ServiceReference1.IserviceClient();
+                {
                     
+                    US1 = new ServiceReference1.IserviceClient();
+                    EndpointAddress endp = new EndpointAddress(HostIp);
+                    US1.Endpoint.Address = endp;
+             
+
+
                 }
             }
             catch (Exception ex)
@@ -65,6 +71,7 @@ namespace Users
         private void frmLogin_Load(object sender, EventArgs e)
         {
             changeLanguage();
+            
 
         }
         int UserId;

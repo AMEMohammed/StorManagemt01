@@ -36,6 +36,9 @@
     <Reference Include="Account">
       <HintPath>..\StoreMaga0101\Account\bin\Debug\Account.dll</HintPath>
     </Reference>
+    <Reference Include="Out">
+      <HintPath>..\StoreMaga0101\Out\bin\Debug\Out.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.ServiceModel" />

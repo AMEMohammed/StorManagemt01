@@ -14,8 +14,8 @@ namespace WindowsFormsHosttcp
     interface Iservice
     {
         [OperationContract]
-        void SENDUSERTOSERVER(int falg,string name);
-      
+        void SENDUSERTOSERVER(int falg, string name);
+
         ///Users
         #region
         [OperationContract]
@@ -30,7 +30,7 @@ namespace WindowsFormsHosttcp
         MemoryStream GetAllUser();
         [OperationContract]
         MemoryStream GetUser(int IdUs);
-        
+
         #endregion
         //end Users
         //
@@ -107,32 +107,94 @@ namespace WindowsFormsHosttcp
         int GetMaxIDSimpleConstraint();
         [OperationContract]
         MemoryStream GetAllSimpleConstraintOneDay(DateTime day1, DateTime day2);
-        
+
         #endregion
         // end Account
+        // Out صرف
+        #region
+        [OperationContract]
+        MemoryStream PrintRequstOut(int Check, int UserId, int user);
+        [OperationContract]
+        MemoryStream printrequstOutExit(int Check, int UserId, int user);
+        [OperationContract]
+        int GetIdUser(string NameUser);
+        [OperationContract]
+        MemoryStream GetCatagoryInAccount();
+        [OperationContract]
+        int GetAccountLinkCate(int IDcate);
+        [OperationContract]
+        MemoryStream GetAllPlace();
+        [OperationContract]
+        MemoryStream GetAllDebit();
+        [OperationContract]
+        MemoryStream GetAllCreditor();
+        [OperationContract]
+        MemoryStream SearchINRequstOutDate(DateTime d1, DateTime d2);
+        [OperationContract]
+        MemoryStream GetTypeInAccount(int IdCate);
+        [OperationContract]
+        MemoryStream GetCurrencyINAccount(int idcat, int idtyp);
+        [OperationContract]
+        MemoryStream GetAccountIDs(int IdCAte, int IdTpe, int idcurrnt);
+        [OperationContract]
+        int GetMaxCheckInRequsetOut();
+        [OperationContract]
+        int GetQuntityInAccount(int IDAcount);
+        [OperationContract]
+        int GetPriceAccount(int iDAccount);
+        [OperationContract]
+        int UpdateQuntityAccount(int IDAccount, int newquntity);
+        [OperationContract]
+        int AddNewRequstOut(int Quntity, int IDCategory, int IDType, int idcurrnt, int IDPlace, string NameOut, string DesOut, DateTime DateOut, int Chack, string NameSend, int price, int UserId, int debit, int cred);
+        [OperationContract]
+        int GetAndCheckQuntityAccountAndAddRqustNew(int IDAccount, int QuntityMust, int IDCategory, int IDType, int idcurrn, int IDPlace, string NameOut, string DesOut, DateTime DateOut, int Chack, string NameSend, int debit, int credi, int UserId, string NMIDCA, string NMTYpe, string NMPlus, string NMMins, string nmCurnncy);
+        [OperationContract]
+        int GetQunitiyinAccount2(int Idcae, int IdType, int idcurrnt);
+        [OperationContract]
+        MemoryStream SearchINRequsetOuttxt(string s);
+        [OperationContract]
+        MemoryStream SearchINRequsetOutTxtAndDate(int s, DateTime d1, DateTime d2);
+        [OperationContract]
+        MemoryStream SearchINRequsetOutTxtAndDate2(string s, DateTime d1, DateTime d2);
+        [OperationContract]
+        string GetUserNameBYIdUser(int IdUser);
+        [OperationContract]
+        MemoryStream GetRequstOutSngle(int IDOutRequst);
+        [OperationContract]
+        int AddNewUpdOut(int IDOut, int IdCate, int IdType, int IdPlace, int Quntity, string NameOUt, string NameSend, int Price, int IdCurrent, string TxtReson, DateTime DateUpdate, int UserId);
+        [OperationContract]
+        int CheckAccountIsHere(int IDCategory, int IDType, int price, int idcurrnt);
+        [OperationContract]
+        int DeleteRqustOut(int IdRequstOut, int IdUser);
+        [OperationContract]
+        int UpdateRequstOut(int IDOut, int IdPlace, string NameOut, string NameSend, string Reson, DateTime d1, int UserId, int debt, int crd);
+        [OperationContract]
+        int GetMAxIDOUt();
+        [OperationContract]
+        MemoryStream GetALLAcountNm();
+        [OperationContract]
+        bool CheckAccontTotalInOut(int IDcode, int IDCurrncy);
+        [OperationContract]
+        int AddNewAccountTotalInOut(int IDCOde, int Mony, int idCurrncy);
+        [OperationContract]
+        int GetBalanceInOut(int Idcode, int IDCur);
+        [OperationContract]
+        int UpdateAccountTotalInOut(int IDCOde, int Mony, int idCurrncy);
+        [OperationContract]
+        int AddNewAccountDetalisInOut(int idcode, int monay, int idsupply, int idout, string Detalis, DateTime d1, int userid, int idcurrn);
+        [OperationContract]
+        int DeleteSuuplyFrmAccountDitalis(int idSupply);
+        [OperationContract]
+        int DeleteSuuplyFrmAccountDitalis2(int idout);
+        [OperationContract]
+        int GetIDAccountPalce(int IDACcount, int idplace);
+      
+        #endregion
+        //end Out 
     }
-    [ServiceContract]
-    interface IservicUsers
-    {
-       
-       
-    }
-    [ServiceContract]
-    interface Iservice2
-    {
-
-    }
-    [ServiceContract]
-    interface Iservice4
-    {
-
-    }
-    [ServiceContract]
-    interface Iservice5
-    {
-
-
-    }
-
 
 }
+    
+
+
+

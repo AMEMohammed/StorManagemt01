@@ -8,7 +8,7 @@ using System.Data.SqlClient;
 using System.Windows.Forms;
 namespace Out_
 {
-    class OutFunction
+  public  class OutFunction
     {
         MSqlConnection sql;
        
@@ -220,7 +220,7 @@ namespace Out_
 
         }
         //////////////////
-        private int GetPriceAccount(int iDAccount)
+       public int GetPriceAccount(int iDAccount)
         {
            string Query="select Price from Account where IDAccount=@IDAccount";
             SqlParameter[] parm = new SqlParameter[1];
@@ -617,12 +617,20 @@ namespace Out_
        ///جلب رقم الحساب المرتبط بالفرع وحساب الدائن
        public int GetIDAccountPalce(int IDACcount,int idplace)
         {
-            string Query = "select IDAccountMadden from tblConnectionAccountWithPlace where IDPalce=@IDPalce and IDAcccountDaan=@IDAcccountDaan";
-            SqlParameter[] parm = new SqlParameter[2];
-            parm[0] = new SqlParameter("@IDPalce", idplace);
-            parm[1] = new SqlParameter("@IDAcccountDaan", IDACcount);
-            return (int)sql.ExcuteQueryValue(Query,  parm);
-
+            int id;
+            try
+            {
+                string Query = "select IDAccountMadden from tblConnectionAccountWithPlace where IDPalce=@IDPalce and IDAcccountDaan=@IDAcccountDaan";
+                SqlParameter[] parm = new SqlParameter[2];
+                parm[0] = new SqlParameter("@IDPalce", idplace);
+                parm[1] = new SqlParameter("@IDAcccountDaan", IDACcount);
+                id = (int)sql.ExcuteQueryValue(Query, parm);
+            }
+            catch
+            {
+                id = 0;
+            }
+            return id;
         }
 
     }

@@ -134,7 +134,9 @@ namespace Account
 
                         ///add new tblSimpleConstraint
                         ///// اضافة القيد الى جدول القيود
-                        if (HostConnection == false)
+                        // connection local
+                        #region
+                        if (HostConnection == false)// connection Local
                         {
                             Acn.AddSimpleConstraint(IDdaenAccount, IDMadenAccount, Mony, idCurrnt, IDUSER, DateTime.Now, txtNote.Text);
                             ////////////// من حساب mins المدين
@@ -165,7 +167,9 @@ namespace Account
                             Acn.AddNewAccountDetalis(IDdaenAccount, (Mony), 0, 0, DitalisPlus, DateTime.Now, IDUSER, idCurrnt, Acn.GetMaxIDSimpleConstraint());//// اضافة الى جدول التفاصيل
                             dataGrideSimple.DataSource = Acn.GetAllSimpleConstraintOneDay(DateTime.Now.Date, DateTime.Now.Date.AddDays(1));
                         }
+                        #endregion
                         ///// connection host
+                        #region
                         else
                         {
                             AcnHost.AddSimpleConstraint(IDdaenAccount, IDMadenAccount, Mony, idCurrnt, IDUSER, DateTime.Now, txtNote.Text);
@@ -198,7 +202,8 @@ namespace Account
                             AcnHost.AddNewAccountDetalis(IDdaenAccount, (Mony), 0, 0, DitalisPlus, DateTime.Now, IDUSER, idCurrnt, AcnHost.GetMaxIDSimpleConstraint());//// اضافة الى جدول التفاصيل
                             dataGrideSimple.DataSource = ConvertMemorytoDB(AcnHost.GetAllSimpleConstraintOneDay(DateTime.Now.Date, DateTime.Now.Date.AddDays(1)));
                         }
-                    
+                        #endregion
+
                         LoadData();
                         textBox2.Text = "";
                         txtNote.Text = "";

@@ -9,12 +9,17 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using FrmRports;
 using Excel = Microsoft.Office.Interop.Excel;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.ServiceModel;
 namespace Out_
 {
     public partial class frmAddOut : Form
     {
         int UserID;
         OutFunction OutFun;
+        bool HostConnection = false;
+        ServiceReference1.IserviceClient OutFunHost;
         public frmAddOut()
         {
             InitializeComponent();
@@ -29,13 +34,24 @@ namespace Out_
             }
        }
        
-        public frmAddOut(string ServerNm, string DbNm,string UserSql,string PassSql, int UserId)
+        public frmAddOut(string ServerNm, string DbNm,string UserSql,string PassSql, int UserId,bool hostConnectopn,string IPHost)
         {
             InitializeComponent();
+            HostConnection =hostConnectopn;
             UserID = UserId; ;
             try
             {
-                OutFun = new OutFunction(ServerNm, DbNm, UserSql,PassSql);
+                if (HostConnection == false)
+                    OutFun = new OutFunction(ServerNm, DbNm, UserSql, PassSql);
+                else
+                {
+
+                    OutFunHost = new ServiceReference1.IserviceClient();
+                    EndpointAddress endp = new EndpointAddress(IPHost);
+                    OutFunHost.Endpoint.Address = endp;
+                }
+
+              
             }
             catch (Exception ex)
             {
@@ -84,8 +100,10 @@ namespace Out_
         private void comboBox4_Leave(object sender, EventArgs e)
         {
             try
-            {
+            { if(HostConnection==false)
                 textBox1.Text = OutFun.GetQunitiyinAccount2((int)comboBox1.SelectedValue, (int)comboBox2.SelectedValue, (int)comboBox4.SelectedValue).ToString();
+            else
+               textBox1.Text = OutFunHost.GetQunitiyinAccount2((int)comboBox1.SelectedValue, (int)comboBox2.SelectedValue, (int)comboBox4.SelectedValue).ToString();
             }
             catch (Exception ex)
             {
@@ -99,23 +117,37 @@ namespace Out_
         {
             try
             {
-
+               
                 comboBox1.ValueMember = "رقم الصنف";
                 comboBox1.DisplayMember = "اسم الصنف";
-                comboBox1.DataSource = OutFun.GetCatagoryInAccount();
+               
 
                 comboBox3.ValueMember = "رقم الجهة";
                 comboBox3.DisplayMember = "اسم الجهة";
-                comboBox3.DataSource = OutFun.GetAllPlace();
+              
 
                 comboBox5.ValueMember = "رقم الحساب";
                 comboBox5.DisplayMember = "اسم الحساب";
-                comboBox5.DataSource = OutFun.GetALLAcountNm();
+                
 
                 comboBox6.ValueMember = "رقم الحساب";
                 comboBox6.DisplayMember = "اسم الحساب";
-                comboBox6.DataSource = OutFun.GetALLAcountNm();
-                dataGridView1.DataSource = OutFun.SearchINRequstOutDate(DateTime.Now.Date, DateTime.Now); // جلب طلبات الصرف لليوم الحالي
+                if (HostConnection == false)
+                {
+                    comboBox1.DataSource =OutFun.GetCatagoryInAccount();
+                    comboBox3.DataSource = OutFun.GetAllPlace();
+                    comboBox5.DataSource = OutFun.GetALLAcountNm();
+                    comboBox6.DataSource = OutFun.GetALLAcountNm();
+                    dataGridView1.DataSource = OutFun.SearchINRequstOutDate(DateTime.Now.Date, DateTime.Now); // جلب طلبات الصرف لليوم الحالي
+                }
+                else
+                {
+                    comboBox1.DataSource = ConvertMemorytoDB(OutFunHost.GetCatagoryInAccount());
+                    comboBox3.DataSource = ConvertMemorytoDB(OutFunHost.GetAllPlace());
+                    comboBox5.DataSource =ConvertMemorytoDB (OutFunHost.GetALLAcountNm());
+                    comboBox6.DataSource =ConvertMemorytoDB( OutFunHost.GetALLAcountNm());
+                    dataGridView1.DataSource =ConvertMemorytoDB( OutFunHost.SearchINRequstOutDate(DateTime.Now.Date, DateTime.Now)); // جلب طلبات الصرف لليوم الحالي
+                }
                 dataGridView1.Columns[0].Visible = false;
                 dataGridView1.Columns[12].Visible = false;
 
@@ -135,17 +167,34 @@ namespace Out_
 
                 comboBox1.ValueMember = "رقم الصنف";
                 comboBox1.DisplayMember = "اسم الصنف";
-                comboBox1.DataSource = OutFun.GetCatagoryInAccount();
                 comboBox2.DisplayMember = "اسم النوع";
                 comboBox2.ValueMember = "رقم النوع";
-                comboBox2.DataSource = OutFun.GetTypeInAccount((int)comboBox1.SelectedValue);
                 comboBox4.ValueMember = "رقم العملة";
                 comboBox4.DisplayMember = "اسم العملة";
-                comboBox4.DataSource = OutFun.GetCurrencyINAccount((int)comboBox1.SelectedValue, (int)comboBox2.SelectedValue);
+                if (HostConnection == false)
+                {
+                    comboBox1.DataSource = OutFun.GetCatagoryInAccount();
+
+                    comboBox2.DataSource = OutFun.GetTypeInAccount((int)comboBox1.SelectedValue);
+
+                    comboBox4.DataSource = OutFun.GetCurrencyINAccount((int)comboBox1.SelectedValue, (int)comboBox2.SelectedValue);
+
+                    dataGridView1.DataSource = OutFun.SearchINRequstOutDate(DateTime.Now.Date, DateTime.Now); // جلب طلبات الصرف لليوم الحالي
+                }
+                else
+                {
+                    comboBox1.DataSource =ConvertMemorytoDB( OutFunHost.GetCatagoryInAccount());
+
+                    comboBox2.DataSource =ConvertMemorytoDB(OutFunHost.GetTypeInAccount((int)comboBox1.SelectedValue));
+
+                    comboBox4.DataSource =ConvertMemorytoDB( OutFunHost.GetCurrencyINAccount((int)comboBox1.SelectedValue, (int)comboBox2.SelectedValue));
+
+                    dataGridView1.DataSource =ConvertMemorytoDB( OutFunHost.SearchINRequstOutDate(DateTime.Now.Date, DateTime.Now)); // جلب طلبات الصرف لليوم الحالي
+
+                }
                 textBox1.Text = "";
                 textBox2.Text = "";
                 textBox5.Text = "";
-                dataGridView1.DataSource = OutFun.SearchINRequstOutDate(DateTime.Now.Date, DateTime.Now); // جلب طلبات الصرف لليوم الحالي
                 dataGridView1.Columns[0].Visible = false;
                 dataGridView1.Columns[12].Visible = false;
 
@@ -163,8 +212,20 @@ namespace Out_
             {
                 comboBox2.DisplayMember = "اسم النوع";
                 comboBox2.ValueMember = "رقم النوع";
-                comboBox2.DataSource = OutFun.GetTypeInAccount((int)comboBox1.SelectedValue);
-                int IDACCOunt = OutFun.GetAccountLinkCate((int)comboBox1.SelectedValue);
+                int IDACCOunt;
+                if (HostConnection == false)
+                {
+                    comboBox2.DataSource = OutFun.GetTypeInAccount((int)comboBox1.SelectedValue);
+                    IDACCOunt = OutFun.GetAccountLinkCate((int)comboBox1.SelectedValue);
+                }
+                else
+                {
+
+                    comboBox2.DataSource = ConvertMemorytoDB(OutFunHost.GetTypeInAccount((int)comboBox1.SelectedValue));
+                    IDACCOunt = OutFunHost.GetAccountLinkCate((int)comboBox1.SelectedValue);
+                }
+
+               
                 if (IDACCOunt > 0)
                     comboBox6.SelectedValue = IDACCOunt;
             }
@@ -195,7 +256,11 @@ namespace Out_
 
                 comboBox4.ValueMember = "رقم العملة";
                 comboBox4.DisplayMember = "اسم العملة";
-                comboBox4.DataSource = OutFun.GetCurrencyINAccount((int)comboBox1.SelectedValue, (int)comboBox2.SelectedValue);
+                if(HostConnection==false)
+                    comboBox4.DataSource = OutFun.GetCurrencyINAccount((int)comboBox1.SelectedValue, (int)comboBox2.SelectedValue);
+                else
+                    comboBox4.DataSource =ConvertMemorytoDB(OutFunHost.GetCurrencyINAccount((int)comboBox1.SelectedValue, (int)comboBox2.SelectedValue));
+
 
             }
             catch (Exception ex)
@@ -221,9 +286,13 @@ namespace Out_
             {
                 try
                 {
-                    int qunntNow = OutFun.GetQunitiyinAccount2((int)comboBox1.SelectedValue, (int)comboBox2.SelectedValue, (int)comboBox4.SelectedValue);
+                    int qunntNow;
+                    if(HostConnection==false)
+                        qunntNow = OutFun.GetQunitiyinAccount2((int)comboBox1.SelectedValue, (int)comboBox2.SelectedValue, (int)comboBox4.SelectedValue);
+                    else
+                        qunntNow = OutFunHost.GetQunitiyinAccount2((int)comboBox1.SelectedValue, (int)comboBox2.SelectedValue, (int)comboBox4.SelectedValue);
                     int qunnMus = Convert.ToInt32(textBox2.Text);
-                   
+
                     if (qunnMus > qunntNow)
                     {
                         MessageBox.Show("الكمية لا تسمح");
@@ -237,8 +306,11 @@ namespace Out_
                 }
             }
             else
-            { textBox2.Focus(); }
-        }
+            {
+                textBox2.Focus();
+            }
+
+            }
 
 
 
@@ -270,17 +342,25 @@ namespace Out_
                         string Decrip = textBox5.Text;
 
 
-
-                        DataTable dtAccountIDs = new DataTable();
-                        dtAccountIDs = OutFun.GetAccountIDs(Idcat, idtyp, idcurrnt); // جلب الحسابات التي تحتوي على نفس النوع والصنف
                         int MaxCheckRequstOut;
+                        DataTable dtAccountIDs = new DataTable();
+                        if(HostConnection==false)
+                           dtAccountIDs = OutFun.GetAccountIDs(Idcat, idtyp, idcurrnt); // جلب الحسابات التي تحتوي على نفس النوع والصنف
+                      else
+                            dtAccountIDs =ConvertMemorytoDB(OutFunHost.GetAccountIDs(Idcat, idtyp, idcurrnt)); // جلب الحسابات التي تحتوي على نفس النوع والصنف
                         if (flagAddAgin == true)
                         {
-                            MaxCheckRequstOut = OutFun.GetMaxCheckInRequsetOut();
+                            if (HostConnection == false)
+                                MaxCheckRequstOut = OutFun.GetMaxCheckInRequsetOut();
+                            else
+                                MaxCheckRequstOut = OutFunHost.GetMaxCheckInRequsetOut();
                         }
                         else
                         {
-                            MaxCheckRequstOut = OutFun.GetMaxCheckInRequsetOut();
+                            if (HostConnection == false)
+                                MaxCheckRequstOut = OutFun.GetMaxCheckInRequsetOut();
+                            else
+                                MaxCheckRequstOut = OutFunHost.GetMaxCheckInRequsetOut();
                             MaxCheckRequstOut += 1;
                         }
 
@@ -289,7 +369,11 @@ namespace Out_
                         for (int i = 0; i < dtAccountIDs.Rows.Count; i++)
                         {
                             int IDAccount = Convert.ToInt32(dtAccountIDs.Rows[i][0].ToString());
-                            int result = OutFun.GetAndCheckQuntityAccountAndAddRqustNew(IDAccount, Quntity2, Idcat, idtyp, idcurrnt, idplace, nameAmmer, Decrip, DateTime.Now, MaxCheckRequstOut, nameMostlaem, IdAccountMins, IdAccountPlus, UserID,comboBox1.Text,comboBox2.Text,comboBox6.Text,comboBox5.Text,comboBox4.Text);
+                            int result;
+                            if (HostConnection==false)
+                                result = OutFun.GetAndCheckQuntityAccountAndAddRqustNew(IDAccount, Quntity2, Idcat, idtyp, idcurrnt, idplace, nameAmmer, Decrip, DateTime.Now, MaxCheckRequstOut, nameMostlaem, IdAccountMins, IdAccountPlus, UserID,comboBox1.Text,comboBox2.Text,comboBox6.Text,comboBox5.Text,comboBox4.Text);
+                            else
+                                result = OutFunHost.GetAndCheckQuntityAccountAndAddRqustNew(IDAccount, Quntity2, Idcat, idtyp, idcurrnt, idplace, nameAmmer, Decrip, DateTime.Now, MaxCheckRequstOut, nameMostlaem, IdAccountMins, IdAccountPlus, UserID, comboBox1.Text, comboBox2.Text, comboBox6.Text, comboBox5.Text, comboBox4.Text);
                             if (result == 0)
                             {
                                 break;
@@ -320,15 +404,22 @@ namespace Out_
                             flagAddAgin = false;
                             if ((MessageBox.Show("هل تريد طباعة سند صرف؟", "تاكيد", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign) == DialogResult.Yes))
                             {
-                                
-                                int IDcheck = OutFun.GetMaxCheckInRequsetOut();
-                                    //string name = dataGridView1.SelectedRows[0].Cells[11].Value.ToString();
+
+                                int IDcheck;
+                                if(HostConnection==false)
+                                   IDcheck = OutFun.GetMaxCheckInRequsetOut();
+                                else
+                                    IDcheck = OutFunHost.GetMaxCheckInRequsetOut();
+                                //string name = dataGridView1.SelectedRows[0].Cells[11].Value.ToString();
 
                                 DataTable dtExit = new DataTable();
-                                
+
                                 if (checkBox1.Checked)
                                 {
-                                    dtExit = OutFun.printrequstOutExit(IDcheck, UserID, UserID);
+                                    if (HostConnection == false)
+                                        dtExit = OutFun.printrequstOutExit(IDcheck, UserID, UserID);
+                                    else
+                                        dtExit =ConvertMemorytoDB( OutFunHost.printrequstOutExit(IDcheck, UserID, UserID));
                                 }
                                 else
                                 {
@@ -337,8 +428,10 @@ namespace Out_
 
                                 DataTable dtOut = new DataTable();
                                
-
-                                dtOut = OutFun.PrintRequstOut(IDcheck, UserID, UserID);
+                                if(HostConnection==false)
+                                   dtOut = OutFun.PrintRequstOut(IDcheck, UserID, UserID);
+                                else
+                                    dtOut =ConvertMemorytoDB( OutFunHost.PrintRequstOut(IDcheck, UserID, UserID));
                                 this.Cursor = Cursors.WaitCursor;
                                 FrmRports.frmReprt frmrepett = new FrmRports.frmReprt(dtOut, dtExit, 2);
                                 frmrepett.ShowDialog();
@@ -391,8 +484,10 @@ namespace Out_
 
                 comboBox4.ValueMember = "رقم العملة";
                 comboBox4.DisplayMember = "اسم العملة";
-                comboBox4.DataSource = OutFun.GetCurrencyINAccount((int)comboBox1.SelectedValue, (int)comboBox2.SelectedValue);
-
+                if(HostConnection==false)
+                    comboBox4.DataSource = OutFun.GetCurrencyINAccount((int)comboBox1.SelectedValue, (int)comboBox2.SelectedValue);
+                else
+                    comboBox4.DataSource =ConvertMemorytoDB( OutFunHost.GetCurrencyINAccount((int)comboBox1.SelectedValue, (int)comboBox2.SelectedValue));
             }
             catch (Exception ex)
             {
@@ -429,16 +524,22 @@ namespace Out_
                     int UserAdd = 0;
                     try
                     {
-                         UserAdd = OutFun.GetIdUser(name);
+                        if (HostConnection == false)
+                            UserAdd = OutFun.GetIdUser(name);
+                        else
+                            UserAdd = OutFunHost.GetIdUser(name);
                     }
                     catch
                     {
                         throw;
                     }
-                   
+
                     if (checkBox1.Checked)
                     {
-                        dtExit = OutFun.printrequstOutExit(IDcheck, UserID,UserAdd);
+                        if (HostConnection == false)
+                            dtExit = OutFun.printrequstOutExit(IDcheck, UserID, UserAdd);
+                        else
+                            dtExit = ConvertMemorytoDB(OutFunHost.printrequstOutExit(IDcheck, UserID, UserAdd));
                     }
                     else
                     {
@@ -446,9 +547,19 @@ namespace Out_
                     }
                
                     DataTable dtOut = new DataTable();
-                    int usee = OutFun.GetIdUser(name);
-               
-                    dtOut = OutFun.PrintRequstOut(IDcheck, UserID, UserAdd);
+                    if (HostConnection == false)
+                    {
+                        int usee = OutFun.GetIdUser(name);
+
+                        dtOut = OutFun.PrintRequstOut(IDcheck, UserID, UserAdd);
+                    }
+                    else
+                    {
+                        int usee = OutFunHost.GetIdUser(name);
+
+                        dtOut =ConvertMemorytoDB(OutFunHost.PrintRequstOut(IDcheck, UserID, UserAdd));
+
+                    }
                     this.Cursor = Cursors.WaitCursor;
                     FrmRports.frmReprt frmrepett = new FrmRports.frmReprt(dtOut, dtExit, 2);
                     frmrepett.ShowDialog();
@@ -477,8 +588,10 @@ namespace Out_
         private void textBox2_Enter(object sender, EventArgs e)
         {
             try
-            {
-                textBox1.Text = OutFun.GetQunitiyinAccount2((int)comboBox1.SelectedValue, (int)comboBox2.SelectedValue, (int)comboBox4.SelectedValue).ToString();
+            { if(HostConnection==false)
+                  textBox1.Text = OutFun.GetQunitiyinAccount2((int)comboBox1.SelectedValue, (int)comboBox2.SelectedValue, (int)comboBox4.SelectedValue).ToString();
+             else
+                    textBox1.Text = OutFunHost.GetQunitiyinAccount2((int)comboBox1.SelectedValue, (int)comboBox2.SelectedValue, (int)comboBox4.SelectedValue).ToString();
             }
             catch (Exception ex)
             {
@@ -569,9 +682,27 @@ namespace Out_
         private void comboBox3_Leave(object sender, EventArgs e)
         {
            try
-            {
-                comboBox5.SelectedValue = OutFun.GetIDAccountPalce((int)comboBox6.SelectedValue, (int)comboBox3.SelectedValue);
-           OutFun.GetIDAccountPalce((int)comboBox6.SelectedValue, (int)comboBox3.SelectedValue).ToString();
+            {  if (HostConnection == false)
+                {
+                    comboBox5.SelectedValue = OutFun.GetIDAccountPalce((int)comboBox6.SelectedValue, (int)comboBox3.SelectedValue);
+                    OutFun.GetIDAccountPalce((int)comboBox6.SelectedValue, (int)comboBox3.SelectedValue).ToString();
+
+                }
+            else
+                {
+                    int id = OutFunHost.GetIDAccountPalce((int)comboBox6.SelectedValue, (int)comboBox3.SelectedValue);
+                    if (id > 0)
+                    {
+                        comboBox5.SelectedValue = id;
+                        OutFunHost.GetIDAccountPalce((int)comboBox6.SelectedValue, (int)comboBox3.SelectedValue).ToString();
+                    }
+                    else
+                    {
+                        comboBox5.ValueMember = "رقم الحساب";
+                        comboBox5.DisplayMember = "اسم الحساب";
+                        comboBox5.DataSource = ConvertMemorytoDB(OutFunHost.GetALLAcountNm());
+                    }
+                }
 
 
             }
@@ -579,8 +710,25 @@ namespace Out_
             {
                comboBox5.ValueMember = "رقم الحساب";
                comboBox5.DisplayMember = "اسم الحساب";
-               comboBox5.DataSource = OutFun.GetALLAcountNm();
+                if (HostConnection == false)
+                {
+                    comboBox5.DataSource = OutFun.GetALLAcountNm();
+                }
+                else
+                {
+                    comboBox5.DataSource =ConvertMemorytoDB( OutFunHost.GetALLAcountNm());
+
+                }
             }
+        }
+
+        ///  //convert MemmoryToDB
+        DataTable ConvertMemorytoDB(MemoryStream ms)
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            ms.Seek(0, SeekOrigin.Begin);
+            DataTable dt = (DataTable)formatter.Deserialize(ms);
+            return dt;
         }
     }
     }
