@@ -296,7 +296,7 @@ namespace Supplly
                                     SuRe.AddNewAccountTotal(mins, (-1 * qunt * price), idCurrnt);
                                 }
                                 //// (اضافة الامر الى جدول تفاصيل الحساب )مدين(
-                                string DitalisMis = "تم قيد عليكم مبلغ وقدره " + string.Format("{0:##,##}", (qunt * price).ToString()) + " " + comboBox3.Text + "  " + "مقابل امر توريد ب  " + qunt.ToString() + " " + comboBox1.Text + " " + comboBox2.Text + "  الى حساب  " + comboBox5.Text + "رقم الطلب " + SuRe.GetMaxIdSupply();
+                                string DitalisMis = "تم قيد عليكم مبلغ وقدره " +" "+ string.Format("{0:##,##}", (qunt * price).ToString()) + " " + comboBox3.Text + "  " + "مقابل امر توريد ب  "+" " + qunt.ToString() + " " + comboBox1.Text + " " + comboBox2.Text + "  الى حساب  " + comboBox5.Text + "رقم الطلب " + " "+SuRe.GetMaxIdSupply();
                                 SuRe.AddNewAccountDetalis(mins, (-1 * qunt * price), SuRe.GetMaxIdSupply(), 0, DitalisMis, DateTime.Now, UserID, idCurrnt, 0);//// اضافة الى جدول التفاصيل
                                                                                                                                                               /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                                                                                                                                               //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -312,7 +312,7 @@ namespace Supplly
                                 }
                                 /////////////////////////////
                                 //  اضافة الامر الى جدول التفاصيل (دائن)
-                                string DitalisPlus = "تم قيد لكم مبلغ وقدره" + string.Format("{0:##,##}", (qunt * price).ToString()) + " " + comboBox3.Text + "  " + "مقابل امر توريد ب " + qunt.ToString() + " " + comboBox1.Text + " " + comboBox2.Text + "  من حساب " + comboBox4.Text + "رقم الطلب " + SuRe.GetMaxIdSupply();
+                                string DitalisPlus = "تم قيد لكم مبلغ وقدره" + " "+string.Format("{0:##,##}", (qunt * price).ToString()) + " " + comboBox3.Text + "  " + "مقابل امر توريد ب " +" "+ qunt.ToString() + " " + comboBox1.Text + " " + comboBox2.Text + "  من حساب " + comboBox4.Text + "رقم الطلب " + " "+SuRe.GetMaxIdSupply();
 
                                 SuRe.AddNewAccountDetalis(plus, (qunt * price), SuRe.GetMaxIdSupply(), 0, DitalisPlus, DateTime.Now, UserID, idCurrnt, 0);//// اضافة الى جدول التفاصيل
 
@@ -396,7 +396,7 @@ namespace Supplly
                                     SureHost.AddNewAccountTotalInSuuply(mins, (-1 * qunt * price), idCurrnt);
                                 }
                                 //// (اضافة الامر الى جدول تفاصيل الحساب )مدين(
-                                string DitalisMis = "تم قيد عليكم مبلغ وقدره " + string.Format("{0:##,##}", (qunt * price).ToString()) + " " + comboBox3.Text + "  " + "مقابل امر توريد ب  " + qunt.ToString() + " " + comboBox1.Text + " " + comboBox2.Text + "  الى حساب  " + comboBox5.Text + "رقم الطلب " + SureHost.GetMaxIdSupply();
+                                string DitalisMis = "تم قيد عليكم مبلغ وقدره "+" " + string.Format("{0:##,##}", (qunt * price).ToString()) + " " + comboBox3.Text + "  " + "مقابل امر توريد ب  " +" "+ qunt.ToString() + " " + comboBox1.Text + " " + comboBox2.Text + "  الى حساب  " + comboBox5.Text + "رقم الطلب "  +" "+SureHost.GetMaxIdSupply();
                                 SureHost.AddNewAccountDetalisINSupply(mins, (-1 * qunt * price), SureHost.GetMaxIdSupply(), 0, DitalisMis, DateTime.Now, UserID, idCurrnt, 0);//// اضافة الى جدول التفاصيل
                                                                                                                                                               /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                                                                                                                                               //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -412,7 +412,7 @@ namespace Supplly
                                 }
                                 /////////////////////////////
                                 //  اضافة الامر الى جدول التفاصيل (دائن)
-                                string DitalisPlus = "تم قيد لكم مبلغ وقدره" + string.Format("{0:##,##}", (qunt * price).ToString()) + " " + comboBox3.Text + "  " + "مقابل امر توريد ب " + qunt.ToString() + " " + comboBox1.Text + " " + comboBox2.Text + "  من حساب " + comboBox4.Text + "رقم الطلب " + SureHost.GetMaxIdSupply();
+                                string DitalisPlus = "تم قيد لكم مبلغ وقدره" +" " +string.Format("{0:##,##}", (qunt * price).ToString()) + " " + comboBox3.Text + "  " + "مقابل امر توريد ب " +" "+qunt.ToString() + " " + comboBox1.Text + " " + comboBox2.Text + "  من حساب " + comboBox4.Text + "رقم الطلب " +" "+SureHost.GetMaxIdSupply();
 
                                 SureHost.AddNewAccountDetalisINSupply(plus, (qunt * price), SureHost.GetMaxIdSupply(), 0, DitalisPlus, DateTime.Now, UserID, idCurrnt, 0);//// اضافة الى جدول التفاصيل
 

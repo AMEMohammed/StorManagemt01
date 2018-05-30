@@ -8,7 +8,7 @@ using System.Data.SqlClient;
 using System.Windows.Forms;
 namespace SystemConfiguration
 {
-    class Config
+   public class Config
     {
         MSqlConnection sql;
         public Config(string ServerNm,string DbNm,string UserSql,string PassSql)

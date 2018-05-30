@@ -55,6 +55,9 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="SystemConfiguration">
+      <HintPath>..\StoreMaga0101\SystemConfiguration\bin\Debug\SystemConfiguration.dll</HintPath>
+    </Reference>
     <Reference Include="Users, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\StoreMaga0101\Users\bin\Debug\Users.dll</HintPath>

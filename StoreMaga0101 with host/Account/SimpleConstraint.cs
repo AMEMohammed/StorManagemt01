@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
+using System.ServiceModel;
 namespace Account
 {
     public partial class SimpleConstraint : Form
@@ -18,6 +19,7 @@ namespace Account
         ServiceReference1.IserviceClient AcnHost;
         int IDUSER;
         bool HostConnection = false;
+     
         public SimpleConstraint()
         {
             InitializeComponent();
@@ -33,7 +35,7 @@ namespace Account
 
             }
         }
-        public SimpleConstraint(string ServNm, string DbNm, string UesrSql, string PassSql, int UserId,bool hostCOnnection)
+        public SimpleConstraint(string ServNm, string DbNm, string UesrSql, string PassSql, int UserId,bool hostCOnnection,string HostIp)
         {
             InitializeComponent();
             HostConnection = hostCOnnection;
@@ -46,6 +48,8 @@ namespace Account
                 {
                    
                     AcnHost = new ServiceReference1.IserviceClient();
+                    EndpointAddress endp = new EndpointAddress(HostIp);
+                    AcnHost.Endpoint.Address = endp;
                 }
                 IDUSER = UserId;
                 

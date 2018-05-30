@@ -260,9 +260,91 @@ namespace WindowsFormsHosttcp
         int DeleteSuuplyFrmAccountDitalisInSupply(int idSupply);
         [OperationContract]
         int DeleteSuuplyFrmAccountDitalis2InSupply(int idout);
-       
+
         #endregion
         // end Supply
+        //Configtion الاعدادات
+        #region
+        [OperationContract]
+        MemoryStream GetCategoryByName(string NMCate);
+        [OperationContract]
+        int AddNewCategory(string NameCategory, object IDAccount);
+        [OperationContract]
+        int GetMaxIDCate();
+        [OperationContract]
+        int UpdateCategory(int id, string name, object IDAccount);
+        [OperationContract]
+        int DeleteCategory(int id);
+        [OperationContract]
+        MemoryStream chackCatagory(int IDCA);
+        [OperationContract]
+        MemoryStream GetAllTypeQuntityInConf();
+        [OperationContract]
+        MemoryStream GetTypeQuntityByName(string nameTYPe);
+        [OperationContract]
+        int AddNewTypeQuntity(string name);
+        [OperationContract]
+        int UpdateTypeQuntity(int id, string name);
+        [OperationContract]
+        int DeleteQuntity(int id);
+        [OperationContract]
+        MemoryStream chackTapy(int IDtype);
+        [OperationContract]
+        MemoryStream GetPlaceByName(string NAMEPLACE);
+        [OperationContract]
+        int AddNewPlaceSend(string name);
+        [OperationContract]
+        int UpdatePlaceSend(int id, string name);
+        [OperationContract]
+        int DeletePlaceSend(int id);
+        [OperationContract]
+        MemoryStream  chackPlace(int IDplace);
+        [OperationContract]
+        MemoryStream GETCurrencyBYName(string NameCurrncy);
+        [OperationContract]
+        int AddNewCurrency(string name);
+        [OperationContract]
+        int UpdateCurrency(int id, string name);
+        [OperationContract]
+        int DeleteCurrency(int id);
+        [OperationContract]
+        MemoryStream chackCurncy(int IDcur);
+        [OperationContract]
+        int AddNewGroup(int GroupSourceID, string GroupName, string GroupDescription, int UserID, DateTime EnterTime);
+        [OperationContract]
+        MemoryStream GetOneGroup(int IDGroup);
+        [OperationContract]
+        MemoryStream GetAllGroup();
+        [OperationContract]
+        MemoryStream GetGroupByName(string NAME);
+        [OperationContract]
+        MemoryStream DeleteGroup(int IDGROUP);
+        [OperationContract]
+        bool CheckGroupItems(int IDGROUP);
+        [OperationContract]
+        MemoryStream GetSourecGroup();
+        [OperationContract]
+        int GetMaxIDGroup();
+        [OperationContract]
+        int UpdateGroup(int ID, int GroupSourceID, string GroupName, string GroupDescription, int UserID);
+        [OperationContract]
+        MemoryStream GetAllAccountSubNoInGroup(int GroupID);
+        [OperationContract]
+        MemoryStream GetAllAccountSubInGroup(int GroupID);
+        [OperationContract]
+        int DeleteItemsONGroupDetalis(int IDGroup);
+        [OperationContract]
+        int AddItemsONGroupDetalis(int IDGroup, int IDItems, int UserID);
+        [OperationContract]
+        int AddConnectionAccountwithPlace(int palce, int idMadeen, int idDaan);
+        [OperationContract]
+        int UpdateConnectionAccountwithPlace(int ID, int palce, int idMadeen, int idDaan);
+        [OperationContract]
+        int DeleteConnectionAccountwithPlace(int ID);
+        [OperationContract]
+        MemoryStream GetConnectionAccountwithPlace();
+        #endregion
+        //ENd Configtion
     }
 
 }

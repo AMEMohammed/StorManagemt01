@@ -9,16 +9,23 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using FrmRports;
 using Excel = Microsoft.Office.Interop.Excel;
+using System.ServiceModel;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+
 namespace Supplly
 {
     public partial class frmUpdatSupply : Form
     {
         Supplly.SupplyRequset SuRe;
         int UserID;
+        string HostIp;
+        bool HostConnection;
+        ServiceReference1.IserviceClient SureHost;
         public frmUpdatSupply()
         {
             InitializeComponent();
-            SuRe = new SupplyRequset(@".\s2008", "StoreManagement1",null,null);
+            SuRe = new SupplyRequset(@".\s2008", "StoreManagement1", null, null);
             UserID = 1;
 
         }
@@ -27,15 +34,35 @@ namespace Supplly
         string UserSQl = "";
         string passSql = "";
 
-        public frmUpdatSupply(string ServerNm, string DBnm,string UserSql,string PassSql, int UserId)
+        public frmUpdatSupply(string ServerNm, string DBnm, string UserSql, string PassSql, int UserId, bool hostConecection, string HostIp1)
         {
-            InitializeComponent();
-            Serv = ServerNm;
-            DBNm = DBnm;
-            UserSQl = UserSql;
-            passSql = PassSql;
-            SuRe = new SupplyRequset(ServerNm, DBnm,UserSql,PassSql);
-            UserID = UserId;
+            try
+            {
+                InitializeComponent();
+                Serv = ServerNm;
+                DBNm = DBnm;
+                UserSQl = UserSql;
+                passSql = PassSql;
+                UserID = UserId;
+                HostConnection = hostConecection;
+                HostIp = HostIp1;
+                if (HostConnection == false)
+                {
+                    SuRe = new SupplyRequset(ServerNm, DBnm, UserSql, PassSql);
+                }
+                else
+                {
+                    SureHost = new ServiceReference1.IserviceClient();
+                    EndpointAddress endp = new EndpointAddress(HostIp);
+                    SureHost.Endpoint.Address = endp;
+
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
         private void groupBox11_Enter(object sender, EventArgs e)
         {
@@ -72,44 +99,71 @@ namespace Supplly
 
         private void btnAddSup_Click(object sender, EventArgs e)
         {
-         
-            if(comboBox1.SelectedIndex==0)
+            if (HostConnection == false)
             {
-                dataGridView1.DataSource = SuRe.SearchINRequsetSupplyTxtAndDate(textBox3.Text, DateTime.Now.AddDays(-1), DateTime.Now);
-            }
-            else   if(comboBox1.SelectedIndex==1)
-            {
-                dataGridView1.DataSource = SuRe.SearchINRequsetSupplyTxtAndDate(textBox3.Text,  Convert.ToDateTime("2016/01/01"), dateTimePicker2.Value);
+                if (comboBox1.SelectedIndex == 0)
+                {
+                    dataGridView1.DataSource = SuRe.SearchINRequsetSupplyTxtAndDate(textBox3.Text, DateTime.Now.AddDays(-1), DateTime.Now);
+                }
+                else if (comboBox1.SelectedIndex == 1)
+                {
+                    dataGridView1.DataSource = SuRe.SearchINRequsetSupplyTxtAndDate(textBox3.Text, Convert.ToDateTime("2016/01/01"), dateTimePicker2.Value);
 
+                }
+                else if (comboBox1.SelectedIndex == 2)
+                {
+                    dataGridView1.DataSource = SuRe.SearchINRequsetSupplyTxtAndDate(textBox3.Text, DateTime.Now.AddDays(-7), DateTime.Now);
+                }
+                else if (comboBox1.SelectedIndex == 3)
+                {
+                    dataGridView1.DataSource = SuRe.SearchINRequsetSupplyTxtAndDate(textBox3.Text, DateTime.Now.AddDays(-30), DateTime.Now);
+                }
+                else if (comboBox1.SelectedIndex == 4)
+                {
+                    dataGridView1.DataSource = SuRe.SearchINRequsetSupplyTxtAndDate(textBox3.Text, dateTimePicker1.Value, dateTimePicker2.Value);
+                }
             }
-            else if(comboBox1.SelectedIndex==2)
+            else//conection host
             {
-                dataGridView1.DataSource = SuRe.SearchINRequsetSupplyTxtAndDate(textBox3.Text, DateTime.Now.AddDays(-7), DateTime.Now);
-            }
-            else if(comboBox1.SelectedIndex==3)
-            {
-                dataGridView1.DataSource = SuRe.SearchINRequsetSupplyTxtAndDate(textBox3.Text, DateTime.Now.AddDays(-30), DateTime.Now);
-            }
-            else if  (comboBox1.SelectedIndex == 4)
-            {
-                dataGridView1.DataSource = SuRe.SearchINRequsetSupplyTxtAndDate(textBox3.Text,dateTimePicker1.Value, dateTimePicker2.Value);
+                if (comboBox1.SelectedIndex == 0)
+                {
+                    dataGridView1.DataSource = ConvertMemorytoDB(SureHost.SearchINRequsetSupplyTxtAndDate(textBox3.Text, DateTime.Now.AddDays(-1), DateTime.Now));
+                }
+                else if (comboBox1.SelectedIndex == 1)
+                {
+                    dataGridView1.DataSource = ConvertMemorytoDB(SureHost.SearchINRequsetSupplyTxtAndDate(textBox3.Text, Convert.ToDateTime("2016/01/01"), dateTimePicker2.Value));
+
+                }
+                else if (comboBox1.SelectedIndex == 2)
+                {
+                    dataGridView1.DataSource = ConvertMemorytoDB(SureHost.SearchINRequsetSupplyTxtAndDate(textBox3.Text, DateTime.Now.AddDays(-7), DateTime.Now));
+                }
+                else if (comboBox1.SelectedIndex == 3)
+                {
+                    dataGridView1.DataSource = ConvertMemorytoDB(SureHost.SearchINRequsetSupplyTxtAndDate(textBox3.Text, DateTime.Now.AddDays(-30), DateTime.Now));
+                }
+                else if (comboBox1.SelectedIndex == 4)
+                {
+                    dataGridView1.DataSource = ConvertMemorytoDB(SureHost.SearchINRequsetSupplyTxtAndDate(textBox3.Text, dateTimePicker1.Value, dateTimePicker2.Value));
+                }
+
             }
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(((ComboBox)sender).SelectedIndex==4)
+            if (((ComboBox)sender).SelectedIndex == 4)
             {
                 dateTimePicker1.Visible = true;
                 dateTimePicker2.Visible = true;
                 label2.Visible = true;
                 label3.Visible = true;
             }
-            else if(((ComboBox)sender).SelectedIndex == 1)
+            else if (((ComboBox)sender).SelectedIndex == 1)
             {
                 dateTimePicker1.Visible = false;
                 dateTimePicker2.Visible = true;
-                label2.Visible = false  ;
+                label2.Visible = false;
                 label3.Visible = true;
             }
             else
@@ -124,7 +178,7 @@ namespace Supplly
 
         private void button4_Click(object sender, EventArgs e)
         {
-            this.Close(); 
+            this.Close();
         }
 
         private void حذفToolStripMenuItem_Click(object sender, EventArgs e)
@@ -135,82 +189,146 @@ namespace Supplly
                 {
                     if ((MessageBox.Show("هل تريد ترحيل طلب  حذف التوريد واعتماده ؟", "تاكيد", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign) == DialogResult.Yes))
 
-                    {/// جلب رقم الطلب 
-                        int id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
-                        DataTable dt = new DataTable();
-                        /// جلب بيانات الطلب
-                        dt = SuRe.GetRequstSupply(id);
-                        int oldQuntity = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[3].Value.ToString());
-                        int idAcount2 = SuRe.CheckAccountIsHere(Convert.ToInt32(dt.Rows[0]["IDCategory"].ToString()), Convert.ToInt32(dt.Rows[0]["IDType"].ToString()), Convert.ToInt32(dt.Rows[0]["Price"].ToString()), Convert.ToInt32(dt.Rows[0]["IDCurrency"].ToString()));
-
-                        int QuntityHere = SuRe.GetQuntityInAccount(idAcount2);
-                        if (QuntityHere >= oldQuntity)
+                    {
+                        if (HostConnection == false)
                         {
-                            // حذف الطلب
-                            int qu = QuntityHere - oldQuntity;
-                            SuRe.UpdateQuntityAccount(idAcount2, qu); // تعديل الكمية في جدول المخزون
-                                                                      //اضافة الطلب في جدول التعديلات
-                            SuRe.ADDNewUPDSupply(id, Convert.ToInt32(dt.Rows[0]["IDCategory"].ToString()), Convert.ToInt32(dt.Rows[0]["IDType"].ToString()), Convert.ToInt32(dt.Rows[0]["Quntity"].ToString()), Convert.ToInt32(dt.Rows[0]["Price"].ToString()), Convert.ToInt32(dt.Rows[0]["IDCurrency"].ToString()), dt.Rows[0]["NameSupply"].ToString(), DateTime.Parse(dt.Rows[0]["DateSupply"].ToString()), DateTime.Now, "تم حذف الطلب", UserID);
+                            ///  جلب رقم الطلب 
+                            int id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
+                            DataTable dt = new DataTable();
+                            /// جلب بيانات الطلب
+                            dt = SuRe.GetRequstSupply(id);
+                            int oldQuntity = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[3].Value.ToString());
+                            int idAcount2 = SuRe.CheckAccountIsHere(Convert.ToInt32(dt.Rows[0]["IDCategory"].ToString()), Convert.ToInt32(dt.Rows[0]["IDType"].ToString()), Convert.ToInt32(dt.Rows[0]["Price"].ToString()), Convert.ToInt32(dt.Rows[0]["IDCurrency"].ToString()));
 
-                            /// Account Monay Totla
-                            DataTable dtSupply = SuRe.GetRequstSupply(id);
-                            int IDAccounPlus = Convert.ToInt32(dtSupply.Rows[0]["Creditor"].ToString());
-                            int IDAccountMins = Convert.ToInt32(dtSupply.Rows[0]["Debit"].ToString());
-                            int IDcurrncy = Convert.ToInt32(dtSupply.Rows[0]["IDCurrency"].ToString());
-                            int TotalMony = Convert.ToInt32(dtSupply.Rows[0]["Quntity"].ToString()) * Convert.ToInt32(dtSupply.Rows[0]["Price"].ToString());
-                            SuRe.UpdateAccountTotal(IDAccounPlus, (-1 * TotalMony), IDcurrncy);// حذف القيمة من حساب الدائن
-                            SuRe.UpdateAccountTotal(IDAccountMins, TotalMony, IDcurrncy);// ارجاع القيمة الى حساب المدين
+                            int QuntityHere = SuRe.GetQuntityInAccount(idAcount2);
+                            if (QuntityHere >= oldQuntity)
+                            {
+                                // حذف الطلب
+                                int qu = QuntityHere - oldQuntity;
+                                SuRe.UpdateQuntityAccount(idAcount2, qu); // تعديل الكمية في جدول المخزون
+                                                                          //اضافة الطلب في جدول التعديلات
+                                SuRe.ADDNewUPDSupply(id, Convert.ToInt32(dt.Rows[0]["IDCategory"].ToString()), Convert.ToInt32(dt.Rows[0]["IDType"].ToString()), Convert.ToInt32(dt.Rows[0]["Quntity"].ToString()), Convert.ToInt32(dt.Rows[0]["Price"].ToString()), Convert.ToInt32(dt.Rows[0]["IDCurrency"].ToString()), dt.Rows[0]["NameSupply"].ToString(), DateTime.Parse(dt.Rows[0]["DateSupply"].ToString()), DateTime.Now, "تم حذف الطلب", UserID);
 
-                            ////////
-                            //////
-                            SuRe.DeleteSuuplyFrmAccountDitalis(id);//حذف الطلب من جدول تفاصيل الحساب
+                                /// Account Monay Totla
+                                DataTable dtSupply = SuRe.GetRequstSupply(id);
+                                int IDAccounPlus = Convert.ToInt32(dtSupply.Rows[0]["Creditor"].ToString());
+                                int IDAccountMins = Convert.ToInt32(dtSupply.Rows[0]["Debit"].ToString());
+                                int IDcurrncy = Convert.ToInt32(dtSupply.Rows[0]["IDCurrency"].ToString());
+                                int TotalMony = Convert.ToInt32(dtSupply.Rows[0]["Quntity"].ToString()) * Convert.ToInt32(dtSupply.Rows[0]["Price"].ToString());
+                                SuRe.UpdateAccountTotal(IDAccounPlus, (-1 * TotalMony), IDcurrncy);// حذف القيمة من حساب الدائن
+                                SuRe.UpdateAccountTotal(IDAccountMins, TotalMony, IDcurrncy);// ارجاع القيمة الى حساب المدين
+
+                                ////////
+                                //////
+                                SuRe.DeleteSuuplyFrmAccountDitalis(id);//حذف الطلب من جدول تفاصيل الحساب
 
 
 
-                            SuRe.DeleteRequstSupply(id); //حذف الطلب من جدول الطلبات
+                                SuRe.DeleteRequstSupply(id); //حذف الطلب من جدول الطلبات
 
-                            dataGridView1.DataSource = SuRe.SearchINRequsetSupplyDate(DateTime.Now.AddDays(-7), DateTime.Now);
+                                dataGridView1.DataSource = SuRe.SearchINRequsetSupplyDate(DateTime.Now.AddDays(-7), DateTime.Now);
+
+                            }
+                            else
+                            {
+                                MessageBox.Show("تاكد من الكيمة المخزونة");
+                            }
+
+
+
+                            //////////////////////////////////////////////////////////
+                            ///////////////////////
+                            ////////////
+                            ///
+
+                            // 
 
                         }
-                        else
+
+                        else //conection host
                         {
-                            MessageBox.Show("تاكد من الكيمة المخزونة");
+                            
+                            ///  جلب رقم الطلب 
+                            int id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
+                            DataTable dt = new DataTable();
+                            /// جلب بيانات الطلب
+                            dt = ConvertMemorytoDB(SureHost.GetRequstSupply(id));
+                            int oldQuntity = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[3].Value.ToString());
+                            int idAcount2 = SureHost.CheckAccountIsHereInSuplly(Convert.ToInt32(dt.Rows[0]["IDCategory"].ToString()), Convert.ToInt32(dt.Rows[0]["IDType"].ToString()), Convert.ToInt32(dt.Rows[0]["Price"].ToString()), Convert.ToInt32(dt.Rows[0]["IDCurrency"].ToString()));
+
+                            int QuntityHere = SureHost.GetQuntityInAccountInSupply(idAcount2);
+                            if (QuntityHere >= oldQuntity)
+                            {
+                                // حذف الطلب
+                                int qu = QuntityHere - oldQuntity;
+                                SureHost.UpdateQuntityAccountInSuplly(idAcount2, qu); // تعديل الكمية في جدول المخزون
+                                                                                      //اضافة الطلب في جدول التعديلات
+                                SureHost.ADDNewUPDSupply(id, Convert.ToInt32(dt.Rows[0]["IDCategory"].ToString()), Convert.ToInt32(dt.Rows[0]["IDType"].ToString()), Convert.ToInt32(dt.Rows[0]["Quntity"].ToString()), Convert.ToInt32(dt.Rows[0]["Price"].ToString()), Convert.ToInt32(dt.Rows[0]["IDCurrency"].ToString()), dt.Rows[0]["NameSupply"].ToString(), DateTime.Parse(dt.Rows[0]["DateSupply"].ToString()), DateTime.Now, "تم حذف الطلب", UserID);
+
+                                /// Account Monay Totla
+                                DataTable dtSupply = ConvertMemorytoDB(SureHost.GetRequstSupply(id));
+                                int IDAccounPlus = Convert.ToInt32(dtSupply.Rows[0]["Creditor"].ToString());
+                                int IDAccountMins = Convert.ToInt32(dtSupply.Rows[0]["Debit"].ToString());
+                                int IDcurrncy = Convert.ToInt32(dtSupply.Rows[0]["IDCurrency"].ToString());
+                                int TotalMony = Convert.ToInt32(dtSupply.Rows[0]["Quntity"].ToString()) * Convert.ToInt32(dtSupply.Rows[0]["Price"].ToString());
+                                SureHost.UpdateAccountTotalInSupply(IDAccounPlus, (-1 * TotalMony), IDcurrncy);// حذف القيمة من حساب الدائن
+                                SureHost.UpdateAccountTotalInSupply(IDAccountMins, TotalMony, IDcurrncy);// ارجاع القيمة الى حساب المدين
+
+                                ////////
+                                //////
+                                SureHost.DeleteSuuplyFrmAccountDitalisInSupply(id);//حذف الطلب من جدول تفاصيل الحساب
+
+
+
+                                SureHost.DeleteRequstSupply(id); //حذف الطلب من جدول الطلبات
+
+                                dataGridView1.DataSource = SureHost.SearchINRequsetSupplyDate(DateTime.Now.AddDays(-7), DateTime.Now);
+
+                            }
+                            else
+                            {
+                                MessageBox.Show("تاكد من الكيمة المخزونة");
+                            }
                         }
-                      
-
-
-                        //////////////////////////////////////////////////////////
-                        ///////////////////////
-                        ////////////
-                        ///
-
-                        // 
-
                     }
                 }
+
+
+
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
             }
+
         }
 
         private void تعديلToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
-                try
+               try
                 {
                     int id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
-                  frmupdatesupply2 frmu = new frmupdatesupply2(Serv,DBNm,UserSQl,passSql,UserID);
+                    frmupdatesupply2 frmu = new frmupdatesupply2(Serv,DBNm,UserSQl,passSql,UserID,HostConnection,HostIp);
                     frmu.Tag = id;
                     this.Cursor = Cursors.WaitCursor;
 
                     frmu.ShowDialog();
                     this.Cursor = Cursors.Default;
-                    dataGridView1.DataSource = SuRe.SearchINRequsetSupplyDate(DateTime.Now.AddDays(-7), DateTime.Now);
+                    if(HostConnection==false)
+                    {
+                        dataGridView1.DataSource = SuRe.SearchINRequsetSupplyDate(DateTime.Now.AddDays(-7), DateTime.Now);
+
+                    }
+                    else
+                    {
+                        dataGridView1.DataSource =ConvertMemorytoDB( SureHost.SearchINRequsetSupplyDate(DateTime.Now.AddDays(-7), DateTime.Now));
+
+                    }
+                  
                 }
-                catch (Exception ex)
+               catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
@@ -234,14 +352,28 @@ namespace Supplly
                     DataTable dtSupp = new DataTable();
                     DataTable dtExite = new DataTable();
                     if (checkBox1.Checked)
-                    {
-                        dtExite = SuRe.printrequstOutExit1(id, UserID, SuRe.GetIdUser(name));
+                    {  if (HostConnection == false)
+                        {
+                            dtExite = SuRe.printrequstOutExit1(id, UserID, SuRe.GetIdUser(name));
+                        }
+                        else
+                        {
+                            dtExite =ConvertMemorytoDB( SureHost.printrequstOutExit1(id, UserID, SuRe.GetIdUser(name)));
+                        }
                     }
                     else
                     {
                         dtExite = null;
                     }
-                    dtSupp = SuRe.PrintRequstSupply(id, UserID, SuRe.GetIdUser(name));
+                    if(HostConnection==false)
+                    {
+                        dtSupp = SuRe.PrintRequstSupply(id, UserID, SuRe.GetIdUser(name));
+                    }
+                    else
+                    {
+                        dtSupp =ConvertMemorytoDB( SureHost.PrintRequstSupply(id, UserID, SuRe.GetIdUser(name)));
+                    }
+                   
                     frmReprt frmRp = new frmReprt(dtSupp, dtExite, 1);
                     frmRp.ShowDialog();
 
@@ -303,7 +435,16 @@ namespace Supplly
                         DateTime dd = DateTime.Parse(dr[7].ToString());
                         string namee = dr[8].ToString();
                         string dec = dr[9].ToString();
-                        string nameUser = SuRe.GetUserNameBYIdUser(UserID);
+                        string nameUser;
+                        if (HostConnection==false)
+                        {
+                            nameUser = SuRe.GetUserNameBYIdUser(UserID);
+                        }
+                        else
+                        {
+                            nameUser = SureHost.GetUserNameBYIdUser(UserID);
+                        }
+                   
                      
 
                         dt.Rows.Add(idS, nmCa, nmty, string.Format("{0:##,##}", Qun), string.Format("{0:##,##}", prs), string.Format("{0:##,##}", totl), currn, dd.Date.ToShortDateString(), namee, dec, nameUser, string.Format("{0:##,##}",sumQu), string.Format("{0:##,##}", SumPrs), string.Format("{0:##,##}", SumTot));
@@ -398,6 +539,13 @@ namespace Supplly
             {
                 GC.Collect();
             }
+        }
+        DataTable ConvertMemorytoDB(MemoryStream ms)
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            ms.Seek(0, SeekOrigin.Begin);
+            DataTable dt = (DataTable)formatter.Deserialize(ms);
+            return dt;
         }
 
     }

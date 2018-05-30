@@ -62,7 +62,7 @@ namespace StoreMaga0101
             {
                 this.Cursor = Cursors.WaitCursor;
              
-                frmADDSup frmADdSup = new frmADDSup(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID);// from AddSupply
+                frmADDSup frmADdSup = new frmADDSup(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID,ConServer.ConnectionWithHost,ConServer.HostIp);// from AddSupply
 
                 FormCollection fromco = Application.OpenForms;
                 bool foundFrom = false;
@@ -173,7 +173,7 @@ namespace StoreMaga0101
             try
             {
                 this.Cursor = Cursors.WaitCursor;
-                frmUpdatSupply frmUp = new frmUpdatSupply(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID); //from update Supply
+                frmUpdatSupply frmUp = new frmUpdatSupply(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID,ConServer.ConnectionWithHost,ConServer.HostIp); //from update Supply
                 FormCollection fromco = Application.OpenForms;
                 bool foundFrom = false;
                 foreach (Form frm in fromco)
@@ -773,7 +773,7 @@ namespace StoreMaga0101
             try
             {
                 this.Cursor = Cursors.WaitCursor;
-                SimpleConstraint frmgroup = new SimpleConstraint(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID,ConServer.ConnectionWithHost);
+                SimpleConstraint frmgroup = new SimpleConstraint(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID,ConServer.ConnectionWithHost,ConServer.HostIp);
                 FormCollection fromco = Application.OpenForms;
                 bool foundFrom = false;
                 foreach (Form frm in fromco)

@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.ServiceModel;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Supplly
 {
@@ -14,6 +17,8 @@ namespace Supplly
     {
         Supplly.SupplyRequset SuRe;
         DataTable dt = new DataTable();
+        bool HostConnection;
+        ServiceReference1.IserviceClient SureHost;
         int UserID;
         public frmupdatesupply2()
         {
@@ -23,11 +28,23 @@ namespace Supplly
         }
       
 
-        public frmupdatesupply2(string ServerNm, string DBnm, string UserSql, string PassSql, int UserId)
+        public frmupdatesupply2(string ServerNm, string DBnm, string UserSql, string PassSql, int UserId,bool hostconnection,string Iphost)
         {
             InitializeComponent();
-            SuRe = new SupplyRequset(ServerNm, DBnm, UserSql, PassSql);
+            HostConnection = hostconnection;
             UserID = UserId;
+            if (HostConnection == false)
+            {
+                SuRe = new SupplyRequset(ServerNm, DBnm, UserSql, PassSql);
+            }
+            else
+            {
+                SureHost = new ServiceReference1.IserviceClient();
+                EndpointAddress endp = new EndpointAddress(Iphost);
+                SureHost.Endpoint.Address = endp;
+            }
+
+            
         }
         private void btnAddSup_Click(object sender, EventArgs e)
         {
@@ -40,16 +57,42 @@ namespace Supplly
                     {
                         int oldQuntity = Convert.ToInt32(dt.Rows[0]["Quntity"].ToString());
                         int oldTotal = Convert.ToInt32(dt.Rows[0]["Quntity"]) * Convert.ToInt32(dt.Rows[0]["Price"]);
-                        int idAcount2 = SuRe.CheckAccountIsHere(Convert.ToInt32(dt.Rows[0]["IDCategory"].ToString()), Convert.ToInt32(dt.Rows[0]["IDType"].ToString()), Convert.ToInt32(dt.Rows[0]["Price"].ToString()), Convert.ToInt32(dt.Rows[0]["IDCurrency"].ToString()));
+                        int idAcount2;
+                        if (HostConnection == false)
+                        {
+                            idAcount2 = SuRe.CheckAccountIsHere(Convert.ToInt32(dt.Rows[0]["IDCategory"].ToString()), Convert.ToInt32(dt.Rows[0]["IDType"].ToString()), Convert.ToInt32(dt.Rows[0]["Price"].ToString()), Convert.ToInt32(dt.Rows[0]["IDCurrency"].ToString()));
+
+                        }
+                        else
+                        {
+                            idAcount2 = SureHost.CheckAccountIsHereInSuplly(Convert.ToInt32(dt.Rows[0]["IDCategory"].ToString()), Convert.ToInt32(dt.Rows[0]["IDType"].ToString()), Convert.ToInt32(dt.Rows[0]["Price"].ToString()), Convert.ToInt32(dt.Rows[0]["IDCurrency"].ToString()));
+
+                        }
                         int oldIdCurrncy = Convert.ToInt32(dt.Rows[0]["IDCurrency"]);
                         int dAccountMinsOld= Convert.ToInt32(dt.Rows[0]["Debit"]);
                         int dAccountPulsOld = Convert.ToInt32(dt.Rows[0]["Creditor"]);
-                        int QuntityHere = SuRe.GetQuntityInAccount(idAcount2);
+                        int QuntityHere;
+                        if (HostConnection == false)
+                        {
+                            QuntityHere = SuRe.GetQuntityInAccount(idAcount2);
+                        }
+                        else
+                        {
+                            QuntityHere = SureHost.GetQuntityInAccountInSupply(idAcount2);
+
+                        }
                        
                         if (QuntityHere >= oldQuntity)
                         {
                             int qu = QuntityHere - oldQuntity;
-                            SuRe.UpdateQuntityAccount(idAcount2, qu);
+                            if (HostConnection == false)
+                            {
+                                SuRe.UpdateQuntityAccount(idAcount2, qu);
+                            }
+                            else
+                            {
+                                SureHost.UpdateQuntityAccountInSuplly(idAcount2, qu);
+                            }
                             //////////////////////////////////////
                             //// عملية ادخل القيمة الجديدة في المخزون
                             int newQuntity = Convert.ToInt32(textBox1.Text);
@@ -61,70 +104,161 @@ namespace Supplly
                             int IdAccountPlus = (int)comboBox5.SelectedValue;
                             string nameNEW = textBox3.Text;
                             string decNew = textBox5.Text;
-                            int idAcount = SuRe.CheckAccountIsHere(IDCAT, IDTYPE, NewPrice, idcurrn);
-                            int NewTotla = NewPrice*newQuntity;
+                            int idAcount;
+                            if (HostConnection == false)
+                            {
+                                idAcount = SuRe.CheckAccountIsHere(IDCAT, IDTYPE, NewPrice, idcurrn);
+                            }
+                            else
+                            {
+                                idAcount = SureHost.CheckAccountIsHereInSuplly(IDCAT, IDTYPE, NewPrice, idcurrn);
+                            }
+
+                                int NewTotla = NewPrice*newQuntity;
                             if (idAcount > 0) // في حالة الحساب موجود من قبل
-                            {   //  تعديل الحساب بالكمية الجديدة
-                                int oldQunt =SuRe.GetQuntityInAccount(idAcount);
+                            {
+                                //  تعديل الحساب بالكمية الجديدة
+                                int oldQunt;
+                                if (HostConnection == false)
+                                {
+                                    oldQunt = SuRe.GetQuntityInAccount(idAcount);
+                                }
+                                else
+                                {
+                                    oldQunt = SureHost.GetQuntityInAccountInSupply(idAcount);
+                                }
+
 
                                 int newQunt = oldQunt + newQuntity;
+                                if (HostConnection == false)
+                                {
+                                    SuRe.UpdateQuntityAccount(idAcount, newQunt);
+                                    ///// Acount Detilas
+                                    SuRe.DeleteSuuplyFrmAccountDitalis(idAcount); // حذف الحساب من جدول التفاصيل 
+                                }
+                                else
+                                {
+                                    SureHost.UpdateQuntityAccountInSuplly(idAcount, newQunt);
+                                    ///// Acount Detilas
+                                    SureHost.DeleteSuuplyFrmAccountDitalisInSupply(idAcount); // حذف الحساب من جدول التفاصيل 
+                                }
+                                string DitalisMis = "تم قيد عليكم مبلغ وقدره " +" "+ string.Format("{0:##,##}", (NewTotla).ToString()) + " " + comboBox3.Text + "  " + "مقابل امر توريد ب  " + " "+newQuntity.ToString() + " " + comboBox1.Text + " " + comboBox2.Text + " الى حساب" +" "+ comboBox5.Text + "رقم الطلب " + " "+idAcount;
+                                string DitalisPlus = "تم قيد لكم مبلغ وقدره" +" "+ string.Format("{0:##,##}", (NewTotla).ToString()) + " " + comboBox3.Text + "  " + "مقابل امر توريد ب " + newQuntity.ToString() + " " + comboBox1.Text + " " + comboBox2.Text + "  من حساب " + comboBox4.Text + "رقم الطلب " +" "+ idAcount;
+                                if (HostConnection == false)
+                                {
+                                    SuRe.AddNewAccountDetalis(IdAccountPlus, NewTotla, idAcount, 0, DitalisMis, DateTime.Now, UserID, idcurrn, 0);//اضافة الحساب الدائن المعدل الى جدول التفاصيل
+                                    SuRe.AddNewAccountDetalis(IdAccountMins, (-1 * NewTotla), idAcount, 0, DitalisPlus, DateTime.Now, UserID, idcurrn, 0);//اضافة الحساب المدين المعدل الى جدول التفاصيل
+                                }
+                                else
+                                {
+                                    SureHost.AddNewAccountDetalisINSupply(IdAccountPlus, NewTotla, idAcount, 0, DitalisMis, DateTime.Now, UserID, idcurrn, 0);//اضافة الحساب الدائن المعدل الى جدول التفاصيل
+                                    SureHost.AddNewAccountDetalisINSupply(IdAccountMins, (-1 * NewTotla), idAcount, 0, DitalisPlus, DateTime.Now, UserID, idcurrn, 0);//اضافة ال
 
-                                SuRe.UpdateQuntityAccount(idAcount, newQunt);
-                                ///// Acount Detilas
-                                SuRe.DeleteSuuplyFrmAccountDitalis(idAcount); // حذف الحساب من جدول التفاصيل 
-                                string DitalisMis = "تم قيد عليكم مبلغ وقدره " + string.Format("{0:##,##}", (NewTotla).ToString()) + " " + comboBox3.Text +"  "+ "مقابل امر توريد ب  " + newQuntity.ToString() + " " + comboBox1.Text + " " + comboBox2.Text + "  الى حساب" + comboBox5.Text + "رقم الطلب " + idAcount;
-                                string DitalisPlus = "تم قيد لكم مبلغ وقدره" + string.Format("{0:##,##}", (NewTotla).ToString())+" "+ comboBox3.Text+"  " + "مقابل امر توريد ب " + newQuntity.ToString() + " " + comboBox1.Text + " " + comboBox2.Text + "  من حساب " + comboBox4.Text + "رقم الطلب " + idAcount;
-
-                                SuRe.AddNewAccountDetalis(IdAccountPlus, NewTotla, idAcount, 0, DitalisMis, DateTime.Now, UserID, idcurrn,0);//اضافة الحساب الدائن المعدل الى جدول التفاصيل
-                                SuRe.AddNewAccountDetalis(IdAccountMins, (-1 * NewTotla), idAcount, 0, DitalisPlus, DateTime.Now, UserID, idcurrn,0);//اضافة الحساب المدين المعدل الى جدول التفاصيل
-
+                                }
                             }
                             else //  في حالة الحساب جديد
                             {
-                                string DitalisMis = "تم قيد عليكم مبلغ وقدره " + string.Format("{0:##,##}", (NewTotla).ToString()) + " " + comboBox3.Text +"  "+ "مقابل امر توريد ب  " + newQuntity.ToString() + " " + comboBox1.Text + " " + comboBox2.Text + "  الى حساب" + comboBox5.Text + "رقم الطلب " + idAcount;
-                                string DitalisPlus = "تم قيد لكم مبلغ وقدره" + string.Format("{0:##,##}", (NewTotla).ToString()) + " " + comboBox3.Text +"  "+ "مقابل امر توريد ب " + newQuntity.ToString() + " " + comboBox1.Text + " " + comboBox2.Text + "  من حساب " + comboBox4.Text + "رقم الطلب " + idAcount;
-                                SuRe.AddNewAccount(IDCAT, IDTYPE, newQuntity, NewPrice, idcurrn);// اضافة حساب جديد
-                                SuRe.DeleteSuuplyFrmAccountDitalis(idAcount); // حذف الحساب من جدول التفاصيل 
-                                SuRe.AddNewAccountDetalis(IdAccountPlus, NewTotla, SuRe.GetMaxIdSupply(), 0, DitalisMis, DateTime.Now, UserID, idcurrn,0);//اضافة الحساب الدائن المعدل الى جدول التفاصيل
-                                SuRe.AddNewAccountDetalis(IdAccountMins, (-1 * NewTotla), SuRe.GetMaxIdSupply(), 0, DitalisPlus, DateTime.Now, UserID, idcurrn,0);//اضافة الحساب المدين المعدل الى جدول التفاصيل
-                            }
-                            //////////////////////////////
-                            ///////////////// 
-                            ///// AccountTotal 
-                            SuRe.UpdateAccountTotal(dAccountMinsOld, (-1 * oldTotal), oldIdCurrncy); // حذف القيمة من حساب الدائن
-                            SuRe.UpdateAccountTotal(dAccountPulsOld, oldTotal, oldIdCurrncy);// حذف القيمة من حساب المدين
-                          ///////////////////////////////////////////////////////////////
-                            
+                                string DitalisMis = "تم قيد عليكم مبلغ وقدره " + string.Format("{0:##,##}", (NewTotla).ToString()) + " " + comboBox3.Text + "  " + "مقابل امر توريد ب  " + newQuntity.ToString() + " " + comboBox1.Text + " " + comboBox2.Text + "  الى حساب" + comboBox5.Text + "رقم الطلب " + idAcount;
+                                string DitalisPlus = "تم قيد لكم مبلغ وقدره" + string.Format("{0:##,##}", (NewTotla).ToString()) + " " + comboBox3.Text + "  " + "مقابل امر توريد ب " + newQuntity.ToString() + " " + comboBox1.Text + " " + comboBox2.Text + "  من حساب " + comboBox4.Text + "رقم الطلب " + idAcount;
+                                if (HostConnection == false)
+                                {
+                                    SuRe.AddNewAccount(IDCAT, IDTYPE, newQuntity, NewPrice, idcurrn);// اضافة حساب جديد
+                                    SuRe.DeleteSuuplyFrmAccountDitalis(idAcount); // حذف الحساب من جدول التفاصيل 
+                                    SuRe.AddNewAccountDetalis(IdAccountPlus, NewTotla, SuRe.GetMaxIdSupply(), 0, DitalisMis, DateTime.Now, UserID, idcurrn, 0);//اضافة الحساب الدائن المعدل الى جدول التفاصيل
+                                    SuRe.AddNewAccountDetalis(IdAccountMins, (-1 * NewTotla), SuRe.GetMaxIdSupply(), 0, DitalisPlus, DateTime.Now, UserID, idcurrn, 0);//اضافة الحساب المدين المعدل الى جدول التفاصيل
+                                }
+                                else//connection host
+                                {
+                                    SureHost.AddNewAccount(IDCAT, IDTYPE, newQuntity, NewPrice, idcurrn);// اضافة حساب جديد
+                                    SureHost.DeleteSuuplyFrmAccountDitalisInSupply(idAcount); // حذف الحساب من جدول التفاصيل 
+                                    SureHost.AddNewAccountDetalisINSupply(IdAccountPlus, NewTotla, SureHost.GetMaxIdSupply(), 0, DitalisMis, DateTime.Now, UserID, idcurrn, 0);//اضافة الحساب الدائن المعدل الى جدول التفاصيل
+                                    SureHost.AddNewAccountDetalisINSupply(IdAccountMins, (-1 * NewTotla), SureHost.GetMaxIdSupply(), 0, DitalisPlus, DateTime.Now, UserID, idcurrn, 0);//اضافة الحساب المدين المعدل الى جدول التفاصيل
 
-                            if(SuRe.CheckAccontTotal(IdAccountPlus,idcurrn)) // في حالة كان الحساب الدائن موجود من قبل
-                            {
-                                SuRe.UpdateAccountTotal(IdAccountPlus, NewTotla, idcurrn);
+                                }
 
-                            }
-                            else
-                            {
-                                SuRe.AddNewAccountTotal(IdAccountPlus, NewTotla, idcurrn); // اضافة حساب جديد دائن
                             }
 
-                            ///////////
-                            if(SuRe.CheckAccontTotal(IdAccountMins,idcurrn)) // في حالة كان الحساب المدين موجود من قبل
+                            if (HostConnection == false)
                             {
-                                SuRe.UpdateAccountTotal(IdAccountMins,(-1) *NewTotla, idcurrn);
+                                //////////////////////////////
+                                ///////////////// 
+                                ///// AccountTotal 
+                                SuRe.UpdateAccountTotal(dAccountMinsOld, (-1 * oldTotal), oldIdCurrncy); // حذف القيمة من حساب الدائن
+                                SuRe.UpdateAccountTotal(dAccountPulsOld, oldTotal, oldIdCurrncy);// حذف القيمة من حساب المدين
+                                                                                                 ///////////////////////////////////////////////////////////////
+
+
+                                if (SuRe.CheckAccontTotal(IdAccountPlus, idcurrn)) // في حالة كان الحساب الدائن موجود من قبل
+                                {
+                                    SuRe.UpdateAccountTotal(IdAccountPlus, NewTotla, idcurrn);
+
+                                }
+                                else
+                                {
+                                    SuRe.AddNewAccountTotal(IdAccountPlus, NewTotla, idcurrn); // اضافة حساب جديد دائن
+                                }
+
+                                ///////////
+                                if (SuRe.CheckAccontTotal(IdAccountMins, idcurrn)) // في حالة كان الحساب المدين موجود من قبل
+                                {
+                                    SuRe.UpdateAccountTotal(IdAccountMins, (-1) * NewTotla, idcurrn);
+                                }
+                                else
+                                {
+                                    SuRe.AddNewAccountTotal(IdAccountMins, (-1) * NewTotla, idcurrn); // اضافة حساب جديد مدين 
+                                }
+                                /////////////////////////////
+
+                                /////////////////////////////////
+                                ///////////////////////////////////////////////////////////////
+                                // عملية التعديل في جدول التوريد
+                                SuRe.UPateRequstSupply(IDSupply, IDCAT, IDTYPE, newQuntity, NewPrice, idcurrn, nameNEW, dt.Rows[0]["DescSupply"].ToString(), IdAccountMins, IdAccountPlus);
+                                //////////////////
+                                ////////////
+                                // عملية الحفظ في جدول التعديلات
+                                SuRe.ADDNewUPDSupply(IDSupply, Convert.ToInt32(dt.Rows[0]["IDCategory"].ToString()), Convert.ToInt32(dt.Rows[0]["IDType"].ToString()), Convert.ToInt32(dt.Rows[0]["Quntity"].ToString()), Convert.ToInt32(dt.Rows[0]["Price"].ToString()), Convert.ToInt32(dt.Rows[0]["IDCurrency"].ToString()), dt.Rows[0]["NameSupply"].ToString(), DateTime.Parse(dt.Rows[0]["DateSupply"].ToString()), DateTime.Now, decNew, UserID);
                             }
-                            else
-                            {
-                                SuRe.AddNewAccountTotal(IdAccountMins, (-1)* NewTotla, idcurrn); // اضافة حساب جديد مدين 
+                            else //Connection Host
+                            { //////////////////////////////
+                                ///////////////// 
+                                ///// AccountTotal 
+                                SureHost.UpdateAccountTotalInSupply(dAccountMinsOld, (-1 * oldTotal), oldIdCurrncy); // حذف القيمة من حساب الدائن
+                                SureHost.UpdateAccountTotalInSupply(dAccountPulsOld, oldTotal, oldIdCurrncy);// حذف القيمة من حساب المدين
+                                                                                                 ///////////////////////////////////////////////////////////////
+
+
+                                if (SureHost.CheckAccontTotalInSuuly(IdAccountPlus, idcurrn)) // في حالة كان الحساب الدائن موجود من قبل
+                                {
+                                    SureHost.UpdateAccountTotalInSupply(IdAccountPlus, NewTotla, idcurrn);
+
+                                }
+                                else
+                                {
+                                    SureHost.AddNewAccountTotalInSuuply(IdAccountPlus, NewTotla, idcurrn); // اضافة حساب جديد دائن
+                                }
+
+                                ///////////
+                                if (SureHost.CheckAccontTotalInSuuly(IdAccountMins, idcurrn)) // في حالة كان الحساب المدين موجود من قبل
+                                {
+                                    SureHost.UpdateAccountTotalInSupply(IdAccountMins, (-1) * NewTotla, idcurrn);
+                                }
+                                else
+                                {
+                                    SureHost.AddNewAccountTotalInSuuply(IdAccountMins, (-1) * NewTotla, idcurrn); // اضافة حساب جديد مدين 
+                                }
+                                /////////////////////////////
+
+                                /////////////////////////////////
+                                ///////////////////////////////////////////////////////////////
+                                // عملية التعديل في جدول التوريد
+                                SureHost.UPateRequstSupply(IDSupply, IDCAT, IDTYPE, newQuntity, NewPrice, idcurrn, nameNEW, dt.Rows[0]["DescSupply"].ToString(), IdAccountMins, IdAccountPlus);
+                                //////////////////
+                                ////////////
+                                // عملية الحفظ في جدول التعديلات
+                                SureHost.ADDNewUPDSupply(IDSupply, Convert.ToInt32(dt.Rows[0]["IDCategory"].ToString()), Convert.ToInt32(dt.Rows[0]["IDType"].ToString()), Convert.ToInt32(dt.Rows[0]["Quntity"].ToString()), Convert.ToInt32(dt.Rows[0]["Price"].ToString()), Convert.ToInt32(dt.Rows[0]["IDCurrency"].ToString()), dt.Rows[0]["NameSupply"].ToString(), DateTime.Parse(dt.Rows[0]["DateSupply"].ToString()), DateTime.Now, decNew, UserID);
+
                             }
-                            /////////////////////////////
-                          
-                            /////////////////////////////////
-                            ///////////////////////////////////////////////////////////////
-                            // عملية التعديل في جدول التوريد
-                            SuRe.UPateRequstSupply(IDSupply, IDCAT, IDTYPE, newQuntity, NewPrice, idcurrn, nameNEW, dt.Rows[0]["DescSupply"].ToString(), IdAccountMins, IdAccountPlus);
-                            //////////////////
-                            ////////////
-                            // عملية الحفظ في جدول التعديلات
-                            SuRe.ADDNewUPDSupply(IDSupply, Convert.ToInt32(dt.Rows[0]["IDCategory"].ToString()), Convert.ToInt32(dt.Rows[0]["IDType"].ToString()), Convert.ToInt32(dt.Rows[0]["Quntity"].ToString()), Convert.ToInt32(dt.Rows[0]["Price"].ToString()), Convert.ToInt32(dt.Rows[0]["IDCurrency"].ToString()), dt.Rows[0]["NameSupply"].ToString(), DateTime.Parse(dt.Rows[0]["DateSupply"].ToString()), DateTime.Now, decNew, UserID);
+
                             MessageBox.Show("تم التعديل");
                             this.Close();
                         }
@@ -192,19 +326,34 @@ namespace Supplly
         {
             comboBox1.DisplayMember = "اسم الصنف";
             comboBox1.ValueMember = "رقم الصنف";
-            comboBox1.DataSource = SuRe.GetAllCategoryAR();
+           
             comboBox2.DisplayMember = "اسم النوع";
             comboBox2.ValueMember = "رقم النوع";
-            comboBox2.DataSource = SuRe.GetAllTypeQuntity();
+           
             comboBox3.DisplayMember = "اسم العملة";
             comboBox3.ValueMember = "رقم العملة";
-            comboBox3.DataSource = SuRe.GetAllCurrency();
+        
             comboBox4.ValueMember = "رقم الحساب";
             comboBox4.DisplayMember = "اسم الحساب";
-            comboBox4.DataSource = SuRe.GetALLAcountNm();
+           
             comboBox5.ValueMember = "رقم الحساب";
             comboBox5.DisplayMember = "اسم الحساب";
-            comboBox5.DataSource = SuRe.GetALLAcountNm();
+            if (HostConnection == false)
+            {
+                comboBox1.DataSource = SuRe.GetAllCategoryAR();
+                comboBox2.DataSource = SuRe.GetAllTypeQuntity();
+                comboBox3.DataSource = SuRe.GetAllCurrency();
+                comboBox4.DataSource = SuRe.GetALLAcountNm();
+                comboBox5.DataSource = SuRe.GetALLAcountNm();
+            }
+            else
+            {
+                comboBox1.DataSource =ConvertMemorytoDB(SureHost.GetAllCategoryAR());
+                comboBox2.DataSource =ConvertMemorytoDB( SureHost.GetAllTypeQuntity());
+                comboBox3.DataSource =ConvertMemorytoDB( SureHost.GetAllCurrency());
+                comboBox4.DataSource =ConvertMemorytoDB( SureHost.GetALLAcountNm());
+                comboBox5.DataSource =ConvertMemorytoDB( SureHost.GetALLAcountNm());
+            }
         }
         /////////////////////////////////
         ////////////////
@@ -229,8 +378,14 @@ namespace Supplly
         /////////////////
         public void ConfDate()
         {
-
-            dt = SuRe.GetRequstSupply(IDSupply);
+            if (HostConnection == false)
+            {
+                dt = SuRe.GetRequstSupply(IDSupply);
+            }
+            else
+            {
+                dt =ConvertMemorytoDB( SureHost.GetRequstSupply(IDSupply));
+            }
             comboBox1.SelectedValue = Convert.ToInt32(dt.Rows[0]["IDCategory"].ToString());
             comboBox2.SelectedValue = Convert.ToInt32(dt.Rows[0]["IDType"].ToString());
             comboBox3.SelectedValue = Convert.ToInt32(dt.Rows[0]["IDCurrency"].ToString());
@@ -245,6 +400,14 @@ namespace Supplly
         private void button4_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+        ///  //convert MemmoryToDB
+        DataTable ConvertMemorytoDB(MemoryStream ms)
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            ms.Seek(0, SeekOrigin.Begin);
+            DataTable dt = (DataTable)formatter.Deserialize(ms);
+            return dt;
         }
     }
 }
