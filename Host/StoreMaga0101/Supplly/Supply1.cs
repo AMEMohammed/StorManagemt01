@@ -405,11 +405,11 @@ namespace Supplly
             return sql.SelectData(query, null);
 
         }
-
-    ////////////
-    //////////
-    // Chack AcoountTotal is Here
-    public   bool CheckAccontTotal(int IDcode,int IDCurrncy)
+ 
+       ////////////
+       //////////
+       // Chack AcoountTotal is Here
+        public   bool CheckAccontTotal(int IDcode,int IDCurrncy)
         {
             bool x;
             try

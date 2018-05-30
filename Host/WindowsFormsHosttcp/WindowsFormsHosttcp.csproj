@@ -39,6 +39,9 @@
     <Reference Include="Out">
       <HintPath>..\StoreMaga0101\Out\bin\Debug\Out.dll</HintPath>
     </Reference>
+    <Reference Include="Supplly">
+      <HintPath>..\..\StoreMaga0101 with host\Supplly\bin\Debug\Supplly.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.ServiceModel" />

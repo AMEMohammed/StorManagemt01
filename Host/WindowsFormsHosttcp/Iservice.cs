@@ -109,7 +109,9 @@ namespace WindowsFormsHosttcp
         MemoryStream GetAllSimpleConstraintOneDay(DateTime day1, DateTime day2);
 
         #endregion
-        // end Account
+       
+         // end Account
+        
         // Out صرف
         #region
         [OperationContract]
@@ -188,9 +190,79 @@ namespace WindowsFormsHosttcp
         int DeleteSuuplyFrmAccountDitalis2(int idout);
         [OperationContract]
         int GetIDAccountPalce(int IDACcount, int idplace);
-      
+
         #endregion
         //end Out 
+
+        //Supply توريد
+        #region
+       [OperationContract]
+        int GetIdUserINSupply(string NameUser);
+        [OperationContract]
+        string GetUserNameBYIdUserINSupply(int IdUser);
+        [OperationContract]
+        MemoryStream PrintRequstSupply(int IDreqSup, int UserId, int user);
+        [OperationContract]
+        MemoryStream printrequstOutExit1(int IDreqSup, int UserId, int user);
+        [OperationContract]
+        int GetAccountLinkCateInSupply(int IDcate);
+        [OperationContract]
+        int AddNewRequsetSupply(int IDCategory, int IDType, int Quntity, int Price, int idcurrnt, string NameSupply, string DescSupply, DateTime DateSupply, int IDuser, int chek, int debi, int cred);
+        [OperationContract]
+        int GetMaxIdSupply();
+        [OperationContract]
+        MemoryStream SearchINRequsetSupplyDate(DateTime d1, DateTime d2);
+        [OperationContract]
+        MemoryStream GetAllCreditorINSuplly();
+        [OperationContract]
+        int CheckAccountIsHereInSuplly(int IDCategory, int IDType, int price, int idcurrnt);
+        [OperationContract]
+        int UpdateQuntityAccountInSuplly(int IDAccount, int newquntity);
+        [OperationContract]
+        int AddNewAccount(int IDCategory, int IDType, int Quntity, int Price, int idcurrnt);
+        [OperationContract]
+        int GetMaxCheckSupply();
+        [OperationContract]
+        MemoryStream GetAllCategoryAR();
+        [OperationContract]
+        MemoryStream GetAllTypeQuntity();
+        [OperationContract]
+        MemoryStream GetAllCurrencyInSupply();
+        [OperationContract]
+        int GetQuntityInAccountInSupply(int IDAcount);
+        [OperationContract]
+        MemoryStream SearchINRequsetSupply(string txt);
+        [OperationContract]
+        MemoryStream SearchINRequsetSupplyTxtAndDate(string txt, DateTime d1, DateTime d2);
+        [OperationContract]
+        MemoryStream GetRequstSupply(int IDreqSup);
+        [OperationContract]
+        int CheckQuntityISHereInCheckQuntity(int IDCategory, int IDType);
+        [OperationContract]
+        int ADDNewUPDSupply(int IDSup, int IDCategory, int IDType, int Quntity, int Price, int idcunnt, string NameSupply, DateTime dateAdd, DateTime dateUpd, string decNew, int userid);
+        [OperationContract]
+        int DeleteRequstSupply(int Id);
+        [OperationContract]
+        int UPateRequstSupply(int IDSup, int IDCategory, int IDType, int Quntity, int Price, int idcurrn, string NameSupply, string DescSupply, int debit, int crd);
+        [OperationContract]
+        MemoryStream GetALLAcountNmInSupply();
+        [OperationContract]
+        bool CheckAccontTotalInSuuly(int IDcode, int IDCurrncy);
+        [OperationContract]
+        int AddNewAccountTotalInSuuply(int IDCOde, int Mony, int idCurrncy);
+        [OperationContract]
+        int GetBalanceInSupply(int Idcode, int IDCur);
+        [OperationContract]
+        int UpdateAccountTotalInSupply(int IDCOde, int Mony, int idCurrncy);
+        [OperationContract]
+        int AddNewAccountDetalisINSupply(int idcode, int monay, int idsupply, int idout, string Detalis, DateTime d1, int userid, int idCurrnt, int IDSimple);
+        [OperationContract]
+        int DeleteSuuplyFrmAccountDitalisInSupply(int idSupply);
+        [OperationContract]
+        int DeleteSuuplyFrmAccountDitalis2InSupply(int idout);
+       
+        #endregion
+        // end Supply
     }
 
 }

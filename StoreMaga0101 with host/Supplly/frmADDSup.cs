@@ -8,13 +8,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using FrmRports;
+using System.ServiceModel;
 using Excel = Microsoft.Office.Interop.Excel;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+
 namespace Supplly
 {
     public partial class frmADDSup : Form
     {
         Supplly.SupplyRequset SuRe;
         int UserID;
+        bool HostConnction;
+        string IPHost;
+        ServiceReference1.IserviceClient SureHost;
         public frmADDSup()
         {
             InitializeComponent();
@@ -30,13 +37,27 @@ namespace Supplly
             }
         }
     
-        public frmADDSup(string ServerNm, string DBNm ,string UserSql,string PassSql, int UserId )
+        public frmADDSup(string ServerNm, string DBNm ,string UserSql,string PassSql, int UserId ,bool hostconectopn,string iphost)
         {
             InitializeComponent();
+            HostConnction = hostconectopn;
+            IPHost = iphost;
+
+
             try
             {
                 UserID = UserId;
-                SuRe = new SupplyRequset(ServerNm, DBNm, UserSql, PassSql);
+                if (HostConnction == false)
+                {
+                    SuRe = new SupplyRequset(ServerNm, DBNm, UserSql, PassSql);
+                }
+                else
+                {
+                    SureHost = new ServiceReference1.IserviceClient();
+                    EndpointAddress endp = new EndpointAddress(iphost);
+                    SureHost.Endpoint.Address = endp;
+
+                }
               
             }
             catch (Exception ex)
@@ -75,15 +96,26 @@ namespace Supplly
             {
                 comboBox1.DisplayMember = "اسم الصنف";
                 comboBox1.ValueMember = "رقم الصنف";
-                comboBox1.DataSource = SuRe.GetAllCategoryAR();
+                
                 comboBox2.DisplayMember = "اسم النوع";
                 comboBox2.ValueMember = "رقم النوع";
-                comboBox2.DataSource = SuRe.GetAllTypeQuntity();
+               
                 comboBox3.DisplayMember = "اسم العملة";
                 comboBox3.ValueMember = "رقم العملة";
-                comboBox3.DataSource = SuRe.GetAllCurrency();
-
-                dataGridView1.DataSource = SuRe.SearchINRequsetSupplyDate(DateTime.Now.Date, DateTime.Now);
+                if (HostConnction == false)
+                {
+                    comboBox2.DataSource = SuRe.GetAllTypeQuntity();
+                    comboBox3.DataSource = SuRe.GetAllCurrency();
+                    comboBox1.DataSource = SuRe.GetAllCategoryAR();
+                    dataGridView1.DataSource = SuRe.SearchINRequsetSupplyDate(DateTime.Now.Date, DateTime.Now);
+                }
+                else
+                {
+                    comboBox2.DataSource =ConvertMemorytoDB( SureHost.GetAllTypeQuntity());
+                    comboBox3.DataSource =ConvertMemorytoDB( SureHost.GetAllCurrencyInSupply());
+                    comboBox1.DataSource =ConvertMemorytoDB( SureHost.GetAllCategoryAR());
+                    dataGridView1.DataSource =ConvertMemorytoDB(SureHost.SearchINRequsetSupplyDate(DateTime.Now.Date, DateTime.Now));
+                }
             }
             catch (Exception ex) { MessageBox.Show(ex.Message + "4"); }
         }
@@ -95,11 +127,20 @@ namespace Supplly
             {
                 comboBox4.ValueMember = "رقم الحساب";
                 comboBox4.DisplayMember = "اسم الحساب";
-                comboBox4.DataSource = SuRe.GetALLAcountNm();
+                
 
                 comboBox5.ValueMember = "رقم الحساب";
                 comboBox5.DisplayMember = "اسم الحساب";
-                comboBox5.DataSource = SuRe.GetALLAcountNm();
+                if (HostConnction == false)
+                {
+                    comboBox4.DataSource = SuRe.GetALLAcountNm();
+                    comboBox5.DataSource = SuRe.GetALLAcountNm();
+                }
+                else
+                {
+                    comboBox4.DataSource =ConvertMemorytoDB(SureHost.GetALLAcountNmInSupply());
+                    comboBox5.DataSource =ConvertMemorytoDB( SureHost.GetALLAcountNmInSupply());
+                }
             }
             catch (Exception ex)
             {
@@ -175,7 +216,15 @@ namespace Supplly
                                 int plus= (int)comboBox5.SelectedValue;//الى حساب
                                 string name = textBox3.Text;
                                 string dec = textBox4.Text;
-                                int idAcount = SuRe.CheckAccountIsHere(idcate, idtype, price, idCurrnt);
+                            int idAcount;
+                            if (HostConnction == false)
+                            {
+                                idAcount = SuRe.CheckAccountIsHere(idcate, idtype, price, idCurrnt);
+                            }
+                            else
+                            {
+                                idAcount = SureHost.CheckAccountIsHereInSuplly(idcate, idtype, price, idCurrnt);
+                            }
                             /////////////////////
                             /////////////////
                             
@@ -185,115 +234,235 @@ namespace Supplly
 
                             if (idAcount > 0) // في حالة الحساب موجود من قبل
                             {   //  تعديل الحساب بالكمية الجديدة
-                                int oldQunt = SuRe.GetQuntityInAccount(idAcount);
-                                int newQunt = oldQunt + qunt;
-                                SuRe.UpdateQuntityAccount(idAcount, newQunt);
+                                if (HostConnction == false)
+                                {
+                                    int oldQunt = SuRe.GetQuntityInAccount(idAcount);
+                                    int newQunt = oldQunt + qunt;
+                                    SuRe.UpdateQuntityAccount(idAcount, newQunt);
+                                }
+                                else
+                                {
+                                    int oldQunt = SureHost.GetQuntityInAccountInSupply(idAcount);
+                                    int newQunt = oldQunt + qunt;
+                                    SureHost.UpdateQuntityAccountInSuplly(idAcount, newQunt);
+                                }
 
 
                             }
                             else //  في حالة الحساب جديد
-                            {
-                                SuRe.AddNewAccount(idcate, idtype, qunt, price, idCurrnt);// اضافة حساب جديد
+                            {  if (HostConnction == false)
+                                {
+                                    SuRe.AddNewAccount(idcate, idtype, qunt, price, idCurrnt);// اضافة حساب جديد
+                                }
+                            else
+                                {
+                                    SureHost.AddNewAccount(idcate, idtype, qunt, price, idCurrnt);
+
+                                }
                             }
                             /////////////////////////////////
 
                             /////////////////////////////////////////////////////////
                             // التاكد من ان الطلب يضاف كطلب جديد او اضافة الى طلب
                             int check = 0;
-                            if (flagAddAgian == true)
+                            if (HostConnction == false)
                             {
-                                check = SuRe.GetMaxCheckSupply();
-
-                            }
-                            else
-                            {
-                                check = SuRe.GetMaxCheckSupply();
-                                check += 1;
-
-                            }
-
-                            // اضافة الى جدول التوريد
-                            SuRe.AddNewRequsetSupply(idcate, idtype, qunt, price, idCurrnt, name, dec, DateTime.Now, UserID, check, mins, plus);//اضافة طلب جديد
-
-                            /////////////////
-                            ///////////
-                            string.Format("{0:##,##}", (qunt * price).ToString());
-                            ////////////////
-                            ////////////// من حساب mins المدين
-                            if (SuRe.CheckAccontTotal(mins, idCurrnt))// الحساب مضاف مسبقا
-                            {
-                                SuRe.UpdateAccountTotal(mins, (-1 * qunt * price), idCurrnt);
-                            }
-                            else //   في جدول الاجمالي اضافة حساب جديد
-                            {
-                                SuRe.AddNewAccountTotal(mins, (-1 * qunt * price), idCurrnt);
-                            }
-                            //// (اضافة الامر الى جدول تفاصيل الحساب )مدين(
-                            string DitalisMis = "تم قيد عليكم مبلغ وقدره " + string.Format("{0:##,##}", (qunt * price).ToString())+" " +comboBox3.Text+"  "+ "مقابل امر توريد ب  " + qunt.ToString() + " " + comboBox1.Text + " " + comboBox2.Text+"  الى حساب  "+comboBox5.Text+"رقم الطلب "+ SuRe.GetMaxIdSupply();
-                            SuRe.AddNewAccountDetalis(mins, (-1 * qunt * price), SuRe.GetMaxIdSupply(),0, DitalisMis, DateTime.Now, UserID, idCurrnt,0);//// اضافة الى جدول التفاصيل
-                          /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                          //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                          ////// الى حساب plus الدائن
-                          //////////////////
-                          if(SuRe.CheckAccontTotal(plus,idCurrnt)) // الحساب مضاف مسبقا
-                            {
-                                SuRe.UpdateAccountTotal(plus, (qunt * price), idCurrnt);
-                            }
-                            else // اضافة حساب جديد في جدول الاجمالي
-                            {
-                                SuRe.AddNewAccountTotal(plus, (qunt * price), idCurrnt);
-                            }
-                            /////////////////////////////
-                            //  اضافة الامر الى جدول التفاصيل (دائن)
-                          string DitalisPlus = "تم قيد لكم مبلغ وقدره" + string.Format("{0:##,##}", (qunt * price).ToString()) + " " + comboBox3.Text + "  "+ "مقابل امر توريد ب " + qunt.ToString() + " " + comboBox1.Text + " " + comboBox2.Text + "  من حساب " + comboBox4.Text + "رقم الطلب " + SuRe.GetMaxIdSupply();
-                         
-                          SuRe.AddNewAccountDetalis(plus, ( qunt * price), SuRe.GetMaxIdSupply(), 0, DitalisPlus, DateTime.Now, UserID, idCurrnt,0);//// اضافة الى جدول التفاصيل
-
-                            //////////////////////
-                            ////////
-                            if ((MessageBox.Show("هل تريد اضافة طلب  اخر", "تاكيد", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign) == DialogResult.Yes))
-                            {
-                                flagAddAgian = true;
-                                Refrsh12();
-
-                                // button2_Click(sender, e);
-                            }
-                            else
-                            {
-                                flagAddAgian = false;
-                                if ((MessageBox.Show("هل تريد طباعة سند توريد؟", "تاكيد", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign) == DialogResult.Yes))
+                                if (flagAddAgian == true)
                                 {
-                                    try
-                                    {
-                                        Refrsh1();
-                                       
-                                        int IDRequstSupply = SuRe.GetMaxCheckSupply();
+                                    check = SuRe.GetMaxCheckSupply();
 
-                                    
-                                        DataTable dtSupp = new DataTable();
-                                        DataTable dtExite = new DataTable();
-                                        if (checkBox1.Checked)
-                                        {
-                                            dtExite = SuRe.printrequstOutExit1(IDRequstSupply, UserID, UserID);
-                                           
-                                        }
-                                        else
-                                        {
-                                            dtExite = null;
-                                        }
-                                        dtSupp = SuRe.PrintRequstSupply(IDRequstSupply, UserID, UserID);
-                                        frmReprt frmRp = new frmReprt(dtSupp, dtExite, 1);
-                                        frmRp.ShowDialog();
-                                    }
-                                    catch (Exception ex)
-                                   {
-                                     MessageBox.Show(ex.Message + "1");
-
-                                    }
                                 }
                                 else
                                 {
-                                    Refrsh1();
+                                    check = SuRe.GetMaxCheckSupply();
+                                    check += 1;
+
+                                }
+
+                                // اضافة الى جدول التوريد
+                                SuRe.AddNewRequsetSupply(idcate, idtype, qunt, price, idCurrnt, name, dec, DateTime.Now, UserID, check, mins, plus);//اضافة طلب جديد
+
+                                /////////////////
+                                ///////////
+                                string.Format("{0:##,##}", (qunt * price).ToString());
+                                ////////////////
+                                ////////////// من حساب mins المدين
+                                if (SuRe.CheckAccontTotal(mins, idCurrnt))// الحساب مضاف مسبقا
+                                {
+                                    SuRe.UpdateAccountTotal(mins, (-1 * qunt * price), idCurrnt);
+                                }
+                                else //   في جدول الاجمالي اضافة حساب جديد
+                                {
+                                    SuRe.AddNewAccountTotal(mins, (-1 * qunt * price), idCurrnt);
+                                }
+                                //// (اضافة الامر الى جدول تفاصيل الحساب )مدين(
+                                string DitalisMis = "تم قيد عليكم مبلغ وقدره " + string.Format("{0:##,##}", (qunt * price).ToString()) + " " + comboBox3.Text + "  " + "مقابل امر توريد ب  " + qunt.ToString() + " " + comboBox1.Text + " " + comboBox2.Text + "  الى حساب  " + comboBox5.Text + "رقم الطلب " + SuRe.GetMaxIdSupply();
+                                SuRe.AddNewAccountDetalis(mins, (-1 * qunt * price), SuRe.GetMaxIdSupply(), 0, DitalisMis, DateTime.Now, UserID, idCurrnt, 0);//// اضافة الى جدول التفاصيل
+                                                                                                                                                              /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                                                                                                                                              //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                                                                                                                                              ////// الى حساب plus الدائن
+                                                                                                                                                              //////////////////
+                                if (SuRe.CheckAccontTotal(plus, idCurrnt)) // الحساب مضاف مسبقا
+                                {
+                                    SuRe.UpdateAccountTotal(plus, (qunt * price), idCurrnt);
+                                }
+                                else // اضافة حساب جديد في جدول الاجمالي
+                                {
+                                    SuRe.AddNewAccountTotal(plus, (qunt * price), idCurrnt);
+                                }
+                                /////////////////////////////
+                                //  اضافة الامر الى جدول التفاصيل (دائن)
+                                string DitalisPlus = "تم قيد لكم مبلغ وقدره" + string.Format("{0:##,##}", (qunt * price).ToString()) + " " + comboBox3.Text + "  " + "مقابل امر توريد ب " + qunt.ToString() + " " + comboBox1.Text + " " + comboBox2.Text + "  من حساب " + comboBox4.Text + "رقم الطلب " + SuRe.GetMaxIdSupply();
+
+                                SuRe.AddNewAccountDetalis(plus, (qunt * price), SuRe.GetMaxIdSupply(), 0, DitalisPlus, DateTime.Now, UserID, idCurrnt, 0);//// اضافة الى جدول التفاصيل
+
+                                //////////////////////
+                                ////////
+                                if ((MessageBox.Show("هل تريد اضافة طلب  اخر", "تاكيد", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign) == DialogResult.Yes))
+                                {
+                                    flagAddAgian = true;
+                                    Refrsh12();
+
+                                    // button2_Click(sender, e);
+                                }
+                                else
+                                {
+                                    flagAddAgian = false;
+                                    if ((MessageBox.Show("هل تريد طباعة سند توريد؟", "تاكيد", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign) == DialogResult.Yes))
+                                    {
+                                        try
+                                        {
+                                            Refrsh1();
+
+                                            int IDRequstSupply = SuRe.GetMaxCheckSupply();
+
+
+                                            DataTable dtSupp = new DataTable();
+                                            DataTable dtExite = new DataTable();
+                                            if (checkBox1.Checked)
+                                            {
+                                                dtExite = SuRe.printrequstOutExit1(IDRequstSupply, UserID, UserID);
+
+                                            }
+                                            else
+                                            {
+                                                dtExite = null;
+                                            }
+                                            dtSupp = SuRe.PrintRequstSupply(IDRequstSupply, UserID, UserID);
+                                            frmReprt frmRp = new frmReprt(dtSupp, dtExite, 1);
+                                            frmRp.ShowDialog();
+                                        }
+                                        catch (Exception ex)
+                                        {
+                                            MessageBox.Show(ex.Message + "1");
+
+                                        }
+                                    }
+                                    else
+                                    {
+                                        Refrsh1();
+                                    }
+
+                                }
+                            }
+                            else// conection host
+                            {
+                                if (flagAddAgian == true)
+                                {
+                                    check = SureHost.GetMaxCheckSupply();
+
+                                }
+                                else
+                                {
+                                    check = SureHost.GetMaxCheckSupply();
+                                    check += 1;
+
+                                }
+
+                                // اضافة الى جدول التوريد
+                                SureHost.AddNewRequsetSupply(idcate, idtype, qunt, price, idCurrnt, name, dec, DateTime.Now, UserID, check, mins, plus);//اضافة طلب جديد
+
+                                /////////////////
+                                ///////////
+                                string.Format("{0:##,##}", (qunt * price).ToString());
+                                ////////////////
+                                ////////////// من حساب mins المدين
+                                if (SureHost.CheckAccontTotalInSuuly(mins, idCurrnt))// الحساب مضاف مسبقا
+                                {
+                                    SureHost.UpdateAccountTotalInSupply(mins, (-1 * qunt * price), idCurrnt);
+                                }
+                                else //   في جدول الاجمالي اضافة حساب جديد
+                                {
+                                    SureHost.AddNewAccountTotalInSuuply(mins, (-1 * qunt * price), idCurrnt);
+                                }
+                                //// (اضافة الامر الى جدول تفاصيل الحساب )مدين(
+                                string DitalisMis = "تم قيد عليكم مبلغ وقدره " + string.Format("{0:##,##}", (qunt * price).ToString()) + " " + comboBox3.Text + "  " + "مقابل امر توريد ب  " + qunt.ToString() + " " + comboBox1.Text + " " + comboBox2.Text + "  الى حساب  " + comboBox5.Text + "رقم الطلب " + SureHost.GetMaxIdSupply();
+                                SureHost.AddNewAccountDetalisINSupply(mins, (-1 * qunt * price), SureHost.GetMaxIdSupply(), 0, DitalisMis, DateTime.Now, UserID, idCurrnt, 0);//// اضافة الى جدول التفاصيل
+                                                                                                                                                              /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                                                                                                                                              //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                                                                                                                                              ////// الى حساب plus الدائن
+                                                                                                                                                              //////////////////
+                                if (SureHost.CheckAccontTotalInSuuly(plus, idCurrnt)) // الحساب مضاف مسبقا
+                                {
+                                    SureHost.UpdateAccountTotalInSupply(plus, (qunt * price), idCurrnt);
+                                }
+                                else // اضافة حساب جديد في جدول الاجمالي
+                                {
+                                    SureHost.AddNewAccountTotalInSuuply(plus, (qunt * price), idCurrnt);
+                                }
+                                /////////////////////////////
+                                //  اضافة الامر الى جدول التفاصيل (دائن)
+                                string DitalisPlus = "تم قيد لكم مبلغ وقدره" + string.Format("{0:##,##}", (qunt * price).ToString()) + " " + comboBox3.Text + "  " + "مقابل امر توريد ب " + qunt.ToString() + " " + comboBox1.Text + " " + comboBox2.Text + "  من حساب " + comboBox4.Text + "رقم الطلب " + SureHost.GetMaxIdSupply();
+
+                                SureHost.AddNewAccountDetalisINSupply(plus, (qunt * price), SureHost.GetMaxIdSupply(), 0, DitalisPlus, DateTime.Now, UserID, idCurrnt, 0);//// اضافة الى جدول التفاصيل
+
+                                //////////////////////
+                                ////////
+                                if ((MessageBox.Show("هل تريد اضافة طلب  اخر", "تاكيد", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign) == DialogResult.Yes))
+                                {
+                                    flagAddAgian = true;
+                                    Refrsh12();
+
+                                    // button2_Click(sender, e);
+                                }
+                                else
+                                {
+                                    flagAddAgian = false;
+                                    if ((MessageBox.Show("هل تريد طباعة سند توريد؟", "تاكيد", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign) == DialogResult.Yes))
+                                    {
+                                        try
+                                        {
+                                            Refrsh1();
+
+                                            int IDRequstSupply = SureHost.GetMaxCheckSupply();
+
+
+                                            DataTable dtSupp = new DataTable();
+                                            DataTable dtExite = new DataTable();
+                                            if (checkBox1.Checked)
+                                            {
+                                                dtExite =ConvertMemorytoDB( SureHost.printrequstOutExit1(IDRequstSupply, UserID, UserID));
+
+                                            }
+                                            else
+                                            {
+                                                dtExite = null;
+                                            }
+                                            dtSupp =ConvertMemorytoDB( SureHost.PrintRequstSupply(IDRequstSupply, UserID, UserID));
+                                            frmReprt frmRp = new frmReprt(dtSupp, dtExite, 1);
+                                            frmRp.ShowDialog();
+                                        }
+                                        catch (Exception ex)
+                                        {
+                                            MessageBox.Show(ex.Message + "1");
+
+                                        }
+                                    }
+                                    else
+                                    {
+                                        Refrsh1();
+                                    }
+
                                 }
 
                             }
@@ -350,16 +519,25 @@ namespace Supplly
                    
                     if (checkBox1.Checked)
                     {
-                       
-                         dtExite = SuRe.printrequstOutExit1(id, UserID, SuRe.GetIdUser(name));
-                       
+                       if(HostConnction==false)
+                          dtExite = SuRe.printrequstOutExit1(id, UserID, SuRe.GetIdUser(name));
+                       else
+                            dtExite =ConvertMemorytoDB( SureHost.printrequstOutExit1(id, UserID, SuRe.GetIdUser(name)));
+
                     }
                     else
                     {
                         dtExite = null;
                     }
-                   
-                    dtSupp = SuRe.PrintRequstSupply(id, UserID, SuRe.GetIdUser(name));
+                    if (HostConnction == false)
+                    {
+                        dtSupp = SuRe.PrintRequstSupply(id, UserID, SuRe.GetIdUser(name));
+                    }
+                    else
+                    {
+                        dtSupp =ConvertMemorytoDB( SureHost.PrintRequstSupply(id, UserID, SuRe.GetIdUser(name)));
+
+                    }
                     frmReprt frmRp = new frmReprt(dtSupp, dtExite, 1);
                     frmRp.ShowDialog();
 
@@ -379,7 +557,18 @@ namespace Supplly
         {
             try
             {
-                int IDACCOunt = SuRe.GetAccountLinkCate((int)comboBox1.SelectedValue);
+                int IDACCOunt;
+                if (HostConnction == false)
+                {
+
+                    IDACCOunt = SuRe.GetAccountLinkCate((int)comboBox1.SelectedValue);
+                }
+                else
+                {
+                     IDACCOunt = SureHost.GetAccountLinkCateInSupply((int)comboBox1.SelectedValue);
+
+                }
+
                 if (IDACCOunt > 0)
                     comboBox4.SelectedValue = IDACCOunt;
             }
@@ -464,7 +653,15 @@ namespace Supplly
                 GC.Collect();
             }
         }
-    
+        ///  //convert MemmoryToDB
+        DataTable ConvertMemorytoDB(MemoryStream ms)
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            ms.Seek(0, SeekOrigin.Begin);
+            DataTable dt = (DataTable)formatter.Deserialize(ms);
+            return dt;
+        }
+
     }
 }
 

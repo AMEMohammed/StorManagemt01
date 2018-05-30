@@ -10,8 +10,10 @@ using System.IO;
 using Users;
 using Account;
 using Out_;
+using Supplly;
 namespace WindowsFormsHosttcp
-{ [ServiceBehavior(InstanceContextMode =InstanceContextMode.Single)]
+{
+    [ServiceBehavior(InstanceContextMode =InstanceContextMode.Single)]
     class MYSerivce : Iservice
     {   /// Classes
         // Users    
@@ -20,8 +22,10 @@ namespace WindowsFormsHosttcp
         AccountNm accountNm = new AccountNm(Properties.Settings.Default.ServerNm, Properties.Settings.Default.DBNM, null, null);
         //Out
         OutFunction OutFun = new OutFunction(Properties.Settings.Default.ServerNm, Properties.Settings.Default.DBNM, null, null);
-       /// end Classes
-       /// 
+        //Supply
+        SupplyRequset SupplyFun = new SupplyRequset(Properties.Settings.Default.ServerNm, Properties.Settings.Default.DBNM, null, null);
+        /// end Classes
+        /// 
         public delegate void ResDT(int falg,string nm);
         public ResDT restd;
 
@@ -451,6 +455,172 @@ namespace WindowsFormsHosttcp
         {
             return OutFun.GetIDAccountPalce( IDACcount,  idplace);
 
+        }
+        #endregion
+        // end out
+
+
+        //Supply
+        #region
+        public int GetIdUserINSupply(string NameUser)
+        {
+            return SupplyFun.GetIdUser(NameUser);
+        }
+
+        public string GetUserNameBYIdUserINSupply(int IdUser)
+        {
+            return SupplyFun.GetUserNameBYIdUser(IdUser);
+        }
+
+        public MemoryStream PrintRequstSupply(int IDreqSup, int UserId, int user)
+        {
+           return  ConvertDBtoMomery(SupplyFun.PrintRequstSupply( IDreqSup,  UserId, user));
+        }
+
+        public MemoryStream printrequstOutExit1(int IDreqSup, int UserId, int user)
+        {
+            return ConvertDBtoMomery(SupplyFun.printrequstOutExit1(IDreqSup, UserId, user));
+        }
+
+        public int GetAccountLinkCateInSupply(int IDcate)
+        {
+            return SupplyFun.GetAccountLinkCate( IDcate);
+        }
+
+        public int AddNewRequsetSupply(int IDCategory, int IDType, int Quntity, int Price, int idcurrnt, string NameSupply, string DescSupply, DateTime DateSupply, int IDuser, int chek, int debi, int cred)
+        {
+            return SupplyFun.AddNewRequsetSupply( IDCategory,  IDType,  Quntity, Price,  idcurrnt,  NameSupply, DescSupply,  DateSupply, IDuser, chek,  debi,cred);
+        }
+
+        public int GetMaxIdSupply()
+        {
+            return SupplyFun.GetMaxIdSupply(); 
+        }
+
+        public MemoryStream SearchINRequsetSupplyDate(DateTime d1, DateTime d2)
+        {
+            return ConvertDBtoMomery(SupplyFun.SearchINRequsetSupplyDate( d1, d2));
+        }
+
+        public MemoryStream GetAllCreditorINSuplly()
+        {
+            return ConvertDBtoMomery(SupplyFun.GetAllCreditor());
+        }
+
+        public int CheckAccountIsHereInSuplly(int IDCategory, int IDType, int price, int idcurrnt)
+        {
+            return SupplyFun.CheckAccountIsHere( IDCategory,IDType, price,  idcurrnt);
+        }
+
+        public int UpdateQuntityAccountInSuplly(int IDAccount, int newquntity)
+        {
+            return SupplyFun.UpdateQuntityAccount(IDAccount, newquntity);
+        }
+
+        public int AddNewAccount(int IDCategory, int IDType, int Quntity, int Price, int idcurrnt)
+        {
+            return SupplyFun.AddNewAccount( IDCategory,  IDType,  Quntity,  Price,  idcurrnt);
+        }
+
+        public int GetMaxCheckSupply()
+        {
+            return SupplyFun.GetMaxCheckSupply();
+        }
+
+        public MemoryStream GetAllCategoryAR()
+        {
+            return ConvertDBtoMomery(SupplyFun.GetAllCategoryAR());
+        }
+
+        public MemoryStream GetAllTypeQuntity()
+        {
+            return ConvertDBtoMomery(SupplyFun.GetAllTypeQuntity());
+        }
+
+        public MemoryStream GetAllCurrencyInSupply()
+        {
+            return ConvertDBtoMomery(SupplyFun.GetAllCurrency());
+        }
+
+        public int GetQuntityInAccountInSupply(int IDAcount)
+        {
+            return SupplyFun.GetQuntityInAccount( IDAcount);
+        }
+
+        public MemoryStream SearchINRequsetSupply(string txt)
+        {
+            return ConvertDBtoMomery(SupplyFun.SearchINRequsetSupply(txt));
+        }
+
+        public MemoryStream SearchINRequsetSupplyTxtAndDate(string txt, DateTime d1, DateTime d2)
+        {
+            return ConvertDBtoMomery(SupplyFun.SearchINRequsetSupplyTxtAndDate(txt, d1, d2));
+        }
+
+        public MemoryStream GetRequstSupply(int IDreqSup)
+        {
+            return ConvertDBtoMomery(SupplyFun.GetRequstSupply(IDreqSup));
+        }
+
+        public int CheckQuntityISHereInCheckQuntity(int IDCategory, int IDType)
+        {
+            return SupplyFun.CheckQuntityISHereInCheckQuntity( IDCategory,  IDType);
+        }
+
+        public int ADDNewUPDSupply(int IDSup, int IDCategory, int IDType, int Quntity, int Price, int idcunnt, string NameSupply, DateTime dateAdd, DateTime dateUpd, string decNew, int userid)
+        {
+            return SupplyFun.ADDNewUPDSupply( IDSup,  IDCategory,  IDType,  Quntity,  Price,  idcunnt,  NameSupply, dateAdd, dateUpd,  decNew, userid);
+        }
+
+        public int DeleteRequstSupply(int Id)
+        {
+            return SupplyFun.DeleteRequstSupply( Id);
+        }
+
+        public int UPateRequstSupply(int IDSup, int IDCategory, int IDType, int Quntity, int Price, int idcurrn, string NameSupply, string DescSupply, int debit, int crd)
+        {
+            return SupplyFun.UPateRequstSupply( IDSup,  IDCategory,  IDType,  Quntity,  Price,  idcurrn,  NameSupply, DescSupply, debit, crd);
+        
+        }
+
+        public MemoryStream GetALLAcountNmInSupply()
+        {
+            return ConvertDBtoMomery(SupplyFun.GetALLAcountNm());
+        }
+
+        public bool CheckAccontTotalInSuuly(int IDcode, int IDCurrncy)
+        {
+            return SupplyFun.CheckAccontTotal(IDcode, IDCurrncy);
+        }
+
+        public int AddNewAccountTotalInSuuply(int IDCOde, int Mony, int idCurrncy)
+        {
+            return SupplyFun.AddNewAccountTotal(IDCOde, Mony, idCurrncy);
+        }
+
+        public int GetBalanceInSupply(int Idcode, int IDCur)
+        {
+            return SupplyFun.GetBalance( Idcode,  IDCur);
+        }
+
+        public int UpdateAccountTotalInSupply(int IDCOde, int Mony, int idCurrncy)
+        {
+            return SupplyFun.UpdateAccountTotal( IDCOde, Mony,  idCurrncy);
+        }
+
+        public int AddNewAccountDetalisINSupply(int idcode, int monay, int idsupply, int idout, string Detalis, DateTime d1, int userid, int idCurrnt, int IDSimple)
+        {
+            return SupplyFun.AddNewAccountDetalis(idcode,  monay,  idsupply,  idout,  Detalis,  d1,  userid,  idCurrnt,  IDSimple);
+        }
+
+        public int DeleteSuuplyFrmAccountDitalisInSupply(int idSupply)
+        {
+            return SupplyFun.DeleteSuuplyFrmAccountDitalis( idSupply);
+        }
+
+        public int DeleteSuuplyFrmAccountDitalis2InSupply(int idout)
+        {
+            return SupplyFun.DeleteSuuplyFrmAccountDitalis2( idout);
         }
 
 
