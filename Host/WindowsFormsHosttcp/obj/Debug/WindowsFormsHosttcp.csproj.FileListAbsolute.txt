@@ -44,3 +44,5 @@ D:\programing1\StoreMaga0101\Host\WindowsFormsHosttcp\bin\Debug\Out.dll
 D:\programing1\StoreMaga0101\Host\WindowsFormsHosttcp\bin\Debug\Out.pdb
 D:\programing1\StoreMaga0101\Host\WindowsFormsHosttcp\bin\Debug\Supplly.dll
 D:\programing1\StoreMaga0101\Host\WindowsFormsHosttcp\bin\Debug\Supplly.pdb
+D:\programing1\StoreMaga0101\Host\WindowsFormsHosttcp\bin\Debug\SystemConfiguration.dll
+D:\programing1\StoreMaga0101\Host\WindowsFormsHosttcp\bin\Debug\SystemConfiguration.pdb

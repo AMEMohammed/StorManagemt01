@@ -11,6 +11,7 @@ using Users;
 using Account;
 using Out_;
 using Supplly;
+using SystemConfiguration;
 namespace WindowsFormsHosttcp
 {
     [ServiceBehavior(InstanceContextMode =InstanceContextMode.Single)]
@@ -24,6 +25,8 @@ namespace WindowsFormsHosttcp
         OutFunction OutFun = new OutFunction(Properties.Settings.Default.ServerNm, Properties.Settings.Default.DBNM, null, null);
         //Supply
         SupplyRequset SupplyFun = new SupplyRequset(Properties.Settings.Default.ServerNm, Properties.Settings.Default.DBNM, null, null);
+        //Confation
+        Config config = new Config(Properties.Settings.Default.ServerNm, Properties.Settings.Default.DBNM, null, null);
         /// end Classes
         /// 
         public delegate void ResDT(int falg,string nm);
@@ -622,10 +625,210 @@ namespace WindowsFormsHosttcp
         {
             return SupplyFun.DeleteSuuplyFrmAccountDitalis2( idout);
         }
+        #endregion
+        // end Supply
+        //
+
+        // Confation
+        #region
+        public MemoryStream GetCategoryByName(string NMCate)
+        {
+            return ConvertDBtoMomery(config.GetCategoryByName( NMCate));
+        }
+
+        public int AddNewCategory(string NameCategory, object IDAccount)
+        {
+            return config.AddNewCategory( NameCategory,  IDAccount);
+        }
+
+        public int GetMaxIDCate()
+        {
+            return config.GetMaxIDCate();
+        }
+
+        public int UpdateCategory(int id, string name, object IDAccount)
+        {
+            return config.UpdateCategory(id, name, IDAccount);
+        }
+
+        public int DeleteCategory(int id)
+        {
+            return config.DeleteCategory(id);
+        }
+
+        public MemoryStream chackCatagory(int IDCA)
+        {
+            return ConvertDBtoMomery(config.chackCatagory(IDCA));
+        }
+
+        public MemoryStream GetAllTypeQuntityInConf()
+        {
+            return ConvertDBtoMomery(config.GetAllTypeQuntity());
+        }
+
+        public MemoryStream GetTypeQuntityByName(string nameTYPe)
+        {
+            return ConvertDBtoMomery(config.GetTypeQuntityByName(nameTYPe));
+        }
+
+        public int AddNewTypeQuntity(string name)
+        {
+            return config.AddNewTypeQuntity( name);
+        }
+
+        public int UpdateTypeQuntity(int id, string name)
+        {
+            return config.UpdateTypeQuntity(id, name);
+        }
+
+        public int DeleteQuntity(int id)
+        {
+            return config.DeleteQuntity( id);
+        }
+
+        public MemoryStream chackTapy(int IDtype)
+        {
+           return  ConvertDBtoMomery(config.chackTapy( IDtype));
+        }
+
+        public MemoryStream GetPlaceByName(string NAMEPLACE)
+        {
+            return ConvertDBtoMomery(config.GetPlaceByName( NAMEPLACE));
+        }
+
+        public int AddNewPlaceSend(string name)
+        {
+            return config.AddNewPlaceSend(name);
+        }
+
+        public int UpdatePlaceSend(int id, string name)
+        {
+            return config.UpdatePlaceSend( id,  name);
+        }
+
+        public int DeletePlaceSend(int id)
+        {
+            return config.DeletePlaceSend(id);
+        }
+
+        public MemoryStream chackPlace(int IDplace)
+        {
+            return ConvertDBtoMomery(config.chackPlace(IDplace));
+        }
+
+        public MemoryStream GETCurrencyBYName(string NameCurrncy)
+        {
+            return ConvertDBtoMomery(config.GETCurrencyBYName(NameCurrncy));
+        }
+
+        public int AddNewCurrency(string name)
+        {
+            return config.AddNewCurrency(name);
+        }
+
+        public int UpdateCurrency(int id, string name)
+        {
+            return config.UpdateCurrency( id,  name);
+        }
+
+        public int DeleteCurrency(int id)
+        {
+            return config.DeleteCurrency(id);
+        }
+
+        public MemoryStream chackCurncy(int IDcur)
+        {
+            return ConvertDBtoMomery(config.chackCurncy(IDcur));
+        }
+
+        public int AddNewGroup(int GroupSourceID, string GroupName, string GroupDescription, int UserID, DateTime EnterTime)
+        {
+            return config.AddNewGroup(GroupSourceID, GroupName, GroupDescription, UserID, EnterTime);
+        }
+
+        public MemoryStream GetOneGroup(int IDGroup)
+        {
+            return ConvertDBtoMomery(config.GetOneGroup(IDGroup));
+        }
+
+        public MemoryStream GetAllGroup()
+        {
+            return ConvertDBtoMomery(config.GetAllGroup());
+        }
+
+        public MemoryStream GetGroupByName(string NAME)
+        {
+            return ConvertDBtoMomery(config.GetGroupByName( NAME));
+        }
+
+        public MemoryStream DeleteGroup(int IDGROUP)
+        {
+            return ConvertDBtoMomery(config.DeleteGroup(IDGROUP));
+        }
+
+        public bool CheckGroupItems(int IDGROUP)
+        {
+            return config.CheckGroupItems( IDGROUP);
+        }
+
+        public MemoryStream GetSourecGroup()
+        {
+            return ConvertDBtoMomery(config.GetSourecGroup());
+        }
+
+        public int GetMaxIDGroup()
+        {
+            return config.GetMaxIDGroup();
+        }
+
+        public int UpdateGroup(int ID, int GroupSourceID, string GroupName, string GroupDescription, int UserID)
+        {
+            return config.UpdateGroup( ID,  GroupSourceID,  GroupName,  GroupDescription, UserID);
+        }
+
+        public MemoryStream GetAllAccountSubNoInGroup(int GroupID)
+        {
+            return ConvertDBtoMomery(config.GetAllAccountSubNoInGroup(GroupID));
+        }
+
+        public MemoryStream GetAllAccountSubInGroup(int GroupID)
+        {
+            return ConvertDBtoMomery(config.GetAllAccountSubInGroup(GroupID));
+        }
+
+        public int DeleteItemsONGroupDetalis(int IDGroup)
+        {
+            return config.DeleteItemsONGroupDetalis(IDGroup);
+        }
+
+        public int AddItemsONGroupDetalis(int IDGroup, int IDItems, int UserID)
+        {
+            return config.AddItemsONGroupDetalis( IDGroup,  IDItems, UserID);
+        }
+
+        public int AddConnectionAccountwithPlace(int palce, int idMadeen, int idDaan)
+        {
+            return config.AddConnectionAccountwithPlace( palce,  idMadeen,  idDaan);
+        }
+
+        public int UpdateConnectionAccountwithPlace(int ID, int palce, int idMadeen, int idDaan)
+        {
+            return config.UpdateConnectionAccountwithPlace( ID,  palce,  idMadeen,  idDaan);
+        }
+
+        public int DeleteConnectionAccountwithPlace(int ID)
+        {
+            return config.DeleteConnectionAccountwithPlace( ID);
+        }
+
+        public MemoryStream GetConnectionAccountwithPlace()
+        {
+            return ConvertDBtoMomery(config.GetConnectionAccountwithPlace());
+        }
 
 
         #endregion
-        //end Out
+        //end Confation
     }
 
 }
