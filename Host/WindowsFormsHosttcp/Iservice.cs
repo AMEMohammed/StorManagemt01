@@ -347,6 +347,34 @@ namespace WindowsFormsHosttcp
         //ENd Configtion
         //frmWInReprting الطباعة
         #region
+        [OperationContract]   
+        MemoryStream GetGroupsCate();
+        [OperationContract]
+        MemoryStream GetAllUserinReprt()
+        [OperationContract]
+        MemoryStream GetAllUserAR();
+        [OperationContract]
+        MemoryStream PrintRequstRPT(DateTime d1, DateTime d2, int IDCate, int IDType, int IDCurrn, string txt, int iduser);
+        [OperationContract]
+        MemoryStream PrintRequstRPTAll(DateTime d1, DateTime d2, string txt);
+        [OperationContract]
+        MemoryStream PrintRequstRPTIDcat(DateTime d1, DateTime d2, string txt, int IDCate);
+        [OperationContract]
+        MemoryStream PrintOutAllwithDate(int idca, int idtyp, int idpalce, int idcurrnt, string name, DateTime d1, DateTime d2, int iduser);
+        [OperationContract]
+        MemoryStream PrintOutAllwithDateAll(string name, DateTime d1, DateTime d2);
+        [OperationContract]
+        MemoryStream PrintOutAllwithDateWithIDca(string name, DateTime d1, DateTime d2, int idca);
+        [OperationContract]
+        MemoryStream PrintOutAllwithDateWithIDcaPLAC(string name, DateTime d1, DateTime d2, int idca, int idpalce);
+        [OperationContract]
+        MemoryStream PrintOutAllwithDateWithPLAC(string name, DateTime d1, DateTime d2, int idpalce);
+        [OperationContract]
+        MemoryStream PrintAccountQuntity(int idcat, int idtyp, int idcu);
+        [OperationContract]
+        MemoryStream PrintAccountQuntityIDac(int idcu);
+        [OperationContract]
+        [OperationContract]
         #endregion
         // end frmWInReprting
     }
