@@ -350,7 +350,7 @@ namespace WindowsFormsHosttcp
         [OperationContract]   
         MemoryStream GetGroupsCate();
         [OperationContract]
-        MemoryStream GetAllUserinReprt()
+        MemoryStream GetAllUserinReprt();
         [OperationContract]
         MemoryStream GetAllUserAR();
         [OperationContract]

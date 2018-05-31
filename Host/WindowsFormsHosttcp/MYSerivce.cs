@@ -926,7 +926,8 @@ namespace WindowsFormsHosttcp
 
         public MemoryStream GetUpdateSupplyByDateDeleteWithDate(DateTime d1, DateTime d2)
         {
-            return ConvertDBtoMomery(ReportFun.GetUpdateSupplyByDateDeleteWithDate( d1,  d2));
+            return ConvertDBtoMomery(ReportFun.GetUpdateSupplyByDateDeleteWithDate(d1, d2));
+        }
 
         public MemoryStream GetUpdtOutByIDOut(int idOUt)
         {
@@ -945,7 +946,7 @@ namespace WindowsFormsHosttcp
 
         public MemoryStream GetUpdOutByDateDetle2tewithdate(DateTime d1, DateTime d2)
         {
-            return ConvertDBtoMomery(ReportFun.GetUpdOutByDateDetle2tewithdate(d1, d2);
+            return ConvertDBtoMomery(ReportFun.GetUpdOutByDateDetle2tewithdate(d1, d2));
         }
 
 
