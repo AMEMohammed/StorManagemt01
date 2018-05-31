@@ -12,6 +12,7 @@ using Account;
 using Out_;
 using Supplly;
 using SystemConfiguration;
+using frmWInReprting;
 namespace WindowsFormsHosttcp
 {
     [ServiceBehavior(InstanceContextMode =InstanceContextMode.Single)]
@@ -27,6 +28,9 @@ namespace WindowsFormsHosttcp
         SupplyRequset SupplyFun = new SupplyRequset(Properties.Settings.Default.ServerNm, Properties.Settings.Default.DBNM, null, null);
         //Confation
         Config config = new Config(Properties.Settings.Default.ServerNm, Properties.Settings.Default.DBNM, null, null);
+        //RepotFunction
+        RepotFunction ReportFun=new RepotFunction(Properties.Settings.Default.ServerNm, Properties.Settings.Default.DBNM, null, null);
+
         /// end Classes
         /// 
         public delegate void ResDT(int falg,string nm);
@@ -825,10 +829,128 @@ namespace WindowsFormsHosttcp
         {
             return ConvertDBtoMomery(config.GetConnectionAccountwithPlace());
         }
+        #endregion
+        //end Confation
+
+        // from ReptingSearching
+        #region
+        public MemoryStream GetGroupsCate()
+        {
+            return ConvertDBtoMomery(ReportFun.GetGroupsCate());
+        }
+
+        public MemoryStream GetAllUserinReprt()
+        {
+            return ConvertDBtoMomery(ReportFun.GetAllUser());
+        }
+
+        public MemoryStream GetAllUserAR()
+        {
+            return ConvertDBtoMomery(ReportFun.GetAllUserAR());
+        }
+
+        public MemoryStream PrintRequstRPT(DateTime d1, DateTime d2, int IDCate, int IDType, int IDCurrn, string txt, int iduser)
+        {
+            return ConvertDBtoMomery(ReportFun.PrintRequstRPT( d1,  d2,  IDCate,  IDType,  IDCurrn,  txt,  iduser));
+        }
+
+        public MemoryStream PrintRequstRPTAll(DateTime d1, DateTime d2, string txt)
+        {
+            return ConvertDBtoMomery(ReportFun.PrintRequstRPTAll( d1,  d2, txt));
+        }
+
+        public MemoryStream PrintRequstRPTIDcat(DateTime d1, DateTime d2, string txt, int IDCate)
+        {
+            return ConvertDBtoMomery(ReportFun.PrintRequstRPTIDcat(d1,  d2,  txt,  IDCate));
+        }
+
+        public MemoryStream PrintOutAllwithDate(int idca, int idtyp, int idpalce, int idcurrnt, string name, DateTime d1, DateTime d2, int iduser)
+        {
+            return ConvertDBtoMomery(ReportFun.PrintOutAllwithDate(idca, idtyp, idpalce, idcurrnt, name, d1, d2, iduser));
+        }
+
+        public MemoryStream PrintOutAllwithDateAll(string name, DateTime d1, DateTime d2)
+        {
+            return ConvertDBtoMomery(ReportFun.PrintOutAllwithDateAll( name,  d1,  d2));
+        }
+
+        public MemoryStream PrintOutAllwithDateWithIDca(string name, DateTime d1, DateTime d2, int idca)
+        {
+            return ConvertDBtoMomery(ReportFun.PrintOutAllwithDateWithIDca( name,d1,  d2, idca));
+        }
+
+        public MemoryStream PrintOutAllwithDateWithIDcaPLAC(string name, DateTime d1, DateTime d2, int idca, int idpalce)
+        {
+            return ConvertDBtoMomery(ReportFun.PrintOutAllwithDateWithIDcaPLAC( name,  d1, d2,  idca,  idpalce));
+        }
+
+        public MemoryStream PrintOutAllwithDateWithPLAC(string name, DateTime d1, DateTime d2, int idpalce)
+        {
+            return ConvertDBtoMomery(ReportFun.PrintOutAllwithDateWithPLAC( name,  d1,  d2, idpalce));
+        }
+
+        public MemoryStream PrintAccountQuntity(int idcat, int idtyp, int idcu)
+        {
+            return ConvertDBtoMomery(ReportFun.PrintAccountQuntity( idcat,  idtyp,  idcu));
+        }
+
+        public MemoryStream PrintAccountQuntityIDac(int idcu)
+        {
+            return ConvertDBtoMomery(ReportFun.PrintAccountQuntityIDac( idcu));
+        }
+
+        public MemoryStream PrintAccountQuntityWithGroup(int IDGroup)
+        {
+            return ConvertDBtoMomery(ReportFun.PrintAccountQuntityWithGroup( IDGroup));
+        }
+
+        public MemoryStream PrintAccountQuntityAll()
+        {
+            return ConvertDBtoMomery(ReportFun.PrintAccountQuntityAll());
+        }
+
+        public MemoryStream GetUpdateSupplyByIDSupply(int Id)
+        {
+            return ConvertDBtoMomery(ReportFun.GetUpdateSupplyByIDSupply( Id));
+        }
+
+        public MemoryStream GetUpdateSupplyByDate(DateTime d1, DateTime d2)
+        {
+            return ConvertDBtoMomery(ReportFun.GetUpdateSupplyByDate( d1, d2));
+        }
+
+        public MemoryStream GetUpdateSupplyByDateUpdateWithDate(DateTime d1, DateTime d2)
+        {
+            return ConvertDBtoMomery(ReportFun.GetUpdateSupplyByDateUpdateWithDate( d1,  d2));
+        }
+
+        public MemoryStream GetUpdateSupplyByDateDeleteWithDate(DateTime d1, DateTime d2)
+        {
+            return ConvertDBtoMomery(ReportFun.GetUpdateSupplyByDateDeleteWithDate( d1,  d2));
+
+        public MemoryStream GetUpdtOutByIDOut(int idOUt)
+        {
+            return ConvertDBtoMomery(ReportFun.GetUpdtOutByIDOut(idOUt));
+        }
+
+        public MemoryStream GetUpdOutByDate(DateTime d1, DateTime d2)
+        {
+            return ConvertDBtoMomery(ReportFun.GetUpdOutByDate( d1,  d2));
+        }
+
+        public MemoryStream GetUpdOutByDateUpdtewithdate(DateTime d1, DateTime d2)
+        {
+            return ConvertDBtoMomery(ReportFun.GetUpdOutByDateUpdtewithdate( d1,  d2));
+        }
+
+        public MemoryStream GetUpdOutByDateDetle2tewithdate(DateTime d1, DateTime d2)
+        {
+            return ConvertDBtoMomery(ReportFun.GetUpdOutByDateDetle2tewithdate(d1, d2);
+        }
 
 
         #endregion
-        //end Confation
+       
     }
 
 }

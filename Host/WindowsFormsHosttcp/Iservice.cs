@@ -374,7 +374,26 @@ namespace WindowsFormsHosttcp
         [OperationContract]
         MemoryStream PrintAccountQuntityIDac(int idcu);
         [OperationContract]
+        MemoryStream PrintAccountQuntityWithGroup(int IDGroup);
         [OperationContract]
+        MemoryStream PrintAccountQuntityAll();
+        [OperationContract]
+        MemoryStream GetUpdateSupplyByIDSupply(int Id);
+        [OperationContract]
+        MemoryStream GetUpdateSupplyByDate(DateTime d1, DateTime d2);
+        [OperationContract]
+        MemoryStream GetUpdateSupplyByDateUpdateWithDate(DateTime d1, DateTime d2);
+        [OperationContract]
+        MemoryStream GetUpdateSupplyByDateDeleteWithDate(DateTime d1, DateTime d2);
+        [OperationContract]
+        MemoryStream GetUpdtOutByIDOut(int idOUt);
+        [OperationContract]
+        MemoryStream GetUpdOutByDate(DateTime d1, DateTime d2);
+        [OperationContract]
+        MemoryStream GetUpdOutByDateUpdtewithdate(DateTime d1, DateTime d2);
+        [OperationContract]
+        MemoryStream GetUpdOutByDateDetle2tewithdate(DateTime d1, DateTime d2);
+       
         #endregion
         // end frmWInReprting
     }

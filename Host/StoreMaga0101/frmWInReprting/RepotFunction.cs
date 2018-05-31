@@ -8,7 +8,7 @@ using System.Data;
 
 namespace frmWInReprting
 {
-    class RepotFunction
+ public   class RepotFunction
     {
         MSqlConnection sql;
         public RepotFunction(string ServerNm, string NmDb, string UserSql, string PassSql)
