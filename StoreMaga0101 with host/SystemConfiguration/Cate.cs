@@ -8,11 +8,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
+using System.ServiceModel;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+
 namespace SystemConfiguration
 { 
     public partial class Cate : Form
     {
         Config config;
+        ServiceReference1.IserviceClient configHost;
+        bool HostConnection;
         /// <summary>
         /// /counstpcort
         /// </summary>
@@ -20,7 +26,7 @@ namespace SystemConfiguration
         {
             InitializeComponent();
             try
-            {
+            { 
                 config = new Config(@".\s2008", "StoreManagement1", null, null);
             }
             catch(Exception ex)
@@ -30,12 +36,23 @@ namespace SystemConfiguration
         }
         /////
         /// Cunst With Connction sql server
-        public Cate(string ServerNm,string DbNm,string UserSql,string PassSql)
+        public Cate(string ServerNm,string DbNm,string UserSql,string PassSql,bool hostconnection,string ipHost)
         {
             InitializeComponent();
+            HostConnection = hostconnection;
             try
             {
-                config = new Config(ServerNm, DbNm,UserSql, PassSql);
+                if (HostConnection == false)
+                {
+                    config = new Config(ServerNm, DbNm, UserSql, PassSql);
+                }
+                else
+                {
+                    configHost = new ServiceReference1.IserviceClient();
+                    EndpointAddress endp = new EndpointAddress(ipHost);
+                    configHost.Endpoint.Address = endp;
+                }
+
             }
             catch (Exception ex)
             {
@@ -51,10 +68,20 @@ namespace SystemConfiguration
                 combAccont.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
                 combAccont.AutoCompleteSource = AutoCompleteSource.ListItems;
                 textBox4.Focus();
-                dataGridView1.DataSource = config.GetAllCategoryAR();
-                combAccont.DataSource = config.GETALLAccountSub();
                 combAccont.ValueMember = "رقم الحساب";
                 combAccont.DisplayMember = "اسم الحساب";
+                if (HostConnection == false)
+                {
+                    dataGridView1.DataSource = config.GetAllCategoryAR();
+                    combAccont.DataSource = config.GETALLAccountSub();
+                }
+                else
+                {
+                    dataGridView1.DataSource =ConvertMemorytoDB( configHost.GetAllCategoryAR());
+                    combAccont.DataSource =ConvertMemorytoDB( configHost.GETALLAccountSub());
+
+                }
+               
             }
             catch (Exception ex)
             {
@@ -70,21 +97,40 @@ namespace SystemConfiguration
             if(textBox4.Text.Length>0 &&(int) combAccont.SelectedValue>0)
             {
                 try
-                {
-                    
-                    if (checkBox1.Checked && (int)combAccont.SelectedValue > 0)
+                { if (HostConnection == false)
                     {
-                        config.AddNewCategory(textBox4.Text,combAccont.SelectedValue);//add in tbl Category
+
+                        if (checkBox1.Checked && (int)combAccont.SelectedValue > 0)
+                        {
+                            config.AddNewCategory(textBox4.Text, combAccont.SelectedValue);//add in tbl Category
+
+                        }
+                        else
+                        {
+                            config.AddNewCategory(textBox4.Text, null);
+                        }
+                        dataGridView1.DataSource = config.GetAllCategoryAR();
+
+                        textBox4.Text = "";
+                        textBox4.Focus();
+                    }
+                    else //conection host
+                    {
+                        if (checkBox1.Checked && (int)combAccont.SelectedValue > 0)
+                        {
+                            configHost.AddNewCategory(textBox4.Text, combAccont.SelectedValue);//add in tbl Category
+
+                        }
+                        else
+                        {
+                            configHost.AddNewCategory(textBox4.Text, null);
+                        }
+                        dataGridView1.DataSource =ConvertMemorytoDB( configHost.GetAllCategoryAR());
+
+                        textBox4.Text = "";
+                        textBox4.Focus();
 
                     }
-                    else
-                    {
-                        config.AddNewCategory(textBox4.Text, null);
-                    }
-                     dataGridView1.DataSource = config.GetAllCategoryAR();
-                    
-                    textBox4.Text = "";
-                    textBox4.Focus();
 
                 }
                 catch(Exception ex)
@@ -105,29 +151,60 @@ namespace SystemConfiguration
         private void btnRefrsh_Click(object sender, EventArgs e)
         {
             if (textBox4.Text.Length > 0 && (int) combAccont.SelectedValue>0)
-            {
-                try
-                { if (MessageBox.Show("هل تريد التعديل", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                    {
-                        if (checkBox1.Checked && (int)combAccont.SelectedValue > 0)
-                        {
-                            config.UpdateCategory(Convert.ToInt32(textBox3.Text), textBox4.Text, (int)combAccont.SelectedValue);
-                        }
-                        else
-                        {
-                          
-                            config.UpdateCategory(Convert.ToInt32(textBox3.Text), textBox4.Text, null);
-
-                        }
-
-                    }
-                    dataGridView1.DataSource = config.GetAllCategoryAR();
-                    textBox4.Focus();
-                }
-                catch (Exception ex)
+            { if (HostConnection == false)
                 {
-                    MessageBox.Show(ex.Message);
+                    try
+                    {
+                        if (MessageBox.Show("هل تريد التعديل", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                        {
+                            if (checkBox1.Checked && (int)combAccont.SelectedValue > 0)
+                            {
+                                config.UpdateCategory(Convert.ToInt32(textBox3.Text), textBox4.Text, (int)combAccont.SelectedValue);
+                            }
+                            else
+                            {
+
+                                config.UpdateCategory(Convert.ToInt32(textBox3.Text), textBox4.Text, null);
+
+                            }
+
+                        }
+                        dataGridView1.DataSource = config.GetAllCategoryAR();
+                        textBox4.Focus();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
                 }
+                else// connection host
+                {
+                    try
+                    {
+                        if (MessageBox.Show("هل تريد التعديل", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                        {
+                            if (checkBox1.Checked && (int)combAccont.SelectedValue > 0)
+                            {
+                                configHost.UpdateCategory(Convert.ToInt32(textBox3.Text), textBox4.Text, (int)combAccont.SelectedValue);
+                            }
+                            else
+                            {
+
+                                configHost.UpdateCategory(Convert.ToInt32(textBox3.Text), textBox4.Text, null);
+
+                            }
+
+                        }
+                        dataGridView1.DataSource =ConvertMemorytoDB( configHost.GetAllCategoryAR());
+                        textBox4.Focus();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+
+
             }
         }
         //
@@ -138,24 +215,52 @@ namespace SystemConfiguration
             {
                 try
                 {
-                    if (MessageBox.Show("هل تريد حذف الصنف", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                    { DataTable dt = new DataTable();
-                        int IDCAT = Convert.ToInt32(textBox3.Text);
-                        dt = config.chackCatagory(IDCAT);
-                        if(dt.Rows.Count>0)
+                    if (HostConnection == false)
+                    {                        
+                        if (MessageBox.Show("هل تريد حذف الصنف", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
                         {
-                            MessageBox.Show("لايكمن حذف السجل .مرتبط بسجلات اخرى", "", MessageBoxButtons.OK);
-                        }
-                        else
-                        {
-                            config.DeleteCategory(IDCAT);
+                            DataTable dt = new DataTable();
+                            int IDCAT = Convert.ToInt32(textBox3.Text);
+                            dt = config.chackCatagory(IDCAT);
+                            if (dt.Rows.Count > 0)
+                            {
+                                MessageBox.Show("لايكمن حذف السجل .مرتبط بسجلات اخرى", "", MessageBoxButtons.OK);
+                            }
+                            else
+                            {
+                                config.DeleteCategory(IDCAT);
 
-                          
-                            dataGridView1.DataSource = config.GetAllCategoryAR();
-                            textBox4.Focus();
-                            textBox4.Text = "";
-                            textBox3.Text = "";
+
+                                dataGridView1.DataSource = config.GetAllCategoryAR();
+                                textBox4.Focus();
+                                textBox4.Text = "";
+                                textBox3.Text = "";
+                            }
                         }
+                    }
+                    else
+                    {
+                        if (MessageBox.Show("هل تريد حذف الصنف", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                        {
+                            DataTable dt = new DataTable();
+                            int IDCAT = Convert.ToInt32(textBox3.Text);
+                            dt =ConvertMemorytoDB( configHost.chackCatagory(IDCAT));
+                            if (dt.Rows.Count > 0)
+                            {
+                                MessageBox.Show("لايكمن حذف السجل .مرتبط بسجلات اخرى", "", MessageBoxButtons.OK);
+                            }
+                            else
+                            {
+                                configHost.DeleteCategory(IDCAT);
+
+
+                                dataGridView1.DataSource =ConvertMemorytoDB( configHost.GetAllCategoryAR());
+                                textBox4.Focus();
+                                textBox4.Text = "";
+                                textBox3.Text = "";
+                            }
+                        }
+
                     }
                 }
                 catch (Exception ex)
@@ -216,8 +321,11 @@ namespace SystemConfiguration
         private void textBox4_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Shift && e.KeyCode == Keys.Enter)
-            {
-                dataGridView1.DataSource = config.GetCategoryByName(textBox4.Text);
+            { if(HostConnection==false)
+                  dataGridView1.DataSource = config.GetCategoryByName(textBox4.Text);
+            else
+                    dataGridView1.DataSource =ConvertMemorytoDB( configHost.GetCategoryByName(textBox4.Text));
+
             }
         }
 
@@ -294,6 +402,13 @@ namespace SystemConfiguration
             {
                 GC.Collect();
             }
+        }
+        DataTable ConvertMemorytoDB(MemoryStream ms)
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            ms.Seek(0, SeekOrigin.Begin);
+            DataTable dt = (DataTable)formatter.Deserialize(ms);
+            return dt;
         }
     }
 }

@@ -8,12 +8,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
+using System.ServiceModel;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+
 namespace SystemConfiguration
 {
     public partial class frmGroup : Form
     {
         int USERID;
         Config config;
+        bool Hostcoonection;
+        string IpHost;
+        ServiceReference1.IserviceClient configHost;
         public frmGroup()
         {
             InitializeComponent();
@@ -21,12 +28,24 @@ namespace SystemConfiguration
             config = new Config(@".\s2008", "StoreManagement1", null, null);
         }
         
-        public frmGroup(string ServerNm, string DbNm, string UserSql, string PassSql,int UserID)
+        public frmGroup(string ServerNm, string DbNm, string UserSql, string PassSql,int UserID,bool hostconnection ,string ipHost)
         {
             InitializeComponent();
             try
             {// connection to server
-                config = new Config(ServerNm, DbNm, UserSql, PassSql);
+                Hostcoonection = hostconnection;
+                if(Hostcoonection==false)
+                {
+                    config = new Config(ServerNm, DbNm, UserSql, PassSql);
+                }
+                else
+                {
+                    IpHost = ipHost;
+                    configHost = new ServiceReference1.IserviceClient();
+                    EndpointAddress endp = new EndpointAddress(IpHost);
+                    configHost.Endpoint.Address = endp;
+                }
+               
             }
             catch(Exception ex)
             {
@@ -42,8 +61,14 @@ namespace SystemConfiguration
         {
             try
             { // loading Group source
-
-                comboBox1.DataSource = config.GetSourecGroup();
+                if (Hostcoonection == false)
+                {
+                    comboBox1.DataSource = config.GetSourecGroup();
+                }
+                else
+                {
+                    comboBox1.DataSource =ConvertMemorytoDB( configHost.GetSourecGroup());
+                }
                 comboBox1.ValueMember = "رقم المصدر";
                 comboBox1.DisplayMember = "اسم المصدر";
                 comboBox1.SelectedIndex = 0;
@@ -63,31 +88,66 @@ namespace SystemConfiguration
         private void btnAddSup_Click(object sender, EventArgs e)
         {
             if((int)comboBox1.SelectedValue>0 && txtNameGroup.Text.Length>0)
-            {
-               try
-                {   /// add new group
-                    config.AddNewGroup((int)comboBox1.SelectedValue, txtNameGroup.Text, group.Text, USERID, DateTime.Now);
-                    
-
-                    if (dataGridView1.RowCount > 0)
-                    {   // عرض البيانات الموجودة مسبقا مع البيانات المضافه 
-                        DataTable dt = new DataTable();
-                        DataTable dt2 = new DataTable();
-                        dt = (DataTable)dataGridView1.DataSource;
-                        dt2  = config.GetOneGroup(config.GetMaxIDGroup());
-                        dt2.Merge(dt);
-                        dataGridView1.DataSource = dt2;
-                    }
-                    else
-                    {
-                        dataGridView1.DataSource= config.GetOneGroup(config.GetMaxIDGroup());
-                    }
-                      
-                    Refrish();
-                }
-                catch(Exception ex)
+            { if (Hostcoonection == false)
                 {
-                    MessageBox.Show(ex.Message);
+                    try
+                    {   /// add new group
+                        config.AddNewGroup((int)comboBox1.SelectedValue, txtNameGroup.Text, group.Text, USERID, DateTime.Now);
+
+
+                        if (dataGridView1.RowCount > 0)
+                        {   // عرض البيانات الموجودة مسبقا مع البيانات المضافه 
+                            DataTable dt = new DataTable();
+                            DataTable dt2 = new DataTable();
+                            dt = (DataTable)dataGridView1.DataSource;
+                            dt2 = config.GetOneGroup(config.GetMaxIDGroup());
+                            dt2.Merge(dt);
+                            dataGridView1.DataSource = dt2;
+                        }
+                        else
+                        {
+                            dataGridView1.DataSource = config.GetOneGroup(config.GetMaxIDGroup());
+                        }
+
+                        Refrish();
+
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+                else // connection host
+                {
+                    try
+                    {   /// add new group
+                        configHost.AddNewGroup((int)comboBox1.SelectedValue, txtNameGroup.Text, group.Text, USERID, DateTime.Now);
+
+
+                        if (dataGridView1.RowCount > 0)
+                        {   // عرض البيانات الموجودة مسبقا مع البيانات المضافه 
+                            DataTable dt = new DataTable();
+                            DataTable dt2 = new DataTable();
+                            dt = (DataTable)dataGridView1.DataSource;
+                            dt2 =ConvertMemorytoDB( configHost.GetOneGroup(configHost.GetMaxIDGroup()));
+                            dt2.Merge(dt);
+                            dataGridView1.DataSource = dt2;
+                        }
+                        else
+                        {
+                            dataGridView1.DataSource =ConvertMemorytoDB( configHost.GetOneGroup(configHost.GetMaxIDGroup()));
+                        }
+
+                        Refrish();
+
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+
                 }
             }
         }
@@ -97,7 +157,10 @@ namespace SystemConfiguration
             try
             {
                 Refrish();
-                dataGridView1.DataSource = config.GetAllGroup();
+                if(Hostcoonection==false)
+                    dataGridView1.DataSource = config.GetAllGroup();
+                else
+                    dataGridView1.DataSource =ConvertMemorytoDB( configHost.GetAllGroup());
             }
             catch(Exception ex)
             {
@@ -145,8 +208,16 @@ namespace SystemConfiguration
                     if (MessageBox.Show("هل تريد التعديل","",MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
                         int id = Convert.ToInt32(txtIDgroup.Text);
-                        config.UpdateGroup(id, (int)comboBox1.SelectedValue, txtNameGroup.Text, txtDecrp.Text, USERID);
-                        dataGridView1.DataSource = config.GetOneGroup(id);
+                        if (Hostcoonection == false)
+                        {
+                            config.UpdateGroup(id, (int)comboBox1.SelectedValue, txtNameGroup.Text, txtDecrp.Text, USERID);
+                            dataGridView1.DataSource = config.GetOneGroup(id);
+                        }
+                        else
+                        {
+                            configHost.UpdateGroup(id, (int)comboBox1.SelectedValue, txtNameGroup.Text, txtDecrp.Text, USERID);
+                            dataGridView1.DataSource =ConvertMemorytoDB( configHost.GetOneGroup(id));
+                        }
 
                         Refrish();
                     }
@@ -163,7 +234,7 @@ namespace SystemConfiguration
         {
             if (txtIDgroup.Text.Length > 0)
             {
-                new frmAdditms((int)comboBox1.SelectedValue, Convert.ToInt32(txtIDgroup.Text), USERID, Users.ConServer.ServerNM,Users. ConServer.DBNM, Users.ConServer.UserSql, Users.ConServer.PassSql).ShowDialog();
+                new frmAdditms((int)comboBox1.SelectedValue, Convert.ToInt32(txtIDgroup.Text), USERID, Users.ConServer.ServerNM,Users. ConServer.DBNM, Users.ConServer.UserSql, Users.ConServer.PassSql,Hostcoonection,IpHost).ShowDialog();
 
             }
 
@@ -173,8 +244,10 @@ namespace SystemConfiguration
         private void txtNameGroup_KeyDown(object sender, KeyEventArgs e)
         {
             if(e.Shift && e.KeyCode==Keys.Enter)
-            {
-               dataGridView1.DataSource= config.GetGroupByName(txtNameGroup.Text);
+            { if(Hostcoonection==false)
+                 dataGridView1.DataSource= config.GetGroupByName(txtNameGroup.Text);
+            else
+                    dataGridView1.DataSource =ConvertMemorytoDB( configHost.GetGroupByName(txtNameGroup.Text));
             }
         }
         /// <summary>
@@ -183,21 +256,42 @@ namespace SystemConfiguration
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
-        {
-            if (txtIDgroup.Text.Length > 0)
+        {if (Hostcoonection == false)
             {
-                if (config.CheckGroupItems((Convert.ToInt32(txtIDgroup.Text))))
+                if (txtIDgroup.Text.Length > 0)
                 {
-                    MessageBox.Show("لا يمكن حذف المجوعة لانها تحتوي على عناصر");
+                    if (config.CheckGroupItems((Convert.ToInt32(txtIDgroup.Text))))
+                    {
+                        MessageBox.Show("لا يمكن حذف المجوعة لانها تحتوي على عناصر");
 
+                    }
+                    else
+                    {
+                        config.DeleteGroup(Convert.ToInt32(txtIDgroup.Text));
+                    }
                 }
-                else
+            }
+            else
+            {
+                if (txtIDgroup.Text.Length > 0)
                 {
-                    config.DeleteGroup(Convert.ToInt32(txtIDgroup.Text));
+
+
+                    if (configHost.CheckGroupItems((Convert.ToInt32(txtIDgroup.Text))))
+                    {
+                        MessageBox.Show("لا يمكن حذف المجوعة لانها تحتوي على عناصر");
+
+                    }
+                    else
+                    {
+                        configHost.DeleteGroup(Convert.ToInt32(txtIDgroup.Text));
+                    }
                 }
+            }
+        
 
 
-           }
+           
         }
 
         private void تصديرالىاكسلToolStripMenuItem_Click(object sender, EventArgs e)
@@ -267,5 +361,14 @@ namespace SystemConfiguration
             }
 
         }
+        ///  //convert MemmoryToDB
+        DataTable ConvertMemorytoDB(MemoryStream ms)
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            ms.Seek(0, SeekOrigin.Begin);
+            DataTable dt = (DataTable)formatter.Deserialize(ms);
+            return dt;
+        }
+
     }
 }

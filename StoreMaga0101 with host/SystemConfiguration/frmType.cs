@@ -8,11 +8,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
+using System.ServiceModel;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+
 namespace SystemConfiguration
 {
     public partial class frmType : Form
     {
         Config config;
+        bool HostConnection;
+        ServiceReference1.IserviceClient configHost;
         public frmType()
         {
             InitializeComponent();
@@ -25,12 +31,22 @@ namespace SystemConfiguration
                 MessageBox.Show(ex.Message);
             }
         }
-        public frmType(string ServerNm, string DbNm, string UserSql, string PassSql)
+        public frmType(string ServerNm, string DbNm, string UserSql, string PassSql,bool hostconnection,string iphost)
         {
             InitializeComponent();
             try
             {
-                config = new Config(ServerNm, DbNm, UserSql, PassSql);
+                HostConnection = hostconnection;
+                if (HostConnection == false)
+                {
+                    config = new Config(ServerNm, DbNm, UserSql, PassSql);
+                }
+                else
+                {
+                    configHost = new ServiceReference1.IserviceClient();
+                    EndpointAddress endp = new EndpointAddress(iphost);
+                    configHost.Endpoint.Address = endp;
+                }
             }
             catch (Exception ex)
             {
@@ -43,7 +59,15 @@ namespace SystemConfiguration
             try
             {
                 textBox3.Focus();
-                dataGridView1.DataSource = config.GetAllTypeQuntity();
+                if (HostConnection == false)
+                {
+                    dataGridView1.DataSource = config.GetAllTypeQuntity();
+
+                }
+                else
+                {
+                    dataGridView1.DataSource =ConvertMemorytoDB( configHost.GetAllTypeQuntityInConf());
+                }
             }
             catch (Exception ex)
             {
@@ -56,9 +80,17 @@ namespace SystemConfiguration
             if (textBox4.Text.Length > 0)
             {
                 try
-                {
-                    config.AddNewTypeQuntity(textBox4.Text);
-                    dataGridView1.DataSource = config.GetAllTypeQuntity();
+                {  if (HostConnection == false)
+                    {
+                        config.AddNewTypeQuntity(textBox4.Text);
+                        dataGridView1.DataSource = config.GetAllTypeQuntity();
+                    }
+                else
+                    {
+                        configHost.AddNewTypeQuntity(textBox4.Text);
+                        dataGridView1.DataSource =ConvertMemorytoDB( configHost.GetAllTypeQuntityInConf());
+                    }
+                    
                     textBox4.Text = "";
                     textBox4.Focus();
 
@@ -76,11 +108,22 @@ namespace SystemConfiguration
             {
                 try
                 {
-                    if (MessageBox.Show("هل تريد التعديل", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                        config.UpdateTypeQuntity(Convert.ToInt32(textBox3.Text), textBox4.Text);
+                    if (HostConnection == false)
+                    {
+                        if (MessageBox.Show("هل تريد التعديل", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                            config.UpdateTypeQuntity(Convert.ToInt32(textBox3.Text), textBox4.Text);
 
 
-                    dataGridView1.DataSource = config.GetAllTypeQuntity();
+                        dataGridView1.DataSource = config.GetAllTypeQuntity();
+                    }
+                    else
+                    {
+                        if (MessageBox.Show("هل تريد التعديل", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                            configHost.UpdateTypeQuntity(Convert.ToInt32(textBox3.Text), textBox4.Text);
+
+
+                        dataGridView1.DataSource =ConvertMemorytoDB( configHost.GetAllTypeQuntity());
+                    }
                     textBox4.Focus();
                 }
                 catch (Exception ex)
@@ -99,17 +142,32 @@ namespace SystemConfiguration
                     {
                         DataTable dt = new DataTable();
                         int IDtype = Convert.ToInt32(textBox3.Text);
-                        dt = config.chackTapy(IDtype);
+                        if (HostConnection == false)
+                        {
+                            dt = config.chackTapy(IDtype);
+                        }
+                        else
+                        {
+                            dt =ConvertMemorytoDB( configHost.chackTapy(IDtype));
+
+                        }
                         if (dt.Rows.Count > 0)
                         {
                             MessageBox.Show("لايكمن حذف السجل .مرتبط بسجلات اخرى", "", MessageBoxButtons.OK);
                         }
                         else
                         {
-                            config.DeleteQuntity(IDtype);
+                            if (HostConnection == false)
+                            {
+                                config.DeleteQuntity(IDtype);
+                                dataGridView1.DataSource = config.GetAllTypeQuntity();
+                            }
+                            else
+                            {
+                                configHost.DeleteQuntity(IDtype);
+                                dataGridView1.DataSource =ConvertMemorytoDB(configHost.GetAllTypeQuntityInConf());
 
-
-                            dataGridView1.DataSource = config.GetAllTypeQuntity();
+                            }
                             textBox4.Focus();
                             textBox4.Text = "";
                             textBox3.Text = "";
@@ -154,10 +212,17 @@ namespace SystemConfiguration
         /// <param name="e"></param>
         private void textBox4_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.Shift && e.KeyCode==Keys.Enter)
-            {
-                dataGridView1.DataSource = config.GetTypeQuntityByName(textBox4.Text);
-                    }
+            if (e.Shift && e.KeyCode == Keys.Enter)
+            {  if (HostConnection == false)
+                {
+                    dataGridView1.DataSource = config.GetTypeQuntityByName(textBox4.Text);
+                }
+            else
+                {
+                    dataGridView1.DataSource =ConvertMemorytoDB( configHost.GetTypeQuntityByName(textBox4.Text));
+
+                }
+            }
         }
         /// <summary>
         /// تصدير الى اكسل
@@ -228,6 +293,14 @@ namespace SystemConfiguration
             {
                 GC.Collect();
             }
+        }
+        ///  //convert MemmoryToDB
+        DataTable ConvertMemorytoDB(MemoryStream ms)
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            ms.Seek(0, SeekOrigin.Begin);
+            DataTable dt = (DataTable)formatter.Deserialize(ms);
+            return dt;
         }
     }
 }

@@ -522,7 +522,7 @@ namespace StoreMaga0101
             try
             {
                 this.Cursor = Cursors.WaitCursor;
-                Cate frmcat = new Cate(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql);
+                Cate frmcat = new Cate(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql,ConServer.ConnectionWithHost,ConServer.HostIp);
                 FormCollection fromco = Application.OpenForms;
                 bool foundFrom = false;
                 foreach (Form frm in fromco)
@@ -551,7 +551,7 @@ namespace StoreMaga0101
             try
             {
                 this.Cursor = Cursors.WaitCursor;
-                frmType frmtype = new frmType(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql);
+                frmType frmtype = new frmType(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql,ConServer.ConnectionWithHost,ConServer.HostIp);
                 FormCollection fromco = Application.OpenForms;
                 bool foundFrom = false;
                 foreach (Form frm in fromco)
@@ -581,7 +581,7 @@ namespace StoreMaga0101
             try
             {
                 this.Cursor = Cursors.WaitCursor;
-                frmPlace frmplace = new frmPlace(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql);
+                frmPlace frmplace = new frmPlace(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql,ConServer.ConnectionWithHost,ConServer.HostIp);
                 FormCollection fromco = Application.OpenForms;
                 bool foundFrom = false;
                 foreach (Form frm in fromco)
@@ -613,7 +613,7 @@ namespace StoreMaga0101
             try
             {
                 this.Cursor = Cursors.WaitCursor;
-                frmCuurncy frmCurrncy = new frmCuurncy(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql);
+                frmCuurncy frmCurrncy = new frmCuurncy(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql,ConServer.ConnectionWithHost,ConServer.HostIp);
                 FormCollection fromco = Application.OpenForms;
                 bool foundFrom = false;
                 foreach (Form frm in fromco)
@@ -742,7 +742,7 @@ namespace StoreMaga0101
             try
             {
                 this.Cursor = Cursors.WaitCursor;
-                frmGroup frmgroup = new frmGroup(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID);
+                frmGroup frmgroup = new frmGroup(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID,ConServer.ConnectionWithHost,ConServer.HostIp);
                 FormCollection fromco = Application.OpenForms;
                 bool foundFrom = false;
                 foreach (Form frm in fromco)
@@ -804,7 +804,7 @@ namespace StoreMaga0101
             try
             {
                 this.Cursor = Cursors.WaitCursor;
-                frmConnectionPlaceWithAccounts frmConnectionPlaceWithAccounts1 = new frmConnectionPlaceWithAccounts(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql);
+                frmConnectionPlaceWithAccounts frmConnectionPlaceWithAccounts1 = new frmConnectionPlaceWithAccounts(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql,ConServer.ConnectionWithHost,ConServer.HostIp);
                 FormCollection fromco = Application.OpenForms;
                 bool foundFrom = false;
                 foreach (Form frm in fromco)

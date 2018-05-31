@@ -7,24 +7,41 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.ServiceModel;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace SystemConfiguration
 {
     public partial class frmConnectionPlaceWithAccounts : Form
     {
         Config config;
+        ServiceReference1.IserviceClient configHost;
+        bool HostConection;
         public frmConnectionPlaceWithAccounts()
         {
             InitializeComponent();
             config= new Config(@".\s2008", "StoreManagement1", null, null);
             GetDate();
         }
-        public frmConnectionPlaceWithAccounts(string Serv,string DBNm,string UserSql,string PassSql)
+        public frmConnectionPlaceWithAccounts(string Serv,string DBNm,string UserSql,string PassSql,bool hostconnection,string iphost)
         {
             InitializeComponent();
             try
             {
-                config = new Config(Serv, DBNm, UserSql, PassSql);
+                HostConection = hostconnection;
+                if (HostConection == false)
+                {
+                    config = new Config(Serv, DBNm, UserSql, PassSql);
+
+                }
+                else
+                {
+                    configHost = new ServiceReference1.IserviceClient();
+                    EndpointAddress endp = new EndpointAddress(iphost);
+                    configHost.Endpoint.Address = endp;
+
+                }
                 GetDate();
             }
             catch(Exception ex)
@@ -47,15 +64,25 @@ namespace SystemConfiguration
         //GetDate
         void GetDate()
         {
-            combPalce.DataSource = config.GetAllPlace();
+            
             combPalce.ValueMember = "رقم الجهة";
-            combPalce.DisplayMember = "اسم الجهة";
-            combAccountIDMAdden.DataSource = config.GETALLAccountSub();
+            combPalce.DisplayMember = "اسم الجهة";        
             combAccountIDMAdden.ValueMember = "رقم الحساب";
             combAccountIDMAdden.DisplayMember = "اسم الحساب";
-            combAccountIDDaan.DataSource = config.GETALLAccountSub();
             combAccountIDDaan.ValueMember = "رقم الحساب";
             combAccountIDDaan.DisplayMember = "اسم الحساب";
+            if (HostConection == false)
+            {
+                combPalce.DataSource = config.GetAllPlace();
+                combAccountIDMAdden.DataSource = config.GETALLAccountSub();
+                combAccountIDDaan.DataSource = config.GETALLAccountSub();
+            }
+            else
+            {
+                combPalce.DataSource =ConvertMemorytoDB(configHost.GetAllPlace());
+                combAccountIDMAdden.DataSource =ConvertMemorytoDB( configHost.GETALLAccountSub());
+                combAccountIDDaan.DataSource =ConvertMemorytoDB( configHost.GETALLAccountSub());
+            }
 
         }
         // btn ADD
@@ -67,9 +94,16 @@ namespace SystemConfiguration
                 if ((int)combAccountIDDaan.SelectedValue > 0 && (int)combAccountIDMAdden.SelectedValue > 0 && (int)combPalce.SelectedValue > 0)
                 {
                     if (MessageBox.Show("هل تريد الاضافة ", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    {
-                        config.AddConnectionAccountwithPlace((int)combPalce.SelectedValue, (int)combAccountIDMAdden.SelectedValue, (int)combAccountIDDaan.SelectedValue);
-                        dataGridView1.DataSource = config.GetConnectionAccountwithPlace();
+                    {  if (HostConection == false)
+                        {
+                            config.AddConnectionAccountwithPlace((int)combPalce.SelectedValue, (int)combAccountIDMAdden.SelectedValue, (int)combAccountIDDaan.SelectedValue);
+                            dataGridView1.DataSource = config.GetConnectionAccountwithPlace();
+                        }
+                        else
+                        {
+                            configHost.AddConnectionAccountwithPlace((int)combPalce.SelectedValue, (int)combAccountIDMAdden.SelectedValue, (int)combAccountIDDaan.SelectedValue);
+                            dataGridView1.DataSource =ConvertMemorytoDB( configHost.GetConnectionAccountwithPlace());
+                        }
                         GetDate();
                     }
                 }
@@ -94,10 +128,24 @@ namespace SystemConfiguration
             try
             {
                 if ((int)combAccountIDDaan.SelectedValue > 0 && (int)combAccountIDMAdden.SelectedValue > 0 && (int)combPalce.SelectedValue > 0 && txtNumber.Text != "")
-                {
-                    if (MessageBox.Show("هل تريد التعديل", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                        config.UpdateConnectionAccountwithPlace(Convert.ToInt32(txtNumber.Text), (int)combPalce.SelectedValue, (int)combAccountIDMAdden.SelectedValue, (int)combAccountIDDaan.SelectedValue);
-                    dataGridView1.DataSource = config.GetConnectionAccountwithPlace();
+                {if (HostConection == false)
+                    {
+                        if (MessageBox.Show("هل تريد التعديل", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            config.UpdateConnectionAccountwithPlace(Convert.ToInt32(txtNumber.Text), (int)combPalce.SelectedValue, (int)combAccountIDMAdden.SelectedValue, (int)combAccountIDDaan.SelectedValue);
+                        }
+
+                        dataGridView1.DataSource = config.GetConnectionAccountwithPlace();
+                    }
+                else// connection host
+                    {
+                        if (MessageBox.Show("هل تريد التعديل", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            configHost.UpdateConnectionAccountwithPlace(Convert.ToInt32(txtNumber.Text), (int)combPalce.SelectedValue, (int)combAccountIDMAdden.SelectedValue, (int)combAccountIDDaan.SelectedValue);
+                        }
+
+                        dataGridView1.DataSource =ConvertMemorytoDB( configHost.GetConnectionAccountwithPlace());
+                    }
                 }
                 else
                 {
@@ -116,9 +164,19 @@ namespace SystemConfiguration
             {
                 if (txtNumber.Text != "")
                 {
-                    if (MessageBox.Show("هل تريد الحذف ", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                        config.DeleteConnectionAccountwithPlace(Convert.ToInt32(txtNumber.Text));
-                    dataGridView1.DataSource = config.GetConnectionAccountwithPlace();
+                    if (HostConection == false)
+                    {
+                        if (MessageBox.Show("هل تريد الحذف ", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                            config.DeleteConnectionAccountwithPlace(Convert.ToInt32(txtNumber.Text));
+                        dataGridView1.DataSource = config.GetConnectionAccountwithPlace();
+                    }
+                    else
+                    {
+                        if (MessageBox.Show("هل تريد الحذف ", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                            configHost.DeleteConnectionAccountwithPlace(Convert.ToInt32(txtNumber.Text));
+                        dataGridView1.DataSource =ConvertMemorytoDB( configHost.GetConnectionAccountwithPlace());
+                    }
+
                 }
             }
             catch
@@ -128,8 +186,15 @@ namespace SystemConfiguration
         }
         // btn  refeish
         private void btnRefrish_Click(object sender, EventArgs e)
-        {
-            dataGridView1.DataSource = config.GetConnectionAccountwithPlace();
+        { if (HostConection == false)
+            {
+                dataGridView1.DataSource = config.GetConnectionAccountwithPlace();
+            }
+            else
+            {
+                dataGridView1.DataSource =ConvertMemorytoDB( configHost.GetConnectionAccountwithPlace());
+
+            }
             GetDate();
         }
 
@@ -138,6 +203,7 @@ namespace SystemConfiguration
             if (dataGridView1.SelectedRows.Count > 0)
 
             {
+
                 try
                 {
                     txtNumber.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
@@ -152,5 +218,14 @@ namespace SystemConfiguration
 
             }
         }
+        ///  //convert MemmoryToDB
+        DataTable ConvertMemorytoDB(MemoryStream ms)
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            ms.Seek(0, SeekOrigin.Begin);
+            DataTable dt = (DataTable)formatter.Deserialize(ms);
+            return dt;
+        }
+
     }
 }

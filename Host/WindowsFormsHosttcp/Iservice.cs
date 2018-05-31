@@ -345,6 +345,10 @@ namespace WindowsFormsHosttcp
         MemoryStream GetConnectionAccountwithPlace();
         #endregion
         //ENd Configtion
+        //frmWInReprting الطباعة
+        #region
+        #endregion
+        // end frmWInReprting
     }
 
 }

@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.ServiceModel;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace SystemConfiguration
 {
@@ -16,6 +19,8 @@ namespace SystemConfiguration
         int Type1;
         int IdGroup;
         int UserId;
+        bool HostCoonection;
+        ServiceReference1.IserviceClient configHost;
         Dictionary<string, int> ItemsSeleced = new Dictionary<string, int>();
         public frmAdditms(int idgroup,int type)
         {
@@ -35,10 +40,20 @@ namespace SystemConfiguration
             }
         }
         /////
-        public frmAdditms(int Type, int idgroup,int UserID, string ServerNm, string DbNm, string UserSql, string PassSql)
+        public frmAdditms(int Type, int idgroup,int UserID, string ServerNm, string DbNm, string UserSql, string PassSql,bool hostconnection,string iphost)
         {
             InitializeComponent();
-            config = new Config(ServerNm, DbNm, UserSql, PassSql);
+            HostCoonection = hostconnection;
+            if (HostCoonection == false)
+            {
+                config = new Config(ServerNm, DbNm, UserSql, PassSql);
+            }
+            else
+            {
+                configHost = new ServiceReference1.IserviceClient();
+                EndpointAddress endp = new EndpointAddress(iphost);
+                configHost.Endpoint.Address = endp;
+            }
 
             Type1 = Type;
             UserId = UserID;
@@ -50,17 +65,26 @@ namespace SystemConfiguration
         private void frmAdditms_Load(object sender, EventArgs e)
         {
             try
-            {
+            {  
                 /////// if type is Accountes
                 if (Type1 == 1)
                 {
                     DataTable dt1 = new DataTable();
                     DataTable dt2 = new DataTable();
-                    /// get accountes is no group
-                    dt1 = config.GetAllAccountSubNoInGroup(IdGroup);
-                    /// get Accountes in group
-                    dt2 = config.GetAllAccountSubInGroup(IdGroup);
-                    //
+                    if (HostCoonection == false)
+                    {
+                        /// get accountes is no group
+                        dt1 = config.GetAllAccountSubNoInGroup(IdGroup);
+                        /// get Accountes in group
+                        dt2 = config.GetAllAccountSubInGroup(IdGroup);
+                        //
+                      }
+                    else
+                    {
+                        dt1 =ConvertMemorytoDB(configHost.GetAllAccountSubNoInGroup(IdGroup));
+                        /// get Accountes in group
+                        dt2 = ConvertMemorytoDB( configHost.GetAllAccountSubInGroup(IdGroup));
+                    }
                     foreach (DataRow dr in dt1.Rows)
                     {
                         comboBox1.Items.Add(dr["اسم الحساب"]);
@@ -202,36 +226,75 @@ namespace SystemConfiguration
         /// btn Add GroupItems Details
         private void button5_Click(object sender, EventArgs e)
         {
-            if (Type1 == 1)
-            {   //
-                DataTable dtAllAccount = new DataTable();
-                dtAllAccount = config.GETALLAccountSub();
-                //
-                List<int> NumberAccounts = new List<int>();
-                //get Number account in combox2
-                foreach (DataRow dr in dtAllAccount.Rows)
-                {
-                    for (int i = 0; i < comboBox2.Items.Count; i++)
+            if (HostCoonection == false)
+            {
+                if (Type1 == 1)
+                {   //
+                    DataTable dtAllAccount = new DataTable();
+                    dtAllAccount = config.GETALLAccountSub();
+                    //
+                    List<int> NumberAccounts = new List<int>();
+                    //get Number account in combox2
+                    foreach (DataRow dr in dtAllAccount.Rows)
                     {
-                        if (dr["اسم الحساب"].ToString() == comboBox2.Items[i].ToString())
+                        for (int i = 0; i < comboBox2.Items.Count; i++)
                         {
-                            NumberAccounts.Add(Convert.ToInt32(dr["رقم الحساب"].ToString()));
+                            if (dr["اسم الحساب"].ToString() == comboBox2.Items[i].ToString())
+                            {
+                                NumberAccounts.Add(Convert.ToInt32(dr["رقم الحساب"].ToString()));
+                            }
+
                         }
 
                     }
+                    // delete items old
+                    config.DeleteItemsONGroupDetalis(IdGroup);
+                    // add new items
+                    for (int i = 0; i < NumberAccounts.Count; i++)
+                    {
+                        config.AddItemsONGroupDetalis(IdGroup, NumberAccounts[i], UserId);
+                    }
+                }
+                //
+                else if (Type1 == 2)
+                {
 
                 }
-                // delete items old
-                config.DeleteItemsONGroupDetalis(IdGroup);
-                // add new items
-                for (int i = 0; i < NumberAccounts.Count; i++)
-                {
-                    config.AddItemsONGroupDetalis(IdGroup, NumberAccounts[i], UserId);
-                }
             }
-            //
-            else if (Type1 == 2)
+            else
             {
+                if (Type1 == 1)
+                {   //
+                    DataTable dtAllAccount = new DataTable();
+                    dtAllAccount =ConvertMemorytoDB( configHost.GETALLAccountSub());
+                    //
+                    List<int> NumberAccounts = new List<int>();
+                    //get Number account in combox2
+                    foreach (DataRow dr in dtAllAccount.Rows)
+                    {
+                        for (int i = 0; i < comboBox2.Items.Count; i++)
+                        {
+                            if (dr["اسم الحساب"].ToString() == comboBox2.Items[i].ToString())
+                            {
+                                NumberAccounts.Add(Convert.ToInt32(dr["رقم الحساب"].ToString()));
+                            }
+
+                        }
+
+                    }
+                    // delete items old
+                    configHost.DeleteItemsONGroupDetalis(IdGroup);
+                    // add new items
+                    for (int i = 0; i < NumberAccounts.Count; i++)
+                    {
+                        configHost.AddItemsONGroupDetalis(IdGroup, NumberAccounts[i], UserId);
+                    }
+                }
+                //
+                else if (Type1 == 2)
+                {
+
+                }
 
             }
 
@@ -240,6 +303,12 @@ namespace SystemConfiguration
 
             this.Close();
         }
-        
+        DataTable ConvertMemorytoDB(MemoryStream ms)
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            ms.Seek(0, SeekOrigin.Begin);
+            DataTable dt = (DataTable)formatter.Deserialize(ms);
+            return dt;
+        }
     }
 }

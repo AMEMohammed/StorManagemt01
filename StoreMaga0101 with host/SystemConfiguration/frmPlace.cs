@@ -3,16 +3,21 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
+using System.ServiceModel;
 namespace SystemConfiguration
 {
     public partial class frmPlace : Form
     {
         Config config;
+        ServiceReference1.IserviceClient configHost;
+        bool HostConnection;
         public frmPlace()
         {
             InitializeComponent();
@@ -25,12 +30,22 @@ namespace SystemConfiguration
                 MessageBox.Show(ex.Message);
             }
         }
-        public frmPlace(string ServerNm,string DbNm,string UserSql,string PassSql)
+        public frmPlace(string ServerNm,string DbNm,string UserSql,string PassSql,bool hostConnection,string iphost)
         {
             InitializeComponent();
             try
             {
-                config = new Config(ServerNm, DbNm, UserSql, PassSql);
+                HostConnection = hostConnection;
+                if (HostConnection == false)
+                {
+                    config = new Config(ServerNm, DbNm, UserSql, PassSql);
+                }
+                else
+                {
+                    configHost = new ServiceReference1.IserviceClient();
+                    EndpointAddress endp = new EndpointAddress(iphost);
+                    configHost.Endpoint.Address = endp;
+                }
             }
             catch (Exception ex)
             {
@@ -45,7 +60,14 @@ namespace SystemConfiguration
             try
             {
                 textBox4.Focus();
-                dataGridView1.DataSource = config.GetAllPlace();
+                if (HostConnection == false)
+                {
+                    dataGridView1.DataSource = config.GetAllPlace();
+                }
+                else
+                {
+                    dataGridView1.DataSource =ConvertMemorytoDB( configHost.GetAllPlace());
+                }
             }
             catch (Exception ex)
             {
@@ -60,9 +82,16 @@ namespace SystemConfiguration
             if(textBox4.Text.Length > 0)
             {
                 try
-                {
-                    config.AddNewPlaceSend(textBox4.Text);
-                    dataGridView1.DataSource = config.GetAllPlace();
+                {  if (HostConnection == false)
+                    {
+                        config.AddNewPlaceSend(textBox4.Text);
+                        dataGridView1.DataSource = config.GetAllPlace();
+                    }
+                    else
+                    {
+                        configHost.AddNewPlaceSend(textBox4.Text);
+                        dataGridView1.DataSource =ConvertMemorytoDB(configHost.GetAllPlace());
+                    }
                     textBox4.Text = "";
                     textBox4.Focus();
 
@@ -79,12 +108,22 @@ namespace SystemConfiguration
             if (textBox4.Text.Length > 0)
             {
                 try
-                {
-                    if (MessageBox.Show("هل تريد التعديل", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                        config.UpdatePlaceSend(Convert.ToInt32(textBox3.Text), textBox4.Text);
+                { if (HostConnection == false)
+                    {
+                        if (MessageBox.Show("هل تريد التعديل", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                            config.UpdatePlaceSend(Convert.ToInt32(textBox3.Text), textBox4.Text);
 
 
-                    dataGridView1.DataSource = config.GetAllPlace();
+                        dataGridView1.DataSource = config.GetAllPlace();
+                    }
+                else
+                    {
+                        if (MessageBox.Show("هل تريد التعديل", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                            configHost.UpdatePlaceSend(Convert.ToInt32(textBox3.Text), textBox4.Text);
+
+
+                        dataGridView1.DataSource =ConvertMemorytoDB( configHost.GetAllPlace());
+                    }
                     textBox4.Focus();
                 }
                 catch (Exception ex)
@@ -104,17 +143,30 @@ namespace SystemConfiguration
                     {
                         DataTable dt = new DataTable();
                         int IDCAT = Convert.ToInt32(textBox3.Text);
-                        dt = config.chackPlace(IDCAT);
+                        if (HostConnection == false)
+                        {
+                            dt = config.chackPlace(IDCAT);
+                        }
+                        else
+                        {
+                            dt =ConvertMemorytoDB(configHost.chackPlace(IDCAT));
+                        }
                         if (dt.Rows.Count > 0)
                         {
                             MessageBox.Show("لايكمن حذف السجل .مرتبط بسجلات اخرى", "", MessageBoxButtons.OK);
                         }
                         else
-                        {
-                            config.DeletePlaceSend(IDCAT);
+                        {  if (HostConnection == false)
+                            {
+                                config.DeletePlaceSend(IDCAT);
+                                dataGridView1.DataSource = config.GetAllPlace();
+                            }
+                            else
+                            {
+                                configHost.DeletePlaceSend(IDCAT);
+                                dataGridView1.DataSource =ConvertMemorytoDB(configHost.GetAllPlace());
 
-
-                            dataGridView1.DataSource = config.GetAllPlace();
+                            }
                             textBox4.Focus();
                             textBox4.Text = "";
                             textBox3.Text = "";
@@ -152,8 +204,14 @@ namespace SystemConfiguration
         /// <param name="e"></param>
         private void textBox4_KeyDown(object sender, KeyEventArgs e)
         { if(e.Shift &&e.KeyCode==Keys.Shift)
-            {
-                dataGridView1.DataSource = config.GetPlaceByName(textBox4.Text);
+            { if (HostConnection == false)
+                {
+                    dataGridView1.DataSource = config.GetPlaceByName(textBox4.Text);
+                }
+                else
+                {
+                    dataGridView1.DataSource =ConvertMemorytoDB( configHost.GetPlaceByName(textBox4.Text));
+                }
             }
 
         }
@@ -233,6 +291,15 @@ namespace SystemConfiguration
             }
 
         }
+        ///  //convert MemmoryToDB
+        DataTable ConvertMemorytoDB(MemoryStream ms)
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            ms.Seek(0, SeekOrigin.Begin);
+            DataTable dt = (DataTable)formatter.Deserialize(ms);
+            return dt;
+        }
+
     }
-    }
+}
 
