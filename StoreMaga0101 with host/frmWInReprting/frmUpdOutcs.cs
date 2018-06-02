@@ -9,11 +9,17 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using FrmRports;
 using Excel = Microsoft.Office.Interop.Excel;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.ServiceModel;
+
 namespace frmWInReprting
 {
     public partial class frmUpdOutcs : Form
     {
         RepotFunction rf;
+        ServiceReference1.IserviceClient rfHost;
+        bool HostConnection;
         int UserID;
         public frmUpdOutcs()
         {
@@ -29,13 +35,22 @@ namespace frmWInReprting
             }
         }
 
-        public frmUpdOutcs(string ServerNm, string DbNm, string UserSql, string PassSql, int Userid)
+        public frmUpdOutcs(string ServerNm, string DbNm, string UserSql, string PassSql, int Userid,bool hostcoonection,string iphost)
         {
             InitializeComponent();
             try
             {
-
-                rf = new RepotFunction(ServerNm, DbNm, UserSql, PassSql);
+                HostConnection = hostcoonection;
+                if (HostConnection == false)
+                {
+                    rf = new RepotFunction(ServerNm, DbNm, UserSql, PassSql);
+                }
+                else
+                {
+                    rfHost = new ServiceReference1.IserviceClient();
+                    EndpointAddress endp = new EndpointAddress(iphost);
+                    rfHost.Endpoint.Address = endp;
+                }
                 UserID = Userid;
             }
             catch (Exception ex)
@@ -122,22 +137,47 @@ namespace frmWInReprting
 
                 }
                 if (textBox4.Text.Length > 0)
-                {
-                    dataGridView1.DataSource = rf.GetUpdtOutByIDOut(Convert.ToInt32(textBox4.Text));
+                { if (HostConnection == false)
+                    {
+                        dataGridView1.DataSource = rf.GetUpdtOutByIDOut(Convert.ToInt32(textBox4.Text));
+                    }
+                    else
+                    {
+                        dataGridView1.DataSource =ConvertMemorytoDB( rfHost.GetUpdtOutByIDOut(Convert.ToInt32(textBox4.Text)));
+                    }
                 }
                 else if (radioButton1.Checked)
 
                 {
-                    dataGridView1.DataSource = rf.GetUpdOutByDate(d1, d2);
+                    if (HostConnection == false)
+                    {
+                        dataGridView1.DataSource = rf.GetUpdOutByDate(d1, d2);
+                    }
+                    else
+                    {
+                        dataGridView1.DataSource =ConvertMemorytoDB( rfHost.GetUpdOutByDate(d1, d2));
+                    }
                 }
                 else if (radioButton2.Checked)
-                {
-                    dataGridView1.DataSource = rf.GetUpdOutByDateUpdtewithdate(d1, d2);
+                { if (HostConnection == false)
+                    {
+                        dataGridView1.DataSource = rf.GetUpdOutByDateUpdtewithdate(d1, d2);
+                    }
+                    else
+                    {
+                        dataGridView1.DataSource =ConvertMemorytoDB( rfHost.GetUpdOutByDateUpdtewithdate(d1, d2));
+                    }
 
                 }
                 else
-                {
-                    dataGridView1.DataSource = rf.GetUpdOutByDateDetle2tewithdate(d1, d2);
+                {if (HostConnection == false)
+                    {
+                        dataGridView1.DataSource = rf.GetUpdOutByDateDetle2tewithdate(d1, d2);
+                    }
+                    else
+                    {
+                        dataGridView1.DataSource =ConvertMemorytoDB( rfHost.GetUpdOutByDateDetle2tewithdate(d1, d2));
+                    }
                 }
                 this.Cursor = Cursors.Default;
             }
@@ -182,7 +222,16 @@ namespace frmWInReprting
                         string namee = dr[9].ToString();
                         DateTime dd = DateTime.Parse(dr[11].ToString());
                         string dec = dr[10].ToString();
-                        string nameUser = rf.GetUserNameBYIdUser(UserID);
+                        string nameUser;
+                        if (HostConnection == false)
+                        {
+                            nameUser = rf.GetUserNameBYIdUser(UserID);
+                        }
+                        else
+                        {
+                            nameUser = rfHost.GetUserNameBYIdUser(UserID);
+
+                        }
 
                         dt.Rows.Add(id, idSu, NCat, TypeCA, string.Format("{0:##,##}", Qunit), string.Format("{0:##,##}", Price), currn, " ", " ", namee, dec, dd.Date.ToShortDateString(), " ", nameUser);
 
@@ -243,7 +292,16 @@ namespace frmWInReprting
                         string namee = dr[9].ToString();
                         DateTime dd = DateTime.Parse(dr[11].ToString());
                         string dec = dr[10].ToString();
-                        string nameUser =rf.GetUserNameBYIdUser(UserID);
+                        string nameUser;
+                        if (HostConnection == false)
+                        {
+                            nameUser = rf.GetUserNameBYIdUser(UserID);
+                        }
+                        else
+                        {
+                            nameUser = rfHost.GetUserNameBYIdUser(UserID);
+
+                        }
 
                         dt.Rows.Add(id, idSu, NCat, TypeCA, string.Format("{0:##,##}", Qunit), string.Format("{0:##,##}", Price), currn, " ", " ", namee, dec, dd.Date.ToShortDateString(), " ", nameUser);
 
@@ -337,6 +395,14 @@ namespace frmWInReprting
             {
                 GC.Collect();
             }
+        }
+        //convert memoryStreem to datatable
+        DataTable ConvertMemorytoDB(MemoryStream ms)
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            ms.Seek(0, SeekOrigin.Begin);
+            DataTable dt = (DataTable)formatter.Deserialize(ms);
+            return dt;
         }
     }
 }

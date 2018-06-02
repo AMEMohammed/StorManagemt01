@@ -9,12 +9,18 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using FrmRports;
 using Excel = Microsoft.Office.Interop.Excel;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.ServiceModel;
+
 namespace frmWInReprting
 {
     public partial class frmUpdSupp : Form
     {
         RepotFunction rf;
         int UserID;
+        ServiceReference1.IserviceClient rfHost = new ServiceReference1.IserviceClient();
+        bool HostConnection;
         public frmUpdSupp()
         {
             InitializeComponent();
@@ -28,13 +34,22 @@ namespace frmWInReprting
                 MessageBox.Show(ex.Message);
             }
         }
-        public frmUpdSupp(string ServerNm, string DbNm, string UserSql, string PassSql, int Userid)
+        public frmUpdSupp(string ServerNm, string DbNm, string UserSql, string PassSql, int Userid,bool hostConnection,string iphost)
         {
             InitializeComponent();
             try
             {
-
-                rf = new RepotFunction(ServerNm, DbNm, UserSql, PassSql);
+                HostConnection = hostConnection;
+                if (HostConnection == false)
+                {
+                    rf = new RepotFunction(ServerNm, DbNm, UserSql, PassSql);
+                }
+                else
+                {
+                    rfHost = new ServiceReference1.IserviceClient();
+                    EndpointAddress endp = new EndpointAddress(iphost);
+                    rfHost.Endpoint.Address = endp;
+                }
                 UserID = Userid;
             }
             catch (Exception ex)
@@ -108,23 +123,48 @@ namespace frmWInReprting
                     d2 = dateTimePicker2.Value;
 
                 }
-                if (textBox4.Text.Length > 0)
+                if (HostConnection == false)
                 {
-                    dataGridView1.DataSource = rf.GetUpdateSupplyByIDSupply(Convert.ToInt32(textBox4.Text));
-                }
-                else if (radioButton1.Checked)
+                    if (textBox4.Text.Length > 0)
+                    {
+                        dataGridView1.DataSource = rf.GetUpdateSupplyByIDSupply(Convert.ToInt32(textBox4.Text));
+                    }
+                    else if (radioButton1.Checked)
 
-                {
-                    dataGridView1.DataSource = rf.GetUpdateSupplyByDate(d1, d2);
-                }
-                else if (radioButton2.Checked)
-                {
-                    dataGridView1.DataSource = rf.GetUpdateSupplyByDateUpdateWithDate(d1, d2);
+                    {
+                        dataGridView1.DataSource = rf.GetUpdateSupplyByDate(d1, d2);
+                    }
+                    else if (radioButton2.Checked)
+                    {
+                        dataGridView1.DataSource = rf.GetUpdateSupplyByDateUpdateWithDate(d1, d2);
 
+                    }
+                    else
+                    {
+                        dataGridView1.DataSource = rf.GetUpdateSupplyByDateDeleteWithDate(d1, d2);
+                    }
                 }
-                else
+                else//connection host
                 {
-                    dataGridView1.DataSource = rf.GetUpdateSupplyByDateDeleteWithDate(d1, d2);
+                    if (textBox4.Text.Length > 0)
+                    {
+                        dataGridView1.DataSource =ConvertMemorytoDB( rfHost.GetUpdateSupplyByIDSupply(Convert.ToInt32(textBox4.Text)));
+                    }
+                    else if (radioButton1.Checked)
+
+                    {
+                        dataGridView1.DataSource =ConvertMemorytoDB( rfHost.GetUpdateSupplyByDate(d1, d2));
+                    }
+                    else if (radioButton2.Checked)
+                    {
+                        dataGridView1.DataSource =ConvertMemorytoDB( rfHost.GetUpdateSupplyByDateUpdateWithDate(d1, d2));
+
+                    }
+                    else
+                    {
+                        dataGridView1.DataSource =ConvertMemorytoDB( rfHost.GetUpdateSupplyByDateDeleteWithDate(d1, d2));
+                    }
+
                 }
                 this.Cursor = Cursors.Default;
             }
@@ -177,7 +217,15 @@ namespace frmWInReprting
                         string namee = dr[7].ToString();
                         DateTime dd = DateTime.Parse(dr[8].ToString());
                         string dec = dr[9].ToString();
-                        string nameUser = rf.GetUserNameBYIdUser(UserID);
+                        string nameUser;
+                        if (HostConnection == false)
+                        {
+                            nameUser = rf.GetUserNameBYIdUser(UserID);
+                        }
+                        else
+                        {
+                            nameUser = rfHost.GetUserNameBYIdUser(UserID);
+                        }
                         dt.Rows.Add(id, idSu, NCat, TypeCA, string.Format("{0:##,##}", Qunit), string.Format("{0:##,##}", Price), currn, namee, dd.Date.ToShortDateString(), dec, " ", nameUser);
 
 
@@ -339,6 +387,14 @@ namespace frmWInReprting
             {
                 GC.Collect();
             }
+        }
+        //convert memoryStreem to datatable
+        DataTable ConvertMemorytoDB(MemoryStream ms)
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            ms.Seek(0, SeekOrigin.Begin);
+            DataTable dt = (DataTable)formatter.Deserialize(ms);
+            return dt;
         }
     }
     }

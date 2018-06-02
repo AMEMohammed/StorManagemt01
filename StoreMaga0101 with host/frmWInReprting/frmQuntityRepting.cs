@@ -9,12 +9,18 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using FrmRports;
 using Excel = Microsoft.Office.Interop.Excel;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.ServiceModel;
+
 namespace frmWInReprting
 {
     public partial class frmQuntityRepting : Form
     {
         RepotFunction rf;
         int UserID;
+        bool HostConnection;
+        ServiceReference1.IserviceClient rfHost;
         public frmQuntityRepting()
         {
             InitializeComponent();
@@ -28,13 +34,22 @@ namespace frmWInReprting
                 MessageBox.Show(ex.Message);
             }
         }
-        public frmQuntityRepting(string ServerNm, string DbNm, string UserSql, string PassSql, int Userid)
+        public frmQuntityRepting(string ServerNm, string DbNm, string UserSql, string PassSql, int Userid,bool hostconnection,string iphost)
         {
             InitializeComponent();
+            hostconnection = HostConnection;
             try
             {
-
-                rf = new RepotFunction(ServerNm, DbNm, UserSql, PassSql);
+                if (HostConnection == false)
+                {
+                    rf = new RepotFunction(ServerNm, DbNm, UserSql, PassSql);
+                }
+                else
+                {
+                    rfHost = new ServiceReference1.IserviceClient();
+                    EndpointAddress endp = new EndpointAddress(iphost);
+                    rfHost.Endpoint.Address = endp;
+                }
                 UserID = Userid;
             }
             catch (Exception ex)
@@ -77,16 +92,30 @@ namespace frmWInReprting
             {
                 comboBox1.DisplayMember = "اسم الصنف";
                 comboBox1.ValueMember = "رقم الصنف";
-                comboBox1.DataSource = rf.GetAllCategoryAR();
+
                 comboBox2.DisplayMember = "اسم النوع";
                 comboBox2.ValueMember = "رقم النوع";
-                comboBox2.DataSource = rf.GetAllTypeQuntity();
+
                 comboBox3.DisplayMember = "اسم العملة";
                 comboBox3.ValueMember = "رقم العملة";
-                comboBox3.DataSource = rf.GetAllCurrency();
+
                 CombboxGroup.DisplayMember = "اسم المجموعة";
                 CombboxGroup.ValueMember = "رقم المجموعة";
-                CombboxGroup.DataSource = rf.GetGroupsCate();
+                if (HostConnection == false)
+                {
+                    comboBox3.DataSource = rf.GetAllCurrency();
+                    comboBox2.DataSource = rf.GetAllTypeQuntity();
+                    comboBox1.DataSource = rf.GetAllCategoryAR();
+                    CombboxGroup.DataSource = rf.GetGroupsCate();
+                }
+                else
+                {
+                    comboBox3.DataSource =ConvertMemorytoDB( rfHost.GetAllCurrency());
+                    comboBox2.DataSource =ConvertMemorytoDB( rfHost.GetAllTypeQuntity());
+                    comboBox1.DataSource =ConvertMemorytoDB( rfHost.GetAllCategoryAR());
+                    CombboxGroup.DataSource =ConvertMemorytoDB( rfHost.GetGroupsCate());
+
+                }
             }
             catch (Exception ex)
             {
@@ -98,29 +127,57 @@ namespace frmWInReprting
         { try
             {
                 this.Cursor = Cursors.WaitCursor;
-                if (checkBox1.Checked == false && checkBox3.Checked == false && checkBox4.Checked == false)
+                if (HostConnection == false)
                 {
-                    dataGridView1.DataSource = rf.PrintAccountQuntity(Convert.ToInt32(comboBox1.SelectedValue), Convert.ToInt32(comboBox2.SelectedValue), Convert.ToInt32(comboBox3.SelectedValue));
-                }
-                else if (checkBox1.Checked == false)
-                {
-                    dataGridView1.DataSource = rf.PrintAccountQuntityIDac(Convert.ToInt32(comboBox1.SelectedValue));
-
-                }
-                else if(checkBox2.Checked) // select data from Group
-                {
-                    //MessageBox.Show(CombboxGroup.SelectedValue.ToString());
-                    if ((int)CombboxGroup.SelectedValue > 0)
+                    if (checkBox1.Checked == false && checkBox3.Checked == false && checkBox4.Checked == false)
                     {
-                        rf.PrintAccountQuntityWithGroup((int)CombboxGroup.SelectedValue);
+                        dataGridView1.DataSource = rf.PrintAccountQuntity(Convert.ToInt32(comboBox1.SelectedValue), Convert.ToInt32(comboBox2.SelectedValue), Convert.ToInt32(comboBox3.SelectedValue));
                     }
+                    else if (checkBox1.Checked == false)
+                    {
+                        dataGridView1.DataSource = rf.PrintAccountQuntityIDac(Convert.ToInt32(comboBox1.SelectedValue));
 
+                    }
+                    else if (checkBox2.Checked) // select data from Group
+                    {
+                        //MessageBox.Show(CombboxGroup.SelectedValue.ToString());
+                        if ((int)CombboxGroup.SelectedValue > 0)
+                        {
+                            rf.PrintAccountQuntityWithGroup((int)CombboxGroup.SelectedValue);
+                        }
+
+                    }
+                    else
+                    {
+                        dataGridView1.DataSource = rf.PrintAccountQuntityAll();
+                    }
                 }
-                else
+                else //connection Host
                 {
-                    dataGridView1.DataSource = rf.PrintAccountQuntityAll();
+                    if (checkBox1.Checked == false && checkBox3.Checked == false && checkBox4.Checked == false)
+                    {
+                        dataGridView1.DataSource =ConvertMemorytoDB (rfHost.PrintAccountQuntity(Convert.ToInt32(comboBox1.SelectedValue), Convert.ToInt32(comboBox2.SelectedValue), Convert.ToInt32(comboBox3.SelectedValue)));
+                    }
+                    else if (checkBox1.Checked == false)
+                    {
+                        dataGridView1.DataSource =ConvertMemorytoDB( rfHost.PrintAccountQuntityIDac(Convert.ToInt32(comboBox1.SelectedValue)));
+
+                    }
+                    else if (checkBox2.Checked) // select data from Group
+                    {
+                        //MessageBox.Show(CombboxGroup.SelectedValue.ToString());
+                        if ((int)CombboxGroup.SelectedValue > 0)
+                        {
+                            rfHost.PrintAccountQuntityWithGroup((int)CombboxGroup.SelectedValue);
+                        }
+
+                    }
+                    else
+                    {
+                        dataGridView1.DataSource =ConvertMemorytoDB( rfHost.PrintAccountQuntityAll());
+                    }
                 }
-                this.Cursor = Cursors.Default;
+                    this.Cursor = Cursors.Default;
             }
             catch(Exception ex)
             {
@@ -161,7 +218,15 @@ namespace frmWInReprting
                         int qunt = Convert.ToInt32(dr[2].ToString());
                         int pres = Convert.ToInt32(dr[3].ToString());
                         string currnt = dr[4].ToString();
-                        string nameUser = rf.GetUserNameBYIdUser(UserID);
+                        string nameUser;
+                        if (HostConnection == false)
+                        {
+                            nameUser = rf.GetUserNameBYIdUser(UserID);
+                        }
+                        else
+                        {
+                            nameUser = rfHost.GetUserNameBYIdUser(UserID);
+                        }
                         dt.Rows.Add(nmca, nmty, string.Format("{0:##,##}", qunt), string.Format("{0:##,##}", pres), currnt, nameUser);
                     }
                 }
@@ -213,7 +278,15 @@ namespace frmWInReprting
                         int qunt = Convert.ToInt32(dr[2].ToString());
                         int pres = Convert.ToInt32(dr[3].ToString());
                         string currnt = dr[4].ToString();
-                        string nameUser = rf.GetUserNameBYIdUser(UserID);
+                        string nameUser;
+                        if (HostConnection == false)
+                        {
+                            nameUser = rf.GetUserNameBYIdUser(UserID);
+                        }
+                        else
+                        {
+                            nameUser = rfHost.GetUserNameBYIdUser(UserID);
+                        }
                         dt.Rows.Add(nmca, nmty, string.Format("{0:##,##}", qunt), string.Format("{0:##,##}", pres), currnt, nameUser);
                     }
                 }
@@ -363,6 +436,14 @@ namespace frmWInReprting
                 GC.Collect();
             }
         }
-    
+        //convert memoryStreem to datatable
+        DataTable ConvertMemorytoDB(MemoryStream ms)
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            ms.Seek(0, SeekOrigin.Begin);
+            DataTable dt = (DataTable)formatter.Deserialize(ms);
+            return dt;
+        }
+
     }
 }

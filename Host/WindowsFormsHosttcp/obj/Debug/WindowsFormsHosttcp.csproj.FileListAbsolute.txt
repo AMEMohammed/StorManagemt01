@@ -48,3 +48,6 @@ D:\programing1\StoreMaga0101\Host\WindowsFormsHosttcp\bin\Debug\SystemConfigurat
 D:\programing1\StoreMaga0101\Host\WindowsFormsHosttcp\bin\Debug\SystemConfiguration.pdb
 D:\programing1\StoreMaga0101\Host\WindowsFormsHosttcp\bin\Debug\frmWInReprting.dll
 D:\programing1\StoreMaga0101\Host\WindowsFormsHosttcp\bin\Debug\frmWInReprting.pdb
+E:\programming\StoreManagemntWithHost\StoreMaga0101\Host\WindowsFormsHosttcp\bin\Debug\WindowsFormsHosttcp.exe.config
+E:\programming\StoreManagemntWithHost\StoreMaga0101\Host\WindowsFormsHosttcp\obj\Debug\WindowsFormsHosttcp.exe
+E:\programming\StoreManagemntWithHost\StoreMaga0101\Host\WindowsFormsHosttcp\obj\Debug\WindowsFormsHosttcp.pdb
