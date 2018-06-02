@@ -13,6 +13,7 @@ using Out_;
 using Supplly;
 using SystemConfiguration;
 using frmWInReprting;
+using SettingsPcConnection;
 namespace WindowsFormsHosttcp
 {
     [ServiceBehavior(InstanceContextMode =InstanceContextMode.Single)]
@@ -30,10 +31,11 @@ namespace WindowsFormsHosttcp
         Config config = new Config(Properties.Settings.Default.ServerNm, Properties.Settings.Default.DBNM, null, null);
         //RepotFunction
         RepotFunction ReportFun=new RepotFunction(Properties.Settings.Default.ServerNm, Properties.Settings.Default.DBNM, null, null);
-
+        //Session
+        SettingsPCconnection session = new SettingsPCconnection(Properties.Settings.Default.ServerNm, Properties.Settings.Default.DBNM, null, null);
         /// end Classes
         /// 
-        public delegate void ResDT(int falg,string nm);
+        public delegate void ResDT(int falg,int SessionID,DateTime start,DateTime end, string NameMachine,string UserWindow,string OSVersion,string NameUser,int USerID);
         public ResDT restd;
 
        
@@ -47,9 +49,9 @@ namespace WindowsFormsHosttcp
         }
 
 
-        public void SENDUSERTOSERVER(int falg,string name)
+        public void SENDUSERTOSERVER(int falg, int SessionID, DateTime start, DateTime end, string NameMachine, string UserWindow, string OSVersion, string NameUser, int USerID)
         {
-            restd(falg,name);
+            restd(falg,  SessionID, start,  end,  NameMachine,  UserWindow,  OSVersion, NameUser,  USerID);
         }
 
         #region  
@@ -950,8 +952,29 @@ namespace WindowsFormsHosttcp
         }
 
 
+
         #endregion
-       
+        //end from ReptingSearching
+        //
+        // session
+        #region
+        public int AddNewSession(DateTime strat, DateTime end, string OSversion, string NameMachin, string UserWindows, int UserID)
+        {
+            return session.AddNewSession( strat,  end,  OSversion,  NameMachin, UserWindows, UserID);
+        }
+
+        public int UpdateENDtimeSession(int IDSession, DateTime End)
+        {
+            return session.UpdateENDtimeSession(IDSession,  End);
+        }
+
+        public int GETMAXIDSession()
+        {
+            return session.GETMAXIDSession();
+        }
+        #endregion
+        //end session
+
     }
 
 }

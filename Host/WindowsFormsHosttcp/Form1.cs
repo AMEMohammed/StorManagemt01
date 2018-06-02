@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.ServiceModel;
 using System.Transactions;
+using System.Data;
 namespace WindowsFormsHosttcp
 {
     public partial class Form1 : Form
@@ -18,11 +19,12 @@ namespace WindowsFormsHosttcp
             InitializeComponent();
         }
         ServiceHost host;
+        MYSerivce my;
         private void Form1_Load(object sender, EventArgs e)
         {
             try
             {
-                 MYSerivce my = new MYSerivce();
+                my= new MYSerivce();
                  my.restd = new MYSerivce.ResDT(ReciveNameFRMCLINET);
                
                   host=  new ServiceHost(my);
@@ -43,20 +45,34 @@ namespace WindowsFormsHosttcp
         {
           
         }
-        void ReciveNameFRMCLINET(int flag, string Massege)
+        void ReciveNameFRMCLINET(int flag, int SessionID, DateTime start, DateTime end, string NameMachine, string UserWindow, string OSVersion, string NameUser, int USerID)
         {
 
-            
-          
-            string[] mass = Massege.Split('.');
-          //  if (flag == 0)
-            { 
-              
-             //dataGridView1.Rows.RemoveAt()
-            }
-            //else 
+
+
+            string[] mass = new string[] { NameUser, start.ToShortDateString()+"  "+start.ToLongTimeString(), SessionID.ToString() };
+           if (flag == 0)
             {
+                
+                for(int i=0;i<dataGridView1.Rows.Count;i++)
+                {
+                    if (string.Equals(dataGridView1[2,i].Value , SessionID.ToString()))
+                    {
+                        my.UpdateENDtimeSession(SessionID, end);
+                        dataGridView1.Rows.RemoveAt(i);
+                        return;
+                    }
+                }
+              
+
+
+            }
+            else
+            {
+               
                 dataGridView1.Rows.Add(mass);
+                my.AddNewSession(start, end, OSVersion, NameMachine, UserWindow, USerID);
+
             }
         }
     }

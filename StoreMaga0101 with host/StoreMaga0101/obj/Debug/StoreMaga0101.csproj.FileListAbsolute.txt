@@ -257,7 +257,6 @@ D:\programing1\StoreMaga0101\StoreMaga0101 with host\StoreMaga0101\bin\Debug\frm
 D:\programing1\StoreMaga0101\StoreMaga0101 with host\StoreMaga0101\bin\Debug\Out.dll
 D:\programing1\StoreMaga0101\StoreMaga0101 with host\StoreMaga0101\bin\Debug\Supplly.dll
 D:\programing1\StoreMaga0101\StoreMaga0101 with host\StoreMaga0101\bin\Debug\SystemConfiguration.dll
-D:\programing1\StoreMaga0101\StoreMaga0101 with host\StoreMaga0101\bin\Debug\Users.dll
 D:\programing1\StoreMaga0101\StoreMaga0101 with host\StoreMaga0101\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
 D:\programing1\StoreMaga0101\StoreMaga0101 with host\StoreMaga0101\bin\Debug\CrystalDecisions.Shared.dll
 D:\programing1\StoreMaga0101\StoreMaga0101 with host\StoreMaga0101\bin\Debug\CrystalDecisions.ReportSource.dll
@@ -291,3 +290,4 @@ D:\programing1\StoreMaga0101\StoreMaga0101 with host\StoreMaga0101\obj\Debug\Sto
 E:\programming\StoreManagemntWithHost\StoreMaga0101\StoreMaga0101 with host\StoreMaga0101\bin\Debug\StoreMaga0101.exe.config
 E:\programming\StoreManagemntWithHost\StoreMaga0101\StoreMaga0101 with host\StoreMaga0101\obj\Debug\StoreMaga0101.exe
 E:\programming\StoreManagemntWithHost\StoreMaga0101\StoreMaga0101 with host\StoreMaga0101\obj\Debug\StoreMaga0101.pdb
+D:\programing1\StoreMaga0101\StoreMaga0101 with host\StoreMaga0101\bin\Debug\Users.dll

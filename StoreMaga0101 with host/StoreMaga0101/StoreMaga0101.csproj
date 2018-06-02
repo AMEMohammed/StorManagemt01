@@ -85,10 +85,12 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="SystemConfiguration">
+    <Reference Include="SystemConfiguration, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\SystemConfiguration\bin\Debug\SystemConfiguration.dll</HintPath>
     </Reference>
-    <Reference Include="Users">
+    <Reference Include="Users, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Users\bin\Debug\Users.dll</HintPath>
     </Reference>
   </ItemGroup>

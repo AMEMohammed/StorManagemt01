@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
+using System.ServiceModel;
 namespace Account
 {
     public partial class frmAcount : Form
@@ -43,7 +44,7 @@ namespace Account
 
         }
         ///
-        public frmAcount(string ServNm, string DbNm, string UesrSql, string PassSql, int UserId,bool ConectionHost)
+        public frmAcount(string ServNm, string DbNm, string UesrSql, string PassSql, int UserId,bool ConectionHost ,string Iphost)
         {
             InitializeComponent();
             try
@@ -58,7 +59,11 @@ namespace Account
                 else
                 {
                     AcnHost = new ServiceReference1.IserviceClient();
-                    dt =ConvertMemorytoDB (AcnHost.GetAllAccount());
+                    
+                    EndpointAddress endp = new EndpointAddress(Iphost);
+                    AcnHost.Endpoint.Address = endp;
+                    dt = ConvertMemorytoDB(AcnHost.GetAllAccount());
+
                 }
 
             }

@@ -14,7 +14,7 @@ namespace WindowsFormsHosttcp
     interface Iservice
     {
         [OperationContract]
-        void SENDUSERTOSERVER(int falg, string name);
+        void SENDUSERTOSERVER(int falg, int SessionID, DateTime start, DateTime end, string NameMachine, string UserWindow, string OSVersion, string NameUser, int USerID);
 
         ///Users
         #region
@@ -393,9 +393,19 @@ namespace WindowsFormsHosttcp
         MemoryStream GetUpdOutByDateUpdtewithdate(DateTime d1, DateTime d2);
         [OperationContract]
         MemoryStream GetUpdOutByDateDetle2tewithdate(DateTime d1, DateTime d2);
-       
+
         #endregion
         // end frmWInReprting
+        //Session
+        #region
+        [OperationContract]
+        int AddNewSession(DateTime strat, DateTime end, string OSversion, string NameMachin, string UserWindows, int UserID);
+        [OperationContract]
+        int UpdateENDtimeSession(int IDSession, DateTime End);
+        [OperationContract]
+        int GETMAXIDSession();
+        #endregion
+        //end Session
     }
 
 }

@@ -37,15 +37,17 @@ namespace frmWInReprting
         public frmQuntityRepting(string ServerNm, string DbNm, string UserSql, string PassSql, int Userid,bool hostconnection,string iphost)
         {
             InitializeComponent();
-            hostconnection = HostConnection;
+            HostConnection = hostconnection;
             try
             {
                 if (HostConnection == false)
                 {
+                   
                     rf = new RepotFunction(ServerNm, DbNm, UserSql, PassSql);
                 }
                 else
                 {
+                  
                     rfHost = new ServiceReference1.IserviceClient();
                     EndpointAddress endp = new EndpointAddress(iphost);
                     rfHost.Endpoint.Address = endp;

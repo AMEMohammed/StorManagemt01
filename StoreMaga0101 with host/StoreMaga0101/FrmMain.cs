@@ -422,7 +422,7 @@ namespace StoreMaga0101
             try
             {
                 this.Cursor = Cursors.WaitCursor;
-                frmQuntityRepting frmRepotingQuntity = new frmQuntityRepting(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID,ConServer.ConnectionWithHost,ConServer.HostIp);
+                frmQuntityRepting frmRepotingQuntity = new frmQuntityRepting(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID, ConServer.ConnectionWithHost, ConServer.HostIp);
                 FormCollection fromco = Application.OpenForms;
                 bool foundFrom = false;
                 foreach (Form frm in fromco)
@@ -648,7 +648,7 @@ namespace StoreMaga0101
             try
             {
                 this.Cursor = Cursors.WaitCursor;
-                frmAcount frmCurrncy = new frmAcount(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID,ConServer.ConnectionWithHost);
+                frmAcount frmCurrncy = new frmAcount(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID,ConServer.ConnectionWithHost,ConServer.HostIp);
                 FormCollection fromco = Application.OpenForms;
                 bool foundFrom = false;
                 foreach (Form frm in fromco)
@@ -836,6 +836,18 @@ namespace StoreMaga0101
             ms.Seek(0, SeekOrigin.Begin);
             DataTable dt = (DataTable)formatter.Deserialize(ms);
             return dt;
+        }
+
+        private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            try
+            {
+                serHost.SENDUSERTOSERVER(0, ConServer.SessionID, DateTime.Now, DateTime.Now, System.Environment.MachineName, System.Environment.UserName, System.Environment.OSVersion.ToString(), null, 0);
+            }
+            catch
+            {
+
+            }
         }
     }
 }

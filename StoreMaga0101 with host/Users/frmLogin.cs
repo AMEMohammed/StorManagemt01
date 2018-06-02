@@ -139,8 +139,9 @@ namespace Users
                     // connection host
                     if (ConServer.ConnectionWithHost)
                     {
-                       
-                        US1.SENDUSERTOSERVER(1, textBox1.Text + '.' + DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToLongTimeString() + "." + "15000");
+                        // MessageBox.Show(US1);
+                        ConServer.SessionID = US1.GETMAXIDSession();
+                        US1.SENDUSERTOSERVER(1,ConServer.SessionID,DateTime.Now,DateTime.Now,System.Environment.MachineName,System.Environment.UserName,System.Environment.OSVersion.ToString(),textBox1.Text, GETIDD);
                     }
                         this.Close();
                 }

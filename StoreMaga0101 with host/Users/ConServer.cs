@@ -14,6 +14,6 @@ namespace Users
         public static string PassSql = Properties.Settings.Default.PassSql;
         public static bool ConnectionWithHost = Properties.Settings.Default.ConnectionHost;
         public static string HostIp = Properties.Settings.Default.HostIP;
-
+        public static int SessionID = 0;
     }
 }

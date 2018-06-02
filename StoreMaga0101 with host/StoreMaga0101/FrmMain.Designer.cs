@@ -56,6 +56,7 @@
             this.toolStripMenuItem25 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem27 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem28 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem35 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem29 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem30 = new System.Windows.Forms.ToolStripMenuItem();
@@ -65,7 +66,6 @@
             this.toolStripMenuItem19 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem18 = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.toolStripMenuItem35 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -420,6 +420,18 @@
             this.toolStripMenuItem28.Visible = false;
             this.toolStripMenuItem28.Click += new System.EventHandler(this.toolStripMenuItem28_Click);
             // 
+            // toolStripMenuItem35
+            // 
+            this.toolStripMenuItem35.AutoSize = false;
+            this.toolStripMenuItem35.Image = global::StoreMaga0101.Properties.Resources.networking;
+            this.toolStripMenuItem35.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripMenuItem35.Name = "toolStripMenuItem35";
+            this.toolStripMenuItem35.Size = new System.Drawing.Size(210, 50);
+            this.toolStripMenuItem35.Text = "الحسابات والجهات";
+            this.toolStripMenuItem35.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.toolStripMenuItem35.Visible = false;
+            this.toolStripMenuItem35.Click += new System.EventHandler(this.toolStripMenuItem35_Click);
+            // 
             // toolStripMenuItem5
             // 
             this.toolStripMenuItem5.AutoSize = false;
@@ -528,18 +540,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Visible = false;
             // 
-            // toolStripMenuItem35
-            // 
-            this.toolStripMenuItem35.AutoSize = false;
-            this.toolStripMenuItem35.Image = global::StoreMaga0101.Properties.Resources.networking;
-            this.toolStripMenuItem35.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripMenuItem35.Name = "toolStripMenuItem35";
-            this.toolStripMenuItem35.Size = new System.Drawing.Size(210, 50);
-            this.toolStripMenuItem35.Text = "الحسابات والجهات";
-            this.toolStripMenuItem35.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.toolStripMenuItem35.Visible = false;
-            this.toolStripMenuItem35.Click += new System.EventHandler(this.toolStripMenuItem35_Click);
-            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -555,6 +555,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "الصفحة الرئيسية نظام ادارة المخازن";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMain_FormClosing);
             this.Load += new System.EventHandler(this.FrmMain_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrmRports", "..\StoreMaga01
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "frmWInReprting", "..\StoreMaga0101\frmWInReprting\frmWInReprting.csproj", "{BDB38B2D-F1FB-446B-9110-1BACF65FBEA7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SettingsPcConnection", "..\SettingsPcConnection\SettingsPcConnection.csproj", "{EE2C89A0-8C1F-484B-98C4-783DFFDC00A2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{BDB38B2D-F1FB-446B-9110-1BACF65FBEA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BDB38B2D-F1FB-446B-9110-1BACF65FBEA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BDB38B2D-F1FB-446B-9110-1BACF65FBEA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE2C89A0-8C1F-484B-98C4-783DFFDC00A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE2C89A0-8C1F-484B-98C4-783DFFDC00A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE2C89A0-8C1F-484B-98C4-783DFFDC00A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE2C89A0-8C1F-484B-98C4-783DFFDC00A2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
