@@ -8,7 +8,7 @@ using System.Data.SqlClient;
 using System.Windows.Forms;
 namespace Out_
 {
-    class OutFunction
+  public  class OutFunction
     {
         MSqlConnection sql;
        
@@ -220,7 +220,7 @@ namespace Out_
 
         }
         //////////////////
-        private int GetPriceAccount(int iDAccount)
+        public int GetPriceAccount(int iDAccount)
         {
            string Query="select Price from Account where IDAccount=@IDAccount";
             SqlParameter[] parm = new SqlParameter[1];

@@ -115,6 +115,7 @@ namespace Supplly
                     comboBox3.DataSource =ConvertMemorytoDB( SureHost.GetAllCurrencyInSupply());
                     comboBox1.DataSource =ConvertMemorytoDB( SureHost.GetAllCategoryAR());
                     dataGridView1.DataSource =ConvertMemorytoDB(SureHost.SearchINRequsetSupplyDate(DateTime.Now.Date, DateTime.Now));
+                    
                 }
             }
             catch (Exception ex) { MessageBox.Show(ex.Message + "4"); }

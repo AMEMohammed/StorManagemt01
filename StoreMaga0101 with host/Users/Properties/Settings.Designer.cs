@@ -85,13 +85,37 @@ namespace Users.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("net.tcp://192.168.1.115:9002/MyMathService")]
+        [global::System.Configuration.DefaultSettingValueAttribute("192.168.1.115")]
         public string HostIP {
             get {
                 return ((string)(this["HostIP"]));
             }
             set {
                 this["HostIP"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("9002")]
+        public string port {
+            get {
+                return ((string)(this["port"]));
+            }
+            set {
+                this["port"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("192.168.1.115")]
+        public string iphost {
+            get {
+                return ((string)(this["iphost"]));
+            }
+            set {
+                this["iphost"] = value;
             }
         }
     }

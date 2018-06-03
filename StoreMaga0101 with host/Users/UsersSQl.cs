@@ -18,8 +18,7 @@ public     class UsersSQl
         public UsersSQl(string ServerNm,string DbNm,string UserSql,string PassSql)
         {
           
-            if (!ConServer.ConnectionWithHost)
-            {
+            
                 if (string.IsNullOrEmpty(UserSql) || string.IsNullOrEmpty(PassSql))
                 {
                    
@@ -31,7 +30,7 @@ public     class UsersSQl
 
                     sql = new MSqlConnection(ServerNm, DbNm, UserSql, PassSql);
                 }
-            }
+            
       
         }
         ////// users

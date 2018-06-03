@@ -34,13 +34,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Account">
-      <HintPath>..\StoreMaga0101\Account\bin\Debug\Account.dll</HintPath>
+      <HintPath>..\..\StoreMaga0101 with host\Account\bin\Debug\Account.dll</HintPath>
     </Reference>
     <Reference Include="frmWInReprting">
-      <HintPath>..\StoreMaga0101\frmWInReprting\bin\Debug\frmWInReprting.dll</HintPath>
+      <HintPath>..\..\StoreMaga0101 with host\frmWInReprting\bin\Debug\frmWInReprting.dll</HintPath>
     </Reference>
     <Reference Include="Out">
-      <HintPath>..\StoreMaga0101\Out\bin\Debug\Out.dll</HintPath>
+      <HintPath>..\..\StoreMaga0101 with host\Out\bin\Debug\Out.dll</HintPath>
     </Reference>
     <Reference Include="SettingsPcConnection">
       <HintPath>..\SettingsPcConnection\bin\Debug\SettingsPcConnection.dll</HintPath>
@@ -62,11 +62,10 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="SystemConfiguration">
-      <HintPath>..\StoreMaga0101\SystemConfiguration\bin\Debug\SystemConfiguration.dll</HintPath>
+      <HintPath>..\..\StoreMaga0101 with host\SystemConfiguration\bin\Debug\SystemConfiguration.dll</HintPath>
     </Reference>
-    <Reference Include="Users, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\StoreMaga0101\Users\bin\Debug\Users.dll</HintPath>
+    <Reference Include="Users">
+      <HintPath>..\..\StoreMaga0101 with host\Users\bin\Debug\Users.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

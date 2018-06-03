@@ -62,7 +62,9 @@ namespace Users
                 txtDB.Text = Properties.Settings.Default.DBNM;
                 txtUser.Text = Properties.Settings.Default.UserSql;
                 txtpass.Text = Properties.Settings.Default.PassSql;
-                texthostip.Text = Properties.Settings.Default.HostIP;
+               
+                texthostip.Text = Properties.Settings.Default.iphost;
+                txtport.Text=Properties.Settings.Default.port;
             }
             catch (Exception ex)
             {
@@ -77,7 +79,10 @@ namespace Users
             Properties.Settings.Default.UserSql = txtUser.Text;
             Properties.Settings.Default.PassSql = txtpass.Text;
             Properties.Settings.Default.ConnectionHost = checkConnectionHost.Checked;
-            Properties.Settings.Default.HostIP = texthostip.Text;
+            string host = "net.tcp://" + texthostip.Text + ":" + txtport.Text + "/MyMathService";
+            Properties.Settings.Default.HostIP = host;
+            Properties.Settings.Default.iphost = texthostip.Text;
+            Properties.Settings.Default.port = txtport.Text;
             Properties.Settings.Default.Save();
             this.Close();
         }

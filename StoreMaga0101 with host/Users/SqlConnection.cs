@@ -29,7 +29,7 @@ namespace Users
 
              ConnectionString = @"Data Source=" + ServerSql + ";Initial Catalog=" + DbSql + ";Integrated Security=true;";
                 sqlcon = new SqlConnection(ConnectionString);
-            MessageBox.Show(ConnectionString);
+           
 
 
         }

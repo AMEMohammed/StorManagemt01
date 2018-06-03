@@ -45,8 +45,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtUser = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.checkConnectionHost = new System.Windows.Forms.CheckBox();
             this.texthostip = new System.Windows.Forms.TextBox();
+            this.checkConnectionHost = new System.Windows.Forms.CheckBox();
+            this.txtport = new System.Windows.Forms.TextBox();
             this.groupBox5.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -214,6 +215,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.txtport);
             this.groupBox3.Controls.Add(this.texthostip);
             this.groupBox3.Enabled = false;
             this.groupBox3.Location = new System.Drawing.Point(7, 32);
@@ -222,6 +224,13 @@
             this.groupBox3.TabIndex = 18;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "عنوان الهوست";
+            // 
+            // texthostip
+            // 
+            this.texthostip.Location = new System.Drawing.Point(100, 19);
+            this.texthostip.Name = "texthostip";
+            this.texthostip.Size = new System.Drawing.Size(175, 20);
+            this.texthostip.TabIndex = 0;
             // 
             // checkConnectionHost
             // 
@@ -234,12 +243,12 @@
             this.checkConnectionHost.UseVisualStyleBackColor = true;
             this.checkConnectionHost.CheckedChanged += new System.EventHandler(this.checkConnectionHost_CheckedChanged_1);
             // 
-            // texthostip
+            // txtport
             // 
-            this.texthostip.Location = new System.Drawing.Point(6, 19);
-            this.texthostip.Name = "texthostip";
-            this.texthostip.Size = new System.Drawing.Size(269, 20);
-            this.texthostip.TabIndex = 0;
+            this.txtport.Location = new System.Drawing.Point(11, 19);
+            this.txtport.Name = "txtport";
+            this.txtport.Size = new System.Drawing.Size(83, 20);
+            this.txtport.TabIndex = 1;
             // 
             // FrmConServer
             // 
@@ -290,5 +299,6 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.CheckBox checkConnectionHost;
         private System.Windows.Forms.TextBox texthostip;
+        private System.Windows.Forms.TextBox txtport;
     }
 }

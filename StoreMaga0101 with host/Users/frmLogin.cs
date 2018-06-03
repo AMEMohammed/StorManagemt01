@@ -102,7 +102,10 @@ namespace Users
 
                 try
                 {
+                   
                     UserId = US1.LoginUser(textBox1.Text, ChangePass(textBox2.Text));
+                  
+
                 }
                 catch(Exception ex)
                 {

@@ -9,7 +9,7 @@ using System.Windows.Forms;
 using Users;
 namespace Account
 { 
-    class AccountNm
+   public class AccountNm
     {
         MSqlConnection sql;
 
@@ -532,7 +532,7 @@ namespace Account
         ///
         /// get oldMonay 
         /// 
-        int getOldMony(int IDcode, int IDCurnncy, DateTime d2)
+     public   int getOldMony(int IDcode, int IDCurnncy, DateTime d2)
         {
            
             DateTime dd = Convert.ToDateTime("2017/01/01");

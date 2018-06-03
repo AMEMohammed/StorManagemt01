@@ -31,7 +31,7 @@ namespace WindowsFormsHosttcp
 
                  host.Open();
                  textBox1.Text = host.Description.Endpoints[0].Address.ToString()+"  "+DateTime.Now.ToString();
-           
+               
             
 
             }

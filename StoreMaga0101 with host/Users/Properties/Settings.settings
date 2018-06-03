@@ -18,7 +18,13 @@
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="HostIP" Type="System.String" Scope="User">
-      <Value Profile="(Default)">net.tcp://192.168.1.115:9002/MyMathService</Value>
+      <Value Profile="(Default)">192.168.1.115</Value>
+    </Setting>
+    <Setting Name="port" Type="System.String" Scope="User">
+      <Value Profile="(Default)">9002</Value>
+    </Setting>
+    <Setting Name="iphost" Type="System.String" Scope="User">
+      <Value Profile="(Default)">192.168.1.115</Value>
     </Setting>
   </Settings>
 </SettingsFile>
