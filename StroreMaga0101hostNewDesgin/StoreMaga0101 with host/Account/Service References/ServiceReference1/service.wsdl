@@ -1,0 +1,834 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="MYSerivce" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="NetTcpBinding_Iservice_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1">
+        </msb:BinaryEncoding>
+        <wsaw:UsingAddressing>
+        </wsaw:UsingAddressing>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/System.IO" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/System" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="Iservice_SENDUSERTOSERVER_InputMessage">
+    <wsdl:part name="parameters" element="tns:SENDUSERTOSERVER" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_SENDUSERTOSERVER_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SENDUSERTOSERVERResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_LoginUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoginUser" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_LoginUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_AddNewUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddNewUser" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_AddNewUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddNewUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_UpatePassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpatePassword" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_UpatePassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpatePasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_UpdUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdUsers" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_UpdUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetAllUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUser" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetAllUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUser" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetAllAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAccount" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetAllAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetAllAcountnAr_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAcountnAr" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetAllAcountnAr_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAcountnArResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_UpdateAccountNm_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAccountNm" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_UpdateAccountNm_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAccountNmResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_CheckAccountinDetlis_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckAccountinDetlis" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_CheckAccountinDetlis_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckAccountinDetlisResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_CheckAccounthaschalid_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckAccounthaschalid" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_CheckAccounthaschalid_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckAccounthaschalidResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_TypeAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:TypeAccount" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_TypeAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TypeAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetCheckAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCheckAccount" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetCheckAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCheckAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetCheckAccountHere_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCheckAccountHere" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetCheckAccountHere_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCheckAccountHereResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetMaxCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMaxCode" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetMaxCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMaxCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_AddNewAcountNm_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddNewAcountNm" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_AddNewAcountNm_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddNewAcountNmResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_DelteAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:DelteAccount" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_DelteAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DelteAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_DelteAccount2_InputMessage">
+    <wsdl:part name="parameters" element="tns:DelteAccount2" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_DelteAccount2_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DelteAccount2Response" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_SearchAcount_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchAcount" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_SearchAcount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchAcountResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GETALLAccountPrime_InputMessage">
+    <wsdl:part name="parameters" element="tns:GETALLAccountPrime" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GETALLAccountPrime_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GETALLAccountPrimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GETALLAccountSub_InputMessage">
+    <wsdl:part name="parameters" element="tns:GETALLAccountSub" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GETALLAccountSub_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GETALLAccountSubResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetAllCurrency_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCurrency" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetAllCurrency_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCurrencyResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetBalanceAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBalanceAccount" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetBalanceAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBalanceAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetBalanceAccountALLCunncy_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBalanceAccountALLCunncy" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetBalanceAccountALLCunncy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBalanceAccountALLCunncyResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GETNMCurrncy_InputMessage">
+    <wsdl:part name="parameters" element="tns:GETNMCurrncy" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GETNMCurrncy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GETNMCurrncyResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetBalanceALLAccountALLCunncy_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBalanceALLAccountALLCunncy" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetBalanceALLAccountALLCunncy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBalanceALLAccountALLCunncyResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GETNMAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GETNMAccount" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GETNMAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GETNMAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GETAccountDitalis_InputMessage">
+    <wsdl:part name="parameters" element="tns:GETAccountDitalis" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GETAccountDitalis_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GETAccountDitalisResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_getOldMony_InputMessage">
+    <wsdl:part name="parameters" element="tns:getOldMony" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_getOldMony_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getOldMonyResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GETAcountDitlis_InputMessage">
+    <wsdl:part name="parameters" element="tns:GETAcountDitlis" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GETAcountDitlis_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GETAcountDitlisResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetUserNM_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserNM" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetUserNM_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserNMResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetGroupsAsAccounts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGroupsAsAccounts" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetGroupsAsAccounts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGroupsAsAccountsResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetAccountesMOnayInGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountesMOnayInGroup" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetAccountesMOnayInGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountesMOnayInGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_CheckAccontTotal_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckAccontTotal" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_CheckAccontTotal_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckAccontTotalResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetBalance_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBalance" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetBalance_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBalanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_UpdateAccountTotal_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAccountTotal" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_UpdateAccountTotal_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAccountTotalResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_AddNewAccountTotal_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddNewAccountTotal" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_AddNewAccountTotal_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddNewAccountTotalResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_AddNewAccountDetalis_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddNewAccountDetalis" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_AddNewAccountDetalis_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddNewAccountDetalisResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_AddSimpleConstraint_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddSimpleConstraint" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_AddSimpleConstraint_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddSimpleConstraintResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetMaxIDSimpleConstraint_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMaxIDSimpleConstraint" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetMaxIDSimpleConstraint_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMaxIDSimpleConstraintResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetAllSimpleConstraintOneDay_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllSimpleConstraintOneDay" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetAllSimpleConstraintOneDay_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllSimpleConstraintOneDayResponse" />
+  </wsdl:message>
+  <wsdl:portType name="Iservice">
+    <wsdl:operation name="SENDUSERTOSERVER">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/SENDUSERTOSERVER" message="tns:Iservice_SENDUSERTOSERVER_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/SENDUSERTOSERVERResponse" message="tns:Iservice_SENDUSERTOSERVER_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoginUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/LoginUser" message="tns:Iservice_LoginUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/LoginUserResponse" message="tns:Iservice_LoginUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNewUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/AddNewUser" message="tns:Iservice_AddNewUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/AddNewUserResponse" message="tns:Iservice_AddNewUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpatePassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/UpatePassword" message="tns:Iservice_UpatePassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/UpatePasswordResponse" message="tns:Iservice_UpatePassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/UpdUsers" message="tns:Iservice_UpdUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/UpdUsersResponse" message="tns:Iservice_UpdUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GetAllUser" message="tns:Iservice_GetAllUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GetAllUserResponse" message="tns:Iservice_GetAllUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GetUser" message="tns:Iservice_GetUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GetUserResponse" message="tns:Iservice_GetUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GetAllAccount" message="tns:Iservice_GetAllAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GetAllAccountResponse" message="tns:Iservice_GetAllAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAcountnAr">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GetAllAcountnAr" message="tns:Iservice_GetAllAcountnAr_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GetAllAcountnArResponse" message="tns:Iservice_GetAllAcountnAr_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAccountNm">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/UpdateAccountNm" message="tns:Iservice_UpdateAccountNm_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/UpdateAccountNmResponse" message="tns:Iservice_UpdateAccountNm_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckAccountinDetlis">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/CheckAccountinDetlis" message="tns:Iservice_CheckAccountinDetlis_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/CheckAccountinDetlisResponse" message="tns:Iservice_CheckAccountinDetlis_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckAccounthaschalid">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/CheckAccounthaschalid" message="tns:Iservice_CheckAccounthaschalid_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/CheckAccounthaschalidResponse" message="tns:Iservice_CheckAccounthaschalid_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TypeAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/TypeAccount" message="tns:Iservice_TypeAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/TypeAccountResponse" message="tns:Iservice_TypeAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCheckAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GetCheckAccount" message="tns:Iservice_GetCheckAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GetCheckAccountResponse" message="tns:Iservice_GetCheckAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCheckAccountHere">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GetCheckAccountHere" message="tns:Iservice_GetCheckAccountHere_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GetCheckAccountHereResponse" message="tns:Iservice_GetCheckAccountHere_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMaxCode">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GetMaxCode" message="tns:Iservice_GetMaxCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GetMaxCodeResponse" message="tns:Iservice_GetMaxCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNewAcountNm">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/AddNewAcountNm" message="tns:Iservice_AddNewAcountNm_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/AddNewAcountNmResponse" message="tns:Iservice_AddNewAcountNm_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DelteAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/DelteAccount" message="tns:Iservice_DelteAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/DelteAccountResponse" message="tns:Iservice_DelteAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DelteAccount2">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/DelteAccount2" message="tns:Iservice_DelteAccount2_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/DelteAccount2Response" message="tns:Iservice_DelteAccount2_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchAcount">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/SearchAcount" message="tns:Iservice_SearchAcount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/SearchAcountResponse" message="tns:Iservice_SearchAcount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GETALLAccountPrime">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GETALLAccountPrime" message="tns:Iservice_GETALLAccountPrime_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GETALLAccountPrimeResponse" message="tns:Iservice_GETALLAccountPrime_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GETALLAccountSub">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GETALLAccountSub" message="tns:Iservice_GETALLAccountSub_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GETALLAccountSubResponse" message="tns:Iservice_GETALLAccountSub_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCurrency">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GetAllCurrency" message="tns:Iservice_GetAllCurrency_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GetAllCurrencyResponse" message="tns:Iservice_GetAllCurrency_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBalanceAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GetBalanceAccount" message="tns:Iservice_GetBalanceAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GetBalanceAccountResponse" message="tns:Iservice_GetBalanceAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBalanceAccountALLCunncy">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GetBalanceAccountALLCunncy" message="tns:Iservice_GetBalanceAccountALLCunncy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GetBalanceAccountALLCunncyResponse" message="tns:Iservice_GetBalanceAccountALLCunncy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GETNMCurrncy">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GETNMCurrncy" message="tns:Iservice_GETNMCurrncy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GETNMCurrncyResponse" message="tns:Iservice_GETNMCurrncy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBalanceALLAccountALLCunncy">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GetBalanceALLAccountALLCunncy" message="tns:Iservice_GetBalanceALLAccountALLCunncy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GetBalanceALLAccountALLCunncyResponse" message="tns:Iservice_GetBalanceALLAccountALLCunncy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GETNMAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GETNMAccount" message="tns:Iservice_GETNMAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GETNMAccountResponse" message="tns:Iservice_GETNMAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GETAccountDitalis">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GETAccountDitalis" message="tns:Iservice_GETAccountDitalis_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GETAccountDitalisResponse" message="tns:Iservice_GETAccountDitalis_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getOldMony">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/getOldMony" message="tns:Iservice_getOldMony_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/getOldMonyResponse" message="tns:Iservice_getOldMony_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GETAcountDitlis">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GETAcountDitlis" message="tns:Iservice_GETAcountDitlis_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GETAcountDitlisResponse" message="tns:Iservice_GETAcountDitlis_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserNM">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GetUserNM" message="tns:Iservice_GetUserNM_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GetUserNMResponse" message="tns:Iservice_GetUserNM_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupsAsAccounts">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GetGroupsAsAccounts" message="tns:Iservice_GetGroupsAsAccounts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GetGroupsAsAccountsResponse" message="tns:Iservice_GetGroupsAsAccounts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountesMOnayInGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GetAccountesMOnayInGroup" message="tns:Iservice_GetAccountesMOnayInGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GetAccountesMOnayInGroupResponse" message="tns:Iservice_GetAccountesMOnayInGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckAccontTotal">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/CheckAccontTotal" message="tns:Iservice_CheckAccontTotal_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/CheckAccontTotalResponse" message="tns:Iservice_CheckAccontTotal_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBalance">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GetBalance" message="tns:Iservice_GetBalance_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GetBalanceResponse" message="tns:Iservice_GetBalance_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAccountTotal">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/UpdateAccountTotal" message="tns:Iservice_UpdateAccountTotal_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/UpdateAccountTotalResponse" message="tns:Iservice_UpdateAccountTotal_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNewAccountTotal">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/AddNewAccountTotal" message="tns:Iservice_AddNewAccountTotal_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/AddNewAccountTotalResponse" message="tns:Iservice_AddNewAccountTotal_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNewAccountDetalis">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/AddNewAccountDetalis" message="tns:Iservice_AddNewAccountDetalis_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/AddNewAccountDetalisResponse" message="tns:Iservice_AddNewAccountDetalis_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddSimpleConstraint">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/AddSimpleConstraint" message="tns:Iservice_AddSimpleConstraint_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/AddSimpleConstraintResponse" message="tns:Iservice_AddSimpleConstraint_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMaxIDSimpleConstraint">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GetMaxIDSimpleConstraint" message="tns:Iservice_GetMaxIDSimpleConstraint_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GetMaxIDSimpleConstraintResponse" message="tns:Iservice_GetMaxIDSimpleConstraint_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllSimpleConstraintOneDay">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GetAllSimpleConstraintOneDay" message="tns:Iservice_GetAllSimpleConstraintOneDay_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GetAllSimpleConstraintOneDayResponse" message="tns:Iservice_GetAllSimpleConstraintOneDay_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NetTcpBinding_Iservice" type="tns:Iservice">
+    <wsp:PolicyReference URI="#NetTcpBinding_Iservice_policy">
+    </wsp:PolicyReference>
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="SENDUSERTOSERVER">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/SENDUSERTOSERVER" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginUser">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/LoginUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewUser">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/AddNewUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpatePassword">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/UpatePassword" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdUsers">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/UpdUsers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUser">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/GetAllUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/GetUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAccount">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/GetAllAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAcountnAr">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/GetAllAcountnAr" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAccountNm">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/UpdateAccountNm" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckAccountinDetlis">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/CheckAccountinDetlis" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckAccounthaschalid">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/CheckAccounthaschalid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TypeAccount">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/TypeAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCheckAccount">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/GetCheckAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCheckAccountHere">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/GetCheckAccountHere" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMaxCode">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/GetMaxCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewAcountNm">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/AddNewAcountNm" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelteAccount">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/DelteAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelteAccount2">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/DelteAccount2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchAcount">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/SearchAcount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GETALLAccountPrime">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/GETALLAccountPrime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GETALLAccountSub">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/GETALLAccountSub" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCurrency">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/GetAllCurrency" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBalanceAccount">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/GetBalanceAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBalanceAccountALLCunncy">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/GetBalanceAccountALLCunncy" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GETNMCurrncy">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/GETNMCurrncy" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBalanceALLAccountALLCunncy">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/GetBalanceALLAccountALLCunncy" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GETNMAccount">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/GETNMAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GETAccountDitalis">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/GETAccountDitalis" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOldMony">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/getOldMony" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GETAcountDitlis">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/GETAcountDitlis" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserNM">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/GetUserNM" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupsAsAccounts">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/GetGroupsAsAccounts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountesMOnayInGroup">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/GetAccountesMOnayInGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckAccontTotal">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/CheckAccontTotal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBalance">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/GetBalance" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAccountTotal">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/UpdateAccountTotal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewAccountTotal">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/AddNewAccountTotal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewAccountDetalis">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/AddNewAccountDetalis" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddSimpleConstraint">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/AddSimpleConstraint" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMaxIDSimpleConstraint">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/GetMaxIDSimpleConstraint" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllSimpleConstraintOneDay">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/GetAllSimpleConstraintOneDay" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MYSerivce">
+    <wsdl:port name="NetTcpBinding_Iservice" binding="tns:NetTcpBinding_Iservice">
+      <soap12:address location="net.tcp://localhost:9002/MyMathService" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:9002/MyMathService</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

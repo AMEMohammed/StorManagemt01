@@ -1,0 +1,1447 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using Supplly;
+using Users;
+using Out_;
+using frmWInReprting;
+using SystemConfiguration;
+using Account;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.ServiceModel;
+namespace StoreMaga0101
+{
+    public partial class FrmMain : Form
+    {
+        int UserID;
+      
+        frmLogin frm;// Login from
+        ServiceReference1.IserviceClient serHost;
+       
+
+        public FrmMain()
+        {  
+            InitializeComponent();
+           
+            try
+            {
+              
+                if (ConServer.ConnectionWithHost)
+                {
+                    serHost=new ServiceReference1.IserviceClient();
+                    
+
+                    EndpointAddress endp = new EndpointAddress(ConServer.HostIp);
+                    serHost.Endpoint.Address = endp;
+                    
+                   
+                }
+                frm = new frmLogin(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, ConServer.HostIp);
+           }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+
+        }
+
+
+        /// <summary>
+        ///  AddSupply
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void toolStripMenuItem14_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                bool isHere = false;
+                tabControl1.Visible = true; ;
+                frmADDSup frmADdSup = new frmADDSup(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID, ConServer.ConnectionWithHost, ConServer.HostIp);
+                foreach (TabPage b in tabControl1.TabPages)
+                { 
+                    if (b.Text == (string)frmADdSup.Tag)
+                    {
+                        isHere = true;
+                        tabControl1.SelectedTab = b;
+                        return;
+
+                    }
+                }
+                if (!isHere)
+                {
+                   
+                    TabPage tab = new TabPage((string)frmADdSup.Tag);
+
+                    frmADdSup.TopLevel = false;
+
+                    frmADdSup.Parent = tab;
+
+                    frmADdSup.Visible = true;
+
+                    tabControl1.TabPages.Add(tab);
+
+                    frmADdSup.Location = new Point((tab.Width - frmADdSup.Width) / 2, (tab.Height - frmADdSup.Height) / 2);
+
+                    tabControl1.SelectedTab = tab;
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            /////////////////////////////////////
+            //try
+            //{
+            //    this.Cursor = Cursors.WaitCursor;
+
+            //    frmADDSup frmADdSup = new frmADDSup(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID,ConServer.ConnectionWithHost,ConServer.HostIp);// from AddSupply
+
+            //    FormCollection fromco = Application.OpenForms;
+            //    bool foundFrom = false;
+            //    foreach (Form frm in fromco)
+            //    {
+            //        if (frm.Name == "frmADDSup")
+            //        {
+            //            frm.Focus();
+
+            //            foundFrom = true;
+
+            //        }
+
+            //    }
+            //    if (foundFrom == false)
+            //    {
+            //        frmADdSup.Show();
+            //    }
+            //    this.Cursor = Cursors.Default;
+            //}
+            //catch(Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //}
+        }
+
+        private void FrmMain_Load(object sender, EventArgs e)
+        {
+            try
+            {
+
+                string NameUser;
+                frm.ShowDialog();
+                if (frmLogin.GETIDD == -1)
+                {
+                    Application.Exit();
+                }
+                else
+                {  
+                    groupBox1.Visible = true;
+                    DataTable dt = new DataTable();
+                    if (!ConServer.ConnectionWithHost)//connection local
+                    {
+                        UsersSQl us = new UsersSQl(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql);
+                        dt = us.GetUser(frmLogin.GETIDD);
+                        NameUser = us.GetUserNameByID(frmLogin.GETIDD);
+                    }
+                    else //connection Host
+                    {
+
+                      
+                        dt = ConvertMemorytoDB(serHost.GetUser(frmLogin.GETIDD));
+                        NameUser = serHost.GetUserNM(frmLogin.GETIDD);
+
+
+                    }
+
+                    toolStripStatusLabel1.Text = "اسم الموظف : " + NameUser;
+                    toolStripStatusLabel2.Text = "عنوان المخدم: " + ConServer.iphost+":"+ConServer.port;
+                    UserID = Convert.ToInt32(dt.Rows[0][0].ToString());
+                    toolStripMenuItem3.Visible = true;
+                    toolStripMenuItem13.Visible = true;
+                    toolStripMenuItem7.Visible = true;
+                    toolStripMenuItem1.Visible = true;
+                    toolStripMenuItem23.Visible = true;
+                    toolStripMenuItem5.Visible = true;
+                    toolStripMenuItem17.Visible = true;
+                    toolStripMenuItem21.Visible = true;
+                    toolStripMenuItem14.Visible = Convert.ToBoolean(dt.Rows[0][4].ToString());
+                    toolStripMenuItem15.Visible = Convert.ToBoolean(dt.Rows[0][5].ToString());
+                    toolStripMenuItem8.Visible = Convert.ToBoolean(dt.Rows[0][6].ToString());
+                    toolStripMenuItem9.Visible = Convert.ToBoolean(dt.Rows[0][7].ToString());
+                    toolStripMenuItem2.Visible = Convert.ToBoolean(dt.Rows[0][8].ToString());
+                    toolStripMenuItem10.Visible = Convert.ToBoolean(dt.Rows[0][9].ToString());
+                    toolStripMenuItem11.Visible = Convert.ToBoolean(dt.Rows[0][10].ToString());
+                    toolStripMenuItem19.Visible = Convert.ToBoolean(dt.Rows[0][11].ToString());// add user
+                    toolStripMenuItem18.Visible = Convert.ToBoolean(dt.Rows[0][11].ToString());// update User
+                    toolStripMenuItem12.Visible = Convert.ToBoolean(dt.Rows[0][13].ToString());
+                    toolStripMenuItem16.Visible = Convert.ToBoolean(dt.Rows[0][14].ToString());
+                    toolStripMenuItem24.Visible = Convert.ToBoolean(dt.Rows[0][15].ToString()); // add cate
+                    toolStripMenuItem25.Visible = Convert.ToBoolean(dt.Rows[0][16].ToString());
+                    toolStripMenuItem26.Visible = Convert.ToBoolean(dt.Rows[0][17].ToString());
+                    toolStripMenuItem22.Visible = Convert.ToBoolean(dt.Rows[0][17].ToString());
+                    toolStripMenuItem27.Visible = Convert.ToBoolean(dt.Rows[0][18].ToString());
+                    toolStripMenuItem28.Visible = Convert.ToBoolean(dt.Rows[0][19].ToString());
+                    toolStripMenuItem35.Visible= Convert.ToBoolean(dt.Rows[0][15].ToString());
+                   // tabControl1.Visible = true;
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void toolStripMenuItem20_Click(object sender, EventArgs e)
+        { 
+          if(  MessageBox.Show("هل تريد الخروج", "تنبيه", MessageBoxButtons.YesNo, MessageBoxIcon.Question)==DialogResult.Yes)
+
+            {
+                Application.Exit();
+            }
+          
+        }
+        /// <summary>
+        /// update Supply
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void toolStripMenuItem15_Click(object sender, EventArgs e)
+        { 
+            try
+            {
+                this.Cursor = Cursors.WaitCursor;
+                bool isHere = false;
+                tabControl1.Visible = true; ;
+                frmUpdatSupply frmUp = new frmUpdatSupply(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID, ConServer.ConnectionWithHost, ConServer.HostIp);
+                foreach (TabPage b in tabControl1.TabPages)
+                {
+                    if (b.Text == (string)frmUp.Tag)
+                    {
+                        isHere = true;
+                        tabControl1.SelectedTab = b;
+                        return;
+
+                    }
+                }
+                if (!isHere)
+                {
+
+                    TabPage tab = new TabPage((string)frmUp.Tag);
+
+                    frmUp.TopLevel = false;
+
+                    frmUp.Parent = tab;
+
+                    frmUp.Visible = true;
+
+                    tabControl1.TabPages.Add(tab);
+
+                    frmUp.Location = new Point((tab.Width - frmUp.Width) / 2, (tab.Height - frmUp.Height) / 2);
+
+                    tabControl1.SelectedTab = tab;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            this.Cursor = Cursors.Default;
+
+
+            //    try
+            //    {
+            //        this.Cursor = Cursors.WaitCursor;
+            //        frmUpdatSupply frmUp = new frmUpdatSupply(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID,ConServer.ConnectionWithHost,ConServer.HostIp); //from update Supply
+            //        FormCollection fromco = Application.OpenForms;
+            //        bool foundFrom = false;
+            //        foreach (Form frm in fromco)
+            //        {
+            //            if (frm.Name == "frmUpdatSupply")
+            //            {
+            //                frm.Focus();
+
+            //                foundFrom = true;
+
+            //            }
+
+            //        }
+            //        if (foundFrom == false)
+            //        {
+            //            frmUp.Show();
+            //        }
+            //        this.Cursor = Cursors.Default;
+            //    }
+            //    catch(Exception ex)
+            //    {
+            //        MessageBox.Show(ex.Message);
+            //    }
+
+
+        }
+        /// <summary>
+        /// ///////// ADD Out
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+
+        private void toolStripMenuItem8_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                bool isHere = false;
+                tabControl1.Visible = true; ;
+                frmAddOut frmou = new frmAddOut(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID, ConServer.ConnectionWithHost, ConServer.HostIp);
+                foreach (TabPage b in tabControl1.TabPages)
+                {
+                    if (b.Text == (string)frmou.Tag)
+                    {
+                        isHere = true;
+                        tabControl1.SelectedTab = b;
+                        return;
+
+                    }
+                }
+                if (!isHere)
+                {
+
+                    TabPage tab = new TabPage((string)frmou.Tag);
+
+                    frmou.TopLevel = false;
+
+                    frmou.Parent = tab;
+
+                    frmou.Visible = true;
+
+                    tabControl1.TabPages.Add(tab);
+
+                    frmou.Location = new Point((tab.Width - frmou.Width) / 2, (tab.Height - frmou.Height) / 2);
+
+                    tabControl1.SelectedTab = tab;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            //try
+            //{
+            //    this.Cursor = Cursors.WaitCursor;
+            //    frmAddOut frmou = new frmAddOut(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID,ConServer.ConnectionWithHost, ConServer.HostIp); //from update Supply
+            //    FormCollection fromco = Application.OpenForms;
+            //    bool foundFrom = false;
+            //    foreach (Form frm in fromco)
+            //    {
+            //        if (frm.Name == "frmAddOut")
+            //        {
+            //            frm.Focus();
+
+            //            foundFrom = true;
+
+            //        }
+
+            //    }
+            //    if (foundFrom == false)
+            //    {
+            //        frmou.Show();
+            //    }
+            //    this.Cursor = Cursors.Default;
+            //}
+            //catch(Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //}
+        }
+        /// <summary>
+        /// //////// Add User
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+
+        private void toolStripMenuItem19_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Cursor = Cursors.WaitCursor;
+                bool isHere = false;
+                tabControl1.Visible = true; ;
+                frmAddUser frmAddUser = new frmAddUser(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID, ConServer.HostIp);
+                foreach (TabPage b in tabControl1.TabPages)
+                {
+                    if (b.Text == (string)frmAddUser.Tag)
+                    {
+                        isHere = true;
+                        tabControl1.SelectedTab = b;
+                        this.Cursor = Cursors.Default;
+                        return;
+                   
+                    }
+                }
+                if (!isHere)
+                {
+
+                    TabPage tab = new TabPage((string)frmAddUser.Tag);
+
+                    frmAddUser.TopLevel = false;
+
+                    frmAddUser.Parent = tab;
+
+                    frmAddUser.Visible = true;
+
+                    tabControl1.TabPages.Add(tab);
+
+                    frmAddUser.Location = new Point((tab.Width - frmAddUser.Width) / 2, (tab.Height - frmAddUser.Height) / 2);
+
+                    tabControl1.SelectedTab = tab;
+                    this.Cursor = Cursors.Default;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            this.Cursor = Cursors.Default;
+
+            //try
+            //{
+            //    this.Cursor = Cursors.WaitCursor;
+            //    frmAddUser frmAddUser = new frmAddUser(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID,ConServer.HostIp); //from update Supply
+            //    FormCollection fromco = Application.OpenForms;
+            //    bool foundFrom = false;
+            //    foreach (Form frm in fromco)
+            //    {
+            //        if (frm.Name == "frmAddUser")
+            //        {
+            //            frm.Focus();
+
+            //            foundFrom = true;
+
+            //        }
+
+            //    }
+            //    if (foundFrom == false)
+            //    {
+            //        frmAddUser.Show();
+            //    }
+            //}
+            //catch(Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //}
+            //this.Cursor = Cursors.Default;
+        }
+        /// <summary>
+        /// ///upadt user
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void toolStripMenuItem18_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Cursor = Cursors.WaitCursor;
+                bool isHere = false;
+                tabControl1.Visible = true; ;
+                frmAddUser frmAddUser = new frmAddUser(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID, ConServer.HostIp);
+                foreach (TabPage b in tabControl1.TabPages)
+                {
+                    if (b.Text == (string)frmAddUser.Tag)
+                    {
+                        isHere = true;
+                        tabControl1.SelectedTab = b;
+                        this.Cursor = Cursors.Default;
+                        return;
+
+                    }
+                }
+                if (!isHere)
+                {
+
+                    TabPage tab = new TabPage((string)frmAddUser.Tag);
+
+                    frmAddUser.TopLevel = false;
+
+                    frmAddUser.Parent = tab;
+
+                    frmAddUser.Visible = true;
+
+                    tabControl1.TabPages.Add(tab);
+
+                    frmAddUser.Location = new Point((tab.Width - frmAddUser.Width) / 2, (tab.Height - frmAddUser.Height) / 2);
+
+                    tabControl1.SelectedTab = tab;
+                    this.Cursor = Cursors.Default;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            this.Cursor = Cursors.Default;
+
+            //    try
+            //    {
+
+
+            //        this.Cursor = Cursors.WaitCursor;
+            //        frmAddUser frmAddUser = new frmAddUser(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID,ConServer.HostIp); //from update Supply
+            //        FormCollection fromco = Application.OpenForms;
+            //        bool foundFrom = false;
+            //        foreach (Form frm in fromco)
+            //        {
+            //            if (frm.Name == "frmAddUser")
+            //            {
+            //                frm.Focus();
+
+            //                foundFrom = true;
+
+            //            }
+
+            //        }
+            //        if (foundFrom == false)
+            //        {
+            //            frmAddUser.Show();
+            //        }
+            //    }
+            //    catch(Exception ex)
+            //    {
+            //        MessageBox.Show(ex.Message);
+            //    }
+            //    this.Cursor = Cursors.Default;
+        }
+            /// <summary>
+            ///  upat out
+            /// </summary>
+            /// <param name="sender"></param>
+            /// <param name="e"></param>
+        private void toolStripMenuItem9_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                bool isHere = false;
+                tabControl1.Visible = true; 
+                frmUpdateOut frmupdout = new frmUpdateOut(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID, ConServer.ConnectionWithHost, ConServer.HostIp);
+                foreach (TabPage b in tabControl1.TabPages)
+                {
+                    if (b.Text == (string)frmupdout.Tag)
+                    {
+                        isHere = true;
+                        tabControl1.SelectedTab = b;
+                        return;
+
+                    }
+                }
+                if (!isHere)
+                {
+                    
+                    TabPage tab = new TabPage((string)frmupdout.Tag);
+                    
+                    frmupdout.TopLevel = false;
+
+                    frmupdout.Parent = tab;
+
+                    frmupdout.Visible = true;
+
+                    tabControl1.TabPages.Add(tab);
+
+                    frmupdout.Location = new Point((tab.Width - frmupdout.Width) / 2, (tab.Height - frmupdout.Height) / 2);
+
+                    tabControl1.SelectedTab = tab;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+
+
+
+            //try
+            //{
+            ////    this.Cursor = Cursors.WaitCursor;
+            ////    frmUpdateOut frmupdout = new frmUpdateOut(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID,ConServer.ConnectionWithHost,ConServer.HostIp); //from update Supply
+            ////    FormCollection fromco = Application.OpenForms;
+            ////    bool foundFrom = false;
+            ////    foreach (Form frm in fromco)
+            ////    {
+            ////        if (frm.Name == "frmUpdateOut")
+            ////        {
+            ////            frm.Focus();
+
+            ////            foundFrom = true;
+
+            ////        }
+
+            ////    }
+            ////    if (foundFrom == false)
+            ////    {
+            ////        frmupdout.Show();
+            ////    }
+            ////}
+            ////catch(Exception ex)
+            ////{
+            ////    MessageBox.Show(ex.Message);
+            ////}
+            ////this.Cursor = Cursors.Default;
+        }
+        /// <summary>
+        /// /////Repoting Supply
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Cursor = Cursors.WaitCursor;
+                frmSuppRepring frmRepotingSuppply = new frmSuppRepring(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID,ConServer.ConnectionWithHost,ConServer.HostIp); //from update Supply
+                FormCollection fromco = Application.OpenForms;
+                bool foundFrom = false;
+                foreach (Form frm in fromco)
+                {
+                    if (frm.Name == "frmSuppRepring")
+                    {
+                        frm.Focus();
+
+                        foundFrom = true;
+
+                    }
+
+                }
+                if (foundFrom == false)
+                {
+                    frmRepotingSuppply.Show();
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            this.Cursor = Cursors.Default;
+        }
+        /// <summary>
+        /// //Repoting OUt 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void toolStripMenuItem10_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Cursor = Cursors.WaitCursor;
+                frmOutRepting frmRepotingout = new frmOutRepting(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID,ConServer.ConnectionWithHost,ConServer.HostIp); //from update Supply
+                FormCollection fromco = Application.OpenForms;
+                bool foundFrom = false;
+                foreach (Form frm in fromco)
+                {
+                    if (frm.Name == "frmOutRepting")
+                    {
+                        frm.Focus();
+
+                        foundFrom = true;
+
+                    }
+
+                }
+                if (foundFrom == false)
+                {
+                    frmRepotingout.Show();
+                }
+            }
+            catch(Exception ex)
+            { MessageBox.Show(ex.Message); }
+            this.Cursor = Cursors.Default;
+        }
+        /// <summary>
+        /// //////// Repoting Quntity
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void toolStripMenuItem11_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Cursor = Cursors.WaitCursor;
+                frmQuntityRepting frmRepotingQuntity = new frmQuntityRepting(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID, ConServer.ConnectionWithHost, ConServer.HostIp);
+                FormCollection fromco = Application.OpenForms;
+                bool foundFrom = false;
+                foreach (Form frm in fromco)
+                {
+                    if (frm.Name == "frmQuntityRepting")
+                    {
+                        frm.Focus();
+
+                        foundFrom = true;
+
+                    }
+
+                }
+                if (foundFrom == false)
+                {
+                    frmRepotingQuntity.Show();
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            this.Cursor = Cursors.Default;
+        }
+        /// <summary>
+        /// ///repoting Updta Supply
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void toolStripMenuItem12_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Cursor = Cursors.WaitCursor;
+                frmUpdSupp frmRepotingSupp = new frmUpdSupp(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID,ConServer.ConnectionWithHost,ConServer.HostIp);
+                FormCollection fromco = Application.OpenForms;
+                bool foundFrom = false;
+                foreach (Form frm in fromco)
+                {
+                    if (frm.Name == "frmUpdSupp")
+                    {
+                        frm.Focus();
+
+                        foundFrom = true;
+
+                    }
+
+                }
+                if (foundFrom == false)
+                {
+                    frmRepotingSupp.Show();
+                }
+            }
+            catch(Exception ex)
+            { MessageBox.Show(ex.Message); }
+            this.Cursor = Cursors.Default;
+
+        }
+        /// <summary>
+        /// // repoting Update OUt
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void toolStripMenuItem16_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+
+                this.Cursor = Cursors.WaitCursor;
+                frmUpdOutcs frmRepotingUpdOut = new frmUpdOutcs(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID,ConServer.ConnectionWithHost,ConServer.HostIp);
+                FormCollection fromco = Application.OpenForms;
+                bool foundFrom = false;
+                foreach (Form frm in fromco)
+                {
+                    if (frm.Name == "frmUpdOutcs")
+                    {
+                        frm.Focus();
+
+                        foundFrom = true;
+
+                    }
+
+                }
+                if (foundFrom == false)
+                {
+                    frmRepotingUpdOut.Show();
+                }
+            }
+            catch(Exception ex)
+            { MessageBox.Show(ex.Message); }
+            this.Cursor = Cursors.Default;
+        }
+
+        private void toolStripMenuItem24_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                this.Cursor = Cursors.WaitCursor;
+                bool isHere = false;
+                tabControl1.Visible = true; ;
+                Cate frm = new Cate(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, ConServer.ConnectionWithHost, ConServer.HostIp);
+                foreach (TabPage b in tabControl1.TabPages)
+                {
+                    if (b.Text == (string)frm.Tag)
+                    {
+                        isHere = true;
+                        tabControl1.SelectedTab = b;
+                        this.Cursor = Cursors.Default;
+                        return;
+
+                    }
+                }
+                if (!isHere)
+                {
+
+                    TabPage tab = new TabPage((string)frm.Tag);
+
+                    frm.TopLevel = false;
+
+                    frm.Parent = tab;
+
+                    frm.Visible = true;
+
+                    tabControl1.TabPages.Add(tab);
+
+                    frm.Location = new Point((tab.Width - frm.Width) / 2, (tab.Height - frm.Height) / 2);
+
+                    tabControl1.SelectedTab = tab;
+                    this.Cursor = Cursors.Default;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            this.Cursor = Cursors.Default;
+
+            //try
+            //{
+            //    this.Cursor = Cursors.WaitCursor;
+            //    Cate frmcat = new Cate(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql,ConServer.ConnectionWithHost,ConServer.HostIp);
+            //    FormCollection fromco = Application.OpenForms;
+            //    bool foundFrom = false;
+            //    foreach (Form frm in fromco)
+            //    {
+            //        if (frm.Name == "Cate")
+            //        {
+            //            frm.Focus();
+
+            //            foundFrom = true;
+
+            //        }
+
+            //    }
+            //    if (foundFrom == false)
+            //    {
+            //        frmcat.Show();
+            //    }
+            //}
+            //catch(Exception ex)
+            //{ MessageBox.Show(ex.Message); }
+            //this.Cursor = Cursors.Default;
+        }
+
+        private void toolStripMenuItem25_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Cursor = Cursors.WaitCursor;
+                bool isHere = false;
+                tabControl1.Visible = true; ;
+                frmType frm = new frmType(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, ConServer.ConnectionWithHost, ConServer.HostIp);
+                foreach (TabPage b in tabControl1.TabPages)
+                {
+                    if (b.Text == (string)frm.Tag)
+                    {
+                        isHere = true;
+                        tabControl1.SelectedTab = b;
+                        this.Cursor = Cursors.Default;
+                        return;
+
+                    }
+                }
+                if (!isHere)
+                {
+
+                    TabPage tab = new TabPage((string)frm.Tag);
+
+                    frm.TopLevel = false;
+
+                    frm.Parent = tab;
+
+                    frm.Visible = true;
+
+                    tabControl1.TabPages.Add(tab);
+
+                    frm.Location = new Point((tab.Width - frm.Width) / 2, (tab.Height - frm.Height) / 2);
+
+                    tabControl1.SelectedTab = tab;
+                    this.Cursor = Cursors.Default;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            this.Cursor = Cursors.Default;
+
+            //try
+            //{
+            //    this.Cursor = Cursors.WaitCursor;
+            //    frmType frmtype = new frmType(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql,ConServer.ConnectionWithHost,ConServer.HostIp);
+            //    FormCollection fromco = Application.OpenForms;
+            //    bool foundFrom = false;
+            //    foreach (Form frm in fromco)
+            //    {
+            //        if (frm.Name == "frmType")
+            //        {
+            //            frm.Focus();
+
+            //            foundFrom = true;
+
+            //        }
+
+            //    }
+            //    if (foundFrom == false)
+            //    {
+            //        frmtype.Show();
+            //    }
+            //}
+            //catch (Exception ex)
+            //{ MessageBox.Show(ex.Message); }
+            //this.Cursor = Cursors.Default;
+
+        }
+        //تهيئة الجهات
+        private void toolStripMenuItem28_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Cursor = Cursors.WaitCursor;
+                bool isHere = false;
+                tabControl1.Visible = true; ;
+                frmPlace frm = new frmPlace(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, ConServer.ConnectionWithHost, ConServer.HostIp);
+                foreach (TabPage b in tabControl1.TabPages)
+                {
+                    if (b.Text == (string)frm.Tag)
+                    {
+                        isHere = true;
+                        tabControl1.SelectedTab = b;
+                        this.Cursor = Cursors.Default;
+                        return;
+
+                    }
+                }
+                if (!isHere)
+                {
+
+                    TabPage tab = new TabPage((string)frm.Tag);
+
+                    frm.TopLevel = false;
+
+                    frm.Parent = tab;
+
+                    frm.Visible = true;
+
+                    tabControl1.TabPages.Add(tab);
+
+                    frm.Location = new Point((tab.Width - frm.Width) / 2, (tab.Height - frm.Height) / 2);
+
+                    tabControl1.SelectedTab = tab;
+                    this.Cursor = Cursors.Default;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            this.Cursor = Cursors.Default;
+            //try
+            //{
+            //    this.Cursor = Cursors.WaitCursor;
+            //    frmPlace frmplace = new frmPlace(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql,ConServer.ConnectionWithHost,ConServer.HostIp);
+            //    FormCollection fromco = Application.OpenForms;
+            //    bool foundFrom = false;
+            //    foreach (Form frm in fromco)
+            //    {
+            //        if (frm.Name == "frmPlace")
+            //        {
+            //            frm.Focus();
+
+            //            foundFrom = true;
+
+            //        }
+
+            //    }
+            //    if (foundFrom == false)
+            //    {
+            //        frmplace.Show();
+            //    }
+            //}
+            //catch(Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //}
+            //this.Cursor = Cursors.Default;
+
+        }
+
+        private void toolStripMenuItem27_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                this.Cursor = Cursors.WaitCursor;
+                bool isHere = false;
+                tabControl1.Visible = true; ;
+                frmCuurncy frm = new frmCuurncy(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, ConServer.ConnectionWithHost, ConServer.HostIp);
+                foreach (TabPage b in tabControl1.TabPages)
+                {
+                    if (b.Text == (string)frm.Tag)
+                    {
+                        isHere = true;
+                        tabControl1.SelectedTab = b;
+                        this.Cursor = Cursors.Default;
+                        return;
+
+                    }
+                }
+                if (!isHere)
+                {
+
+                    TabPage tab = new TabPage((string)frm.Tag);
+
+                    frm.TopLevel = false;
+
+                    frm.Parent = tab;
+
+                    frm.Visible = true;
+
+                    tabControl1.TabPages.Add(tab);
+
+                    frm.Location = new Point((tab.Width - frm.Width) / 2, (tab.Height - frm.Height) / 2);
+
+                    tabControl1.SelectedTab = tab;
+                    this.Cursor = Cursors.Default;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            this.Cursor = Cursors.Default;
+            //try
+            //{
+            //    this.Cursor = Cursors.WaitCursor;
+            //    frmCuurncy frmCurrncy = new frmCuurncy(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql,ConServer.ConnectionWithHost,ConServer.HostIp);
+            //    FormCollection fromco = Application.OpenForms;
+            //    bool foundFrom = false;
+            //    foreach (Form frm in fromco)
+            //    {
+            //        if (frm.Name == "frmCuurncy")
+            //        {
+            //            frm.Focus();
+
+            //            foundFrom = true;
+
+            //        }
+
+            //    }
+            //    if (foundFrom == false)
+            //    {
+            //        frmCurrncy.Show();
+            //    }
+            //}catch(Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //}
+            //this.Cursor = Cursors.Default;
+        }
+
+        private void toolStripMenuItem21_Click(object sender, EventArgs e)
+        {
+
+        }
+        //شجرة الحسابات
+        private void toolStripMenuItem22_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                bool isHere = false;
+                tabControl1.Visible = true;
+                frmAcount frmAccount = new frmAcount(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID, ConServer.ConnectionWithHost, ConServer.HostIp);
+                foreach (TabPage b in tabControl1.TabPages)
+                {
+                    if (b.Text == (string)frmAccount.Tag)
+                    {
+                        isHere = true;
+                        tabControl1.SelectedTab = b;
+                        return;
+
+                    }
+                }
+                if (!isHere)
+                {
+
+                    TabPage tab = new TabPage((string)frmAccount.Tag);
+
+                    frmAccount.TopLevel = false;
+
+                    frmAccount.Parent = tab;
+
+                    frmAccount.Visible = true;
+
+                    tabControl1.TabPages.Add(tab);
+
+                    frmAccount.Location = new Point((tab.Width - frmAccount.Width) / 2, (tab.Height - frmAccount.Height) / 2);
+
+                    tabControl1.SelectedTab = tab;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            //try
+            //{
+            //    this.Cursor = Cursors.WaitCursor;
+            //    frmAcount frmCurrncy = new frmAcount(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID,ConServer.ConnectionWithHost,ConServer.HostIp);
+            //    FormCollection fromco = Application.OpenForms;
+            //    bool foundFrom = false;
+            //    foreach (Form frm in fromco)
+            //    {
+            //        if (frm.Name == "frmAcount")
+            //        {
+            //            frm.Focus();
+
+            //            foundFrom = true;
+
+            //        }
+
+            //    }
+            //    if (foundFrom == false)
+            //    {
+            //        frmCurrncy.Show();
+            //    }
+            //}
+            //catch(Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //}
+            //this.Cursor = Cursors.Default;
+        }
+
+        private void toolStripMenuItem26_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                bool isHere = false;
+                tabControl1.Visible = true;
+                frmSearchAccountNM frmAccount = new frmSearchAccountNM(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID, ConServer.ConnectionWithHost, ConServer.HostIp);
+                foreach (TabPage b in tabControl1.TabPages)
+                {
+                    if (b.Text == (string)frmAccount.Tag)
+                    {
+                        isHere = true;
+                        tabControl1.SelectedTab = b;
+                        return;
+
+                    }
+                }
+                if (!isHere)
+                {
+
+                    TabPage tab = new TabPage((string)frmAccount.Tag);
+
+                    frmAccount.TopLevel = false;
+
+                    frmAccount.Parent = tab;
+
+                    frmAccount.Visible = true;
+
+                    tabControl1.TabPages.Add(tab);
+
+                    frmAccount.Location = new Point((tab.Width - frmAccount.Width) / 2, (tab.Height - frmAccount.Height) / 2);
+
+                    tabControl1.SelectedTab = tab;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            //try
+            //{
+            //    this.Cursor = Cursors.WaitCursor;
+            //    frmSearchAccountNM frmCurrncy = new frmSearchAccountNM(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID,ConServer.ConnectionWithHost,ConServer.HostIp);
+            //    FormCollection fromco = Application.OpenForms;
+            //    bool foundFrom = false;
+            //    foreach (Form frm in fromco)
+            //    {
+            //        if (frm.Name == "frmSearchAccountNM")
+            //        {
+            //            frm.Focus();
+
+            //            foundFrom = true;
+
+            //        }
+
+            //    }
+            //    if (foundFrom == false)
+            //    {
+            //        frmCurrncy.Show();
+            //    }
+            //}catch(Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //}
+            //this.Cursor = Cursors.Default;
+
+        }
+
+        private void toolStripMenuItem6_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Cursor = Cursors.WaitCursor;
+                frmChangPass frmCurrncy = new frmChangPass(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID);
+                FormCollection fromco = Application.OpenForms;
+                bool foundFrom = false;
+                foreach (Form frm in fromco)
+                {
+                    if (frm.Name == "frmChangPass")
+                    {
+                        frm.Focus();
+
+                        foundFrom = true;
+
+                    }
+
+                }
+                if (foundFrom == false)
+                {
+                    frmCurrncy.Show();
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            this.Cursor = Cursors.Default;
+        }
+
+      
+        private void toolStripMenuItem33_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Cursor = Cursors.WaitCursor;
+                frmGroup frmgroup = new frmGroup(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID,ConServer.ConnectionWithHost,ConServer.HostIp);
+                FormCollection fromco = Application.OpenForms;
+                bool foundFrom = false;
+                foreach (Form frm in fromco)
+                {
+                    if (frm.Name == "frmGroupr")
+                    {
+                        frm.Focus();
+
+                        foundFrom = true;
+
+                    }
+
+                }
+                if (foundFrom == false)
+                {
+                    frmgroup.Show();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            this.Cursor = Cursors.Default;
+        }
+
+        private void toolStripMenuItem34_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                bool isHere = false;
+                tabControl1.Visible = true;
+                SimpleConstraint frmSimpleConstraint = new SimpleConstraint(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID, ConServer.ConnectionWithHost, ConServer.HostIp);
+                foreach (TabPage b in tabControl1.TabPages)
+                {
+                    if (b.Text == (string)frmSimpleConstraint.Tag)
+                    {
+                        isHere = true;
+                        tabControl1.SelectedTab = b;
+                        return;
+
+                    }
+                }
+                if (!isHere)
+                {
+
+                    TabPage tab = new TabPage((string)frmSimpleConstraint.Tag);
+
+                    frmSimpleConstraint.TopLevel = false;
+
+                    frmSimpleConstraint.Parent = tab;
+
+                    frmSimpleConstraint.Visible = true;
+
+                    tabControl1.TabPages.Add(tab);
+
+                    frmSimpleConstraint.Location = new Point((tab.Width - frmSimpleConstraint.Width) / 2, (tab.Height - frmSimpleConstraint.Height) / 2);
+
+                    tabControl1.SelectedTab = tab;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+                //try
+                //{
+                //    this.Cursor = Cursors.WaitCursor;
+                //    SimpleConstraint frmgroup = new SimpleConstraint(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID,ConServer.ConnectionWithHost,ConServer.HostIp);
+                //    FormCollection fromco = Application.OpenForms;
+                //    bool foundFrom = false;
+                //    foreach (Form frm in fromco)
+                //    {
+                //        if (frm.Name == "SimpleConstraint")
+                //        {
+                //            frm.Focus();
+
+                //            foundFrom = true;
+
+                //        }
+
+                //    }
+                //    if (foundFrom == false)
+                //    {
+                //        frmgroup.Show();
+                //    }
+                //}
+                //catch (Exception ex)
+                //{
+                //    MessageBox.Show(ex.Message);
+                //}
+                //this.Cursor = Cursors.Default;
+            }
+        // الحسابات والجهات
+        private void toolStripMenuItem35_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Cursor = Cursors.WaitCursor;
+                bool isHere = false;
+                tabControl1.Visible = true; ;
+                frmConnectionPlaceWithAccounts frm = new frmConnectionPlaceWithAccounts(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql,ConServer.ConnectionWithHost,ConServer.HostIp);
+                foreach (TabPage b in tabControl1.TabPages)
+                {
+                    if (b.Text == (string)frm.Tag)
+                    {
+                        isHere = true;
+                        tabControl1.SelectedTab = b;
+                        this.Cursor = Cursors.Default;
+                        return;
+
+                    }
+                }
+                if (!isHere)
+                {
+
+                    TabPage tab = new TabPage((string)frm.Tag);
+
+                    frm.TopLevel = false;
+
+                    frm.Parent = tab;
+
+                    frm.Visible = true;
+
+                    tabControl1.TabPages.Add(tab);
+
+                    frm.Location = new Point((tab.Width - frm.Width) / 2, (tab.Height - frm.Height) / 2);
+
+                    tabControl1.SelectedTab = tab;
+                    this.Cursor = Cursors.Default;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            this.Cursor = Cursors.Default;
+            //try
+            //{
+            //    this.Cursor = Cursors.WaitCursor;
+            //    frmConnectionPlaceWithAccounts frmConnectionPlaceWithAccounts1 = new frmConnectionPlaceWithAccounts(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql,ConServer.ConnectionWithHost,ConServer.HostIp);
+            //    FormCollection fromco = Application.OpenForms;
+            //    bool foundFrom = false;
+            //    foreach (Form frm in fromco)
+            //    {
+            //        if (frm.Name == "frmConnectionPlaceWithAccounts")
+            //        {
+            //            frm.Focus();
+
+            //            foundFrom = true;
+
+            //        }
+
+            //    }
+            //    if (foundFrom == false)
+            //    {
+            //        frmConnectionPlaceWithAccounts1.Show();
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //}
+            //this.Cursor = Cursors.Default;
+        }
+        //convert MemmoryToDB
+        DataTable ConvertMemorytoDB(MemoryStream ms)
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            ms.Seek(0, SeekOrigin.Begin);
+            DataTable dt = (DataTable)formatter.Deserialize(ms);
+            return dt;
+        }
+
+        private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+           
+        }
+
+        private void toolStripMenuItem13_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripStatusLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabControl1_DrawItem(object sender, DrawItemEventArgs e)
+        {
+        
+        }
+
+        private void FrmMain_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            try
+            {
+                serHost.SENDUSERTOSERVER(0, ConServer.SessionID, DateTime.Now, DateTime.Now, System.Environment.MachineName, System.Environment.UserName, System.Environment.OSVersion.ToString(), null, 0);
+            }
+            catch
+            {
+
+
+            }
+        }
+    }
+}
