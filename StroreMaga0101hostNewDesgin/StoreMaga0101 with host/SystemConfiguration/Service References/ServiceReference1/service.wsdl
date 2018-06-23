@@ -156,6 +156,168 @@
   <wsdl:message name="Iservice_GetConnectionAccountwithPlace_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetConnectionAccountwithPlaceResponse" />
   </wsdl:message>
+  <wsdl:message name="Iservice_GetAllCategoryARWithAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCategoryARWithAccount" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetAllCategoryARWithAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCategoryARWithAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetGroupsCate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGroupsCate" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetGroupsCate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGroupsCateResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetAllUserinReprt_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUserinReprt" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetAllUserinReprt_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUserinReprtResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetAllUserAR_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUserAR" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetAllUserAR_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUserARResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_PrintRequstRPT_InputMessage">
+    <wsdl:part name="parameters" element="tns:PrintRequstRPT" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_PrintRequstRPT_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PrintRequstRPTResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_PrintRequstRPTAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:PrintRequstRPTAll" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_PrintRequstRPTAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PrintRequstRPTAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_PrintRequstRPTIDcat_InputMessage">
+    <wsdl:part name="parameters" element="tns:PrintRequstRPTIDcat" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_PrintRequstRPTIDcat_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PrintRequstRPTIDcatResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_PrintOutAllwithDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:PrintOutAllwithDate" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_PrintOutAllwithDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PrintOutAllwithDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_PrintOutAllwithDateAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:PrintOutAllwithDateAll" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_PrintOutAllwithDateAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PrintOutAllwithDateAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_PrintOutAllwithDateWithIDca_InputMessage">
+    <wsdl:part name="parameters" element="tns:PrintOutAllwithDateWithIDca" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_PrintOutAllwithDateWithIDca_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PrintOutAllwithDateWithIDcaResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_PrintOutAllwithDateWithIDcaPLAC_InputMessage">
+    <wsdl:part name="parameters" element="tns:PrintOutAllwithDateWithIDcaPLAC" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_PrintOutAllwithDateWithIDcaPLAC_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PrintOutAllwithDateWithIDcaPLACResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_PrintOutAllwithDateWithPLAC_InputMessage">
+    <wsdl:part name="parameters" element="tns:PrintOutAllwithDateWithPLAC" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_PrintOutAllwithDateWithPLAC_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PrintOutAllwithDateWithPLACResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_PrintAccountQuntity_InputMessage">
+    <wsdl:part name="parameters" element="tns:PrintAccountQuntity" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_PrintAccountQuntity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PrintAccountQuntityResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_PrintAccountQuntityIDac_InputMessage">
+    <wsdl:part name="parameters" element="tns:PrintAccountQuntityIDac" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_PrintAccountQuntityIDac_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PrintAccountQuntityIDacResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_PrintAccountQuntityWithGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:PrintAccountQuntityWithGroup" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_PrintAccountQuntityWithGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PrintAccountQuntityWithGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_PrintAccountQuntityAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:PrintAccountQuntityAll" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_PrintAccountQuntityAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PrintAccountQuntityAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetUpdateSupplyByIDSupply_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUpdateSupplyByIDSupply" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetUpdateSupplyByIDSupply_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUpdateSupplyByIDSupplyResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetUpdateSupplyByDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUpdateSupplyByDate" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetUpdateSupplyByDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUpdateSupplyByDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetUpdateSupplyByDateUpdateWithDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUpdateSupplyByDateUpdateWithDate" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetUpdateSupplyByDateUpdateWithDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUpdateSupplyByDateUpdateWithDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetUpdateSupplyByDateDeleteWithDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUpdateSupplyByDateDeleteWithDate" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetUpdateSupplyByDateDeleteWithDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUpdateSupplyByDateDeleteWithDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetUpdtOutByIDOut_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUpdtOutByIDOut" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetUpdtOutByIDOut_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUpdtOutByIDOutResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetUpdOutByDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUpdOutByDate" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetUpdOutByDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUpdOutByDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetUpdOutByDateUpdtewithdate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUpdOutByDateUpdtewithdate" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetUpdOutByDateUpdtewithdate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUpdOutByDateUpdtewithdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetUpdOutByDateDetle2tewithdate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUpdOutByDateDetle2tewithdate" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetUpdOutByDateDetle2tewithdate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUpdOutByDateDetle2tewithdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_AddNewSession_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddNewSession" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_AddNewSession_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddNewSessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_UpdateENDtimeSession_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateENDtimeSession" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_UpdateENDtimeSession_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateENDtimeSessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GETMAXIDSession_InputMessage">
+    <wsdl:part name="parameters" element="tns:GETMAXIDSession" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GETMAXIDSession_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GETMAXIDSessionResponse" />
+  </wsdl:message>
   <wsdl:message name="Iservice_GetUserNameBYIdUser_InputMessage">
     <wsdl:part name="parameters" element="tns:GetUserNameBYIdUser" />
   </wsdl:message>
@@ -1017,6 +1179,114 @@
       <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GetConnectionAccountwithPlace" message="tns:Iservice_GetConnectionAccountwithPlace_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GetConnectionAccountwithPlaceResponse" message="tns:Iservice_GetConnectionAccountwithPlace_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetAllCategoryARWithAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GetAllCategoryARWithAccount" message="tns:Iservice_GetAllCategoryARWithAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GetAllCategoryARWithAccountResponse" message="tns:Iservice_GetAllCategoryARWithAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupsCate">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GetGroupsCate" message="tns:Iservice_GetGroupsCate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GetGroupsCateResponse" message="tns:Iservice_GetGroupsCate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUserinReprt">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GetAllUserinReprt" message="tns:Iservice_GetAllUserinReprt_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GetAllUserinReprtResponse" message="tns:Iservice_GetAllUserinReprt_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUserAR">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GetAllUserAR" message="tns:Iservice_GetAllUserAR_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GetAllUserARResponse" message="tns:Iservice_GetAllUserAR_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PrintRequstRPT">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/PrintRequstRPT" message="tns:Iservice_PrintRequstRPT_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/PrintRequstRPTResponse" message="tns:Iservice_PrintRequstRPT_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PrintRequstRPTAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/PrintRequstRPTAll" message="tns:Iservice_PrintRequstRPTAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/PrintRequstRPTAllResponse" message="tns:Iservice_PrintRequstRPTAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PrintRequstRPTIDcat">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/PrintRequstRPTIDcat" message="tns:Iservice_PrintRequstRPTIDcat_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/PrintRequstRPTIDcatResponse" message="tns:Iservice_PrintRequstRPTIDcat_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PrintOutAllwithDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/PrintOutAllwithDate" message="tns:Iservice_PrintOutAllwithDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/PrintOutAllwithDateResponse" message="tns:Iservice_PrintOutAllwithDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PrintOutAllwithDateAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/PrintOutAllwithDateAll" message="tns:Iservice_PrintOutAllwithDateAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/PrintOutAllwithDateAllResponse" message="tns:Iservice_PrintOutAllwithDateAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PrintOutAllwithDateWithIDca">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/PrintOutAllwithDateWithIDca" message="tns:Iservice_PrintOutAllwithDateWithIDca_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/PrintOutAllwithDateWithIDcaResponse" message="tns:Iservice_PrintOutAllwithDateWithIDca_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PrintOutAllwithDateWithIDcaPLAC">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/PrintOutAllwithDateWithIDcaPLAC" message="tns:Iservice_PrintOutAllwithDateWithIDcaPLAC_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/PrintOutAllwithDateWithIDcaPLACResponse" message="tns:Iservice_PrintOutAllwithDateWithIDcaPLAC_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PrintOutAllwithDateWithPLAC">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/PrintOutAllwithDateWithPLAC" message="tns:Iservice_PrintOutAllwithDateWithPLAC_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/PrintOutAllwithDateWithPLACResponse" message="tns:Iservice_PrintOutAllwithDateWithPLAC_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PrintAccountQuntity">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/PrintAccountQuntity" message="tns:Iservice_PrintAccountQuntity_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/PrintAccountQuntityResponse" message="tns:Iservice_PrintAccountQuntity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PrintAccountQuntityIDac">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/PrintAccountQuntityIDac" message="tns:Iservice_PrintAccountQuntityIDac_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/PrintAccountQuntityIDacResponse" message="tns:Iservice_PrintAccountQuntityIDac_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PrintAccountQuntityWithGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/PrintAccountQuntityWithGroup" message="tns:Iservice_PrintAccountQuntityWithGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/PrintAccountQuntityWithGroupResponse" message="tns:Iservice_PrintAccountQuntityWithGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PrintAccountQuntityAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/PrintAccountQuntityAll" message="tns:Iservice_PrintAccountQuntityAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/PrintAccountQuntityAllResponse" message="tns:Iservice_PrintAccountQuntityAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUpdateSupplyByIDSupply">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GetUpdateSupplyByIDSupply" message="tns:Iservice_GetUpdateSupplyByIDSupply_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GetUpdateSupplyByIDSupplyResponse" message="tns:Iservice_GetUpdateSupplyByIDSupply_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUpdateSupplyByDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GetUpdateSupplyByDate" message="tns:Iservice_GetUpdateSupplyByDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GetUpdateSupplyByDateResponse" message="tns:Iservice_GetUpdateSupplyByDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUpdateSupplyByDateUpdateWithDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GetUpdateSupplyByDateUpdateWithDate" message="tns:Iservice_GetUpdateSupplyByDateUpdateWithDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GetUpdateSupplyByDateUpdateWithDateResponse" message="tns:Iservice_GetUpdateSupplyByDateUpdateWithDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUpdateSupplyByDateDeleteWithDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GetUpdateSupplyByDateDeleteWithDate" message="tns:Iservice_GetUpdateSupplyByDateDeleteWithDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GetUpdateSupplyByDateDeleteWithDateResponse" message="tns:Iservice_GetUpdateSupplyByDateDeleteWithDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUpdtOutByIDOut">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GetUpdtOutByIDOut" message="tns:Iservice_GetUpdtOutByIDOut_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GetUpdtOutByIDOutResponse" message="tns:Iservice_GetUpdtOutByIDOut_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUpdOutByDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GetUpdOutByDate" message="tns:Iservice_GetUpdOutByDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GetUpdOutByDateResponse" message="tns:Iservice_GetUpdOutByDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUpdOutByDateUpdtewithdate">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GetUpdOutByDateUpdtewithdate" message="tns:Iservice_GetUpdOutByDateUpdtewithdate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GetUpdOutByDateUpdtewithdateResponse" message="tns:Iservice_GetUpdOutByDateUpdtewithdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUpdOutByDateDetle2tewithdate">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GetUpdOutByDateDetle2tewithdate" message="tns:Iservice_GetUpdOutByDateDetle2tewithdate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GetUpdOutByDateDetle2tewithdateResponse" message="tns:Iservice_GetUpdOutByDateDetle2tewithdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNewSession">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/AddNewSession" message="tns:Iservice_AddNewSession_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/AddNewSessionResponse" message="tns:Iservice_AddNewSession_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateENDtimeSession">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/UpdateENDtimeSession" message="tns:Iservice_UpdateENDtimeSession_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/UpdateENDtimeSessionResponse" message="tns:Iservice_UpdateENDtimeSession_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GETMAXIDSession">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GETMAXIDSession" message="tns:Iservice_GETMAXIDSession_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GETMAXIDSessionResponse" message="tns:Iservice_GETMAXIDSession_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetUserNameBYIdUser">
       <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GetUserNameBYIdUser" message="tns:Iservice_GetUserNameBYIdUser_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GetUserNameBYIdUserResponse" message="tns:Iservice_GetUserNameBYIdUser_OutputMessage" />
@@ -1734,6 +2004,249 @@
     </wsdl:operation>
     <wsdl:operation name="GetConnectionAccountwithPlace">
       <soap12:operation soapAction="http://tempuri.org/Iservice/GetConnectionAccountwithPlace" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCategoryARWithAccount">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/GetAllCategoryARWithAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupsCate">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/GetGroupsCate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUserinReprt">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/GetAllUserinReprt" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUserAR">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/GetAllUserAR" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrintRequstRPT">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/PrintRequstRPT" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrintRequstRPTAll">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/PrintRequstRPTAll" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrintRequstRPTIDcat">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/PrintRequstRPTIDcat" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrintOutAllwithDate">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/PrintOutAllwithDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrintOutAllwithDateAll">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/PrintOutAllwithDateAll" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrintOutAllwithDateWithIDca">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/PrintOutAllwithDateWithIDca" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrintOutAllwithDateWithIDcaPLAC">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/PrintOutAllwithDateWithIDcaPLAC" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrintOutAllwithDateWithPLAC">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/PrintOutAllwithDateWithPLAC" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrintAccountQuntity">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/PrintAccountQuntity" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrintAccountQuntityIDac">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/PrintAccountQuntityIDac" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrintAccountQuntityWithGroup">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/PrintAccountQuntityWithGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrintAccountQuntityAll">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/PrintAccountQuntityAll" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUpdateSupplyByIDSupply">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/GetUpdateSupplyByIDSupply" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUpdateSupplyByDate">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/GetUpdateSupplyByDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUpdateSupplyByDateUpdateWithDate">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/GetUpdateSupplyByDateUpdateWithDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUpdateSupplyByDateDeleteWithDate">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/GetUpdateSupplyByDateDeleteWithDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUpdtOutByIDOut">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/GetUpdtOutByIDOut" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUpdOutByDate">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/GetUpdOutByDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUpdOutByDateUpdtewithdate">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/GetUpdOutByDateUpdtewithdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUpdOutByDateDetle2tewithdate">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/GetUpdOutByDateDetle2tewithdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewSession">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/AddNewSession" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateENDtimeSession">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/UpdateENDtimeSession" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GETMAXIDSession">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/GETMAXIDSession" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

@@ -77,7 +77,7 @@ namespace SystemConfiguration
                 }
                 else
                 {
-                    dataGridView1.DataSource =ConvertMemorytoDB( configHost.GetAllCategoryAR());
+                    dataGridView1.DataSource =ConvertMemorytoDB( configHost.GetAllCategoryARWithAccount());
                     combAccont.DataSource =ConvertMemorytoDB( configHost.GETALLAccountSub());
 
                 }

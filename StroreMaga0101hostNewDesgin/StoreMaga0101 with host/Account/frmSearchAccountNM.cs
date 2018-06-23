@@ -153,7 +153,7 @@ namespace Account
             }
             else
             {
-                comboBox1.DataSource = ConvertMemorytoDB( AcnHost.GETALLAccountSub());
+                comboBox1.DataSource = ConvertMemorytoDB(AcnHost.GETALLAccountSub());
             }
             comboBox1.ValueMember = "رقم الحساب";
             comboBox1.DisplayMember = "اسم الحساب";
@@ -536,6 +536,11 @@ namespace Account
             ms.Seek(0, SeekOrigin.Begin);
             DataTable dt = (DataTable)formatter.Deserialize(ms);
             return dt;
+        }
+
+        private void عددالاسطرToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(dataGridView1.RowCount.ToString());
         }
     }
 }

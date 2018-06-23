@@ -540,6 +540,7 @@ namespace WindowsFormsHosttcp
         {
             return ConvertDBtoMomery(SupplyFun.GetAllCategoryAR());
         }
+        
 
         public MemoryStream GetAllTypeQuntity()
         {
@@ -830,6 +831,10 @@ namespace WindowsFormsHosttcp
         public MemoryStream GetConnectionAccountwithPlace()
         {
             return ConvertDBtoMomery(config.GetConnectionAccountwithPlace());
+        }
+        public MemoryStream  GetAllCategoryARWithAccount()
+        {
+            return ConvertDBtoMomery(config.GetAllCategoryAR());
         }
         #endregion
         //end Confation

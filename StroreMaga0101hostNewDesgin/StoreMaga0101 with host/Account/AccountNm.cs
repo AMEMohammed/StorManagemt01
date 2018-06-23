@@ -402,26 +402,32 @@ namespace Account
             dt.Columns.Add("عملة الحساب");
             dt.Columns.Add("البيان");
             string Detilas;
+          
             for (int i = 0; i < dt123.Rows.Count; i++)
             {
                 int Valu = Convert.ToInt32(dt123.Rows[i][0].ToString());
                 string NmIDcurrmcy = GETNMCurrncy(Convert.ToInt32(dt123.Rows[i][1].ToString()));
                 DataTable dtAc = new DataTable();
                 dtAc = GETNMAccount(Convert.ToInt32(dt123.Rows[i][2].ToString()));
-                string IDCodeAC = dtAc.Rows[0][0].ToString();
-                string NMACOUNT= dtAc.Rows[0][1].ToString();
-                if (Valu > 0)
+                try
                 {
-                    Detilas = "الرصيد لكم بقيمة " + string.Format("{0:##,##}", Valu) + "  " + NmIDcurrmcy;
-                    dt.Rows.Add(new string[] { IDCodeAC, NMACOUNT, string.Format("{0:##,##}", Valu), "0", NmIDcurrmcy, Detilas });
-
+                    string IDCodeAC = dtAc.Rows[0]["IDCode"].ToString();
+                    string NMACOUNT = dtAc.Rows[0]["AcountNm"].ToString();
+                    if (Valu > 0)
+                    {
+                        Detilas = "الرصيد لكم بقيمة " + string.Format("{0:##,##}", Valu) + "  " + NmIDcurrmcy;
+                        dt.Rows.Add(new string[] { IDCodeAC, NMACOUNT, string.Format("{0:##,##}", Valu), "0", NmIDcurrmcy, Detilas });
+                    }
+                    else
+                    {
+                        Valu = -1 * Valu;
+                        Detilas = "الرصيد عليكم  بقيمة " + string.Format("{0:##,##}", Valu) + "  " + NmIDcurrmcy;
+                        dt.Rows.Add(new string[] { IDCodeAC, NMACOUNT, "0", string.Format("{0:##,##}", Valu), NmIDcurrmcy, Detilas });
+                    }
                 }
-                else
-                {
-                    Valu = -1 * Valu;
-                    Detilas = "الرصيد عليكم  بقيمة " + string.Format("{0:##,##}", Valu) + "  " + NmIDcurrmcy;
-                    dt.Rows.Add(new string[] { IDCodeAC, NMACOUNT, "0", string.Format("{0:##,##}", Valu), NmIDcurrmcy, Detilas });
-                }
+                catch
+                { }
+                
             }
             return dt;
 

@@ -343,6 +343,8 @@ namespace WindowsFormsHosttcp
         int DeleteConnectionAccountwithPlace(int ID);
         [OperationContract]
         MemoryStream GetConnectionAccountwithPlace();
+        [OperationContract]
+        MemoryStream GetAllCategoryARWithAccount();
         #endregion
         //ENd Configtion
         //frmWInReprting الطباعة

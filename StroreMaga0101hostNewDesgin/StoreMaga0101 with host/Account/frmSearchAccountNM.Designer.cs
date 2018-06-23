@@ -59,6 +59,7 @@
             this.تصديرالىاكسلToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.عددالاسطرToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.groupBox9.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -85,7 +86,7 @@
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Location = new System.Drawing.Point(138, 64);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1157, 248);
+            this.groupBox1.Size = new System.Drawing.Size(1147, 248);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "كشف الحساب";
@@ -363,7 +364,7 @@
             this.groupBox12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox12.Location = new System.Drawing.Point(12, 318);
             this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(1412, 416);
+            this.groupBox12.Size = new System.Drawing.Size(1402, 416);
             this.groupBox12.TabIndex = 14;
             this.groupBox12.TabStop = false;
             this.groupBox12.Text = "قائمة الحسابات";
@@ -383,7 +384,6 @@
             this.dataGridView1.GridColor = System.Drawing.SystemColors.Control;
             this.dataGridView1.Location = new System.Drawing.Point(6, 19);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(6);
-            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -397,16 +397,17 @@
             this.dataGridView1.RowHeadersWidth = 60;
             this.dataGridView1.RowTemplate.Height = 30;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1400, 391);
+            this.dataGridView1.Size = new System.Drawing.Size(1390, 391);
             this.dataGridView1.TabIndex = 12;
             // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.تصديرالىاكسلToolStripMenuItem});
+            this.تصديرالىاكسلToolStripMenuItem,
+            this.عددالاسطرToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.contextMenuStrip1.Size = new System.Drawing.Size(156, 26);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(156, 48);
             // 
             // تصديرالىاكسلToolStripMenuItem
             // 
@@ -435,11 +436,18 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "كشف الحسابات";
             // 
+            // عددالاسطرToolStripMenuItem
+            // 
+            this.عددالاسطرToolStripMenuItem.Name = "عددالاسطرToolStripMenuItem";
+            this.عددالاسطرToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.عددالاسطرToolStripMenuItem.Text = "عدد الاسطر";
+            this.عددالاسطرToolStripMenuItem.Click += new System.EventHandler(this.عددالاسطرToolStripMenuItem_Click);
+            // 
             // frmSearchAccountNM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1436, 746);
+            this.ClientSize = new System.Drawing.Size(1426, 746);
             this.ControlBox = false;
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox12);
@@ -501,5 +509,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem تصديرالىاكسلToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem عددالاسطرToolStripMenuItem;
     }
 }

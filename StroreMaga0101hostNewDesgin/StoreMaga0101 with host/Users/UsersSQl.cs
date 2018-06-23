@@ -159,5 +159,13 @@ public     class UsersSQl
             parm[0] = new SqlParameter("@IDUSER", IDUSER);
             return (string)sql.ExcuteQueryValue(Query, parm); 
         }
+        /// get user name
+        public string GetUserNameByID2(int IDUSER)
+        {
+            string Query = "select Name from Users where IDUSER=@IDUSER ";
+            SqlParameter[] parm = new SqlParameter[1];
+            parm[0] = new SqlParameter("@IDUSER", IDUSER);
+            return (string)sql.ExcuteQueryValue(Query, parm);
+        }
     }
 }

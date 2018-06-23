@@ -48,11 +48,11 @@
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.groupBox11 = new System.Windows.Forms.GroupBox();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnRefrsh = new System.Windows.Forms.Button();
             this.btnPrint = new System.Windows.Forms.Button();
             this.btnAddSup = new System.Windows.Forms.Button();
-            this.groupBox11 = new System.Windows.Forms.GroupBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.groupBox13 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -270,6 +270,19 @@
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "استلام";
             // 
+            // groupBox11
+            // 
+            this.groupBox11.Controls.Add(this.btnExit);
+            this.groupBox11.Controls.Add(this.btnRefrsh);
+            this.groupBox11.Controls.Add(this.btnPrint);
+            this.groupBox11.Controls.Add(this.btnAddSup);
+            this.groupBox11.Location = new System.Drawing.Point(70, 237);
+            this.groupBox11.Name = "groupBox11";
+            this.groupBox11.Size = new System.Drawing.Size(360, 64);
+            this.groupBox11.TabIndex = 12;
+            this.groupBox11.TabStop = false;
+            this.groupBox11.Text = "العمليات";
+            // 
             // btnExit
             // 
             this.btnExit.Font = new System.Drawing.Font("Tahoma", 12F);
@@ -325,19 +338,6 @@
             this.btnAddSup.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAddSup.UseVisualStyleBackColor = true;
             this.btnAddSup.Click += new System.EventHandler(this.btnAddSup_Click);
-            // 
-            // groupBox11
-            // 
-            this.groupBox11.Controls.Add(this.btnExit);
-            this.groupBox11.Controls.Add(this.btnRefrsh);
-            this.groupBox11.Controls.Add(this.btnPrint);
-            this.groupBox11.Controls.Add(this.btnAddSup);
-            this.groupBox11.Location = new System.Drawing.Point(70, 237);
-            this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(360, 64);
-            this.groupBox11.TabIndex = 12;
-            this.groupBox11.TabStop = false;
-            this.groupBox11.Text = "العمليات";
             // 
             // textBox2
             // 
@@ -447,7 +447,7 @@
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.ContextMenuStrip = this.contextMenuStrip1;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 19);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 19);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -461,7 +461,7 @@
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1390, 295);
+            this.dataGridView1.Size = new System.Drawing.Size(1390, 328);
             this.dataGridView1.TabIndex = 12;
             // 
             // contextMenuStrip1
@@ -487,7 +487,7 @@
             this.groupBox12.Controls.Add(this.dataGridView1);
             this.groupBox12.Location = new System.Drawing.Point(12, 381);
             this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(1402, 320);
+            this.groupBox12.Size = new System.Drawing.Size(1402, 353);
             this.groupBox12.TabIndex = 11;
             this.groupBox12.TabStop = false;
             this.groupBox12.Text = "أوامر الصرف ليوم";
@@ -496,7 +496,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1426, 713);
+            this.ClientSize = new System.Drawing.Size(1426, 746);
+            this.ControlBox = false;
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox12);
