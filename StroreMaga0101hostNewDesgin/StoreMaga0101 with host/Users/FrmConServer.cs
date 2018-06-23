@@ -79,7 +79,7 @@ namespace Users
             Properties.Settings.Default.UserSql = txtUser.Text;
             Properties.Settings.Default.PassSql = txtpass.Text;
             Properties.Settings.Default.ConnectionHost = checkConnectionHost.Checked;
-            string host = "net.tcp://" + texthostip.Text + ":" + txtport.Text + "/MyMathService";
+            string host = "net.tcp://" + texthostip.Text + ":" + txtport.Text + "/StoreService";
             Properties.Settings.Default.HostIP = host;
             Properties.Settings.Default.iphost = texthostip.Text;
             Properties.Settings.Default.port = txtport.Text;

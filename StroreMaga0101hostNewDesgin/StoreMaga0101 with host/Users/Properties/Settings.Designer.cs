@@ -85,7 +85,7 @@ namespace Users.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("net.tcp://localhost:9002/MyMathService")]
+        [global::System.Configuration.DefaultSettingValueAttribute("net.tcp://localhost:9002/StoreService")]
         public string HostIP {
             get {
                 return ((string)(this["HostIP"]));

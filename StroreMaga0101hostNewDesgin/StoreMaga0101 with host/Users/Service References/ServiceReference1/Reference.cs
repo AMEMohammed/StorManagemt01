@@ -15,252 +15,6 @@ namespace Users.ServiceReference1 {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.Iservice")]
     public interface Iservice {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/chackPlace", ReplyAction="http://tempuri.org/Iservice/chackPlaceResponse")]
-        System.IO.MemoryStream chackPlace(int IDplace);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/chackPlace", ReplyAction="http://tempuri.org/Iservice/chackPlaceResponse")]
-        System.Threading.Tasks.Task<System.IO.MemoryStream> chackPlaceAsync(int IDplace);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GETCurrencyBYName", ReplyAction="http://tempuri.org/Iservice/GETCurrencyBYNameResponse")]
-        System.IO.MemoryStream GETCurrencyBYName(string NameCurrncy);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GETCurrencyBYName", ReplyAction="http://tempuri.org/Iservice/GETCurrencyBYNameResponse")]
-        System.Threading.Tasks.Task<System.IO.MemoryStream> GETCurrencyBYNameAsync(string NameCurrncy);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/AddNewCurrency", ReplyAction="http://tempuri.org/Iservice/AddNewCurrencyResponse")]
-        int AddNewCurrency(string name);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/AddNewCurrency", ReplyAction="http://tempuri.org/Iservice/AddNewCurrencyResponse")]
-        System.Threading.Tasks.Task<int> AddNewCurrencyAsync(string name);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/UpdateCurrency", ReplyAction="http://tempuri.org/Iservice/UpdateCurrencyResponse")]
-        int UpdateCurrency(int id, string name);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/UpdateCurrency", ReplyAction="http://tempuri.org/Iservice/UpdateCurrencyResponse")]
-        System.Threading.Tasks.Task<int> UpdateCurrencyAsync(int id, string name);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/DeleteCurrency", ReplyAction="http://tempuri.org/Iservice/DeleteCurrencyResponse")]
-        int DeleteCurrency(int id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/DeleteCurrency", ReplyAction="http://tempuri.org/Iservice/DeleteCurrencyResponse")]
-        System.Threading.Tasks.Task<int> DeleteCurrencyAsync(int id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/chackCurncy", ReplyAction="http://tempuri.org/Iservice/chackCurncyResponse")]
-        System.IO.MemoryStream chackCurncy(int IDcur);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/chackCurncy", ReplyAction="http://tempuri.org/Iservice/chackCurncyResponse")]
-        System.Threading.Tasks.Task<System.IO.MemoryStream> chackCurncyAsync(int IDcur);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/AddNewGroup", ReplyAction="http://tempuri.org/Iservice/AddNewGroupResponse")]
-        int AddNewGroup(int GroupSourceID, string GroupName, string GroupDescription, int UserID, System.DateTime EnterTime);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/AddNewGroup", ReplyAction="http://tempuri.org/Iservice/AddNewGroupResponse")]
-        System.Threading.Tasks.Task<int> AddNewGroupAsync(int GroupSourceID, string GroupName, string GroupDescription, int UserID, System.DateTime EnterTime);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetOneGroup", ReplyAction="http://tempuri.org/Iservice/GetOneGroupResponse")]
-        System.IO.MemoryStream GetOneGroup(int IDGroup);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetOneGroup", ReplyAction="http://tempuri.org/Iservice/GetOneGroupResponse")]
-        System.Threading.Tasks.Task<System.IO.MemoryStream> GetOneGroupAsync(int IDGroup);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetAllGroup", ReplyAction="http://tempuri.org/Iservice/GetAllGroupResponse")]
-        System.IO.MemoryStream GetAllGroup();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetAllGroup", ReplyAction="http://tempuri.org/Iservice/GetAllGroupResponse")]
-        System.Threading.Tasks.Task<System.IO.MemoryStream> GetAllGroupAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetGroupByName", ReplyAction="http://tempuri.org/Iservice/GetGroupByNameResponse")]
-        System.IO.MemoryStream GetGroupByName(string NAME);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetGroupByName", ReplyAction="http://tempuri.org/Iservice/GetGroupByNameResponse")]
-        System.Threading.Tasks.Task<System.IO.MemoryStream> GetGroupByNameAsync(string NAME);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/DeleteGroup", ReplyAction="http://tempuri.org/Iservice/DeleteGroupResponse")]
-        System.IO.MemoryStream DeleteGroup(int IDGROUP);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/DeleteGroup", ReplyAction="http://tempuri.org/Iservice/DeleteGroupResponse")]
-        System.Threading.Tasks.Task<System.IO.MemoryStream> DeleteGroupAsync(int IDGROUP);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/CheckGroupItems", ReplyAction="http://tempuri.org/Iservice/CheckGroupItemsResponse")]
-        bool CheckGroupItems(int IDGROUP);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/CheckGroupItems", ReplyAction="http://tempuri.org/Iservice/CheckGroupItemsResponse")]
-        System.Threading.Tasks.Task<bool> CheckGroupItemsAsync(int IDGROUP);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetSourecGroup", ReplyAction="http://tempuri.org/Iservice/GetSourecGroupResponse")]
-        System.IO.MemoryStream GetSourecGroup();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetSourecGroup", ReplyAction="http://tempuri.org/Iservice/GetSourecGroupResponse")]
-        System.Threading.Tasks.Task<System.IO.MemoryStream> GetSourecGroupAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetMaxIDGroup", ReplyAction="http://tempuri.org/Iservice/GetMaxIDGroupResponse")]
-        int GetMaxIDGroup();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetMaxIDGroup", ReplyAction="http://tempuri.org/Iservice/GetMaxIDGroupResponse")]
-        System.Threading.Tasks.Task<int> GetMaxIDGroupAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/UpdateGroup", ReplyAction="http://tempuri.org/Iservice/UpdateGroupResponse")]
-        int UpdateGroup(int ID, int GroupSourceID, string GroupName, string GroupDescription, int UserID);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/UpdateGroup", ReplyAction="http://tempuri.org/Iservice/UpdateGroupResponse")]
-        System.Threading.Tasks.Task<int> UpdateGroupAsync(int ID, int GroupSourceID, string GroupName, string GroupDescription, int UserID);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetAllAccountSubNoInGroup", ReplyAction="http://tempuri.org/Iservice/GetAllAccountSubNoInGroupResponse")]
-        System.IO.MemoryStream GetAllAccountSubNoInGroup(int GroupID);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetAllAccountSubNoInGroup", ReplyAction="http://tempuri.org/Iservice/GetAllAccountSubNoInGroupResponse")]
-        System.Threading.Tasks.Task<System.IO.MemoryStream> GetAllAccountSubNoInGroupAsync(int GroupID);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetAllAccountSubInGroup", ReplyAction="http://tempuri.org/Iservice/GetAllAccountSubInGroupResponse")]
-        System.IO.MemoryStream GetAllAccountSubInGroup(int GroupID);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetAllAccountSubInGroup", ReplyAction="http://tempuri.org/Iservice/GetAllAccountSubInGroupResponse")]
-        System.Threading.Tasks.Task<System.IO.MemoryStream> GetAllAccountSubInGroupAsync(int GroupID);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/DeleteItemsONGroupDetalis", ReplyAction="http://tempuri.org/Iservice/DeleteItemsONGroupDetalisResponse")]
-        int DeleteItemsONGroupDetalis(int IDGroup);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/DeleteItemsONGroupDetalis", ReplyAction="http://tempuri.org/Iservice/DeleteItemsONGroupDetalisResponse")]
-        System.Threading.Tasks.Task<int> DeleteItemsONGroupDetalisAsync(int IDGroup);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/AddItemsONGroupDetalis", ReplyAction="http://tempuri.org/Iservice/AddItemsONGroupDetalisResponse")]
-        int AddItemsONGroupDetalis(int IDGroup, int IDItems, int UserID);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/AddItemsONGroupDetalis", ReplyAction="http://tempuri.org/Iservice/AddItemsONGroupDetalisResponse")]
-        System.Threading.Tasks.Task<int> AddItemsONGroupDetalisAsync(int IDGroup, int IDItems, int UserID);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/AddConnectionAccountwithPlace", ReplyAction="http://tempuri.org/Iservice/AddConnectionAccountwithPlaceResponse")]
-        int AddConnectionAccountwithPlace(int palce, int idMadeen, int idDaan);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/AddConnectionAccountwithPlace", ReplyAction="http://tempuri.org/Iservice/AddConnectionAccountwithPlaceResponse")]
-        System.Threading.Tasks.Task<int> AddConnectionAccountwithPlaceAsync(int palce, int idMadeen, int idDaan);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/UpdateConnectionAccountwithPlace", ReplyAction="http://tempuri.org/Iservice/UpdateConnectionAccountwithPlaceResponse")]
-        int UpdateConnectionAccountwithPlace(int ID, int palce, int idMadeen, int idDaan);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/UpdateConnectionAccountwithPlace", ReplyAction="http://tempuri.org/Iservice/UpdateConnectionAccountwithPlaceResponse")]
-        System.Threading.Tasks.Task<int> UpdateConnectionAccountwithPlaceAsync(int ID, int palce, int idMadeen, int idDaan);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/DeleteConnectionAccountwithPlace", ReplyAction="http://tempuri.org/Iservice/DeleteConnectionAccountwithPlaceResponse")]
-        int DeleteConnectionAccountwithPlace(int ID);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/DeleteConnectionAccountwithPlace", ReplyAction="http://tempuri.org/Iservice/DeleteConnectionAccountwithPlaceResponse")]
-        System.Threading.Tasks.Task<int> DeleteConnectionAccountwithPlaceAsync(int ID);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetConnectionAccountwithPlace", ReplyAction="http://tempuri.org/Iservice/GetConnectionAccountwithPlaceResponse")]
-        System.IO.MemoryStream GetConnectionAccountwithPlace();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetConnectionAccountwithPlace", ReplyAction="http://tempuri.org/Iservice/GetConnectionAccountwithPlaceResponse")]
-        System.Threading.Tasks.Task<System.IO.MemoryStream> GetConnectionAccountwithPlaceAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetGroupsCate", ReplyAction="http://tempuri.org/Iservice/GetGroupsCateResponse")]
-        System.IO.MemoryStream GetGroupsCate();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetGroupsCate", ReplyAction="http://tempuri.org/Iservice/GetGroupsCateResponse")]
-        System.Threading.Tasks.Task<System.IO.MemoryStream> GetGroupsCateAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetAllUserinReprt", ReplyAction="http://tempuri.org/Iservice/GetAllUserinReprtResponse")]
-        System.IO.MemoryStream GetAllUserinReprt();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetAllUserinReprt", ReplyAction="http://tempuri.org/Iservice/GetAllUserinReprtResponse")]
-        System.Threading.Tasks.Task<System.IO.MemoryStream> GetAllUserinReprtAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetAllUserAR", ReplyAction="http://tempuri.org/Iservice/GetAllUserARResponse")]
-        System.IO.MemoryStream GetAllUserAR();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetAllUserAR", ReplyAction="http://tempuri.org/Iservice/GetAllUserARResponse")]
-        System.Threading.Tasks.Task<System.IO.MemoryStream> GetAllUserARAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/PrintRequstRPT", ReplyAction="http://tempuri.org/Iservice/PrintRequstRPTResponse")]
-        System.IO.MemoryStream PrintRequstRPT(System.DateTime d1, System.DateTime d2, int IDCate, int IDType, int IDCurrn, string txt, int iduser);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/PrintRequstRPT", ReplyAction="http://tempuri.org/Iservice/PrintRequstRPTResponse")]
-        System.Threading.Tasks.Task<System.IO.MemoryStream> PrintRequstRPTAsync(System.DateTime d1, System.DateTime d2, int IDCate, int IDType, int IDCurrn, string txt, int iduser);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/PrintRequstRPTAll", ReplyAction="http://tempuri.org/Iservice/PrintRequstRPTAllResponse")]
-        System.IO.MemoryStream PrintRequstRPTAll(System.DateTime d1, System.DateTime d2, string txt);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/PrintRequstRPTAll", ReplyAction="http://tempuri.org/Iservice/PrintRequstRPTAllResponse")]
-        System.Threading.Tasks.Task<System.IO.MemoryStream> PrintRequstRPTAllAsync(System.DateTime d1, System.DateTime d2, string txt);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/PrintRequstRPTIDcat", ReplyAction="http://tempuri.org/Iservice/PrintRequstRPTIDcatResponse")]
-        System.IO.MemoryStream PrintRequstRPTIDcat(System.DateTime d1, System.DateTime d2, string txt, int IDCate);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/PrintRequstRPTIDcat", ReplyAction="http://tempuri.org/Iservice/PrintRequstRPTIDcatResponse")]
-        System.Threading.Tasks.Task<System.IO.MemoryStream> PrintRequstRPTIDcatAsync(System.DateTime d1, System.DateTime d2, string txt, int IDCate);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/PrintOutAllwithDate", ReplyAction="http://tempuri.org/Iservice/PrintOutAllwithDateResponse")]
-        System.IO.MemoryStream PrintOutAllwithDate(int idca, int idtyp, int idpalce, int idcurrnt, string name, System.DateTime d1, System.DateTime d2, int iduser);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/PrintOutAllwithDate", ReplyAction="http://tempuri.org/Iservice/PrintOutAllwithDateResponse")]
-        System.Threading.Tasks.Task<System.IO.MemoryStream> PrintOutAllwithDateAsync(int idca, int idtyp, int idpalce, int idcurrnt, string name, System.DateTime d1, System.DateTime d2, int iduser);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/PrintOutAllwithDateAll", ReplyAction="http://tempuri.org/Iservice/PrintOutAllwithDateAllResponse")]
-        System.IO.MemoryStream PrintOutAllwithDateAll(string name, System.DateTime d1, System.DateTime d2);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/PrintOutAllwithDateAll", ReplyAction="http://tempuri.org/Iservice/PrintOutAllwithDateAllResponse")]
-        System.Threading.Tasks.Task<System.IO.MemoryStream> PrintOutAllwithDateAllAsync(string name, System.DateTime d1, System.DateTime d2);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/PrintOutAllwithDateWithIDca", ReplyAction="http://tempuri.org/Iservice/PrintOutAllwithDateWithIDcaResponse")]
-        System.IO.MemoryStream PrintOutAllwithDateWithIDca(string name, System.DateTime d1, System.DateTime d2, int idca);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/PrintOutAllwithDateWithIDca", ReplyAction="http://tempuri.org/Iservice/PrintOutAllwithDateWithIDcaResponse")]
-        System.Threading.Tasks.Task<System.IO.MemoryStream> PrintOutAllwithDateWithIDcaAsync(string name, System.DateTime d1, System.DateTime d2, int idca);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/PrintOutAllwithDateWithIDcaPLAC", ReplyAction="http://tempuri.org/Iservice/PrintOutAllwithDateWithIDcaPLACResponse")]
-        System.IO.MemoryStream PrintOutAllwithDateWithIDcaPLAC(string name, System.DateTime d1, System.DateTime d2, int idca, int idpalce);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/PrintOutAllwithDateWithIDcaPLAC", ReplyAction="http://tempuri.org/Iservice/PrintOutAllwithDateWithIDcaPLACResponse")]
-        System.Threading.Tasks.Task<System.IO.MemoryStream> PrintOutAllwithDateWithIDcaPLACAsync(string name, System.DateTime d1, System.DateTime d2, int idca, int idpalce);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/PrintOutAllwithDateWithPLAC", ReplyAction="http://tempuri.org/Iservice/PrintOutAllwithDateWithPLACResponse")]
-        System.IO.MemoryStream PrintOutAllwithDateWithPLAC(string name, System.DateTime d1, System.DateTime d2, int idpalce);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/PrintOutAllwithDateWithPLAC", ReplyAction="http://tempuri.org/Iservice/PrintOutAllwithDateWithPLACResponse")]
-        System.Threading.Tasks.Task<System.IO.MemoryStream> PrintOutAllwithDateWithPLACAsync(string name, System.DateTime d1, System.DateTime d2, int idpalce);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/PrintAccountQuntity", ReplyAction="http://tempuri.org/Iservice/PrintAccountQuntityResponse")]
-        System.IO.MemoryStream PrintAccountQuntity(int idcat, int idtyp, int idcu);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/PrintAccountQuntity", ReplyAction="http://tempuri.org/Iservice/PrintAccountQuntityResponse")]
-        System.Threading.Tasks.Task<System.IO.MemoryStream> PrintAccountQuntityAsync(int idcat, int idtyp, int idcu);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/PrintAccountQuntityIDac", ReplyAction="http://tempuri.org/Iservice/PrintAccountQuntityIDacResponse")]
-        System.IO.MemoryStream PrintAccountQuntityIDac(int idcu);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/PrintAccountQuntityIDac", ReplyAction="http://tempuri.org/Iservice/PrintAccountQuntityIDacResponse")]
-        System.Threading.Tasks.Task<System.IO.MemoryStream> PrintAccountQuntityIDacAsync(int idcu);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/PrintAccountQuntityWithGroup", ReplyAction="http://tempuri.org/Iservice/PrintAccountQuntityWithGroupResponse")]
-        System.IO.MemoryStream PrintAccountQuntityWithGroup(int IDGroup);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/PrintAccountQuntityWithGroup", ReplyAction="http://tempuri.org/Iservice/PrintAccountQuntityWithGroupResponse")]
-        System.Threading.Tasks.Task<System.IO.MemoryStream> PrintAccountQuntityWithGroupAsync(int IDGroup);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/PrintAccountQuntityAll", ReplyAction="http://tempuri.org/Iservice/PrintAccountQuntityAllResponse")]
-        System.IO.MemoryStream PrintAccountQuntityAll();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/PrintAccountQuntityAll", ReplyAction="http://tempuri.org/Iservice/PrintAccountQuntityAllResponse")]
-        System.Threading.Tasks.Task<System.IO.MemoryStream> PrintAccountQuntityAllAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetUpdateSupplyByIDSupply", ReplyAction="http://tempuri.org/Iservice/GetUpdateSupplyByIDSupplyResponse")]
-        System.IO.MemoryStream GetUpdateSupplyByIDSupply(int Id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetUpdateSupplyByIDSupply", ReplyAction="http://tempuri.org/Iservice/GetUpdateSupplyByIDSupplyResponse")]
-        System.Threading.Tasks.Task<System.IO.MemoryStream> GetUpdateSupplyByIDSupplyAsync(int Id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetUpdateSupplyByDate", ReplyAction="http://tempuri.org/Iservice/GetUpdateSupplyByDateResponse")]
-        System.IO.MemoryStream GetUpdateSupplyByDate(System.DateTime d1, System.DateTime d2);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetUpdateSupplyByDate", ReplyAction="http://tempuri.org/Iservice/GetUpdateSupplyByDateResponse")]
-        System.Threading.Tasks.Task<System.IO.MemoryStream> GetUpdateSupplyByDateAsync(System.DateTime d1, System.DateTime d2);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetUpdateSupplyByDateUpdateWithDate", ReplyAction="http://tempuri.org/Iservice/GetUpdateSupplyByDateUpdateWithDateResponse")]
-        System.IO.MemoryStream GetUpdateSupplyByDateUpdateWithDate(System.DateTime d1, System.DateTime d2);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetUpdateSupplyByDateUpdateWithDate", ReplyAction="http://tempuri.org/Iservice/GetUpdateSupplyByDateUpdateWithDateResponse")]
-        System.Threading.Tasks.Task<System.IO.MemoryStream> GetUpdateSupplyByDateUpdateWithDateAsync(System.DateTime d1, System.DateTime d2);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetUpdateSupplyByDateDeleteWithDate", ReplyAction="http://tempuri.org/Iservice/GetUpdateSupplyByDateDeleteWithDateResponse")]
         System.IO.MemoryStream GetUpdateSupplyByDateDeleteWithDate(System.DateTime d1, System.DateTime d2);
         
@@ -308,132 +62,6 @@ namespace Users.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GETMAXIDSession", ReplyAction="http://tempuri.org/Iservice/GETMAXIDSessionResponse")]
         System.Threading.Tasks.Task<int> GETMAXIDSessionAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetUserNameBYIdUser", ReplyAction="http://tempuri.org/Iservice/GetUserNameBYIdUserResponse")]
-        string GetUserNameBYIdUser(int IdUser);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetUserNameBYIdUser", ReplyAction="http://tempuri.org/Iservice/GetUserNameBYIdUserResponse")]
-        System.Threading.Tasks.Task<string> GetUserNameBYIdUserAsync(int IdUser);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetRequstOutSngle", ReplyAction="http://tempuri.org/Iservice/GetRequstOutSngleResponse")]
-        System.IO.MemoryStream GetRequstOutSngle(int IDOutRequst);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetRequstOutSngle", ReplyAction="http://tempuri.org/Iservice/GetRequstOutSngleResponse")]
-        System.Threading.Tasks.Task<System.IO.MemoryStream> GetRequstOutSngleAsync(int IDOutRequst);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/AddNewUpdOut", ReplyAction="http://tempuri.org/Iservice/AddNewUpdOutResponse")]
-        int AddNewUpdOut(int IDOut, int IdCate, int IdType, int IdPlace, int Quntity, string NameOUt, string NameSend, int Price, int IdCurrent, string TxtReson, System.DateTime DateUpdate, int UserId);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/AddNewUpdOut", ReplyAction="http://tempuri.org/Iservice/AddNewUpdOutResponse")]
-        System.Threading.Tasks.Task<int> AddNewUpdOutAsync(int IDOut, int IdCate, int IdType, int IdPlace, int Quntity, string NameOUt, string NameSend, int Price, int IdCurrent, string TxtReson, System.DateTime DateUpdate, int UserId);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/CheckAccountIsHere", ReplyAction="http://tempuri.org/Iservice/CheckAccountIsHereResponse")]
-        int CheckAccountIsHere(int IDCategory, int IDType, int price, int idcurrnt);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/CheckAccountIsHere", ReplyAction="http://tempuri.org/Iservice/CheckAccountIsHereResponse")]
-        System.Threading.Tasks.Task<int> CheckAccountIsHereAsync(int IDCategory, int IDType, int price, int idcurrnt);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/DeleteRqustOut", ReplyAction="http://tempuri.org/Iservice/DeleteRqustOutResponse")]
-        int DeleteRqustOut(int IdRequstOut, int IdUser);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/DeleteRqustOut", ReplyAction="http://tempuri.org/Iservice/DeleteRqustOutResponse")]
-        System.Threading.Tasks.Task<int> DeleteRqustOutAsync(int IdRequstOut, int IdUser);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/UpdateRequstOut", ReplyAction="http://tempuri.org/Iservice/UpdateRequstOutResponse")]
-        int UpdateRequstOut(int IDOut, int IdPlace, string NameOut, string NameSend, string Reson, System.DateTime d1, int UserId, int debt, int crd);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/UpdateRequstOut", ReplyAction="http://tempuri.org/Iservice/UpdateRequstOutResponse")]
-        System.Threading.Tasks.Task<int> UpdateRequstOutAsync(int IDOut, int IdPlace, string NameOut, string NameSend, string Reson, System.DateTime d1, int UserId, int debt, int crd);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetMAxIDOUt", ReplyAction="http://tempuri.org/Iservice/GetMAxIDOUtResponse")]
-        int GetMAxIDOUt();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetMAxIDOUt", ReplyAction="http://tempuri.org/Iservice/GetMAxIDOUtResponse")]
-        System.Threading.Tasks.Task<int> GetMAxIDOUtAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetALLAcountNm", ReplyAction="http://tempuri.org/Iservice/GetALLAcountNmResponse")]
-        System.IO.MemoryStream GetALLAcountNm();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetALLAcountNm", ReplyAction="http://tempuri.org/Iservice/GetALLAcountNmResponse")]
-        System.Threading.Tasks.Task<System.IO.MemoryStream> GetALLAcountNmAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/CheckAccontTotalInOut", ReplyAction="http://tempuri.org/Iservice/CheckAccontTotalInOutResponse")]
-        bool CheckAccontTotalInOut(int IDcode, int IDCurrncy);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/CheckAccontTotalInOut", ReplyAction="http://tempuri.org/Iservice/CheckAccontTotalInOutResponse")]
-        System.Threading.Tasks.Task<bool> CheckAccontTotalInOutAsync(int IDcode, int IDCurrncy);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/AddNewAccountTotalInOut", ReplyAction="http://tempuri.org/Iservice/AddNewAccountTotalInOutResponse")]
-        int AddNewAccountTotalInOut(int IDCOde, int Mony, int idCurrncy);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/AddNewAccountTotalInOut", ReplyAction="http://tempuri.org/Iservice/AddNewAccountTotalInOutResponse")]
-        System.Threading.Tasks.Task<int> AddNewAccountTotalInOutAsync(int IDCOde, int Mony, int idCurrncy);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetBalanceInOut", ReplyAction="http://tempuri.org/Iservice/GetBalanceInOutResponse")]
-        int GetBalanceInOut(int Idcode, int IDCur);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetBalanceInOut", ReplyAction="http://tempuri.org/Iservice/GetBalanceInOutResponse")]
-        System.Threading.Tasks.Task<int> GetBalanceInOutAsync(int Idcode, int IDCur);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/UpdateAccountTotalInOut", ReplyAction="http://tempuri.org/Iservice/UpdateAccountTotalInOutResponse")]
-        int UpdateAccountTotalInOut(int IDCOde, int Mony, int idCurrncy);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/UpdateAccountTotalInOut", ReplyAction="http://tempuri.org/Iservice/UpdateAccountTotalInOutResponse")]
-        System.Threading.Tasks.Task<int> UpdateAccountTotalInOutAsync(int IDCOde, int Mony, int idCurrncy);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/AddNewAccountDetalisInOut", ReplyAction="http://tempuri.org/Iservice/AddNewAccountDetalisInOutResponse")]
-        int AddNewAccountDetalisInOut(int idcode, int monay, int idsupply, int idout, string Detalis, System.DateTime d1, int userid, int idcurrn);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/AddNewAccountDetalisInOut", ReplyAction="http://tempuri.org/Iservice/AddNewAccountDetalisInOutResponse")]
-        System.Threading.Tasks.Task<int> AddNewAccountDetalisInOutAsync(int idcode, int monay, int idsupply, int idout, string Detalis, System.DateTime d1, int userid, int idcurrn);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/DeleteSuuplyFrmAccountDitalis", ReplyAction="http://tempuri.org/Iservice/DeleteSuuplyFrmAccountDitalisResponse")]
-        int DeleteSuuplyFrmAccountDitalis(int idSupply);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/DeleteSuuplyFrmAccountDitalis", ReplyAction="http://tempuri.org/Iservice/DeleteSuuplyFrmAccountDitalisResponse")]
-        System.Threading.Tasks.Task<int> DeleteSuuplyFrmAccountDitalisAsync(int idSupply);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/DeleteSuuplyFrmAccountDitalis2", ReplyAction="http://tempuri.org/Iservice/DeleteSuuplyFrmAccountDitalis2Response")]
-        int DeleteSuuplyFrmAccountDitalis2(int idout);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/DeleteSuuplyFrmAccountDitalis2", ReplyAction="http://tempuri.org/Iservice/DeleteSuuplyFrmAccountDitalis2Response")]
-        System.Threading.Tasks.Task<int> DeleteSuuplyFrmAccountDitalis2Async(int idout);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetIDAccountPalce", ReplyAction="http://tempuri.org/Iservice/GetIDAccountPalceResponse")]
-        int GetIDAccountPalce(int IDACcount, int idplace);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetIDAccountPalce", ReplyAction="http://tempuri.org/Iservice/GetIDAccountPalceResponse")]
-        System.Threading.Tasks.Task<int> GetIDAccountPalceAsync(int IDACcount, int idplace);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetIdUserINSupply", ReplyAction="http://tempuri.org/Iservice/GetIdUserINSupplyResponse")]
-        int GetIdUserINSupply(string NameUser);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetIdUserINSupply", ReplyAction="http://tempuri.org/Iservice/GetIdUserINSupplyResponse")]
-        System.Threading.Tasks.Task<int> GetIdUserINSupplyAsync(string NameUser);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetUserNameBYIdUserINSupply", ReplyAction="http://tempuri.org/Iservice/GetUserNameBYIdUserINSupplyResponse")]
-        string GetUserNameBYIdUserINSupply(int IdUser);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetUserNameBYIdUserINSupply", ReplyAction="http://tempuri.org/Iservice/GetUserNameBYIdUserINSupplyResponse")]
-        System.Threading.Tasks.Task<string> GetUserNameBYIdUserINSupplyAsync(int IdUser);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/PrintRequstSupply", ReplyAction="http://tempuri.org/Iservice/PrintRequstSupplyResponse")]
-        System.IO.MemoryStream PrintRequstSupply(int IDreqSup, int UserId, int user);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/PrintRequstSupply", ReplyAction="http://tempuri.org/Iservice/PrintRequstSupplyResponse")]
-        System.Threading.Tasks.Task<System.IO.MemoryStream> PrintRequstSupplyAsync(int IDreqSup, int UserId, int user);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/printrequstOutExit1", ReplyAction="http://tempuri.org/Iservice/printrequstOutExit1Response")]
-        System.IO.MemoryStream printrequstOutExit1(int IDreqSup, int UserId, int user);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/printrequstOutExit1", ReplyAction="http://tempuri.org/Iservice/printrequstOutExit1Response")]
-        System.Threading.Tasks.Task<System.IO.MemoryStream> printrequstOutExit1Async(int IDreqSup, int UserId, int user);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetAccountLinkCateInSupply", ReplyAction="http://tempuri.org/Iservice/GetAccountLinkCateInSupplyResponse")]
-        int GetAccountLinkCateInSupply(int IDcate);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetAccountLinkCateInSupply", ReplyAction="http://tempuri.org/Iservice/GetAccountLinkCateInSupplyResponse")]
-        System.Threading.Tasks.Task<int> GetAccountLinkCateInSupplyAsync(int IDcate);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/AddNewRequsetSupply", ReplyAction="http://tempuri.org/Iservice/AddNewRequsetSupplyResponse")]
         int AddNewRequsetSupply(int IDCategory, int IDType, int Quntity, int Price, int idcurrnt, string NameSupply, string DescSupply, System.DateTime DateSupply, int IDuser, int chek, int debi, int cred);
@@ -698,6 +326,258 @@ namespace Users.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/DeletePlaceSend", ReplyAction="http://tempuri.org/Iservice/DeletePlaceSendResponse")]
         System.Threading.Tasks.Task<int> DeletePlaceSendAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/chackPlace", ReplyAction="http://tempuri.org/Iservice/chackPlaceResponse")]
+        System.IO.MemoryStream chackPlace(int IDplace);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/chackPlace", ReplyAction="http://tempuri.org/Iservice/chackPlaceResponse")]
+        System.Threading.Tasks.Task<System.IO.MemoryStream> chackPlaceAsync(int IDplace);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GETCurrencyBYName", ReplyAction="http://tempuri.org/Iservice/GETCurrencyBYNameResponse")]
+        System.IO.MemoryStream GETCurrencyBYName(string NameCurrncy);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GETCurrencyBYName", ReplyAction="http://tempuri.org/Iservice/GETCurrencyBYNameResponse")]
+        System.Threading.Tasks.Task<System.IO.MemoryStream> GETCurrencyBYNameAsync(string NameCurrncy);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/AddNewCurrency", ReplyAction="http://tempuri.org/Iservice/AddNewCurrencyResponse")]
+        int AddNewCurrency(string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/AddNewCurrency", ReplyAction="http://tempuri.org/Iservice/AddNewCurrencyResponse")]
+        System.Threading.Tasks.Task<int> AddNewCurrencyAsync(string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/UpdateCurrency", ReplyAction="http://tempuri.org/Iservice/UpdateCurrencyResponse")]
+        int UpdateCurrency(int id, string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/UpdateCurrency", ReplyAction="http://tempuri.org/Iservice/UpdateCurrencyResponse")]
+        System.Threading.Tasks.Task<int> UpdateCurrencyAsync(int id, string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/DeleteCurrency", ReplyAction="http://tempuri.org/Iservice/DeleteCurrencyResponse")]
+        int DeleteCurrency(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/DeleteCurrency", ReplyAction="http://tempuri.org/Iservice/DeleteCurrencyResponse")]
+        System.Threading.Tasks.Task<int> DeleteCurrencyAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/chackCurncy", ReplyAction="http://tempuri.org/Iservice/chackCurncyResponse")]
+        System.IO.MemoryStream chackCurncy(int IDcur);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/chackCurncy", ReplyAction="http://tempuri.org/Iservice/chackCurncyResponse")]
+        System.Threading.Tasks.Task<System.IO.MemoryStream> chackCurncyAsync(int IDcur);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/AddNewGroup", ReplyAction="http://tempuri.org/Iservice/AddNewGroupResponse")]
+        int AddNewGroup(int GroupSourceID, string GroupName, string GroupDescription, int UserID, System.DateTime EnterTime);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/AddNewGroup", ReplyAction="http://tempuri.org/Iservice/AddNewGroupResponse")]
+        System.Threading.Tasks.Task<int> AddNewGroupAsync(int GroupSourceID, string GroupName, string GroupDescription, int UserID, System.DateTime EnterTime);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetOneGroup", ReplyAction="http://tempuri.org/Iservice/GetOneGroupResponse")]
+        System.IO.MemoryStream GetOneGroup(int IDGroup);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetOneGroup", ReplyAction="http://tempuri.org/Iservice/GetOneGroupResponse")]
+        System.Threading.Tasks.Task<System.IO.MemoryStream> GetOneGroupAsync(int IDGroup);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetAllGroup", ReplyAction="http://tempuri.org/Iservice/GetAllGroupResponse")]
+        System.IO.MemoryStream GetAllGroup();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetAllGroup", ReplyAction="http://tempuri.org/Iservice/GetAllGroupResponse")]
+        System.Threading.Tasks.Task<System.IO.MemoryStream> GetAllGroupAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetGroupByName", ReplyAction="http://tempuri.org/Iservice/GetGroupByNameResponse")]
+        System.IO.MemoryStream GetGroupByName(string NAME);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetGroupByName", ReplyAction="http://tempuri.org/Iservice/GetGroupByNameResponse")]
+        System.Threading.Tasks.Task<System.IO.MemoryStream> GetGroupByNameAsync(string NAME);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/DeleteGroup", ReplyAction="http://tempuri.org/Iservice/DeleteGroupResponse")]
+        System.IO.MemoryStream DeleteGroup(int IDGROUP);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/DeleteGroup", ReplyAction="http://tempuri.org/Iservice/DeleteGroupResponse")]
+        System.Threading.Tasks.Task<System.IO.MemoryStream> DeleteGroupAsync(int IDGROUP);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/CheckGroupItems", ReplyAction="http://tempuri.org/Iservice/CheckGroupItemsResponse")]
+        bool CheckGroupItems(int IDGROUP);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/CheckGroupItems", ReplyAction="http://tempuri.org/Iservice/CheckGroupItemsResponse")]
+        System.Threading.Tasks.Task<bool> CheckGroupItemsAsync(int IDGROUP);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetSourecGroup", ReplyAction="http://tempuri.org/Iservice/GetSourecGroupResponse")]
+        System.IO.MemoryStream GetSourecGroup();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetSourecGroup", ReplyAction="http://tempuri.org/Iservice/GetSourecGroupResponse")]
+        System.Threading.Tasks.Task<System.IO.MemoryStream> GetSourecGroupAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetMaxIDGroup", ReplyAction="http://tempuri.org/Iservice/GetMaxIDGroupResponse")]
+        int GetMaxIDGroup();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetMaxIDGroup", ReplyAction="http://tempuri.org/Iservice/GetMaxIDGroupResponse")]
+        System.Threading.Tasks.Task<int> GetMaxIDGroupAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/UpdateGroup", ReplyAction="http://tempuri.org/Iservice/UpdateGroupResponse")]
+        int UpdateGroup(int ID, int GroupSourceID, string GroupName, string GroupDescription, int UserID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/UpdateGroup", ReplyAction="http://tempuri.org/Iservice/UpdateGroupResponse")]
+        System.Threading.Tasks.Task<int> UpdateGroupAsync(int ID, int GroupSourceID, string GroupName, string GroupDescription, int UserID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetAllAccountSubNoInGroup", ReplyAction="http://tempuri.org/Iservice/GetAllAccountSubNoInGroupResponse")]
+        System.IO.MemoryStream GetAllAccountSubNoInGroup(int GroupID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetAllAccountSubNoInGroup", ReplyAction="http://tempuri.org/Iservice/GetAllAccountSubNoInGroupResponse")]
+        System.Threading.Tasks.Task<System.IO.MemoryStream> GetAllAccountSubNoInGroupAsync(int GroupID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetAllAccountSubInGroup", ReplyAction="http://tempuri.org/Iservice/GetAllAccountSubInGroupResponse")]
+        System.IO.MemoryStream GetAllAccountSubInGroup(int GroupID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetAllAccountSubInGroup", ReplyAction="http://tempuri.org/Iservice/GetAllAccountSubInGroupResponse")]
+        System.Threading.Tasks.Task<System.IO.MemoryStream> GetAllAccountSubInGroupAsync(int GroupID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/DeleteItemsONGroupDetalis", ReplyAction="http://tempuri.org/Iservice/DeleteItemsONGroupDetalisResponse")]
+        int DeleteItemsONGroupDetalis(int IDGroup);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/DeleteItemsONGroupDetalis", ReplyAction="http://tempuri.org/Iservice/DeleteItemsONGroupDetalisResponse")]
+        System.Threading.Tasks.Task<int> DeleteItemsONGroupDetalisAsync(int IDGroup);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/AddItemsONGroupDetalis", ReplyAction="http://tempuri.org/Iservice/AddItemsONGroupDetalisResponse")]
+        int AddItemsONGroupDetalis(int IDGroup, int IDItems, int UserID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/AddItemsONGroupDetalis", ReplyAction="http://tempuri.org/Iservice/AddItemsONGroupDetalisResponse")]
+        System.Threading.Tasks.Task<int> AddItemsONGroupDetalisAsync(int IDGroup, int IDItems, int UserID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/AddConnectionAccountwithPlace", ReplyAction="http://tempuri.org/Iservice/AddConnectionAccountwithPlaceResponse")]
+        int AddConnectionAccountwithPlace(int palce, int idMadeen, int idDaan);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/AddConnectionAccountwithPlace", ReplyAction="http://tempuri.org/Iservice/AddConnectionAccountwithPlaceResponse")]
+        System.Threading.Tasks.Task<int> AddConnectionAccountwithPlaceAsync(int palce, int idMadeen, int idDaan);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/UpdateConnectionAccountwithPlace", ReplyAction="http://tempuri.org/Iservice/UpdateConnectionAccountwithPlaceResponse")]
+        int UpdateConnectionAccountwithPlace(int ID, int palce, int idMadeen, int idDaan);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/UpdateConnectionAccountwithPlace", ReplyAction="http://tempuri.org/Iservice/UpdateConnectionAccountwithPlaceResponse")]
+        System.Threading.Tasks.Task<int> UpdateConnectionAccountwithPlaceAsync(int ID, int palce, int idMadeen, int idDaan);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/DeleteConnectionAccountwithPlace", ReplyAction="http://tempuri.org/Iservice/DeleteConnectionAccountwithPlaceResponse")]
+        int DeleteConnectionAccountwithPlace(int ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/DeleteConnectionAccountwithPlace", ReplyAction="http://tempuri.org/Iservice/DeleteConnectionAccountwithPlaceResponse")]
+        System.Threading.Tasks.Task<int> DeleteConnectionAccountwithPlaceAsync(int ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetConnectionAccountwithPlace", ReplyAction="http://tempuri.org/Iservice/GetConnectionAccountwithPlaceResponse")]
+        System.IO.MemoryStream GetConnectionAccountwithPlace();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetConnectionAccountwithPlace", ReplyAction="http://tempuri.org/Iservice/GetConnectionAccountwithPlaceResponse")]
+        System.Threading.Tasks.Task<System.IO.MemoryStream> GetConnectionAccountwithPlaceAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetAllCategoryARWithAccount", ReplyAction="http://tempuri.org/Iservice/GetAllCategoryARWithAccountResponse")]
+        System.IO.MemoryStream GetAllCategoryARWithAccount();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetAllCategoryARWithAccount", ReplyAction="http://tempuri.org/Iservice/GetAllCategoryARWithAccountResponse")]
+        System.Threading.Tasks.Task<System.IO.MemoryStream> GetAllCategoryARWithAccountAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetGroupsCate", ReplyAction="http://tempuri.org/Iservice/GetGroupsCateResponse")]
+        System.IO.MemoryStream GetGroupsCate();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetGroupsCate", ReplyAction="http://tempuri.org/Iservice/GetGroupsCateResponse")]
+        System.Threading.Tasks.Task<System.IO.MemoryStream> GetGroupsCateAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetAllUserinReprt", ReplyAction="http://tempuri.org/Iservice/GetAllUserinReprtResponse")]
+        System.IO.MemoryStream GetAllUserinReprt();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetAllUserinReprt", ReplyAction="http://tempuri.org/Iservice/GetAllUserinReprtResponse")]
+        System.Threading.Tasks.Task<System.IO.MemoryStream> GetAllUserinReprtAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetAllUserAR", ReplyAction="http://tempuri.org/Iservice/GetAllUserARResponse")]
+        System.IO.MemoryStream GetAllUserAR();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetAllUserAR", ReplyAction="http://tempuri.org/Iservice/GetAllUserARResponse")]
+        System.Threading.Tasks.Task<System.IO.MemoryStream> GetAllUserARAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/PrintRequstRPT", ReplyAction="http://tempuri.org/Iservice/PrintRequstRPTResponse")]
+        System.IO.MemoryStream PrintRequstRPT(System.DateTime d1, System.DateTime d2, int IDCate, int IDType, int IDCurrn, string txt, int iduser);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/PrintRequstRPT", ReplyAction="http://tempuri.org/Iservice/PrintRequstRPTResponse")]
+        System.Threading.Tasks.Task<System.IO.MemoryStream> PrintRequstRPTAsync(System.DateTime d1, System.DateTime d2, int IDCate, int IDType, int IDCurrn, string txt, int iduser);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/PrintRequstRPTAll", ReplyAction="http://tempuri.org/Iservice/PrintRequstRPTAllResponse")]
+        System.IO.MemoryStream PrintRequstRPTAll(System.DateTime d1, System.DateTime d2, string txt);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/PrintRequstRPTAll", ReplyAction="http://tempuri.org/Iservice/PrintRequstRPTAllResponse")]
+        System.Threading.Tasks.Task<System.IO.MemoryStream> PrintRequstRPTAllAsync(System.DateTime d1, System.DateTime d2, string txt);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/PrintRequstRPTIDcat", ReplyAction="http://tempuri.org/Iservice/PrintRequstRPTIDcatResponse")]
+        System.IO.MemoryStream PrintRequstRPTIDcat(System.DateTime d1, System.DateTime d2, string txt, int IDCate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/PrintRequstRPTIDcat", ReplyAction="http://tempuri.org/Iservice/PrintRequstRPTIDcatResponse")]
+        System.Threading.Tasks.Task<System.IO.MemoryStream> PrintRequstRPTIDcatAsync(System.DateTime d1, System.DateTime d2, string txt, int IDCate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/PrintOutAllwithDate", ReplyAction="http://tempuri.org/Iservice/PrintOutAllwithDateResponse")]
+        System.IO.MemoryStream PrintOutAllwithDate(int idca, int idtyp, int idpalce, int idcurrnt, string name, System.DateTime d1, System.DateTime d2, int iduser);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/PrintOutAllwithDate", ReplyAction="http://tempuri.org/Iservice/PrintOutAllwithDateResponse")]
+        System.Threading.Tasks.Task<System.IO.MemoryStream> PrintOutAllwithDateAsync(int idca, int idtyp, int idpalce, int idcurrnt, string name, System.DateTime d1, System.DateTime d2, int iduser);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/PrintOutAllwithDateAll", ReplyAction="http://tempuri.org/Iservice/PrintOutAllwithDateAllResponse")]
+        System.IO.MemoryStream PrintOutAllwithDateAll(string name, System.DateTime d1, System.DateTime d2);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/PrintOutAllwithDateAll", ReplyAction="http://tempuri.org/Iservice/PrintOutAllwithDateAllResponse")]
+        System.Threading.Tasks.Task<System.IO.MemoryStream> PrintOutAllwithDateAllAsync(string name, System.DateTime d1, System.DateTime d2);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/PrintOutAllwithDateWithIDca", ReplyAction="http://tempuri.org/Iservice/PrintOutAllwithDateWithIDcaResponse")]
+        System.IO.MemoryStream PrintOutAllwithDateWithIDca(string name, System.DateTime d1, System.DateTime d2, int idca);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/PrintOutAllwithDateWithIDca", ReplyAction="http://tempuri.org/Iservice/PrintOutAllwithDateWithIDcaResponse")]
+        System.Threading.Tasks.Task<System.IO.MemoryStream> PrintOutAllwithDateWithIDcaAsync(string name, System.DateTime d1, System.DateTime d2, int idca);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/PrintOutAllwithDateWithIDcaPLAC", ReplyAction="http://tempuri.org/Iservice/PrintOutAllwithDateWithIDcaPLACResponse")]
+        System.IO.MemoryStream PrintOutAllwithDateWithIDcaPLAC(string name, System.DateTime d1, System.DateTime d2, int idca, int idpalce);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/PrintOutAllwithDateWithIDcaPLAC", ReplyAction="http://tempuri.org/Iservice/PrintOutAllwithDateWithIDcaPLACResponse")]
+        System.Threading.Tasks.Task<System.IO.MemoryStream> PrintOutAllwithDateWithIDcaPLACAsync(string name, System.DateTime d1, System.DateTime d2, int idca, int idpalce);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/PrintOutAllwithDateWithPLAC", ReplyAction="http://tempuri.org/Iservice/PrintOutAllwithDateWithPLACResponse")]
+        System.IO.MemoryStream PrintOutAllwithDateWithPLAC(string name, System.DateTime d1, System.DateTime d2, int idpalce);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/PrintOutAllwithDateWithPLAC", ReplyAction="http://tempuri.org/Iservice/PrintOutAllwithDateWithPLACResponse")]
+        System.Threading.Tasks.Task<System.IO.MemoryStream> PrintOutAllwithDateWithPLACAsync(string name, System.DateTime d1, System.DateTime d2, int idpalce);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/PrintAccountQuntity", ReplyAction="http://tempuri.org/Iservice/PrintAccountQuntityResponse")]
+        System.IO.MemoryStream PrintAccountQuntity(int idcat, int idtyp, int idcu);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/PrintAccountQuntity", ReplyAction="http://tempuri.org/Iservice/PrintAccountQuntityResponse")]
+        System.Threading.Tasks.Task<System.IO.MemoryStream> PrintAccountQuntityAsync(int idcat, int idtyp, int idcu);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/PrintAccountQuntityIDac", ReplyAction="http://tempuri.org/Iservice/PrintAccountQuntityIDacResponse")]
+        System.IO.MemoryStream PrintAccountQuntityIDac(int idcu);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/PrintAccountQuntityIDac", ReplyAction="http://tempuri.org/Iservice/PrintAccountQuntityIDacResponse")]
+        System.Threading.Tasks.Task<System.IO.MemoryStream> PrintAccountQuntityIDacAsync(int idcu);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/PrintAccountQuntityWithGroup", ReplyAction="http://tempuri.org/Iservice/PrintAccountQuntityWithGroupResponse")]
+        System.IO.MemoryStream PrintAccountQuntityWithGroup(int IDGroup);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/PrintAccountQuntityWithGroup", ReplyAction="http://tempuri.org/Iservice/PrintAccountQuntityWithGroupResponse")]
+        System.Threading.Tasks.Task<System.IO.MemoryStream> PrintAccountQuntityWithGroupAsync(int IDGroup);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/PrintAccountQuntityAll", ReplyAction="http://tempuri.org/Iservice/PrintAccountQuntityAllResponse")]
+        System.IO.MemoryStream PrintAccountQuntityAll();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/PrintAccountQuntityAll", ReplyAction="http://tempuri.org/Iservice/PrintAccountQuntityAllResponse")]
+        System.Threading.Tasks.Task<System.IO.MemoryStream> PrintAccountQuntityAllAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetUpdateSupplyByIDSupply", ReplyAction="http://tempuri.org/Iservice/GetUpdateSupplyByIDSupplyResponse")]
+        System.IO.MemoryStream GetUpdateSupplyByIDSupply(int Id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetUpdateSupplyByIDSupply", ReplyAction="http://tempuri.org/Iservice/GetUpdateSupplyByIDSupplyResponse")]
+        System.Threading.Tasks.Task<System.IO.MemoryStream> GetUpdateSupplyByIDSupplyAsync(int Id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetUpdateSupplyByDate", ReplyAction="http://tempuri.org/Iservice/GetUpdateSupplyByDateResponse")]
+        System.IO.MemoryStream GetUpdateSupplyByDate(System.DateTime d1, System.DateTime d2);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetUpdateSupplyByDate", ReplyAction="http://tempuri.org/Iservice/GetUpdateSupplyByDateResponse")]
+        System.Threading.Tasks.Task<System.IO.MemoryStream> GetUpdateSupplyByDateAsync(System.DateTime d1, System.DateTime d2);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetUpdateSupplyByDateUpdateWithDate", ReplyAction="http://tempuri.org/Iservice/GetUpdateSupplyByDateUpdateWithDateResponse")]
+        System.IO.MemoryStream GetUpdateSupplyByDateUpdateWithDate(System.DateTime d1, System.DateTime d2);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetUpdateSupplyByDateUpdateWithDate", ReplyAction="http://tempuri.org/Iservice/GetUpdateSupplyByDateUpdateWithDateResponse")]
+        System.Threading.Tasks.Task<System.IO.MemoryStream> GetUpdateSupplyByDateUpdateWithDateAsync(System.DateTime d1, System.DateTime d2);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/SENDUSERTOSERVER", ReplyAction="http://tempuri.org/Iservice/SENDUSERTOSERVERResponse")]
         void SENDUSERTOSERVER(int falg, int SessionID, System.DateTime start, System.DateTime end, string NameMachine, string UserWindow, string OSVersion, string NameUser, int USerID);
@@ -1200,6 +1080,132 @@ namespace Users.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/SearchINRequsetOutTxtAndDate2", ReplyAction="http://tempuri.org/Iservice/SearchINRequsetOutTxtAndDate2Response")]
         System.Threading.Tasks.Task<System.IO.MemoryStream> SearchINRequsetOutTxtAndDate2Async(string s, System.DateTime d1, System.DateTime d2);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetUserNameBYIdUser", ReplyAction="http://tempuri.org/Iservice/GetUserNameBYIdUserResponse")]
+        string GetUserNameBYIdUser(int IdUser);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetUserNameBYIdUser", ReplyAction="http://tempuri.org/Iservice/GetUserNameBYIdUserResponse")]
+        System.Threading.Tasks.Task<string> GetUserNameBYIdUserAsync(int IdUser);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetRequstOutSngle", ReplyAction="http://tempuri.org/Iservice/GetRequstOutSngleResponse")]
+        System.IO.MemoryStream GetRequstOutSngle(int IDOutRequst);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetRequstOutSngle", ReplyAction="http://tempuri.org/Iservice/GetRequstOutSngleResponse")]
+        System.Threading.Tasks.Task<System.IO.MemoryStream> GetRequstOutSngleAsync(int IDOutRequst);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/AddNewUpdOut", ReplyAction="http://tempuri.org/Iservice/AddNewUpdOutResponse")]
+        int AddNewUpdOut(int IDOut, int IdCate, int IdType, int IdPlace, int Quntity, string NameOUt, string NameSend, int Price, int IdCurrent, string TxtReson, System.DateTime DateUpdate, int UserId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/AddNewUpdOut", ReplyAction="http://tempuri.org/Iservice/AddNewUpdOutResponse")]
+        System.Threading.Tasks.Task<int> AddNewUpdOutAsync(int IDOut, int IdCate, int IdType, int IdPlace, int Quntity, string NameOUt, string NameSend, int Price, int IdCurrent, string TxtReson, System.DateTime DateUpdate, int UserId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/CheckAccountIsHere", ReplyAction="http://tempuri.org/Iservice/CheckAccountIsHereResponse")]
+        int CheckAccountIsHere(int IDCategory, int IDType, int price, int idcurrnt);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/CheckAccountIsHere", ReplyAction="http://tempuri.org/Iservice/CheckAccountIsHereResponse")]
+        System.Threading.Tasks.Task<int> CheckAccountIsHereAsync(int IDCategory, int IDType, int price, int idcurrnt);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/DeleteRqustOut", ReplyAction="http://tempuri.org/Iservice/DeleteRqustOutResponse")]
+        int DeleteRqustOut(int IdRequstOut, int IdUser);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/DeleteRqustOut", ReplyAction="http://tempuri.org/Iservice/DeleteRqustOutResponse")]
+        System.Threading.Tasks.Task<int> DeleteRqustOutAsync(int IdRequstOut, int IdUser);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/UpdateRequstOut", ReplyAction="http://tempuri.org/Iservice/UpdateRequstOutResponse")]
+        int UpdateRequstOut(int IDOut, int IdPlace, string NameOut, string NameSend, string Reson, System.DateTime d1, int UserId, int debt, int crd);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/UpdateRequstOut", ReplyAction="http://tempuri.org/Iservice/UpdateRequstOutResponse")]
+        System.Threading.Tasks.Task<int> UpdateRequstOutAsync(int IDOut, int IdPlace, string NameOut, string NameSend, string Reson, System.DateTime d1, int UserId, int debt, int crd);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetMAxIDOUt", ReplyAction="http://tempuri.org/Iservice/GetMAxIDOUtResponse")]
+        int GetMAxIDOUt();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetMAxIDOUt", ReplyAction="http://tempuri.org/Iservice/GetMAxIDOUtResponse")]
+        System.Threading.Tasks.Task<int> GetMAxIDOUtAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetALLAcountNm", ReplyAction="http://tempuri.org/Iservice/GetALLAcountNmResponse")]
+        System.IO.MemoryStream GetALLAcountNm();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetALLAcountNm", ReplyAction="http://tempuri.org/Iservice/GetALLAcountNmResponse")]
+        System.Threading.Tasks.Task<System.IO.MemoryStream> GetALLAcountNmAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/CheckAccontTotalInOut", ReplyAction="http://tempuri.org/Iservice/CheckAccontTotalInOutResponse")]
+        bool CheckAccontTotalInOut(int IDcode, int IDCurrncy);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/CheckAccontTotalInOut", ReplyAction="http://tempuri.org/Iservice/CheckAccontTotalInOutResponse")]
+        System.Threading.Tasks.Task<bool> CheckAccontTotalInOutAsync(int IDcode, int IDCurrncy);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/AddNewAccountTotalInOut", ReplyAction="http://tempuri.org/Iservice/AddNewAccountTotalInOutResponse")]
+        int AddNewAccountTotalInOut(int IDCOde, int Mony, int idCurrncy);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/AddNewAccountTotalInOut", ReplyAction="http://tempuri.org/Iservice/AddNewAccountTotalInOutResponse")]
+        System.Threading.Tasks.Task<int> AddNewAccountTotalInOutAsync(int IDCOde, int Mony, int idCurrncy);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetBalanceInOut", ReplyAction="http://tempuri.org/Iservice/GetBalanceInOutResponse")]
+        int GetBalanceInOut(int Idcode, int IDCur);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetBalanceInOut", ReplyAction="http://tempuri.org/Iservice/GetBalanceInOutResponse")]
+        System.Threading.Tasks.Task<int> GetBalanceInOutAsync(int Idcode, int IDCur);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/UpdateAccountTotalInOut", ReplyAction="http://tempuri.org/Iservice/UpdateAccountTotalInOutResponse")]
+        int UpdateAccountTotalInOut(int IDCOde, int Mony, int idCurrncy);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/UpdateAccountTotalInOut", ReplyAction="http://tempuri.org/Iservice/UpdateAccountTotalInOutResponse")]
+        System.Threading.Tasks.Task<int> UpdateAccountTotalInOutAsync(int IDCOde, int Mony, int idCurrncy);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/AddNewAccountDetalisInOut", ReplyAction="http://tempuri.org/Iservice/AddNewAccountDetalisInOutResponse")]
+        int AddNewAccountDetalisInOut(int idcode, int monay, int idsupply, int idout, string Detalis, System.DateTime d1, int userid, int idcurrn);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/AddNewAccountDetalisInOut", ReplyAction="http://tempuri.org/Iservice/AddNewAccountDetalisInOutResponse")]
+        System.Threading.Tasks.Task<int> AddNewAccountDetalisInOutAsync(int idcode, int monay, int idsupply, int idout, string Detalis, System.DateTime d1, int userid, int idcurrn);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/DeleteSuuplyFrmAccountDitalis", ReplyAction="http://tempuri.org/Iservice/DeleteSuuplyFrmAccountDitalisResponse")]
+        int DeleteSuuplyFrmAccountDitalis(int idSupply);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/DeleteSuuplyFrmAccountDitalis", ReplyAction="http://tempuri.org/Iservice/DeleteSuuplyFrmAccountDitalisResponse")]
+        System.Threading.Tasks.Task<int> DeleteSuuplyFrmAccountDitalisAsync(int idSupply);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/DeleteSuuplyFrmAccountDitalis2", ReplyAction="http://tempuri.org/Iservice/DeleteSuuplyFrmAccountDitalis2Response")]
+        int DeleteSuuplyFrmAccountDitalis2(int idout);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/DeleteSuuplyFrmAccountDitalis2", ReplyAction="http://tempuri.org/Iservice/DeleteSuuplyFrmAccountDitalis2Response")]
+        System.Threading.Tasks.Task<int> DeleteSuuplyFrmAccountDitalis2Async(int idout);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetIDAccountPalce", ReplyAction="http://tempuri.org/Iservice/GetIDAccountPalceResponse")]
+        int GetIDAccountPalce(int IDACcount, int idplace);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetIDAccountPalce", ReplyAction="http://tempuri.org/Iservice/GetIDAccountPalceResponse")]
+        System.Threading.Tasks.Task<int> GetIDAccountPalceAsync(int IDACcount, int idplace);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetIdUserINSupply", ReplyAction="http://tempuri.org/Iservice/GetIdUserINSupplyResponse")]
+        int GetIdUserINSupply(string NameUser);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetIdUserINSupply", ReplyAction="http://tempuri.org/Iservice/GetIdUserINSupplyResponse")]
+        System.Threading.Tasks.Task<int> GetIdUserINSupplyAsync(string NameUser);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetUserNameBYIdUserINSupply", ReplyAction="http://tempuri.org/Iservice/GetUserNameBYIdUserINSupplyResponse")]
+        string GetUserNameBYIdUserINSupply(int IdUser);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetUserNameBYIdUserINSupply", ReplyAction="http://tempuri.org/Iservice/GetUserNameBYIdUserINSupplyResponse")]
+        System.Threading.Tasks.Task<string> GetUserNameBYIdUserINSupplyAsync(int IdUser);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/PrintRequstSupply", ReplyAction="http://tempuri.org/Iservice/PrintRequstSupplyResponse")]
+        System.IO.MemoryStream PrintRequstSupply(int IDreqSup, int UserId, int user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/PrintRequstSupply", ReplyAction="http://tempuri.org/Iservice/PrintRequstSupplyResponse")]
+        System.Threading.Tasks.Task<System.IO.MemoryStream> PrintRequstSupplyAsync(int IDreqSup, int UserId, int user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/printrequstOutExit1", ReplyAction="http://tempuri.org/Iservice/printrequstOutExit1Response")]
+        System.IO.MemoryStream printrequstOutExit1(int IDreqSup, int UserId, int user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/printrequstOutExit1", ReplyAction="http://tempuri.org/Iservice/printrequstOutExit1Response")]
+        System.Threading.Tasks.Task<System.IO.MemoryStream> printrequstOutExit1Async(int IDreqSup, int UserId, int user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetAccountLinkCateInSupply", ReplyAction="http://tempuri.org/Iservice/GetAccountLinkCateInSupplyResponse")]
+        int GetAccountLinkCateInSupply(int IDcate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetAccountLinkCateInSupply", ReplyAction="http://tempuri.org/Iservice/GetAccountLinkCateInSupplyResponse")]
+        System.Threading.Tasks.Task<int> GetAccountLinkCateInSupplyAsync(int IDcate);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1227,334 +1233,6 @@ namespace Users.ServiceReference1 {
         
         public IserviceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
-        }
-        
-        public System.IO.MemoryStream chackPlace(int IDplace) {
-            return base.Channel.chackPlace(IDplace);
-        }
-        
-        public System.Threading.Tasks.Task<System.IO.MemoryStream> chackPlaceAsync(int IDplace) {
-            return base.Channel.chackPlaceAsync(IDplace);
-        }
-        
-        public System.IO.MemoryStream GETCurrencyBYName(string NameCurrncy) {
-            return base.Channel.GETCurrencyBYName(NameCurrncy);
-        }
-        
-        public System.Threading.Tasks.Task<System.IO.MemoryStream> GETCurrencyBYNameAsync(string NameCurrncy) {
-            return base.Channel.GETCurrencyBYNameAsync(NameCurrncy);
-        }
-        
-        public int AddNewCurrency(string name) {
-            return base.Channel.AddNewCurrency(name);
-        }
-        
-        public System.Threading.Tasks.Task<int> AddNewCurrencyAsync(string name) {
-            return base.Channel.AddNewCurrencyAsync(name);
-        }
-        
-        public int UpdateCurrency(int id, string name) {
-            return base.Channel.UpdateCurrency(id, name);
-        }
-        
-        public System.Threading.Tasks.Task<int> UpdateCurrencyAsync(int id, string name) {
-            return base.Channel.UpdateCurrencyAsync(id, name);
-        }
-        
-        public int DeleteCurrency(int id) {
-            return base.Channel.DeleteCurrency(id);
-        }
-        
-        public System.Threading.Tasks.Task<int> DeleteCurrencyAsync(int id) {
-            return base.Channel.DeleteCurrencyAsync(id);
-        }
-        
-        public System.IO.MemoryStream chackCurncy(int IDcur) {
-            return base.Channel.chackCurncy(IDcur);
-        }
-        
-        public System.Threading.Tasks.Task<System.IO.MemoryStream> chackCurncyAsync(int IDcur) {
-            return base.Channel.chackCurncyAsync(IDcur);
-        }
-        
-        public int AddNewGroup(int GroupSourceID, string GroupName, string GroupDescription, int UserID, System.DateTime EnterTime) {
-            return base.Channel.AddNewGroup(GroupSourceID, GroupName, GroupDescription, UserID, EnterTime);
-        }
-        
-        public System.Threading.Tasks.Task<int> AddNewGroupAsync(int GroupSourceID, string GroupName, string GroupDescription, int UserID, System.DateTime EnterTime) {
-            return base.Channel.AddNewGroupAsync(GroupSourceID, GroupName, GroupDescription, UserID, EnterTime);
-        }
-        
-        public System.IO.MemoryStream GetOneGroup(int IDGroup) {
-            return base.Channel.GetOneGroup(IDGroup);
-        }
-        
-        public System.Threading.Tasks.Task<System.IO.MemoryStream> GetOneGroupAsync(int IDGroup) {
-            return base.Channel.GetOneGroupAsync(IDGroup);
-        }
-        
-        public System.IO.MemoryStream GetAllGroup() {
-            return base.Channel.GetAllGroup();
-        }
-        
-        public System.Threading.Tasks.Task<System.IO.MemoryStream> GetAllGroupAsync() {
-            return base.Channel.GetAllGroupAsync();
-        }
-        
-        public System.IO.MemoryStream GetGroupByName(string NAME) {
-            return base.Channel.GetGroupByName(NAME);
-        }
-        
-        public System.Threading.Tasks.Task<System.IO.MemoryStream> GetGroupByNameAsync(string NAME) {
-            return base.Channel.GetGroupByNameAsync(NAME);
-        }
-        
-        public System.IO.MemoryStream DeleteGroup(int IDGROUP) {
-            return base.Channel.DeleteGroup(IDGROUP);
-        }
-        
-        public System.Threading.Tasks.Task<System.IO.MemoryStream> DeleteGroupAsync(int IDGROUP) {
-            return base.Channel.DeleteGroupAsync(IDGROUP);
-        }
-        
-        public bool CheckGroupItems(int IDGROUP) {
-            return base.Channel.CheckGroupItems(IDGROUP);
-        }
-        
-        public System.Threading.Tasks.Task<bool> CheckGroupItemsAsync(int IDGROUP) {
-            return base.Channel.CheckGroupItemsAsync(IDGROUP);
-        }
-        
-        public System.IO.MemoryStream GetSourecGroup() {
-            return base.Channel.GetSourecGroup();
-        }
-        
-        public System.Threading.Tasks.Task<System.IO.MemoryStream> GetSourecGroupAsync() {
-            return base.Channel.GetSourecGroupAsync();
-        }
-        
-        public int GetMaxIDGroup() {
-            return base.Channel.GetMaxIDGroup();
-        }
-        
-        public System.Threading.Tasks.Task<int> GetMaxIDGroupAsync() {
-            return base.Channel.GetMaxIDGroupAsync();
-        }
-        
-        public int UpdateGroup(int ID, int GroupSourceID, string GroupName, string GroupDescription, int UserID) {
-            return base.Channel.UpdateGroup(ID, GroupSourceID, GroupName, GroupDescription, UserID);
-        }
-        
-        public System.Threading.Tasks.Task<int> UpdateGroupAsync(int ID, int GroupSourceID, string GroupName, string GroupDescription, int UserID) {
-            return base.Channel.UpdateGroupAsync(ID, GroupSourceID, GroupName, GroupDescription, UserID);
-        }
-        
-        public System.IO.MemoryStream GetAllAccountSubNoInGroup(int GroupID) {
-            return base.Channel.GetAllAccountSubNoInGroup(GroupID);
-        }
-        
-        public System.Threading.Tasks.Task<System.IO.MemoryStream> GetAllAccountSubNoInGroupAsync(int GroupID) {
-            return base.Channel.GetAllAccountSubNoInGroupAsync(GroupID);
-        }
-        
-        public System.IO.MemoryStream GetAllAccountSubInGroup(int GroupID) {
-            return base.Channel.GetAllAccountSubInGroup(GroupID);
-        }
-        
-        public System.Threading.Tasks.Task<System.IO.MemoryStream> GetAllAccountSubInGroupAsync(int GroupID) {
-            return base.Channel.GetAllAccountSubInGroupAsync(GroupID);
-        }
-        
-        public int DeleteItemsONGroupDetalis(int IDGroup) {
-            return base.Channel.DeleteItemsONGroupDetalis(IDGroup);
-        }
-        
-        public System.Threading.Tasks.Task<int> DeleteItemsONGroupDetalisAsync(int IDGroup) {
-            return base.Channel.DeleteItemsONGroupDetalisAsync(IDGroup);
-        }
-        
-        public int AddItemsONGroupDetalis(int IDGroup, int IDItems, int UserID) {
-            return base.Channel.AddItemsONGroupDetalis(IDGroup, IDItems, UserID);
-        }
-        
-        public System.Threading.Tasks.Task<int> AddItemsONGroupDetalisAsync(int IDGroup, int IDItems, int UserID) {
-            return base.Channel.AddItemsONGroupDetalisAsync(IDGroup, IDItems, UserID);
-        }
-        
-        public int AddConnectionAccountwithPlace(int palce, int idMadeen, int idDaan) {
-            return base.Channel.AddConnectionAccountwithPlace(palce, idMadeen, idDaan);
-        }
-        
-        public System.Threading.Tasks.Task<int> AddConnectionAccountwithPlaceAsync(int palce, int idMadeen, int idDaan) {
-            return base.Channel.AddConnectionAccountwithPlaceAsync(palce, idMadeen, idDaan);
-        }
-        
-        public int UpdateConnectionAccountwithPlace(int ID, int palce, int idMadeen, int idDaan) {
-            return base.Channel.UpdateConnectionAccountwithPlace(ID, palce, idMadeen, idDaan);
-        }
-        
-        public System.Threading.Tasks.Task<int> UpdateConnectionAccountwithPlaceAsync(int ID, int palce, int idMadeen, int idDaan) {
-            return base.Channel.UpdateConnectionAccountwithPlaceAsync(ID, palce, idMadeen, idDaan);
-        }
-        
-        public int DeleteConnectionAccountwithPlace(int ID) {
-            return base.Channel.DeleteConnectionAccountwithPlace(ID);
-        }
-        
-        public System.Threading.Tasks.Task<int> DeleteConnectionAccountwithPlaceAsync(int ID) {
-            return base.Channel.DeleteConnectionAccountwithPlaceAsync(ID);
-        }
-        
-        public System.IO.MemoryStream GetConnectionAccountwithPlace() {
-            return base.Channel.GetConnectionAccountwithPlace();
-        }
-        
-        public System.Threading.Tasks.Task<System.IO.MemoryStream> GetConnectionAccountwithPlaceAsync() {
-            return base.Channel.GetConnectionAccountwithPlaceAsync();
-        }
-        
-        public System.IO.MemoryStream GetGroupsCate() {
-            return base.Channel.GetGroupsCate();
-        }
-        
-        public System.Threading.Tasks.Task<System.IO.MemoryStream> GetGroupsCateAsync() {
-            return base.Channel.GetGroupsCateAsync();
-        }
-        
-        public System.IO.MemoryStream GetAllUserinReprt() {
-            return base.Channel.GetAllUserinReprt();
-        }
-        
-        public System.Threading.Tasks.Task<System.IO.MemoryStream> GetAllUserinReprtAsync() {
-            return base.Channel.GetAllUserinReprtAsync();
-        }
-        
-        public System.IO.MemoryStream GetAllUserAR() {
-            return base.Channel.GetAllUserAR();
-        }
-        
-        public System.Threading.Tasks.Task<System.IO.MemoryStream> GetAllUserARAsync() {
-            return base.Channel.GetAllUserARAsync();
-        }
-        
-        public System.IO.MemoryStream PrintRequstRPT(System.DateTime d1, System.DateTime d2, int IDCate, int IDType, int IDCurrn, string txt, int iduser) {
-            return base.Channel.PrintRequstRPT(d1, d2, IDCate, IDType, IDCurrn, txt, iduser);
-        }
-        
-        public System.Threading.Tasks.Task<System.IO.MemoryStream> PrintRequstRPTAsync(System.DateTime d1, System.DateTime d2, int IDCate, int IDType, int IDCurrn, string txt, int iduser) {
-            return base.Channel.PrintRequstRPTAsync(d1, d2, IDCate, IDType, IDCurrn, txt, iduser);
-        }
-        
-        public System.IO.MemoryStream PrintRequstRPTAll(System.DateTime d1, System.DateTime d2, string txt) {
-            return base.Channel.PrintRequstRPTAll(d1, d2, txt);
-        }
-        
-        public System.Threading.Tasks.Task<System.IO.MemoryStream> PrintRequstRPTAllAsync(System.DateTime d1, System.DateTime d2, string txt) {
-            return base.Channel.PrintRequstRPTAllAsync(d1, d2, txt);
-        }
-        
-        public System.IO.MemoryStream PrintRequstRPTIDcat(System.DateTime d1, System.DateTime d2, string txt, int IDCate) {
-            return base.Channel.PrintRequstRPTIDcat(d1, d2, txt, IDCate);
-        }
-        
-        public System.Threading.Tasks.Task<System.IO.MemoryStream> PrintRequstRPTIDcatAsync(System.DateTime d1, System.DateTime d2, string txt, int IDCate) {
-            return base.Channel.PrintRequstRPTIDcatAsync(d1, d2, txt, IDCate);
-        }
-        
-        public System.IO.MemoryStream PrintOutAllwithDate(int idca, int idtyp, int idpalce, int idcurrnt, string name, System.DateTime d1, System.DateTime d2, int iduser) {
-            return base.Channel.PrintOutAllwithDate(idca, idtyp, idpalce, idcurrnt, name, d1, d2, iduser);
-        }
-        
-        public System.Threading.Tasks.Task<System.IO.MemoryStream> PrintOutAllwithDateAsync(int idca, int idtyp, int idpalce, int idcurrnt, string name, System.DateTime d1, System.DateTime d2, int iduser) {
-            return base.Channel.PrintOutAllwithDateAsync(idca, idtyp, idpalce, idcurrnt, name, d1, d2, iduser);
-        }
-        
-        public System.IO.MemoryStream PrintOutAllwithDateAll(string name, System.DateTime d1, System.DateTime d2) {
-            return base.Channel.PrintOutAllwithDateAll(name, d1, d2);
-        }
-        
-        public System.Threading.Tasks.Task<System.IO.MemoryStream> PrintOutAllwithDateAllAsync(string name, System.DateTime d1, System.DateTime d2) {
-            return base.Channel.PrintOutAllwithDateAllAsync(name, d1, d2);
-        }
-        
-        public System.IO.MemoryStream PrintOutAllwithDateWithIDca(string name, System.DateTime d1, System.DateTime d2, int idca) {
-            return base.Channel.PrintOutAllwithDateWithIDca(name, d1, d2, idca);
-        }
-        
-        public System.Threading.Tasks.Task<System.IO.MemoryStream> PrintOutAllwithDateWithIDcaAsync(string name, System.DateTime d1, System.DateTime d2, int idca) {
-            return base.Channel.PrintOutAllwithDateWithIDcaAsync(name, d1, d2, idca);
-        }
-        
-        public System.IO.MemoryStream PrintOutAllwithDateWithIDcaPLAC(string name, System.DateTime d1, System.DateTime d2, int idca, int idpalce) {
-            return base.Channel.PrintOutAllwithDateWithIDcaPLAC(name, d1, d2, idca, idpalce);
-        }
-        
-        public System.Threading.Tasks.Task<System.IO.MemoryStream> PrintOutAllwithDateWithIDcaPLACAsync(string name, System.DateTime d1, System.DateTime d2, int idca, int idpalce) {
-            return base.Channel.PrintOutAllwithDateWithIDcaPLACAsync(name, d1, d2, idca, idpalce);
-        }
-        
-        public System.IO.MemoryStream PrintOutAllwithDateWithPLAC(string name, System.DateTime d1, System.DateTime d2, int idpalce) {
-            return base.Channel.PrintOutAllwithDateWithPLAC(name, d1, d2, idpalce);
-        }
-        
-        public System.Threading.Tasks.Task<System.IO.MemoryStream> PrintOutAllwithDateWithPLACAsync(string name, System.DateTime d1, System.DateTime d2, int idpalce) {
-            return base.Channel.PrintOutAllwithDateWithPLACAsync(name, d1, d2, idpalce);
-        }
-        
-        public System.IO.MemoryStream PrintAccountQuntity(int idcat, int idtyp, int idcu) {
-            return base.Channel.PrintAccountQuntity(idcat, idtyp, idcu);
-        }
-        
-        public System.Threading.Tasks.Task<System.IO.MemoryStream> PrintAccountQuntityAsync(int idcat, int idtyp, int idcu) {
-            return base.Channel.PrintAccountQuntityAsync(idcat, idtyp, idcu);
-        }
-        
-        public System.IO.MemoryStream PrintAccountQuntityIDac(int idcu) {
-            return base.Channel.PrintAccountQuntityIDac(idcu);
-        }
-        
-        public System.Threading.Tasks.Task<System.IO.MemoryStream> PrintAccountQuntityIDacAsync(int idcu) {
-            return base.Channel.PrintAccountQuntityIDacAsync(idcu);
-        }
-        
-        public System.IO.MemoryStream PrintAccountQuntityWithGroup(int IDGroup) {
-            return base.Channel.PrintAccountQuntityWithGroup(IDGroup);
-        }
-        
-        public System.Threading.Tasks.Task<System.IO.MemoryStream> PrintAccountQuntityWithGroupAsync(int IDGroup) {
-            return base.Channel.PrintAccountQuntityWithGroupAsync(IDGroup);
-        }
-        
-        public System.IO.MemoryStream PrintAccountQuntityAll() {
-            return base.Channel.PrintAccountQuntityAll();
-        }
-        
-        public System.Threading.Tasks.Task<System.IO.MemoryStream> PrintAccountQuntityAllAsync() {
-            return base.Channel.PrintAccountQuntityAllAsync();
-        }
-        
-        public System.IO.MemoryStream GetUpdateSupplyByIDSupply(int Id) {
-            return base.Channel.GetUpdateSupplyByIDSupply(Id);
-        }
-        
-        public System.Threading.Tasks.Task<System.IO.MemoryStream> GetUpdateSupplyByIDSupplyAsync(int Id) {
-            return base.Channel.GetUpdateSupplyByIDSupplyAsync(Id);
-        }
-        
-        public System.IO.MemoryStream GetUpdateSupplyByDate(System.DateTime d1, System.DateTime d2) {
-            return base.Channel.GetUpdateSupplyByDate(d1, d2);
-        }
-        
-        public System.Threading.Tasks.Task<System.IO.MemoryStream> GetUpdateSupplyByDateAsync(System.DateTime d1, System.DateTime d2) {
-            return base.Channel.GetUpdateSupplyByDateAsync(d1, d2);
-        }
-        
-        public System.IO.MemoryStream GetUpdateSupplyByDateUpdateWithDate(System.DateTime d1, System.DateTime d2) {
-            return base.Channel.GetUpdateSupplyByDateUpdateWithDate(d1, d2);
-        }
-        
-        public System.Threading.Tasks.Task<System.IO.MemoryStream> GetUpdateSupplyByDateUpdateWithDateAsync(System.DateTime d1, System.DateTime d2) {
-            return base.Channel.GetUpdateSupplyByDateUpdateWithDateAsync(d1, d2);
         }
         
         public System.IO.MemoryStream GetUpdateSupplyByDateDeleteWithDate(System.DateTime d1, System.DateTime d2) {
@@ -1619,174 +1297,6 @@ namespace Users.ServiceReference1 {
         
         public System.Threading.Tasks.Task<int> GETMAXIDSessionAsync() {
             return base.Channel.GETMAXIDSessionAsync();
-        }
-        
-        public string GetUserNameBYIdUser(int IdUser) {
-            return base.Channel.GetUserNameBYIdUser(IdUser);
-        }
-        
-        public System.Threading.Tasks.Task<string> GetUserNameBYIdUserAsync(int IdUser) {
-            return base.Channel.GetUserNameBYIdUserAsync(IdUser);
-        }
-        
-        public System.IO.MemoryStream GetRequstOutSngle(int IDOutRequst) {
-            return base.Channel.GetRequstOutSngle(IDOutRequst);
-        }
-        
-        public System.Threading.Tasks.Task<System.IO.MemoryStream> GetRequstOutSngleAsync(int IDOutRequst) {
-            return base.Channel.GetRequstOutSngleAsync(IDOutRequst);
-        }
-        
-        public int AddNewUpdOut(int IDOut, int IdCate, int IdType, int IdPlace, int Quntity, string NameOUt, string NameSend, int Price, int IdCurrent, string TxtReson, System.DateTime DateUpdate, int UserId) {
-            return base.Channel.AddNewUpdOut(IDOut, IdCate, IdType, IdPlace, Quntity, NameOUt, NameSend, Price, IdCurrent, TxtReson, DateUpdate, UserId);
-        }
-        
-        public System.Threading.Tasks.Task<int> AddNewUpdOutAsync(int IDOut, int IdCate, int IdType, int IdPlace, int Quntity, string NameOUt, string NameSend, int Price, int IdCurrent, string TxtReson, System.DateTime DateUpdate, int UserId) {
-            return base.Channel.AddNewUpdOutAsync(IDOut, IdCate, IdType, IdPlace, Quntity, NameOUt, NameSend, Price, IdCurrent, TxtReson, DateUpdate, UserId);
-        }
-        
-        public int CheckAccountIsHere(int IDCategory, int IDType, int price, int idcurrnt) {
-            return base.Channel.CheckAccountIsHere(IDCategory, IDType, price, idcurrnt);
-        }
-        
-        public System.Threading.Tasks.Task<int> CheckAccountIsHereAsync(int IDCategory, int IDType, int price, int idcurrnt) {
-            return base.Channel.CheckAccountIsHereAsync(IDCategory, IDType, price, idcurrnt);
-        }
-        
-        public int DeleteRqustOut(int IdRequstOut, int IdUser) {
-            return base.Channel.DeleteRqustOut(IdRequstOut, IdUser);
-        }
-        
-        public System.Threading.Tasks.Task<int> DeleteRqustOutAsync(int IdRequstOut, int IdUser) {
-            return base.Channel.DeleteRqustOutAsync(IdRequstOut, IdUser);
-        }
-        
-        public int UpdateRequstOut(int IDOut, int IdPlace, string NameOut, string NameSend, string Reson, System.DateTime d1, int UserId, int debt, int crd) {
-            return base.Channel.UpdateRequstOut(IDOut, IdPlace, NameOut, NameSend, Reson, d1, UserId, debt, crd);
-        }
-        
-        public System.Threading.Tasks.Task<int> UpdateRequstOutAsync(int IDOut, int IdPlace, string NameOut, string NameSend, string Reson, System.DateTime d1, int UserId, int debt, int crd) {
-            return base.Channel.UpdateRequstOutAsync(IDOut, IdPlace, NameOut, NameSend, Reson, d1, UserId, debt, crd);
-        }
-        
-        public int GetMAxIDOUt() {
-            return base.Channel.GetMAxIDOUt();
-        }
-        
-        public System.Threading.Tasks.Task<int> GetMAxIDOUtAsync() {
-            return base.Channel.GetMAxIDOUtAsync();
-        }
-        
-        public System.IO.MemoryStream GetALLAcountNm() {
-            return base.Channel.GetALLAcountNm();
-        }
-        
-        public System.Threading.Tasks.Task<System.IO.MemoryStream> GetALLAcountNmAsync() {
-            return base.Channel.GetALLAcountNmAsync();
-        }
-        
-        public bool CheckAccontTotalInOut(int IDcode, int IDCurrncy) {
-            return base.Channel.CheckAccontTotalInOut(IDcode, IDCurrncy);
-        }
-        
-        public System.Threading.Tasks.Task<bool> CheckAccontTotalInOutAsync(int IDcode, int IDCurrncy) {
-            return base.Channel.CheckAccontTotalInOutAsync(IDcode, IDCurrncy);
-        }
-        
-        public int AddNewAccountTotalInOut(int IDCOde, int Mony, int idCurrncy) {
-            return base.Channel.AddNewAccountTotalInOut(IDCOde, Mony, idCurrncy);
-        }
-        
-        public System.Threading.Tasks.Task<int> AddNewAccountTotalInOutAsync(int IDCOde, int Mony, int idCurrncy) {
-            return base.Channel.AddNewAccountTotalInOutAsync(IDCOde, Mony, idCurrncy);
-        }
-        
-        public int GetBalanceInOut(int Idcode, int IDCur) {
-            return base.Channel.GetBalanceInOut(Idcode, IDCur);
-        }
-        
-        public System.Threading.Tasks.Task<int> GetBalanceInOutAsync(int Idcode, int IDCur) {
-            return base.Channel.GetBalanceInOutAsync(Idcode, IDCur);
-        }
-        
-        public int UpdateAccountTotalInOut(int IDCOde, int Mony, int idCurrncy) {
-            return base.Channel.UpdateAccountTotalInOut(IDCOde, Mony, idCurrncy);
-        }
-        
-        public System.Threading.Tasks.Task<int> UpdateAccountTotalInOutAsync(int IDCOde, int Mony, int idCurrncy) {
-            return base.Channel.UpdateAccountTotalInOutAsync(IDCOde, Mony, idCurrncy);
-        }
-        
-        public int AddNewAccountDetalisInOut(int idcode, int monay, int idsupply, int idout, string Detalis, System.DateTime d1, int userid, int idcurrn) {
-            return base.Channel.AddNewAccountDetalisInOut(idcode, monay, idsupply, idout, Detalis, d1, userid, idcurrn);
-        }
-        
-        public System.Threading.Tasks.Task<int> AddNewAccountDetalisInOutAsync(int idcode, int monay, int idsupply, int idout, string Detalis, System.DateTime d1, int userid, int idcurrn) {
-            return base.Channel.AddNewAccountDetalisInOutAsync(idcode, monay, idsupply, idout, Detalis, d1, userid, idcurrn);
-        }
-        
-        public int DeleteSuuplyFrmAccountDitalis(int idSupply) {
-            return base.Channel.DeleteSuuplyFrmAccountDitalis(idSupply);
-        }
-        
-        public System.Threading.Tasks.Task<int> DeleteSuuplyFrmAccountDitalisAsync(int idSupply) {
-            return base.Channel.DeleteSuuplyFrmAccountDitalisAsync(idSupply);
-        }
-        
-        public int DeleteSuuplyFrmAccountDitalis2(int idout) {
-            return base.Channel.DeleteSuuplyFrmAccountDitalis2(idout);
-        }
-        
-        public System.Threading.Tasks.Task<int> DeleteSuuplyFrmAccountDitalis2Async(int idout) {
-            return base.Channel.DeleteSuuplyFrmAccountDitalis2Async(idout);
-        }
-        
-        public int GetIDAccountPalce(int IDACcount, int idplace) {
-            return base.Channel.GetIDAccountPalce(IDACcount, idplace);
-        }
-        
-        public System.Threading.Tasks.Task<int> GetIDAccountPalceAsync(int IDACcount, int idplace) {
-            return base.Channel.GetIDAccountPalceAsync(IDACcount, idplace);
-        }
-        
-        public int GetIdUserINSupply(string NameUser) {
-            return base.Channel.GetIdUserINSupply(NameUser);
-        }
-        
-        public System.Threading.Tasks.Task<int> GetIdUserINSupplyAsync(string NameUser) {
-            return base.Channel.GetIdUserINSupplyAsync(NameUser);
-        }
-        
-        public string GetUserNameBYIdUserINSupply(int IdUser) {
-            return base.Channel.GetUserNameBYIdUserINSupply(IdUser);
-        }
-        
-        public System.Threading.Tasks.Task<string> GetUserNameBYIdUserINSupplyAsync(int IdUser) {
-            return base.Channel.GetUserNameBYIdUserINSupplyAsync(IdUser);
-        }
-        
-        public System.IO.MemoryStream PrintRequstSupply(int IDreqSup, int UserId, int user) {
-            return base.Channel.PrintRequstSupply(IDreqSup, UserId, user);
-        }
-        
-        public System.Threading.Tasks.Task<System.IO.MemoryStream> PrintRequstSupplyAsync(int IDreqSup, int UserId, int user) {
-            return base.Channel.PrintRequstSupplyAsync(IDreqSup, UserId, user);
-        }
-        
-        public System.IO.MemoryStream printrequstOutExit1(int IDreqSup, int UserId, int user) {
-            return base.Channel.printrequstOutExit1(IDreqSup, UserId, user);
-        }
-        
-        public System.Threading.Tasks.Task<System.IO.MemoryStream> printrequstOutExit1Async(int IDreqSup, int UserId, int user) {
-            return base.Channel.printrequstOutExit1Async(IDreqSup, UserId, user);
-        }
-        
-        public int GetAccountLinkCateInSupply(int IDcate) {
-            return base.Channel.GetAccountLinkCateInSupply(IDcate);
-        }
-        
-        public System.Threading.Tasks.Task<int> GetAccountLinkCateInSupplyAsync(int IDcate) {
-            return base.Channel.GetAccountLinkCateInSupplyAsync(IDcate);
         }
         
         public int AddNewRequsetSupply(int IDCategory, int IDType, int Quntity, int Price, int idcurrnt, string NameSupply, string DescSupply, System.DateTime DateSupply, int IDuser, int chek, int debi, int cred) {
@@ -2131,6 +1641,342 @@ namespace Users.ServiceReference1 {
         
         public System.Threading.Tasks.Task<int> DeletePlaceSendAsync(int id) {
             return base.Channel.DeletePlaceSendAsync(id);
+        }
+        
+        public System.IO.MemoryStream chackPlace(int IDplace) {
+            return base.Channel.chackPlace(IDplace);
+        }
+        
+        public System.Threading.Tasks.Task<System.IO.MemoryStream> chackPlaceAsync(int IDplace) {
+            return base.Channel.chackPlaceAsync(IDplace);
+        }
+        
+        public System.IO.MemoryStream GETCurrencyBYName(string NameCurrncy) {
+            return base.Channel.GETCurrencyBYName(NameCurrncy);
+        }
+        
+        public System.Threading.Tasks.Task<System.IO.MemoryStream> GETCurrencyBYNameAsync(string NameCurrncy) {
+            return base.Channel.GETCurrencyBYNameAsync(NameCurrncy);
+        }
+        
+        public int AddNewCurrency(string name) {
+            return base.Channel.AddNewCurrency(name);
+        }
+        
+        public System.Threading.Tasks.Task<int> AddNewCurrencyAsync(string name) {
+            return base.Channel.AddNewCurrencyAsync(name);
+        }
+        
+        public int UpdateCurrency(int id, string name) {
+            return base.Channel.UpdateCurrency(id, name);
+        }
+        
+        public System.Threading.Tasks.Task<int> UpdateCurrencyAsync(int id, string name) {
+            return base.Channel.UpdateCurrencyAsync(id, name);
+        }
+        
+        public int DeleteCurrency(int id) {
+            return base.Channel.DeleteCurrency(id);
+        }
+        
+        public System.Threading.Tasks.Task<int> DeleteCurrencyAsync(int id) {
+            return base.Channel.DeleteCurrencyAsync(id);
+        }
+        
+        public System.IO.MemoryStream chackCurncy(int IDcur) {
+            return base.Channel.chackCurncy(IDcur);
+        }
+        
+        public System.Threading.Tasks.Task<System.IO.MemoryStream> chackCurncyAsync(int IDcur) {
+            return base.Channel.chackCurncyAsync(IDcur);
+        }
+        
+        public int AddNewGroup(int GroupSourceID, string GroupName, string GroupDescription, int UserID, System.DateTime EnterTime) {
+            return base.Channel.AddNewGroup(GroupSourceID, GroupName, GroupDescription, UserID, EnterTime);
+        }
+        
+        public System.Threading.Tasks.Task<int> AddNewGroupAsync(int GroupSourceID, string GroupName, string GroupDescription, int UserID, System.DateTime EnterTime) {
+            return base.Channel.AddNewGroupAsync(GroupSourceID, GroupName, GroupDescription, UserID, EnterTime);
+        }
+        
+        public System.IO.MemoryStream GetOneGroup(int IDGroup) {
+            return base.Channel.GetOneGroup(IDGroup);
+        }
+        
+        public System.Threading.Tasks.Task<System.IO.MemoryStream> GetOneGroupAsync(int IDGroup) {
+            return base.Channel.GetOneGroupAsync(IDGroup);
+        }
+        
+        public System.IO.MemoryStream GetAllGroup() {
+            return base.Channel.GetAllGroup();
+        }
+        
+        public System.Threading.Tasks.Task<System.IO.MemoryStream> GetAllGroupAsync() {
+            return base.Channel.GetAllGroupAsync();
+        }
+        
+        public System.IO.MemoryStream GetGroupByName(string NAME) {
+            return base.Channel.GetGroupByName(NAME);
+        }
+        
+        public System.Threading.Tasks.Task<System.IO.MemoryStream> GetGroupByNameAsync(string NAME) {
+            return base.Channel.GetGroupByNameAsync(NAME);
+        }
+        
+        public System.IO.MemoryStream DeleteGroup(int IDGROUP) {
+            return base.Channel.DeleteGroup(IDGROUP);
+        }
+        
+        public System.Threading.Tasks.Task<System.IO.MemoryStream> DeleteGroupAsync(int IDGROUP) {
+            return base.Channel.DeleteGroupAsync(IDGROUP);
+        }
+        
+        public bool CheckGroupItems(int IDGROUP) {
+            return base.Channel.CheckGroupItems(IDGROUP);
+        }
+        
+        public System.Threading.Tasks.Task<bool> CheckGroupItemsAsync(int IDGROUP) {
+            return base.Channel.CheckGroupItemsAsync(IDGROUP);
+        }
+        
+        public System.IO.MemoryStream GetSourecGroup() {
+            return base.Channel.GetSourecGroup();
+        }
+        
+        public System.Threading.Tasks.Task<System.IO.MemoryStream> GetSourecGroupAsync() {
+            return base.Channel.GetSourecGroupAsync();
+        }
+        
+        public int GetMaxIDGroup() {
+            return base.Channel.GetMaxIDGroup();
+        }
+        
+        public System.Threading.Tasks.Task<int> GetMaxIDGroupAsync() {
+            return base.Channel.GetMaxIDGroupAsync();
+        }
+        
+        public int UpdateGroup(int ID, int GroupSourceID, string GroupName, string GroupDescription, int UserID) {
+            return base.Channel.UpdateGroup(ID, GroupSourceID, GroupName, GroupDescription, UserID);
+        }
+        
+        public System.Threading.Tasks.Task<int> UpdateGroupAsync(int ID, int GroupSourceID, string GroupName, string GroupDescription, int UserID) {
+            return base.Channel.UpdateGroupAsync(ID, GroupSourceID, GroupName, GroupDescription, UserID);
+        }
+        
+        public System.IO.MemoryStream GetAllAccountSubNoInGroup(int GroupID) {
+            return base.Channel.GetAllAccountSubNoInGroup(GroupID);
+        }
+        
+        public System.Threading.Tasks.Task<System.IO.MemoryStream> GetAllAccountSubNoInGroupAsync(int GroupID) {
+            return base.Channel.GetAllAccountSubNoInGroupAsync(GroupID);
+        }
+        
+        public System.IO.MemoryStream GetAllAccountSubInGroup(int GroupID) {
+            return base.Channel.GetAllAccountSubInGroup(GroupID);
+        }
+        
+        public System.Threading.Tasks.Task<System.IO.MemoryStream> GetAllAccountSubInGroupAsync(int GroupID) {
+            return base.Channel.GetAllAccountSubInGroupAsync(GroupID);
+        }
+        
+        public int DeleteItemsONGroupDetalis(int IDGroup) {
+            return base.Channel.DeleteItemsONGroupDetalis(IDGroup);
+        }
+        
+        public System.Threading.Tasks.Task<int> DeleteItemsONGroupDetalisAsync(int IDGroup) {
+            return base.Channel.DeleteItemsONGroupDetalisAsync(IDGroup);
+        }
+        
+        public int AddItemsONGroupDetalis(int IDGroup, int IDItems, int UserID) {
+            return base.Channel.AddItemsONGroupDetalis(IDGroup, IDItems, UserID);
+        }
+        
+        public System.Threading.Tasks.Task<int> AddItemsONGroupDetalisAsync(int IDGroup, int IDItems, int UserID) {
+            return base.Channel.AddItemsONGroupDetalisAsync(IDGroup, IDItems, UserID);
+        }
+        
+        public int AddConnectionAccountwithPlace(int palce, int idMadeen, int idDaan) {
+            return base.Channel.AddConnectionAccountwithPlace(palce, idMadeen, idDaan);
+        }
+        
+        public System.Threading.Tasks.Task<int> AddConnectionAccountwithPlaceAsync(int palce, int idMadeen, int idDaan) {
+            return base.Channel.AddConnectionAccountwithPlaceAsync(palce, idMadeen, idDaan);
+        }
+        
+        public int UpdateConnectionAccountwithPlace(int ID, int palce, int idMadeen, int idDaan) {
+            return base.Channel.UpdateConnectionAccountwithPlace(ID, palce, idMadeen, idDaan);
+        }
+        
+        public System.Threading.Tasks.Task<int> UpdateConnectionAccountwithPlaceAsync(int ID, int palce, int idMadeen, int idDaan) {
+            return base.Channel.UpdateConnectionAccountwithPlaceAsync(ID, palce, idMadeen, idDaan);
+        }
+        
+        public int DeleteConnectionAccountwithPlace(int ID) {
+            return base.Channel.DeleteConnectionAccountwithPlace(ID);
+        }
+        
+        public System.Threading.Tasks.Task<int> DeleteConnectionAccountwithPlaceAsync(int ID) {
+            return base.Channel.DeleteConnectionAccountwithPlaceAsync(ID);
+        }
+        
+        public System.IO.MemoryStream GetConnectionAccountwithPlace() {
+            return base.Channel.GetConnectionAccountwithPlace();
+        }
+        
+        public System.Threading.Tasks.Task<System.IO.MemoryStream> GetConnectionAccountwithPlaceAsync() {
+            return base.Channel.GetConnectionAccountwithPlaceAsync();
+        }
+        
+        public System.IO.MemoryStream GetAllCategoryARWithAccount() {
+            return base.Channel.GetAllCategoryARWithAccount();
+        }
+        
+        public System.Threading.Tasks.Task<System.IO.MemoryStream> GetAllCategoryARWithAccountAsync() {
+            return base.Channel.GetAllCategoryARWithAccountAsync();
+        }
+        
+        public System.IO.MemoryStream GetGroupsCate() {
+            return base.Channel.GetGroupsCate();
+        }
+        
+        public System.Threading.Tasks.Task<System.IO.MemoryStream> GetGroupsCateAsync() {
+            return base.Channel.GetGroupsCateAsync();
+        }
+        
+        public System.IO.MemoryStream GetAllUserinReprt() {
+            return base.Channel.GetAllUserinReprt();
+        }
+        
+        public System.Threading.Tasks.Task<System.IO.MemoryStream> GetAllUserinReprtAsync() {
+            return base.Channel.GetAllUserinReprtAsync();
+        }
+        
+        public System.IO.MemoryStream GetAllUserAR() {
+            return base.Channel.GetAllUserAR();
+        }
+        
+        public System.Threading.Tasks.Task<System.IO.MemoryStream> GetAllUserARAsync() {
+            return base.Channel.GetAllUserARAsync();
+        }
+        
+        public System.IO.MemoryStream PrintRequstRPT(System.DateTime d1, System.DateTime d2, int IDCate, int IDType, int IDCurrn, string txt, int iduser) {
+            return base.Channel.PrintRequstRPT(d1, d2, IDCate, IDType, IDCurrn, txt, iduser);
+        }
+        
+        public System.Threading.Tasks.Task<System.IO.MemoryStream> PrintRequstRPTAsync(System.DateTime d1, System.DateTime d2, int IDCate, int IDType, int IDCurrn, string txt, int iduser) {
+            return base.Channel.PrintRequstRPTAsync(d1, d2, IDCate, IDType, IDCurrn, txt, iduser);
+        }
+        
+        public System.IO.MemoryStream PrintRequstRPTAll(System.DateTime d1, System.DateTime d2, string txt) {
+            return base.Channel.PrintRequstRPTAll(d1, d2, txt);
+        }
+        
+        public System.Threading.Tasks.Task<System.IO.MemoryStream> PrintRequstRPTAllAsync(System.DateTime d1, System.DateTime d2, string txt) {
+            return base.Channel.PrintRequstRPTAllAsync(d1, d2, txt);
+        }
+        
+        public System.IO.MemoryStream PrintRequstRPTIDcat(System.DateTime d1, System.DateTime d2, string txt, int IDCate) {
+            return base.Channel.PrintRequstRPTIDcat(d1, d2, txt, IDCate);
+        }
+        
+        public System.Threading.Tasks.Task<System.IO.MemoryStream> PrintRequstRPTIDcatAsync(System.DateTime d1, System.DateTime d2, string txt, int IDCate) {
+            return base.Channel.PrintRequstRPTIDcatAsync(d1, d2, txt, IDCate);
+        }
+        
+        public System.IO.MemoryStream PrintOutAllwithDate(int idca, int idtyp, int idpalce, int idcurrnt, string name, System.DateTime d1, System.DateTime d2, int iduser) {
+            return base.Channel.PrintOutAllwithDate(idca, idtyp, idpalce, idcurrnt, name, d1, d2, iduser);
+        }
+        
+        public System.Threading.Tasks.Task<System.IO.MemoryStream> PrintOutAllwithDateAsync(int idca, int idtyp, int idpalce, int idcurrnt, string name, System.DateTime d1, System.DateTime d2, int iduser) {
+            return base.Channel.PrintOutAllwithDateAsync(idca, idtyp, idpalce, idcurrnt, name, d1, d2, iduser);
+        }
+        
+        public System.IO.MemoryStream PrintOutAllwithDateAll(string name, System.DateTime d1, System.DateTime d2) {
+            return base.Channel.PrintOutAllwithDateAll(name, d1, d2);
+        }
+        
+        public System.Threading.Tasks.Task<System.IO.MemoryStream> PrintOutAllwithDateAllAsync(string name, System.DateTime d1, System.DateTime d2) {
+            return base.Channel.PrintOutAllwithDateAllAsync(name, d1, d2);
+        }
+        
+        public System.IO.MemoryStream PrintOutAllwithDateWithIDca(string name, System.DateTime d1, System.DateTime d2, int idca) {
+            return base.Channel.PrintOutAllwithDateWithIDca(name, d1, d2, idca);
+        }
+        
+        public System.Threading.Tasks.Task<System.IO.MemoryStream> PrintOutAllwithDateWithIDcaAsync(string name, System.DateTime d1, System.DateTime d2, int idca) {
+            return base.Channel.PrintOutAllwithDateWithIDcaAsync(name, d1, d2, idca);
+        }
+        
+        public System.IO.MemoryStream PrintOutAllwithDateWithIDcaPLAC(string name, System.DateTime d1, System.DateTime d2, int idca, int idpalce) {
+            return base.Channel.PrintOutAllwithDateWithIDcaPLAC(name, d1, d2, idca, idpalce);
+        }
+        
+        public System.Threading.Tasks.Task<System.IO.MemoryStream> PrintOutAllwithDateWithIDcaPLACAsync(string name, System.DateTime d1, System.DateTime d2, int idca, int idpalce) {
+            return base.Channel.PrintOutAllwithDateWithIDcaPLACAsync(name, d1, d2, idca, idpalce);
+        }
+        
+        public System.IO.MemoryStream PrintOutAllwithDateWithPLAC(string name, System.DateTime d1, System.DateTime d2, int idpalce) {
+            return base.Channel.PrintOutAllwithDateWithPLAC(name, d1, d2, idpalce);
+        }
+        
+        public System.Threading.Tasks.Task<System.IO.MemoryStream> PrintOutAllwithDateWithPLACAsync(string name, System.DateTime d1, System.DateTime d2, int idpalce) {
+            return base.Channel.PrintOutAllwithDateWithPLACAsync(name, d1, d2, idpalce);
+        }
+        
+        public System.IO.MemoryStream PrintAccountQuntity(int idcat, int idtyp, int idcu) {
+            return base.Channel.PrintAccountQuntity(idcat, idtyp, idcu);
+        }
+        
+        public System.Threading.Tasks.Task<System.IO.MemoryStream> PrintAccountQuntityAsync(int idcat, int idtyp, int idcu) {
+            return base.Channel.PrintAccountQuntityAsync(idcat, idtyp, idcu);
+        }
+        
+        public System.IO.MemoryStream PrintAccountQuntityIDac(int idcu) {
+            return base.Channel.PrintAccountQuntityIDac(idcu);
+        }
+        
+        public System.Threading.Tasks.Task<System.IO.MemoryStream> PrintAccountQuntityIDacAsync(int idcu) {
+            return base.Channel.PrintAccountQuntityIDacAsync(idcu);
+        }
+        
+        public System.IO.MemoryStream PrintAccountQuntityWithGroup(int IDGroup) {
+            return base.Channel.PrintAccountQuntityWithGroup(IDGroup);
+        }
+        
+        public System.Threading.Tasks.Task<System.IO.MemoryStream> PrintAccountQuntityWithGroupAsync(int IDGroup) {
+            return base.Channel.PrintAccountQuntityWithGroupAsync(IDGroup);
+        }
+        
+        public System.IO.MemoryStream PrintAccountQuntityAll() {
+            return base.Channel.PrintAccountQuntityAll();
+        }
+        
+        public System.Threading.Tasks.Task<System.IO.MemoryStream> PrintAccountQuntityAllAsync() {
+            return base.Channel.PrintAccountQuntityAllAsync();
+        }
+        
+        public System.IO.MemoryStream GetUpdateSupplyByIDSupply(int Id) {
+            return base.Channel.GetUpdateSupplyByIDSupply(Id);
+        }
+        
+        public System.Threading.Tasks.Task<System.IO.MemoryStream> GetUpdateSupplyByIDSupplyAsync(int Id) {
+            return base.Channel.GetUpdateSupplyByIDSupplyAsync(Id);
+        }
+        
+        public System.IO.MemoryStream GetUpdateSupplyByDate(System.DateTime d1, System.DateTime d2) {
+            return base.Channel.GetUpdateSupplyByDate(d1, d2);
+        }
+        
+        public System.Threading.Tasks.Task<System.IO.MemoryStream> GetUpdateSupplyByDateAsync(System.DateTime d1, System.DateTime d2) {
+            return base.Channel.GetUpdateSupplyByDateAsync(d1, d2);
+        }
+        
+        public System.IO.MemoryStream GetUpdateSupplyByDateUpdateWithDate(System.DateTime d1, System.DateTime d2) {
+            return base.Channel.GetUpdateSupplyByDateUpdateWithDate(d1, d2);
+        }
+        
+        public System.Threading.Tasks.Task<System.IO.MemoryStream> GetUpdateSupplyByDateUpdateWithDateAsync(System.DateTime d1, System.DateTime d2) {
+            return base.Channel.GetUpdateSupplyByDateUpdateWithDateAsync(d1, d2);
         }
         
         public void SENDUSERTOSERVER(int falg, int SessionID, System.DateTime start, System.DateTime end, string NameMachine, string UserWindow, string OSVersion, string NameUser, int USerID) {
@@ -2761,6 +2607,174 @@ namespace Users.ServiceReference1 {
         
         public System.Threading.Tasks.Task<System.IO.MemoryStream> SearchINRequsetOutTxtAndDate2Async(string s, System.DateTime d1, System.DateTime d2) {
             return base.Channel.SearchINRequsetOutTxtAndDate2Async(s, d1, d2);
+        }
+        
+        public string GetUserNameBYIdUser(int IdUser) {
+            return base.Channel.GetUserNameBYIdUser(IdUser);
+        }
+        
+        public System.Threading.Tasks.Task<string> GetUserNameBYIdUserAsync(int IdUser) {
+            return base.Channel.GetUserNameBYIdUserAsync(IdUser);
+        }
+        
+        public System.IO.MemoryStream GetRequstOutSngle(int IDOutRequst) {
+            return base.Channel.GetRequstOutSngle(IDOutRequst);
+        }
+        
+        public System.Threading.Tasks.Task<System.IO.MemoryStream> GetRequstOutSngleAsync(int IDOutRequst) {
+            return base.Channel.GetRequstOutSngleAsync(IDOutRequst);
+        }
+        
+        public int AddNewUpdOut(int IDOut, int IdCate, int IdType, int IdPlace, int Quntity, string NameOUt, string NameSend, int Price, int IdCurrent, string TxtReson, System.DateTime DateUpdate, int UserId) {
+            return base.Channel.AddNewUpdOut(IDOut, IdCate, IdType, IdPlace, Quntity, NameOUt, NameSend, Price, IdCurrent, TxtReson, DateUpdate, UserId);
+        }
+        
+        public System.Threading.Tasks.Task<int> AddNewUpdOutAsync(int IDOut, int IdCate, int IdType, int IdPlace, int Quntity, string NameOUt, string NameSend, int Price, int IdCurrent, string TxtReson, System.DateTime DateUpdate, int UserId) {
+            return base.Channel.AddNewUpdOutAsync(IDOut, IdCate, IdType, IdPlace, Quntity, NameOUt, NameSend, Price, IdCurrent, TxtReson, DateUpdate, UserId);
+        }
+        
+        public int CheckAccountIsHere(int IDCategory, int IDType, int price, int idcurrnt) {
+            return base.Channel.CheckAccountIsHere(IDCategory, IDType, price, idcurrnt);
+        }
+        
+        public System.Threading.Tasks.Task<int> CheckAccountIsHereAsync(int IDCategory, int IDType, int price, int idcurrnt) {
+            return base.Channel.CheckAccountIsHereAsync(IDCategory, IDType, price, idcurrnt);
+        }
+        
+        public int DeleteRqustOut(int IdRequstOut, int IdUser) {
+            return base.Channel.DeleteRqustOut(IdRequstOut, IdUser);
+        }
+        
+        public System.Threading.Tasks.Task<int> DeleteRqustOutAsync(int IdRequstOut, int IdUser) {
+            return base.Channel.DeleteRqustOutAsync(IdRequstOut, IdUser);
+        }
+        
+        public int UpdateRequstOut(int IDOut, int IdPlace, string NameOut, string NameSend, string Reson, System.DateTime d1, int UserId, int debt, int crd) {
+            return base.Channel.UpdateRequstOut(IDOut, IdPlace, NameOut, NameSend, Reson, d1, UserId, debt, crd);
+        }
+        
+        public System.Threading.Tasks.Task<int> UpdateRequstOutAsync(int IDOut, int IdPlace, string NameOut, string NameSend, string Reson, System.DateTime d1, int UserId, int debt, int crd) {
+            return base.Channel.UpdateRequstOutAsync(IDOut, IdPlace, NameOut, NameSend, Reson, d1, UserId, debt, crd);
+        }
+        
+        public int GetMAxIDOUt() {
+            return base.Channel.GetMAxIDOUt();
+        }
+        
+        public System.Threading.Tasks.Task<int> GetMAxIDOUtAsync() {
+            return base.Channel.GetMAxIDOUtAsync();
+        }
+        
+        public System.IO.MemoryStream GetALLAcountNm() {
+            return base.Channel.GetALLAcountNm();
+        }
+        
+        public System.Threading.Tasks.Task<System.IO.MemoryStream> GetALLAcountNmAsync() {
+            return base.Channel.GetALLAcountNmAsync();
+        }
+        
+        public bool CheckAccontTotalInOut(int IDcode, int IDCurrncy) {
+            return base.Channel.CheckAccontTotalInOut(IDcode, IDCurrncy);
+        }
+        
+        public System.Threading.Tasks.Task<bool> CheckAccontTotalInOutAsync(int IDcode, int IDCurrncy) {
+            return base.Channel.CheckAccontTotalInOutAsync(IDcode, IDCurrncy);
+        }
+        
+        public int AddNewAccountTotalInOut(int IDCOde, int Mony, int idCurrncy) {
+            return base.Channel.AddNewAccountTotalInOut(IDCOde, Mony, idCurrncy);
+        }
+        
+        public System.Threading.Tasks.Task<int> AddNewAccountTotalInOutAsync(int IDCOde, int Mony, int idCurrncy) {
+            return base.Channel.AddNewAccountTotalInOutAsync(IDCOde, Mony, idCurrncy);
+        }
+        
+        public int GetBalanceInOut(int Idcode, int IDCur) {
+            return base.Channel.GetBalanceInOut(Idcode, IDCur);
+        }
+        
+        public System.Threading.Tasks.Task<int> GetBalanceInOutAsync(int Idcode, int IDCur) {
+            return base.Channel.GetBalanceInOutAsync(Idcode, IDCur);
+        }
+        
+        public int UpdateAccountTotalInOut(int IDCOde, int Mony, int idCurrncy) {
+            return base.Channel.UpdateAccountTotalInOut(IDCOde, Mony, idCurrncy);
+        }
+        
+        public System.Threading.Tasks.Task<int> UpdateAccountTotalInOutAsync(int IDCOde, int Mony, int idCurrncy) {
+            return base.Channel.UpdateAccountTotalInOutAsync(IDCOde, Mony, idCurrncy);
+        }
+        
+        public int AddNewAccountDetalisInOut(int idcode, int monay, int idsupply, int idout, string Detalis, System.DateTime d1, int userid, int idcurrn) {
+            return base.Channel.AddNewAccountDetalisInOut(idcode, monay, idsupply, idout, Detalis, d1, userid, idcurrn);
+        }
+        
+        public System.Threading.Tasks.Task<int> AddNewAccountDetalisInOutAsync(int idcode, int monay, int idsupply, int idout, string Detalis, System.DateTime d1, int userid, int idcurrn) {
+            return base.Channel.AddNewAccountDetalisInOutAsync(idcode, monay, idsupply, idout, Detalis, d1, userid, idcurrn);
+        }
+        
+        public int DeleteSuuplyFrmAccountDitalis(int idSupply) {
+            return base.Channel.DeleteSuuplyFrmAccountDitalis(idSupply);
+        }
+        
+        public System.Threading.Tasks.Task<int> DeleteSuuplyFrmAccountDitalisAsync(int idSupply) {
+            return base.Channel.DeleteSuuplyFrmAccountDitalisAsync(idSupply);
+        }
+        
+        public int DeleteSuuplyFrmAccountDitalis2(int idout) {
+            return base.Channel.DeleteSuuplyFrmAccountDitalis2(idout);
+        }
+        
+        public System.Threading.Tasks.Task<int> DeleteSuuplyFrmAccountDitalis2Async(int idout) {
+            return base.Channel.DeleteSuuplyFrmAccountDitalis2Async(idout);
+        }
+        
+        public int GetIDAccountPalce(int IDACcount, int idplace) {
+            return base.Channel.GetIDAccountPalce(IDACcount, idplace);
+        }
+        
+        public System.Threading.Tasks.Task<int> GetIDAccountPalceAsync(int IDACcount, int idplace) {
+            return base.Channel.GetIDAccountPalceAsync(IDACcount, idplace);
+        }
+        
+        public int GetIdUserINSupply(string NameUser) {
+            return base.Channel.GetIdUserINSupply(NameUser);
+        }
+        
+        public System.Threading.Tasks.Task<int> GetIdUserINSupplyAsync(string NameUser) {
+            return base.Channel.GetIdUserINSupplyAsync(NameUser);
+        }
+        
+        public string GetUserNameBYIdUserINSupply(int IdUser) {
+            return base.Channel.GetUserNameBYIdUserINSupply(IdUser);
+        }
+        
+        public System.Threading.Tasks.Task<string> GetUserNameBYIdUserINSupplyAsync(int IdUser) {
+            return base.Channel.GetUserNameBYIdUserINSupplyAsync(IdUser);
+        }
+        
+        public System.IO.MemoryStream PrintRequstSupply(int IDreqSup, int UserId, int user) {
+            return base.Channel.PrintRequstSupply(IDreqSup, UserId, user);
+        }
+        
+        public System.Threading.Tasks.Task<System.IO.MemoryStream> PrintRequstSupplyAsync(int IDreqSup, int UserId, int user) {
+            return base.Channel.PrintRequstSupplyAsync(IDreqSup, UserId, user);
+        }
+        
+        public System.IO.MemoryStream printrequstOutExit1(int IDreqSup, int UserId, int user) {
+            return base.Channel.printrequstOutExit1(IDreqSup, UserId, user);
+        }
+        
+        public System.Threading.Tasks.Task<System.IO.MemoryStream> printrequstOutExit1Async(int IDreqSup, int UserId, int user) {
+            return base.Channel.printrequstOutExit1Async(IDreqSup, UserId, user);
+        }
+        
+        public int GetAccountLinkCateInSupply(int IDcate) {
+            return base.Channel.GetAccountLinkCateInSupply(IDcate);
+        }
+        
+        public System.Threading.Tasks.Task<int> GetAccountLinkCateInSupplyAsync(int IDcate) {
+            return base.Channel.GetAccountLinkCateInSupplyAsync(IDcate);
         }
     }
 }

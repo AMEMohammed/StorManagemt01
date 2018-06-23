@@ -53,3 +53,6 @@ E:\programming\StoreManagemntWithHost\StoreMaga0101\Host\WindowsFormsHosttcp\obj
 E:\programming\StoreManagemntWithHost\StoreMaga0101\Host\WindowsFormsHosttcp\obj\Debug\WindowsFormsHosttcp.pdb
 D:\programing1\StoreMaga0101\Host\WindowsFormsHosttcp\bin\Debug\SettingsPcConnection.dll
 D:\programing1\StoreMaga0101\Host\WindowsFormsHosttcp\bin\Debug\SettingsPcConnection.pdb
+D:\programing1\StoreMaga0101\StroeMaga0101hostFroms\Host\WindowsFormsHosttcp\bin\Debug\WindowsFormsHosttcp.exe.config
+D:\programing1\StoreMaga0101\StroeMaga0101hostFroms\Host\WindowsFormsHosttcp\obj\Debug\WindowsFormsHosttcp.exe
+D:\programing1\StoreMaga0101\StroeMaga0101hostFroms\Host\WindowsFormsHosttcp\obj\Debug\WindowsFormsHosttcp.pdb

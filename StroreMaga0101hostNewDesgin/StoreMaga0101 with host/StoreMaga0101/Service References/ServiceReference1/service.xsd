@@ -1,6 +1,771 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import namespace="http://schemas.datacontract.org/2004/07/System.IO" />
+  <xs:element name="GetUpdateSupplyByDateDeleteWithDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="d1" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="d2" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUpdateSupplyByDateDeleteWithDateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetUpdateSupplyByDateDeleteWithDateResult" nillable="true" type="q1:MemoryStream" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUpdtOutByIDOut">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idOUt" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUpdtOutByIDOutResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetUpdtOutByIDOutResult" nillable="true" type="q2:MemoryStream" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUpdOutByDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="d1" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="d2" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUpdOutByDateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetUpdOutByDateResult" nillable="true" type="q3:MemoryStream" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUpdOutByDateUpdtewithdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="d1" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="d2" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUpdOutByDateUpdtewithdateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetUpdOutByDateUpdtewithdateResult" nillable="true" type="q4:MemoryStream" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUpdOutByDateDetle2tewithdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="d1" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="d2" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUpdOutByDateDetle2tewithdateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetUpdOutByDateDetle2tewithdateResult" nillable="true" type="q5:MemoryStream" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddNewSession">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strat" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="end" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="OSversion" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="NameMachin" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="UserWindows" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="UserID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddNewSessionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddNewSessionResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateENDtimeSession">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IDSession" type="xs:int" />
+        <xs:element minOccurs="0" name="End" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateENDtimeSessionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateENDtimeSessionResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GETMAXIDSession">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GETMAXIDSessionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GETMAXIDSessionResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddNewRequsetSupply">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IDCategory" type="xs:int" />
+        <xs:element minOccurs="0" name="IDType" type="xs:int" />
+        <xs:element minOccurs="0" name="Quntity" type="xs:int" />
+        <xs:element minOccurs="0" name="Price" type="xs:int" />
+        <xs:element minOccurs="0" name="idcurrnt" type="xs:int" />
+        <xs:element minOccurs="0" name="NameSupply" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DescSupply" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DateSupply" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="IDuser" type="xs:int" />
+        <xs:element minOccurs="0" name="chek" type="xs:int" />
+        <xs:element minOccurs="0" name="debi" type="xs:int" />
+        <xs:element minOccurs="0" name="cred" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddNewRequsetSupplyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddNewRequsetSupplyResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMaxIdSupply">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMaxIdSupplyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetMaxIdSupplyResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchINRequsetSupplyDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="d1" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="d2" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchINRequsetSupplyDateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="SearchINRequsetSupplyDateResult" nillable="true" type="q6:MemoryStream" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllCreditorINSuplly">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllCreditorINSupllyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAllCreditorINSupllyResult" nillable="true" type="q7:MemoryStream" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckAccountIsHereInSuplly">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IDCategory" type="xs:int" />
+        <xs:element minOccurs="0" name="IDType" type="xs:int" />
+        <xs:element minOccurs="0" name="price" type="xs:int" />
+        <xs:element minOccurs="0" name="idcurrnt" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckAccountIsHereInSupllyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CheckAccountIsHereInSupllyResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateQuntityAccountInSuplly">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IDAccount" type="xs:int" />
+        <xs:element minOccurs="0" name="newquntity" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateQuntityAccountInSupllyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateQuntityAccountInSupllyResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddNewAccount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IDCategory" type="xs:int" />
+        <xs:element minOccurs="0" name="IDType" type="xs:int" />
+        <xs:element minOccurs="0" name="Quntity" type="xs:int" />
+        <xs:element minOccurs="0" name="Price" type="xs:int" />
+        <xs:element minOccurs="0" name="idcurrnt" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddNewAccountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddNewAccountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMaxCheckSupply">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMaxCheckSupplyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetMaxCheckSupplyResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllCategoryAR">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllCategoryARResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAllCategoryARResult" nillable="true" type="q8:MemoryStream" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllTypeQuntity">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllTypeQuntityResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAllTypeQuntityResult" nillable="true" type="q9:MemoryStream" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllCurrencyInSupply">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllCurrencyInSupplyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAllCurrencyInSupplyResult" nillable="true" type="q10:MemoryStream" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetQuntityInAccountInSupply">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IDAcount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetQuntityInAccountInSupplyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetQuntityInAccountInSupplyResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchINRequsetSupply">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="txt" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchINRequsetSupplyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="SearchINRequsetSupplyResult" nillable="true" type="q11:MemoryStream" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchINRequsetSupplyTxtAndDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="txt" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="d1" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="d2" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchINRequsetSupplyTxtAndDateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="SearchINRequsetSupplyTxtAndDateResult" nillable="true" type="q12:MemoryStream" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRequstSupply">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IDreqSup" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRequstSupplyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetRequstSupplyResult" nillable="true" type="q13:MemoryStream" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckQuntityISHereInCheckQuntity">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IDCategory" type="xs:int" />
+        <xs:element minOccurs="0" name="IDType" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckQuntityISHereInCheckQuntityResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CheckQuntityISHereInCheckQuntityResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ADDNewUPDSupply">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IDSup" type="xs:int" />
+        <xs:element minOccurs="0" name="IDCategory" type="xs:int" />
+        <xs:element minOccurs="0" name="IDType" type="xs:int" />
+        <xs:element minOccurs="0" name="Quntity" type="xs:int" />
+        <xs:element minOccurs="0" name="Price" type="xs:int" />
+        <xs:element minOccurs="0" name="idcunnt" type="xs:int" />
+        <xs:element minOccurs="0" name="NameSupply" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dateAdd" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="dateUpd" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="decNew" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userid" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ADDNewUPDSupplyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ADDNewUPDSupplyResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteRequstSupply">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteRequstSupplyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteRequstSupplyResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UPateRequstSupply">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IDSup" type="xs:int" />
+        <xs:element minOccurs="0" name="IDCategory" type="xs:int" />
+        <xs:element minOccurs="0" name="IDType" type="xs:int" />
+        <xs:element minOccurs="0" name="Quntity" type="xs:int" />
+        <xs:element minOccurs="0" name="Price" type="xs:int" />
+        <xs:element minOccurs="0" name="idcurrn" type="xs:int" />
+        <xs:element minOccurs="0" name="NameSupply" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DescSupply" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="debit" type="xs:int" />
+        <xs:element minOccurs="0" name="crd" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UPateRequstSupplyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UPateRequstSupplyResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetALLAcountNmInSupply">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetALLAcountNmInSupplyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetALLAcountNmInSupplyResult" nillable="true" type="q14:MemoryStream" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckAccontTotalInSuuly">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IDcode" type="xs:int" />
+        <xs:element minOccurs="0" name="IDCurrncy" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckAccontTotalInSuulyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CheckAccontTotalInSuulyResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddNewAccountTotalInSuuply">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IDCOde" type="xs:int" />
+        <xs:element minOccurs="0" name="Mony" type="xs:int" />
+        <xs:element minOccurs="0" name="idCurrncy" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddNewAccountTotalInSuuplyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddNewAccountTotalInSuuplyResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBalanceInSupply">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Idcode" type="xs:int" />
+        <xs:element minOccurs="0" name="IDCur" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBalanceInSupplyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetBalanceInSupplyResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateAccountTotalInSupply">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IDCOde" type="xs:int" />
+        <xs:element minOccurs="0" name="Mony" type="xs:int" />
+        <xs:element minOccurs="0" name="idCurrncy" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateAccountTotalInSupplyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateAccountTotalInSupplyResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddNewAccountDetalisINSupply">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idcode" type="xs:int" />
+        <xs:element minOccurs="0" name="monay" type="xs:int" />
+        <xs:element minOccurs="0" name="idsupply" type="xs:int" />
+        <xs:element minOccurs="0" name="idout" type="xs:int" />
+        <xs:element minOccurs="0" name="Detalis" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="d1" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="userid" type="xs:int" />
+        <xs:element minOccurs="0" name="idCurrnt" type="xs:int" />
+        <xs:element minOccurs="0" name="IDSimple" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddNewAccountDetalisINSupplyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddNewAccountDetalisINSupplyResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteSuuplyFrmAccountDitalisInSupply">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idSupply" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteSuuplyFrmAccountDitalisInSupplyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteSuuplyFrmAccountDitalisInSupplyResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteSuuplyFrmAccountDitalis2InSupply">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idout" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteSuuplyFrmAccountDitalis2InSupplyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteSuuplyFrmAccountDitalis2InSupplyResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCategoryByName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="NMCate" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCategoryByNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetCategoryByNameResult" nillable="true" type="q15:MemoryStream" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddNewCategory">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="NameCategory" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="IDAccount" nillable="true" type="xs:anyType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddNewCategoryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddNewCategoryResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMaxIDCate">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMaxIDCateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetMaxIDCateResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCategory">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="IDAccount" nillable="true" type="xs:anyType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCategoryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateCategoryResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteCategory">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteCategoryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteCategoryResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="chackCatagory">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IDCA" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="chackCatagoryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="chackCatagoryResult" nillable="true" type="q16:MemoryStream" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllTypeQuntityInConf">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllTypeQuntityInConfResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAllTypeQuntityInConfResult" nillable="true" type="q17:MemoryStream" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTypeQuntityByName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="nameTYPe" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTypeQuntityByNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetTypeQuntityByNameResult" nillable="true" type="q18:MemoryStream" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddNewTypeQuntity">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddNewTypeQuntityResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddNewTypeQuntityResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTypeQuntity">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTypeQuntityResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateTypeQuntityResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteQuntity">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteQuntityResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteQuntityResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="chackTapy">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IDtype" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="chackTapyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="chackTapyResult" nillable="true" type="q19:MemoryStream" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPlaceByName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="NAMEPLACE" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPlaceByNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetPlaceByNameResult" nillable="true" type="q20:MemoryStream" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddNewPlaceSend">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddNewPlaceSendResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddNewPlaceSendResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatePlaceSend">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatePlaceSendResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdatePlaceSendResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeletePlaceSend">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeletePlaceSendResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeletePlaceSendResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="chackPlace">
     <xs:complexType>
       <xs:sequence>
@@ -11,7 +776,7 @@
   <xs:element name="chackPlaceResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="chackPlaceResult" nillable="true" type="q1:MemoryStream" />
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="chackPlaceResult" nillable="true" type="q21:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -25,7 +790,7 @@
   <xs:element name="GETCurrencyBYNameResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GETCurrencyBYNameResult" nillable="true" type="q2:MemoryStream" />
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GETCurrencyBYNameResult" nillable="true" type="q22:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -82,7 +847,7 @@
   <xs:element name="chackCurncyResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="chackCurncyResult" nillable="true" type="q3:MemoryStream" />
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="chackCurncyResult" nillable="true" type="q23:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -114,7 +879,7 @@
   <xs:element name="GetOneGroupResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetOneGroupResult" nillable="true" type="q4:MemoryStream" />
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetOneGroupResult" nillable="true" type="q24:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -126,7 +891,7 @@
   <xs:element name="GetAllGroupResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAllGroupResult" nillable="true" type="q5:MemoryStream" />
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAllGroupResult" nillable="true" type="q25:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -140,7 +905,7 @@
   <xs:element name="GetGroupByNameResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetGroupByNameResult" nillable="true" type="q6:MemoryStream" />
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetGroupByNameResult" nillable="true" type="q26:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -154,7 +919,7 @@
   <xs:element name="DeleteGroupResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="DeleteGroupResult" nillable="true" type="q7:MemoryStream" />
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="DeleteGroupResult" nillable="true" type="q27:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -180,7 +945,7 @@
   <xs:element name="GetSourecGroupResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetSourecGroupResult" nillable="true" type="q8:MemoryStream" />
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetSourecGroupResult" nillable="true" type="q28:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -224,7 +989,7 @@
   <xs:element name="GetAllAccountSubNoInGroupResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAllAccountSubNoInGroupResult" nillable="true" type="q9:MemoryStream" />
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAllAccountSubNoInGroupResult" nillable="true" type="q29:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -238,7 +1003,7 @@
   <xs:element name="GetAllAccountSubInGroupResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAllAccountSubInGroupResult" nillable="true" type="q10:MemoryStream" />
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAllAccountSubInGroupResult" nillable="true" type="q30:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -327,7 +1092,19 @@
   <xs:element name="GetConnectionAccountwithPlaceResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetConnectionAccountwithPlaceResult" nillable="true" type="q11:MemoryStream" />
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetConnectionAccountwithPlaceResult" nillable="true" type="q31:MemoryStream" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllCategoryARWithAccount">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllCategoryARWithAccountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAllCategoryARWithAccountResult" nillable="true" type="q32:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -339,7 +1116,7 @@
   <xs:element name="GetGroupsCateResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetGroupsCateResult" nillable="true" type="q12:MemoryStream" />
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetGroupsCateResult" nillable="true" type="q33:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -351,7 +1128,7 @@
   <xs:element name="GetAllUserinReprtResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAllUserinReprtResult" nillable="true" type="q13:MemoryStream" />
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAllUserinReprtResult" nillable="true" type="q34:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -363,7 +1140,7 @@
   <xs:element name="GetAllUserARResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAllUserARResult" nillable="true" type="q14:MemoryStream" />
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAllUserARResult" nillable="true" type="q35:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -383,7 +1160,7 @@
   <xs:element name="PrintRequstRPTResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="PrintRequstRPTResult" nillable="true" type="q15:MemoryStream" />
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="PrintRequstRPTResult" nillable="true" type="q36:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -399,7 +1176,7 @@
   <xs:element name="PrintRequstRPTAllResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="PrintRequstRPTAllResult" nillable="true" type="q16:MemoryStream" />
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="PrintRequstRPTAllResult" nillable="true" type="q37:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -416,7 +1193,7 @@
   <xs:element name="PrintRequstRPTIDcatResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="PrintRequstRPTIDcatResult" nillable="true" type="q17:MemoryStream" />
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="PrintRequstRPTIDcatResult" nillable="true" type="q38:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -437,7 +1214,7 @@
   <xs:element name="PrintOutAllwithDateResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="PrintOutAllwithDateResult" nillable="true" type="q18:MemoryStream" />
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="PrintOutAllwithDateResult" nillable="true" type="q39:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -453,7 +1230,7 @@
   <xs:element name="PrintOutAllwithDateAllResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="PrintOutAllwithDateAllResult" nillable="true" type="q19:MemoryStream" />
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="PrintOutAllwithDateAllResult" nillable="true" type="q40:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -470,7 +1247,7 @@
   <xs:element name="PrintOutAllwithDateWithIDcaResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="PrintOutAllwithDateWithIDcaResult" nillable="true" type="q20:MemoryStream" />
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="PrintOutAllwithDateWithIDcaResult" nillable="true" type="q41:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -488,7 +1265,7 @@
   <xs:element name="PrintOutAllwithDateWithIDcaPLACResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="PrintOutAllwithDateWithIDcaPLACResult" nillable="true" type="q21:MemoryStream" />
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="PrintOutAllwithDateWithIDcaPLACResult" nillable="true" type="q42:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -505,7 +1282,7 @@
   <xs:element name="PrintOutAllwithDateWithPLACResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="PrintOutAllwithDateWithPLACResult" nillable="true" type="q22:MemoryStream" />
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="PrintOutAllwithDateWithPLACResult" nillable="true" type="q43:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -521,7 +1298,7 @@
   <xs:element name="PrintAccountQuntityResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="PrintAccountQuntityResult" nillable="true" type="q23:MemoryStream" />
+        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="PrintAccountQuntityResult" nillable="true" type="q44:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -535,7 +1312,7 @@
   <xs:element name="PrintAccountQuntityIDacResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="PrintAccountQuntityIDacResult" nillable="true" type="q24:MemoryStream" />
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="PrintAccountQuntityIDacResult" nillable="true" type="q45:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -549,7 +1326,7 @@
   <xs:element name="PrintAccountQuntityWithGroupResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="PrintAccountQuntityWithGroupResult" nillable="true" type="q25:MemoryStream" />
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="PrintAccountQuntityWithGroupResult" nillable="true" type="q46:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -561,7 +1338,7 @@
   <xs:element name="PrintAccountQuntityAllResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="PrintAccountQuntityAllResult" nillable="true" type="q26:MemoryStream" />
+        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="PrintAccountQuntityAllResult" nillable="true" type="q47:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -575,7 +1352,7 @@
   <xs:element name="GetUpdateSupplyByIDSupplyResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetUpdateSupplyByIDSupplyResult" nillable="true" type="q27:MemoryStream" />
+        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetUpdateSupplyByIDSupplyResult" nillable="true" type="q48:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -590,7 +1367,7 @@
   <xs:element name="GetUpdateSupplyByDateResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetUpdateSupplyByDateResult" nillable="true" type="q28:MemoryStream" />
+        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetUpdateSupplyByDateResult" nillable="true" type="q49:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -605,127 +1382,1008 @@
   <xs:element name="GetUpdateSupplyByDateUpdateWithDateResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetUpdateSupplyByDateUpdateWithDateResult" nillable="true" type="q29:MemoryStream" />
+        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetUpdateSupplyByDateUpdateWithDateResult" nillable="true" type="q50:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetUpdateSupplyByDateDeleteWithDate">
+  <xs:element name="SENDUSERTOSERVER">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="d1" type="xs:dateTime" />
-        <xs:element minOccurs="0" name="d2" type="xs:dateTime" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetUpdateSupplyByDateDeleteWithDateResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetUpdateSupplyByDateDeleteWithDateResult" nillable="true" type="q30:MemoryStream" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetUpdtOutByIDOut">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="idOUt" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetUpdtOutByIDOutResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetUpdtOutByIDOutResult" nillable="true" type="q31:MemoryStream" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetUpdOutByDate">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="d1" type="xs:dateTime" />
-        <xs:element minOccurs="0" name="d2" type="xs:dateTime" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetUpdOutByDateResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetUpdOutByDateResult" nillable="true" type="q32:MemoryStream" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetUpdOutByDateUpdtewithdate">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="d1" type="xs:dateTime" />
-        <xs:element minOccurs="0" name="d2" type="xs:dateTime" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetUpdOutByDateUpdtewithdateResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetUpdOutByDateUpdtewithdateResult" nillable="true" type="q33:MemoryStream" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetUpdOutByDateDetle2tewithdate">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="d1" type="xs:dateTime" />
-        <xs:element minOccurs="0" name="d2" type="xs:dateTime" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetUpdOutByDateDetle2tewithdateResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetUpdOutByDateDetle2tewithdateResult" nillable="true" type="q34:MemoryStream" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="AddNewSession">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="strat" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="falg" type="xs:int" />
+        <xs:element minOccurs="0" name="SessionID" type="xs:int" />
+        <xs:element minOccurs="0" name="start" type="xs:dateTime" />
         <xs:element minOccurs="0" name="end" type="xs:dateTime" />
-        <xs:element minOccurs="0" name="OSversion" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="NameMachin" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="UserWindows" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="UserID" type="xs:int" />
+        <xs:element minOccurs="0" name="NameMachine" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="UserWindow" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="OSVersion" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="NameUser" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="USerID" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="AddNewSessionResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="AddNewSessionResult" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="UpdateENDtimeSession">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="IDSession" type="xs:int" />
-        <xs:element minOccurs="0" name="End" type="xs:dateTime" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="UpdateENDtimeSessionResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="UpdateENDtimeSessionResult" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GETMAXIDSession">
+  <xs:element name="SENDUSERTOSERVERResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="GETMAXIDSessionResponse">
+  <xs:element name="LoginUser">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="GETMAXIDSessionResult" type="xs:int" />
+        <xs:element minOccurs="0" name="User" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Pass" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LoginUserResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddNewUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="user" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pass" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Addsupply" type="xs:boolean" />
+        <xs:element minOccurs="0" name="UpdSupply" type="xs:boolean" />
+        <xs:element minOccurs="0" name="Addoutt" type="xs:boolean" />
+        <xs:element minOccurs="0" name="updOut" type="xs:boolean" />
+        <xs:element minOccurs="0" name="PrintSupply" type="xs:boolean" />
+        <xs:element minOccurs="0" name="PrintOut" type="xs:boolean" />
+        <xs:element minOccurs="0" name="PrintQuntity" type="xs:boolean" />
+        <xs:element minOccurs="0" name="UpdSupp1" type="xs:boolean" />
+        <xs:element minOccurs="0" name="UpdOut1" type="xs:boolean" />
+        <xs:element minOccurs="0" name="userAdd" type="xs:boolean" />
+        <xs:element minOccurs="0" name="Active" type="xs:boolean" />
+        <xs:element minOccurs="0" name="Cate" type="xs:boolean" />
+        <xs:element minOccurs="0" name="type1" type="xs:boolean" />
+        <xs:element minOccurs="0" name="account" type="xs:boolean" />
+        <xs:element minOccurs="0" name="Monay" type="xs:boolean" />
+        <xs:element minOccurs="0" name="Place" type="xs:boolean" />
+        <xs:element minOccurs="0" name="UserID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddNewUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddNewUserResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpatePassword">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idUser" type="xs:int" />
+        <xs:element minOccurs="0" name="Pass" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpatePasswordResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpatePasswordResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdUsers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IDUser" type="xs:int" />
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="user" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pass" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Addsupply" type="xs:boolean" />
+        <xs:element minOccurs="0" name="UpdSupply" type="xs:boolean" />
+        <xs:element minOccurs="0" name="Addoutt" type="xs:boolean" />
+        <xs:element minOccurs="0" name="updOut" type="xs:boolean" />
+        <xs:element minOccurs="0" name="PrintSupply" type="xs:boolean" />
+        <xs:element minOccurs="0" name="PrintOut" type="xs:boolean" />
+        <xs:element minOccurs="0" name="PrintQuntity" type="xs:boolean" />
+        <xs:element minOccurs="0" name="UpdSupp1" type="xs:boolean" />
+        <xs:element minOccurs="0" name="UpdOut1" type="xs:boolean" />
+        <xs:element minOccurs="0" name="userAdd" type="xs:boolean" />
+        <xs:element minOccurs="0" name="Active" type="xs:boolean" />
+        <xs:element minOccurs="0" name="Cate" type="xs:boolean" />
+        <xs:element minOccurs="0" name="type1" type="xs:boolean" />
+        <xs:element minOccurs="0" name="account" type="xs:boolean" />
+        <xs:element minOccurs="0" name="Monay" type="xs:boolean" />
+        <xs:element minOccurs="0" name="Place" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdUsersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdUsersResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllUser">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAllUserResult" nillable="true" type="q51:MemoryStream" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IdUs" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetUserResult" nillable="true" type="q52:MemoryStream" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllAccount">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllAccountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAllAccountResult" nillable="true" type="q53:MemoryStream" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllAcountnAr">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllAcountnArResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q54="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAllAcountnArResult" nillable="true" type="q54:MemoryStream" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateAccountNm">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="iDAccounNm" type="xs:int" />
+        <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="active" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateAccountNmResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateAccountNmResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckAccountinDetlis">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idcode" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckAccountinDetlisResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CheckAccountinDetlisResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckAccounthaschalid">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idcode" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckAccounthaschalidResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CheckAccounthaschalidResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TypeAccount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IDAccount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TypeAccountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="TypeAccountResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCheckAccount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IDAccount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCheckAccountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetCheckAccountResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCheckAccountHere">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IDAccount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCheckAccountHereResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetCheckAccountHereResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMaxCode">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CodeParent" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMaxCodeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetMaxCodeResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddNewAcountNm">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AcountNm" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="IdCOde" type="xs:int" />
+        <xs:element minOccurs="0" name="IdParnt" type="xs:int" />
+        <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Active" type="xs:int" />
+        <xs:element minOccurs="0" name="DateStart" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="UserId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddNewAcountNmResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddNewAcountNmResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DelteAccount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IDCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DelteAccountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DelteAccountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DelteAccount2">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IDcode" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DelteAccount2Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DelteAccount2Result" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchAcount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchAcountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="SearchAcountResult" nillable="true" type="q55:MemoryStream" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GETALLAccountPrime">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GETALLAccountPrimeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q56="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GETALLAccountPrimeResult" nillable="true" type="q56:MemoryStream" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GETALLAccountSub">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GETALLAccountSubResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q57="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GETALLAccountSubResult" nillable="true" type="q57:MemoryStream" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllCurrency">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllCurrencyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q58="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAllCurrencyResult" nillable="true" type="q58:MemoryStream" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBalanceAccount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IDcode" type="xs:int" />
+        <xs:element minOccurs="0" name="IDCurrncy" type="xs:int" />
+        <xs:element minOccurs="0" name="NmIDcurrmcy" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBalanceAccountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q59="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetBalanceAccountResult" nillable="true" type="q59:MemoryStream" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBalanceAccountALLCunncy">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IDcode" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBalanceAccountALLCunncyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q60="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetBalanceAccountALLCunncyResult" nillable="true" type="q60:MemoryStream" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GETNMCurrncy">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IDCur" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GETNMCurrncyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GETNMCurrncyResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBalanceALLAccountALLCunncy">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idcurrncy" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBalanceALLAccountALLCunncyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q61="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetBalanceALLAccountALLCunncyResult" nillable="true" type="q61:MemoryStream" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GETNMAccount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IDCOde" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GETNMAccountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q62="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GETNMAccountResult" nillable="true" type="q62:MemoryStream" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GETAccountDitalis">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IDcode" type="xs:int" />
+        <xs:element minOccurs="0" name="IDCurnncy" type="xs:int" />
+        <xs:element minOccurs="0" name="d1" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="d2" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GETAccountDitalisResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q63="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GETAccountDitalisResult" nillable="true" type="q63:MemoryStream" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getOldMony">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IDcode" type="xs:int" />
+        <xs:element minOccurs="0" name="IDCurnncy" type="xs:int" />
+        <xs:element minOccurs="0" name="d2" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getOldMonyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="getOldMonyResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GETAcountDitlis">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IDcode" type="xs:int" />
+        <xs:element minOccurs="0" name="IDCurnncy" type="xs:int" />
+        <xs:element minOccurs="0" name="d1" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="d2" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GETAcountDitlisResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q64="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GETAcountDitlisResult" nillable="true" type="q64:MemoryStream" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserNM">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IDuser" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserNMResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetUserNMResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGroupsAsAccounts">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGroupsAsAccountsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q65="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetGroupsAsAccountsResult" nillable="true" type="q65:MemoryStream" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccountesMOnayInGroup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IDGroup" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccountesMOnayInGroupResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q66="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAccountesMOnayInGroupResult" nillable="true" type="q66:MemoryStream" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckAccontTotal">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IDcode" type="xs:int" />
+        <xs:element minOccurs="0" name="IDCurrncy" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckAccontTotalResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CheckAccontTotalResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBalance">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Idcode" type="xs:int" />
+        <xs:element minOccurs="0" name="IDCur" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBalanceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetBalanceResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateAccountTotal">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IDCOde" type="xs:int" />
+        <xs:element minOccurs="0" name="Mony" type="xs:int" />
+        <xs:element minOccurs="0" name="idCurrncy" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateAccountTotalResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateAccountTotalResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddNewAccountTotal">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IDCOde" type="xs:int" />
+        <xs:element minOccurs="0" name="Mony" type="xs:int" />
+        <xs:element minOccurs="0" name="idCurrncy" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddNewAccountTotalResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddNewAccountTotalResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddNewAccountDetalis">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idcode" type="xs:int" />
+        <xs:element minOccurs="0" name="monay" type="xs:int" />
+        <xs:element minOccurs="0" name="idsupply" type="xs:int" />
+        <xs:element minOccurs="0" name="idout" type="xs:int" />
+        <xs:element minOccurs="0" name="Detalis" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="d1" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="userid" type="xs:int" />
+        <xs:element minOccurs="0" name="idCurrnt" type="xs:int" />
+        <xs:element minOccurs="0" name="IDSimple" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddNewAccountDetalisResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddNewAccountDetalisResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddSimpleConstraint">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IDdaan" type="xs:int" />
+        <xs:element minOccurs="0" name="IdMAden" type="xs:int" />
+        <xs:element minOccurs="0" name="Mony" type="xs:int" />
+        <xs:element minOccurs="0" name="idCurnncy" type="xs:int" />
+        <xs:element minOccurs="0" name="UserId" type="xs:int" />
+        <xs:element minOccurs="0" name="datetime" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="Note" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddSimpleConstraintResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddSimpleConstraintResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMaxIDSimpleConstraint">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMaxIDSimpleConstraintResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetMaxIDSimpleConstraintResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllSimpleConstraintOneDay">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="day1" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="day2" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllSimpleConstraintOneDayResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q67="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAllSimpleConstraintOneDayResult" nillable="true" type="q67:MemoryStream" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PrintRequstOut">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Check" type="xs:int" />
+        <xs:element minOccurs="0" name="UserId" type="xs:int" />
+        <xs:element minOccurs="0" name="user" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PrintRequstOutResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q68="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="PrintRequstOutResult" nillable="true" type="q68:MemoryStream" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="printrequstOutExit">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Check" type="xs:int" />
+        <xs:element minOccurs="0" name="UserId" type="xs:int" />
+        <xs:element minOccurs="0" name="user" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="printrequstOutExitResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q69="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="printrequstOutExitResult" nillable="true" type="q69:MemoryStream" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetIdUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="NameUser" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetIdUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetIdUserResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCatagoryInAccount">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCatagoryInAccountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q70="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetCatagoryInAccountResult" nillable="true" type="q70:MemoryStream" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccountLinkCate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IDcate" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccountLinkCateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetAccountLinkCateResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllPlace">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllPlaceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q71="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAllPlaceResult" nillable="true" type="q71:MemoryStream" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllDebit">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllDebitResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q72="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAllDebitResult" nillable="true" type="q72:MemoryStream" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllCreditor">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllCreditorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q73="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAllCreditorResult" nillable="true" type="q73:MemoryStream" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchINRequstOutDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="d1" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="d2" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchINRequstOutDateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q74="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="SearchINRequstOutDateResult" nillable="true" type="q74:MemoryStream" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTypeInAccount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IdCate" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTypeInAccountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q75="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetTypeInAccountResult" nillable="true" type="q75:MemoryStream" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCurrencyINAccount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idcat" type="xs:int" />
+        <xs:element minOccurs="0" name="idtyp" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCurrencyINAccountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q76="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetCurrencyINAccountResult" nillable="true" type="q76:MemoryStream" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccountIDs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IdCAte" type="xs:int" />
+        <xs:element minOccurs="0" name="IdTpe" type="xs:int" />
+        <xs:element minOccurs="0" name="idcurrnt" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccountIDsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q77="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAccountIDsResult" nillable="true" type="q77:MemoryStream" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMaxCheckInRequsetOut">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMaxCheckInRequsetOutResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetMaxCheckInRequsetOutResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetQuntityInAccount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IDAcount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetQuntityInAccountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetQuntityInAccountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPriceAccount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="iDAccount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPriceAccountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetPriceAccountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateQuntityAccount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IDAccount" type="xs:int" />
+        <xs:element minOccurs="0" name="newquntity" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateQuntityAccountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateQuntityAccountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddNewRequstOut">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Quntity" type="xs:int" />
+        <xs:element minOccurs="0" name="IDCategory" type="xs:int" />
+        <xs:element minOccurs="0" name="IDType" type="xs:int" />
+        <xs:element minOccurs="0" name="idcurrnt" type="xs:int" />
+        <xs:element minOccurs="0" name="IDPlace" type="xs:int" />
+        <xs:element minOccurs="0" name="NameOut" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DesOut" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DateOut" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="Chack" type="xs:int" />
+        <xs:element minOccurs="0" name="NameSend" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="price" type="xs:int" />
+        <xs:element minOccurs="0" name="UserId" type="xs:int" />
+        <xs:element minOccurs="0" name="debit" type="xs:int" />
+        <xs:element minOccurs="0" name="cred" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddNewRequstOutResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddNewRequstOutResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAndCheckQuntityAccountAndAddRqustNew">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IDAccount" type="xs:int" />
+        <xs:element minOccurs="0" name="QuntityMust" type="xs:int" />
+        <xs:element minOccurs="0" name="IDCategory" type="xs:int" />
+        <xs:element minOccurs="0" name="IDType" type="xs:int" />
+        <xs:element minOccurs="0" name="idcurrn" type="xs:int" />
+        <xs:element minOccurs="0" name="IDPlace" type="xs:int" />
+        <xs:element minOccurs="0" name="NameOut" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DesOut" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DateOut" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="Chack" type="xs:int" />
+        <xs:element minOccurs="0" name="NameSend" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="debit" type="xs:int" />
+        <xs:element minOccurs="0" name="credi" type="xs:int" />
+        <xs:element minOccurs="0" name="UserId" type="xs:int" />
+        <xs:element minOccurs="0" name="NMIDCA" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="NMTYpe" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="NMPlus" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="NMMins" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="nmCurnncy" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAndCheckQuntityAccountAndAddRqustNewResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetAndCheckQuntityAccountAndAddRqustNewResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetQunitiyinAccount2">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Idcae" type="xs:int" />
+        <xs:element minOccurs="0" name="IdType" type="xs:int" />
+        <xs:element minOccurs="0" name="idcurrnt" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetQunitiyinAccount2Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetQunitiyinAccount2Result" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchINRequsetOuttxt">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="s" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchINRequsetOuttxtResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q78="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="SearchINRequsetOuttxtResult" nillable="true" type="q78:MemoryStream" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchINRequsetOutTxtAndDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="s" type="xs:int" />
+        <xs:element minOccurs="0" name="d1" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="d2" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchINRequsetOutTxtAndDateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q79="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="SearchINRequsetOutTxtAndDateResult" nillable="true" type="q79:MemoryStream" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchINRequsetOutTxtAndDate2">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="s" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="d1" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="d2" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchINRequsetOutTxtAndDate2Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q80="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="SearchINRequsetOutTxtAndDate2Result" nillable="true" type="q80:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -753,7 +2411,7 @@
   <xs:element name="GetRequstOutSngleResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetRequstOutSngleResult" nillable="true" type="q35:MemoryStream" />
+        <xs:element xmlns:q81="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetRequstOutSngleResult" nillable="true" type="q81:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -856,7 +2514,7 @@
   <xs:element name="GetALLAcountNmResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetALLAcountNmResult" nillable="true" type="q36:MemoryStream" />
+        <xs:element xmlns:q82="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetALLAcountNmResult" nillable="true" type="q82:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1026,7 +2684,7 @@
   <xs:element name="PrintRequstSupplyResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="PrintRequstSupplyResult" nillable="true" type="q37:MemoryStream" />
+        <xs:element xmlns:q83="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="PrintRequstSupplyResult" nillable="true" type="q83:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1042,7 +2700,7 @@
   <xs:element name="printrequstOutExit1Response">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="printrequstOutExit1Result" nillable="true" type="q38:MemoryStream" />
+        <xs:element xmlns:q84="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="printrequstOutExit1Result" nillable="true" type="q84:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1057,1652 +2715,6 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="GetAccountLinkCateInSupplyResult" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="AddNewRequsetSupply">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="IDCategory" type="xs:int" />
-        <xs:element minOccurs="0" name="IDType" type="xs:int" />
-        <xs:element minOccurs="0" name="Quntity" type="xs:int" />
-        <xs:element minOccurs="0" name="Price" type="xs:int" />
-        <xs:element minOccurs="0" name="idcurrnt" type="xs:int" />
-        <xs:element minOccurs="0" name="NameSupply" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="DescSupply" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="DateSupply" type="xs:dateTime" />
-        <xs:element minOccurs="0" name="IDuser" type="xs:int" />
-        <xs:element minOccurs="0" name="chek" type="xs:int" />
-        <xs:element minOccurs="0" name="debi" type="xs:int" />
-        <xs:element minOccurs="0" name="cred" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="AddNewRequsetSupplyResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="AddNewRequsetSupplyResult" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetMaxIdSupply">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetMaxIdSupplyResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="GetMaxIdSupplyResult" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SearchINRequsetSupplyDate">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="d1" type="xs:dateTime" />
-        <xs:element minOccurs="0" name="d2" type="xs:dateTime" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SearchINRequsetSupplyDateResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="SearchINRequsetSupplyDateResult" nillable="true" type="q39:MemoryStream" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetAllCreditorINSuplly">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetAllCreditorINSupllyResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAllCreditorINSupllyResult" nillable="true" type="q40:MemoryStream" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="CheckAccountIsHereInSuplly">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="IDCategory" type="xs:int" />
-        <xs:element minOccurs="0" name="IDType" type="xs:int" />
-        <xs:element minOccurs="0" name="price" type="xs:int" />
-        <xs:element minOccurs="0" name="idcurrnt" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="CheckAccountIsHereInSupllyResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="CheckAccountIsHereInSupllyResult" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="UpdateQuntityAccountInSuplly">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="IDAccount" type="xs:int" />
-        <xs:element minOccurs="0" name="newquntity" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="UpdateQuntityAccountInSupllyResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="UpdateQuntityAccountInSupllyResult" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="AddNewAccount">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="IDCategory" type="xs:int" />
-        <xs:element minOccurs="0" name="IDType" type="xs:int" />
-        <xs:element minOccurs="0" name="Quntity" type="xs:int" />
-        <xs:element minOccurs="0" name="Price" type="xs:int" />
-        <xs:element minOccurs="0" name="idcurrnt" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="AddNewAccountResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="AddNewAccountResult" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetMaxCheckSupply">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetMaxCheckSupplyResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="GetMaxCheckSupplyResult" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetAllCategoryAR">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetAllCategoryARResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAllCategoryARResult" nillable="true" type="q41:MemoryStream" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetAllTypeQuntity">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetAllTypeQuntityResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAllTypeQuntityResult" nillable="true" type="q42:MemoryStream" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetAllCurrencyInSupply">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetAllCurrencyInSupplyResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAllCurrencyInSupplyResult" nillable="true" type="q43:MemoryStream" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetQuntityInAccountInSupply">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="IDAcount" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetQuntityInAccountInSupplyResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="GetQuntityInAccountInSupplyResult" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SearchINRequsetSupply">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="txt" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SearchINRequsetSupplyResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="SearchINRequsetSupplyResult" nillable="true" type="q44:MemoryStream" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SearchINRequsetSupplyTxtAndDate">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="txt" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="d1" type="xs:dateTime" />
-        <xs:element minOccurs="0" name="d2" type="xs:dateTime" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SearchINRequsetSupplyTxtAndDateResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="SearchINRequsetSupplyTxtAndDateResult" nillable="true" type="q45:MemoryStream" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetRequstSupply">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="IDreqSup" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetRequstSupplyResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetRequstSupplyResult" nillable="true" type="q46:MemoryStream" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="CheckQuntityISHereInCheckQuntity">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="IDCategory" type="xs:int" />
-        <xs:element minOccurs="0" name="IDType" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="CheckQuntityISHereInCheckQuntityResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="CheckQuntityISHereInCheckQuntityResult" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ADDNewUPDSupply">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="IDSup" type="xs:int" />
-        <xs:element minOccurs="0" name="IDCategory" type="xs:int" />
-        <xs:element minOccurs="0" name="IDType" type="xs:int" />
-        <xs:element minOccurs="0" name="Quntity" type="xs:int" />
-        <xs:element minOccurs="0" name="Price" type="xs:int" />
-        <xs:element minOccurs="0" name="idcunnt" type="xs:int" />
-        <xs:element minOccurs="0" name="NameSupply" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="dateAdd" type="xs:dateTime" />
-        <xs:element minOccurs="0" name="dateUpd" type="xs:dateTime" />
-        <xs:element minOccurs="0" name="decNew" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="userid" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ADDNewUPDSupplyResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="ADDNewUPDSupplyResult" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="DeleteRequstSupply">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="Id" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="DeleteRequstSupplyResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="DeleteRequstSupplyResult" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="UPateRequstSupply">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="IDSup" type="xs:int" />
-        <xs:element minOccurs="0" name="IDCategory" type="xs:int" />
-        <xs:element minOccurs="0" name="IDType" type="xs:int" />
-        <xs:element minOccurs="0" name="Quntity" type="xs:int" />
-        <xs:element minOccurs="0" name="Price" type="xs:int" />
-        <xs:element minOccurs="0" name="idcurrn" type="xs:int" />
-        <xs:element minOccurs="0" name="NameSupply" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="DescSupply" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="debit" type="xs:int" />
-        <xs:element minOccurs="0" name="crd" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="UPateRequstSupplyResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="UPateRequstSupplyResult" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetALLAcountNmInSupply">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetALLAcountNmInSupplyResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetALLAcountNmInSupplyResult" nillable="true" type="q47:MemoryStream" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="CheckAccontTotalInSuuly">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="IDcode" type="xs:int" />
-        <xs:element minOccurs="0" name="IDCurrncy" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="CheckAccontTotalInSuulyResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="CheckAccontTotalInSuulyResult" type="xs:boolean" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="AddNewAccountTotalInSuuply">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="IDCOde" type="xs:int" />
-        <xs:element minOccurs="0" name="Mony" type="xs:int" />
-        <xs:element minOccurs="0" name="idCurrncy" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="AddNewAccountTotalInSuuplyResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="AddNewAccountTotalInSuuplyResult" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetBalanceInSupply">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="Idcode" type="xs:int" />
-        <xs:element minOccurs="0" name="IDCur" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetBalanceInSupplyResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="GetBalanceInSupplyResult" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="UpdateAccountTotalInSupply">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="IDCOde" type="xs:int" />
-        <xs:element minOccurs="0" name="Mony" type="xs:int" />
-        <xs:element minOccurs="0" name="idCurrncy" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="UpdateAccountTotalInSupplyResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="UpdateAccountTotalInSupplyResult" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="AddNewAccountDetalisINSupply">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="idcode" type="xs:int" />
-        <xs:element minOccurs="0" name="monay" type="xs:int" />
-        <xs:element minOccurs="0" name="idsupply" type="xs:int" />
-        <xs:element minOccurs="0" name="idout" type="xs:int" />
-        <xs:element minOccurs="0" name="Detalis" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="d1" type="xs:dateTime" />
-        <xs:element minOccurs="0" name="userid" type="xs:int" />
-        <xs:element minOccurs="0" name="idCurrnt" type="xs:int" />
-        <xs:element minOccurs="0" name="IDSimple" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="AddNewAccountDetalisINSupplyResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="AddNewAccountDetalisINSupplyResult" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="DeleteSuuplyFrmAccountDitalisInSupply">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="idSupply" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="DeleteSuuplyFrmAccountDitalisInSupplyResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="DeleteSuuplyFrmAccountDitalisInSupplyResult" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="DeleteSuuplyFrmAccountDitalis2InSupply">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="idout" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="DeleteSuuplyFrmAccountDitalis2InSupplyResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="DeleteSuuplyFrmAccountDitalis2InSupplyResult" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetCategoryByName">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="NMCate" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetCategoryByNameResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetCategoryByNameResult" nillable="true" type="q48:MemoryStream" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="AddNewCategory">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="NameCategory" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="IDAccount" nillable="true" type="xs:anyType" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="AddNewCategoryResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="AddNewCategoryResult" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetMaxIDCate">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetMaxIDCateResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="GetMaxIDCateResult" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="UpdateCategory">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="id" type="xs:int" />
-        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="IDAccount" nillable="true" type="xs:anyType" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="UpdateCategoryResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="UpdateCategoryResult" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="DeleteCategory">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="id" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="DeleteCategoryResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="DeleteCategoryResult" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="chackCatagory">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="IDCA" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="chackCatagoryResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="chackCatagoryResult" nillable="true" type="q49:MemoryStream" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetAllTypeQuntityInConf">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetAllTypeQuntityInConfResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAllTypeQuntityInConfResult" nillable="true" type="q50:MemoryStream" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetTypeQuntityByName">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="nameTYPe" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetTypeQuntityByNameResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetTypeQuntityByNameResult" nillable="true" type="q51:MemoryStream" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="AddNewTypeQuntity">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="AddNewTypeQuntityResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="AddNewTypeQuntityResult" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="UpdateTypeQuntity">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="id" type="xs:int" />
-        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="UpdateTypeQuntityResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="UpdateTypeQuntityResult" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="DeleteQuntity">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="id" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="DeleteQuntityResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="DeleteQuntityResult" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="chackTapy">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="IDtype" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="chackTapyResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="chackTapyResult" nillable="true" type="q52:MemoryStream" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetPlaceByName">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="NAMEPLACE" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetPlaceByNameResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetPlaceByNameResult" nillable="true" type="q53:MemoryStream" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="AddNewPlaceSend">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="AddNewPlaceSendResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="AddNewPlaceSendResult" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="UpdatePlaceSend">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="id" type="xs:int" />
-        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="UpdatePlaceSendResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="UpdatePlaceSendResult" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="DeletePlaceSend">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="id" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="DeletePlaceSendResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="DeletePlaceSendResult" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SENDUSERTOSERVER">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="falg" type="xs:int" />
-        <xs:element minOccurs="0" name="SessionID" type="xs:int" />
-        <xs:element minOccurs="0" name="start" type="xs:dateTime" />
-        <xs:element minOccurs="0" name="end" type="xs:dateTime" />
-        <xs:element minOccurs="0" name="NameMachine" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="UserWindow" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="OSVersion" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="NameUser" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="USerID" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SENDUSERTOSERVERResponse">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="LoginUser">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="User" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="Pass" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="LoginUserResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="LoginUserResult" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="AddNewUser">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="user" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="pass" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="Addsupply" type="xs:boolean" />
-        <xs:element minOccurs="0" name="UpdSupply" type="xs:boolean" />
-        <xs:element minOccurs="0" name="Addoutt" type="xs:boolean" />
-        <xs:element minOccurs="0" name="updOut" type="xs:boolean" />
-        <xs:element minOccurs="0" name="PrintSupply" type="xs:boolean" />
-        <xs:element minOccurs="0" name="PrintOut" type="xs:boolean" />
-        <xs:element minOccurs="0" name="PrintQuntity" type="xs:boolean" />
-        <xs:element minOccurs="0" name="UpdSupp1" type="xs:boolean" />
-        <xs:element minOccurs="0" name="UpdOut1" type="xs:boolean" />
-        <xs:element minOccurs="0" name="userAdd" type="xs:boolean" />
-        <xs:element minOccurs="0" name="Active" type="xs:boolean" />
-        <xs:element minOccurs="0" name="Cate" type="xs:boolean" />
-        <xs:element minOccurs="0" name="type1" type="xs:boolean" />
-        <xs:element minOccurs="0" name="account" type="xs:boolean" />
-        <xs:element minOccurs="0" name="Monay" type="xs:boolean" />
-        <xs:element minOccurs="0" name="Place" type="xs:boolean" />
-        <xs:element minOccurs="0" name="UserID" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="AddNewUserResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="AddNewUserResult" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="UpatePassword">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="idUser" type="xs:int" />
-        <xs:element minOccurs="0" name="Pass" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="UpatePasswordResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="UpatePasswordResult" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="UpdUsers">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="IDUser" type="xs:int" />
-        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="user" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="pass" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="Addsupply" type="xs:boolean" />
-        <xs:element minOccurs="0" name="UpdSupply" type="xs:boolean" />
-        <xs:element minOccurs="0" name="Addoutt" type="xs:boolean" />
-        <xs:element minOccurs="0" name="updOut" type="xs:boolean" />
-        <xs:element minOccurs="0" name="PrintSupply" type="xs:boolean" />
-        <xs:element minOccurs="0" name="PrintOut" type="xs:boolean" />
-        <xs:element minOccurs="0" name="PrintQuntity" type="xs:boolean" />
-        <xs:element minOccurs="0" name="UpdSupp1" type="xs:boolean" />
-        <xs:element minOccurs="0" name="UpdOut1" type="xs:boolean" />
-        <xs:element minOccurs="0" name="userAdd" type="xs:boolean" />
-        <xs:element minOccurs="0" name="Active" type="xs:boolean" />
-        <xs:element minOccurs="0" name="Cate" type="xs:boolean" />
-        <xs:element minOccurs="0" name="type1" type="xs:boolean" />
-        <xs:element minOccurs="0" name="account" type="xs:boolean" />
-        <xs:element minOccurs="0" name="Monay" type="xs:boolean" />
-        <xs:element minOccurs="0" name="Place" type="xs:boolean" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="UpdUsersResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="UpdUsersResult" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetAllUser">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetAllUserResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q54="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAllUserResult" nillable="true" type="q54:MemoryStream" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetUser">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="IdUs" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetUserResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetUserResult" nillable="true" type="q55:MemoryStream" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetAllAccount">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetAllAccountResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q56="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAllAccountResult" nillable="true" type="q56:MemoryStream" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetAllAcountnAr">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetAllAcountnArResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q57="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAllAcountnArResult" nillable="true" type="q57:MemoryStream" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="UpdateAccountNm">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="iDAccounNm" type="xs:int" />
-        <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="active" type="xs:boolean" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="UpdateAccountNmResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="UpdateAccountNmResult" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="CheckAccountinDetlis">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="idcode" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="CheckAccountinDetlisResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="CheckAccountinDetlisResult" type="xs:boolean" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="CheckAccounthaschalid">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="idcode" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="CheckAccounthaschalidResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="CheckAccounthaschalidResult" type="xs:boolean" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="TypeAccount">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="IDAccount" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="TypeAccountResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="TypeAccountResult" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetCheckAccount">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="IDAccount" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetCheckAccountResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="GetCheckAccountResult" type="xs:boolean" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetCheckAccountHere">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="IDAccount" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetCheckAccountHereResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="GetCheckAccountHereResult" type="xs:boolean" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetMaxCode">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="CodeParent" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetMaxCodeResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="GetMaxCodeResult" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="AddNewAcountNm">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="AcountNm" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="IdCOde" type="xs:int" />
-        <xs:element minOccurs="0" name="IdParnt" type="xs:int" />
-        <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="Active" type="xs:int" />
-        <xs:element minOccurs="0" name="DateStart" type="xs:dateTime" />
-        <xs:element minOccurs="0" name="UserId" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="AddNewAcountNmResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="AddNewAcountNmResult" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="DelteAccount">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="IDCount" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="DelteAccountResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="DelteAccountResult" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="DelteAccount2">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="IDcode" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="DelteAccount2Response">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="DelteAccount2Result" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SearchAcount">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SearchAcountResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q58="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="SearchAcountResult" nillable="true" type="q58:MemoryStream" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GETALLAccountPrime">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GETALLAccountPrimeResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q59="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GETALLAccountPrimeResult" nillable="true" type="q59:MemoryStream" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GETALLAccountSub">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GETALLAccountSubResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q60="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GETALLAccountSubResult" nillable="true" type="q60:MemoryStream" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetAllCurrency">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetAllCurrencyResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q61="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAllCurrencyResult" nillable="true" type="q61:MemoryStream" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetBalanceAccount">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="IDcode" type="xs:int" />
-        <xs:element minOccurs="0" name="IDCurrncy" type="xs:int" />
-        <xs:element minOccurs="0" name="NmIDcurrmcy" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetBalanceAccountResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q62="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetBalanceAccountResult" nillable="true" type="q62:MemoryStream" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetBalanceAccountALLCunncy">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="IDcode" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetBalanceAccountALLCunncyResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q63="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetBalanceAccountALLCunncyResult" nillable="true" type="q63:MemoryStream" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GETNMCurrncy">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="IDCur" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GETNMCurrncyResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="GETNMCurrncyResult" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetBalanceALLAccountALLCunncy">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="idcurrncy" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetBalanceALLAccountALLCunncyResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q64="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetBalanceALLAccountALLCunncyResult" nillable="true" type="q64:MemoryStream" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GETNMAccount">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="IDCOde" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GETNMAccountResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q65="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GETNMAccountResult" nillable="true" type="q65:MemoryStream" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GETAccountDitalis">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="IDcode" type="xs:int" />
-        <xs:element minOccurs="0" name="IDCurnncy" type="xs:int" />
-        <xs:element minOccurs="0" name="d1" type="xs:dateTime" />
-        <xs:element minOccurs="0" name="d2" type="xs:dateTime" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GETAccountDitalisResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q66="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GETAccountDitalisResult" nillable="true" type="q66:MemoryStream" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="getOldMony">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="IDcode" type="xs:int" />
-        <xs:element minOccurs="0" name="IDCurnncy" type="xs:int" />
-        <xs:element minOccurs="0" name="d2" type="xs:dateTime" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="getOldMonyResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="getOldMonyResult" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GETAcountDitlis">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="IDcode" type="xs:int" />
-        <xs:element minOccurs="0" name="IDCurnncy" type="xs:int" />
-        <xs:element minOccurs="0" name="d1" type="xs:dateTime" />
-        <xs:element minOccurs="0" name="d2" type="xs:dateTime" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GETAcountDitlisResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q67="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GETAcountDitlisResult" nillable="true" type="q67:MemoryStream" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetUserNM">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="IDuser" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetUserNMResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="GetUserNMResult" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetGroupsAsAccounts">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetGroupsAsAccountsResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q68="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetGroupsAsAccountsResult" nillable="true" type="q68:MemoryStream" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetAccountesMOnayInGroup">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="IDGroup" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetAccountesMOnayInGroupResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q69="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAccountesMOnayInGroupResult" nillable="true" type="q69:MemoryStream" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="CheckAccontTotal">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="IDcode" type="xs:int" />
-        <xs:element minOccurs="0" name="IDCurrncy" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="CheckAccontTotalResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="CheckAccontTotalResult" type="xs:boolean" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetBalance">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="Idcode" type="xs:int" />
-        <xs:element minOccurs="0" name="IDCur" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetBalanceResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="GetBalanceResult" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="UpdateAccountTotal">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="IDCOde" type="xs:int" />
-        <xs:element minOccurs="0" name="Mony" type="xs:int" />
-        <xs:element minOccurs="0" name="idCurrncy" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="UpdateAccountTotalResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="UpdateAccountTotalResult" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="AddNewAccountTotal">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="IDCOde" type="xs:int" />
-        <xs:element minOccurs="0" name="Mony" type="xs:int" />
-        <xs:element minOccurs="0" name="idCurrncy" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="AddNewAccountTotalResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="AddNewAccountTotalResult" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="AddNewAccountDetalis">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="idcode" type="xs:int" />
-        <xs:element minOccurs="0" name="monay" type="xs:int" />
-        <xs:element minOccurs="0" name="idsupply" type="xs:int" />
-        <xs:element minOccurs="0" name="idout" type="xs:int" />
-        <xs:element minOccurs="0" name="Detalis" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="d1" type="xs:dateTime" />
-        <xs:element minOccurs="0" name="userid" type="xs:int" />
-        <xs:element minOccurs="0" name="idCurrnt" type="xs:int" />
-        <xs:element minOccurs="0" name="IDSimple" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="AddNewAccountDetalisResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="AddNewAccountDetalisResult" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="AddSimpleConstraint">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="IDdaan" type="xs:int" />
-        <xs:element minOccurs="0" name="IdMAden" type="xs:int" />
-        <xs:element minOccurs="0" name="Mony" type="xs:int" />
-        <xs:element minOccurs="0" name="idCurnncy" type="xs:int" />
-        <xs:element minOccurs="0" name="UserId" type="xs:int" />
-        <xs:element minOccurs="0" name="datetime" type="xs:dateTime" />
-        <xs:element minOccurs="0" name="Note" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="AddSimpleConstraintResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="AddSimpleConstraintResult" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetMaxIDSimpleConstraint">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetMaxIDSimpleConstraintResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="GetMaxIDSimpleConstraintResult" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetAllSimpleConstraintOneDay">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="day1" type="xs:dateTime" />
-        <xs:element minOccurs="0" name="day2" type="xs:dateTime" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetAllSimpleConstraintOneDayResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q70="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAllSimpleConstraintOneDayResult" nillable="true" type="q70:MemoryStream" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="PrintRequstOut">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="Check" type="xs:int" />
-        <xs:element minOccurs="0" name="UserId" type="xs:int" />
-        <xs:element minOccurs="0" name="user" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="PrintRequstOutResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q71="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="PrintRequstOutResult" nillable="true" type="q71:MemoryStream" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="printrequstOutExit">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="Check" type="xs:int" />
-        <xs:element minOccurs="0" name="UserId" type="xs:int" />
-        <xs:element minOccurs="0" name="user" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="printrequstOutExitResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q72="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="printrequstOutExitResult" nillable="true" type="q72:MemoryStream" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetIdUser">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="NameUser" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetIdUserResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="GetIdUserResult" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetCatagoryInAccount">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetCatagoryInAccountResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q73="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetCatagoryInAccountResult" nillable="true" type="q73:MemoryStream" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetAccountLinkCate">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="IDcate" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetAccountLinkCateResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="GetAccountLinkCateResult" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetAllPlace">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetAllPlaceResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q74="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAllPlaceResult" nillable="true" type="q74:MemoryStream" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetAllDebit">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetAllDebitResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q75="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAllDebitResult" nillable="true" type="q75:MemoryStream" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetAllCreditor">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetAllCreditorResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q76="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAllCreditorResult" nillable="true" type="q76:MemoryStream" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SearchINRequstOutDate">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="d1" type="xs:dateTime" />
-        <xs:element minOccurs="0" name="d2" type="xs:dateTime" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SearchINRequstOutDateResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q77="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="SearchINRequstOutDateResult" nillable="true" type="q77:MemoryStream" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetTypeInAccount">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="IdCate" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetTypeInAccountResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q78="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetTypeInAccountResult" nillable="true" type="q78:MemoryStream" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetCurrencyINAccount">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="idcat" type="xs:int" />
-        <xs:element minOccurs="0" name="idtyp" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetCurrencyINAccountResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q79="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetCurrencyINAccountResult" nillable="true" type="q79:MemoryStream" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetAccountIDs">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="IdCAte" type="xs:int" />
-        <xs:element minOccurs="0" name="IdTpe" type="xs:int" />
-        <xs:element minOccurs="0" name="idcurrnt" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetAccountIDsResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q80="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAccountIDsResult" nillable="true" type="q80:MemoryStream" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetMaxCheckInRequsetOut">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetMaxCheckInRequsetOutResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="GetMaxCheckInRequsetOutResult" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetQuntityInAccount">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="IDAcount" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetQuntityInAccountResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="GetQuntityInAccountResult" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetPriceAccount">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="iDAccount" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetPriceAccountResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="GetPriceAccountResult" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="UpdateQuntityAccount">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="IDAccount" type="xs:int" />
-        <xs:element minOccurs="0" name="newquntity" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="UpdateQuntityAccountResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="UpdateQuntityAccountResult" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="AddNewRequstOut">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="Quntity" type="xs:int" />
-        <xs:element minOccurs="0" name="IDCategory" type="xs:int" />
-        <xs:element minOccurs="0" name="IDType" type="xs:int" />
-        <xs:element minOccurs="0" name="idcurrnt" type="xs:int" />
-        <xs:element minOccurs="0" name="IDPlace" type="xs:int" />
-        <xs:element minOccurs="0" name="NameOut" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="DesOut" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="DateOut" type="xs:dateTime" />
-        <xs:element minOccurs="0" name="Chack" type="xs:int" />
-        <xs:element minOccurs="0" name="NameSend" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="price" type="xs:int" />
-        <xs:element minOccurs="0" name="UserId" type="xs:int" />
-        <xs:element minOccurs="0" name="debit" type="xs:int" />
-        <xs:element minOccurs="0" name="cred" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="AddNewRequstOutResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="AddNewRequstOutResult" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetAndCheckQuntityAccountAndAddRqustNew">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="IDAccount" type="xs:int" />
-        <xs:element minOccurs="0" name="QuntityMust" type="xs:int" />
-        <xs:element minOccurs="0" name="IDCategory" type="xs:int" />
-        <xs:element minOccurs="0" name="IDType" type="xs:int" />
-        <xs:element minOccurs="0" name="idcurrn" type="xs:int" />
-        <xs:element minOccurs="0" name="IDPlace" type="xs:int" />
-        <xs:element minOccurs="0" name="NameOut" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="DesOut" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="DateOut" type="xs:dateTime" />
-        <xs:element minOccurs="0" name="Chack" type="xs:int" />
-        <xs:element minOccurs="0" name="NameSend" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="debit" type="xs:int" />
-        <xs:element minOccurs="0" name="credi" type="xs:int" />
-        <xs:element minOccurs="0" name="UserId" type="xs:int" />
-        <xs:element minOccurs="0" name="NMIDCA" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="NMTYpe" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="NMPlus" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="NMMins" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="nmCurnncy" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetAndCheckQuntityAccountAndAddRqustNewResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="GetAndCheckQuntityAccountAndAddRqustNewResult" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetQunitiyinAccount2">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="Idcae" type="xs:int" />
-        <xs:element minOccurs="0" name="IdType" type="xs:int" />
-        <xs:element minOccurs="0" name="idcurrnt" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetQunitiyinAccount2Response">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="GetQunitiyinAccount2Result" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SearchINRequsetOuttxt">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="s" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SearchINRequsetOuttxtResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q81="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="SearchINRequsetOuttxtResult" nillable="true" type="q81:MemoryStream" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SearchINRequsetOutTxtAndDate">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="s" type="xs:int" />
-        <xs:element minOccurs="0" name="d1" type="xs:dateTime" />
-        <xs:element minOccurs="0" name="d2" type="xs:dateTime" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SearchINRequsetOutTxtAndDateResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q82="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="SearchINRequsetOutTxtAndDateResult" nillable="true" type="q82:MemoryStream" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SearchINRequsetOutTxtAndDate2">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="s" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="d1" type="xs:dateTime" />
-        <xs:element minOccurs="0" name="d2" type="xs:dateTime" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SearchINRequsetOutTxtAndDate2Response">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q83="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="SearchINRequsetOutTxtAndDate2Result" nillable="true" type="q83:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

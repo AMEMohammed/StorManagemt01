@@ -153,6 +153,12 @@ namespace frmWInReprting.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetConnectionAccountwithPlace", ReplyAction="http://tempuri.org/Iservice/GetConnectionAccountwithPlaceResponse")]
         System.Threading.Tasks.Task<System.IO.MemoryStream> GetConnectionAccountwithPlaceAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetAllCategoryARWithAccount", ReplyAction="http://tempuri.org/Iservice/GetAllCategoryARWithAccountResponse")]
+        System.IO.MemoryStream GetAllCategoryARWithAccount();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetAllCategoryARWithAccount", ReplyAction="http://tempuri.org/Iservice/GetAllCategoryARWithAccountResponse")]
+        System.Threading.Tasks.Task<System.IO.MemoryStream> GetAllCategoryARWithAccountAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetGroupsCate", ReplyAction="http://tempuri.org/Iservice/GetGroupsCateResponse")]
         System.IO.MemoryStream GetGroupsCate();
         
@@ -290,6 +296,24 @@ namespace frmWInReprting.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetUpdOutByDateDetle2tewithdate", ReplyAction="http://tempuri.org/Iservice/GetUpdOutByDateDetle2tewithdateResponse")]
         System.Threading.Tasks.Task<System.IO.MemoryStream> GetUpdOutByDateDetle2tewithdateAsync(System.DateTime d1, System.DateTime d2);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/AddNewSession", ReplyAction="http://tempuri.org/Iservice/AddNewSessionResponse")]
+        int AddNewSession(System.DateTime strat, System.DateTime end, string OSversion, string NameMachin, string UserWindows, int UserID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/AddNewSession", ReplyAction="http://tempuri.org/Iservice/AddNewSessionResponse")]
+        System.Threading.Tasks.Task<int> AddNewSessionAsync(System.DateTime strat, System.DateTime end, string OSversion, string NameMachin, string UserWindows, int UserID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/UpdateENDtimeSession", ReplyAction="http://tempuri.org/Iservice/UpdateENDtimeSessionResponse")]
+        int UpdateENDtimeSession(int IDSession, System.DateTime End);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/UpdateENDtimeSession", ReplyAction="http://tempuri.org/Iservice/UpdateENDtimeSessionResponse")]
+        System.Threading.Tasks.Task<int> UpdateENDtimeSessionAsync(int IDSession, System.DateTime End);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GETMAXIDSession", ReplyAction="http://tempuri.org/Iservice/GETMAXIDSessionResponse")]
+        int GETMAXIDSession();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GETMAXIDSession", ReplyAction="http://tempuri.org/Iservice/GETMAXIDSessionResponse")]
+        System.Threading.Tasks.Task<int> GETMAXIDSessionAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetUserNameBYIdUser", ReplyAction="http://tempuri.org/Iservice/GetUserNameBYIdUserResponse")]
         string GetUserNameBYIdUser(int IdUser);
@@ -682,10 +706,10 @@ namespace frmWInReprting.ServiceReference1 {
         System.Threading.Tasks.Task<int> DeletePlaceSendAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/SENDUSERTOSERVER", ReplyAction="http://tempuri.org/Iservice/SENDUSERTOSERVERResponse")]
-        void SENDUSERTOSERVER(int falg, string name);
+        void SENDUSERTOSERVER(int falg, int SessionID, System.DateTime start, System.DateTime end, string NameMachine, string UserWindow, string OSVersion, string NameUser, int USerID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/SENDUSERTOSERVER", ReplyAction="http://tempuri.org/Iservice/SENDUSERTOSERVERResponse")]
-        System.Threading.Tasks.Task SENDUSERTOSERVERAsync(int falg, string name);
+        System.Threading.Tasks.Task SENDUSERTOSERVERAsync(int falg, int SessionID, System.DateTime start, System.DateTime end, string NameMachine, string UserWindow, string OSVersion, string NameUser, int USerID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/LoginUser", ReplyAction="http://tempuri.org/Iservice/LoginUserResponse")]
         int LoginUser(string User, string Pass);
@@ -1395,6 +1419,14 @@ namespace frmWInReprting.ServiceReference1 {
             return base.Channel.GetConnectionAccountwithPlaceAsync();
         }
         
+        public System.IO.MemoryStream GetAllCategoryARWithAccount() {
+            return base.Channel.GetAllCategoryARWithAccount();
+        }
+        
+        public System.Threading.Tasks.Task<System.IO.MemoryStream> GetAllCategoryARWithAccountAsync() {
+            return base.Channel.GetAllCategoryARWithAccountAsync();
+        }
+        
         public System.IO.MemoryStream GetGroupsCate() {
             return base.Channel.GetGroupsCate();
         }
@@ -1577,6 +1609,30 @@ namespace frmWInReprting.ServiceReference1 {
         
         public System.Threading.Tasks.Task<System.IO.MemoryStream> GetUpdOutByDateDetle2tewithdateAsync(System.DateTime d1, System.DateTime d2) {
             return base.Channel.GetUpdOutByDateDetle2tewithdateAsync(d1, d2);
+        }
+        
+        public int AddNewSession(System.DateTime strat, System.DateTime end, string OSversion, string NameMachin, string UserWindows, int UserID) {
+            return base.Channel.AddNewSession(strat, end, OSversion, NameMachin, UserWindows, UserID);
+        }
+        
+        public System.Threading.Tasks.Task<int> AddNewSessionAsync(System.DateTime strat, System.DateTime end, string OSversion, string NameMachin, string UserWindows, int UserID) {
+            return base.Channel.AddNewSessionAsync(strat, end, OSversion, NameMachin, UserWindows, UserID);
+        }
+        
+        public int UpdateENDtimeSession(int IDSession, System.DateTime End) {
+            return base.Channel.UpdateENDtimeSession(IDSession, End);
+        }
+        
+        public System.Threading.Tasks.Task<int> UpdateENDtimeSessionAsync(int IDSession, System.DateTime End) {
+            return base.Channel.UpdateENDtimeSessionAsync(IDSession, End);
+        }
+        
+        public int GETMAXIDSession() {
+            return base.Channel.GETMAXIDSession();
+        }
+        
+        public System.Threading.Tasks.Task<int> GETMAXIDSessionAsync() {
+            return base.Channel.GETMAXIDSessionAsync();
         }
         
         public string GetUserNameBYIdUser(int IdUser) {
@@ -2091,12 +2147,12 @@ namespace frmWInReprting.ServiceReference1 {
             return base.Channel.DeletePlaceSendAsync(id);
         }
         
-        public void SENDUSERTOSERVER(int falg, string name) {
-            base.Channel.SENDUSERTOSERVER(falg, name);
+        public void SENDUSERTOSERVER(int falg, int SessionID, System.DateTime start, System.DateTime end, string NameMachine, string UserWindow, string OSVersion, string NameUser, int USerID) {
+            base.Channel.SENDUSERTOSERVER(falg, SessionID, start, end, NameMachine, UserWindow, OSVersion, NameUser, USerID);
         }
         
-        public System.Threading.Tasks.Task SENDUSERTOSERVERAsync(int falg, string name) {
-            return base.Channel.SENDUSERTOSERVERAsync(falg, name);
+        public System.Threading.Tasks.Task SENDUSERTOSERVERAsync(int falg, int SessionID, System.DateTime start, System.DateTime end, string NameMachine, string UserWindow, string OSVersion, string NameUser, int USerID) {
+            return base.Channel.SENDUSERTOSERVERAsync(falg, SessionID, start, end, NameMachine, UserWindow, OSVersion, NameUser, USerID);
         }
         
         public int LoginUser(string User, string Pass) {

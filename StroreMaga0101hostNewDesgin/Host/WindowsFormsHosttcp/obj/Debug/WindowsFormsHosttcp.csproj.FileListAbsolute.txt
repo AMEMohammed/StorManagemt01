@@ -91,8 +91,8 @@ D:\programing1\StoreMaga0101\StroreMaga0101hostNewDesgin\Host\WindowsFormsHosttc
 D:\programing1\StoreMaga0101\StroreMaga0101hostNewDesgin\Host\WindowsFormsHosttcp\bin\Debug\SettingsPcConnection.pdb
 D:\programing1\StoreMaga0101\StroreMaga0101hostNewDesgin\Host\WindowsFormsHosttcp\bin\Debug\Supplly.pdb
 D:\programing1\StoreMaga0101\StroreMaga0101hostNewDesgin\Host\WindowsFormsHosttcp\bin\Debug\SystemConfiguration.pdb
-D:\programing1\StoreMaga0101\StroreMaga0101hostNewDesgin\Host\WindowsFormsHosttcp\bin\Debug\Users.pdb
 D:\programing1\StoreMaga0101\StroreMaga0101hostNewDesgin\Host\WindowsFormsHosttcp\obj\Debug\WindowsFormsHosttcp.csprojResolveAssemblyReference.cache
 D:\programing1\StoreMaga0101\StroreMaga0101hostNewDesgin\Host\WindowsFormsHosttcp\obj\Debug\WindowsFormsHosttcp.Form1.resources
 D:\programing1\StoreMaga0101\StroreMaga0101hostNewDesgin\Host\WindowsFormsHosttcp\obj\Debug\WindowsFormsHosttcp.Properties.Resources.resources
 D:\programing1\StoreMaga0101\StroreMaga0101hostNewDesgin\Host\WindowsFormsHosttcp\obj\Debug\WindowsFormsHosttcp.csproj.GenerateResource.Cache
+D:\programing1\StoreMaga0101\StroreMaga0101hostNewDesgin\Host\WindowsFormsHosttcp\bin\Debug\Users.pdb

@@ -156,6 +156,12 @@
   <wsdl:message name="Iservice_GetConnectionAccountwithPlace_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetConnectionAccountwithPlaceResponse" />
   </wsdl:message>
+  <wsdl:message name="Iservice_GetAllCategoryARWithAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCategoryARWithAccount" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetAllCategoryARWithAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCategoryARWithAccountResponse" />
+  </wsdl:message>
   <wsdl:message name="Iservice_GetGroupsCate_InputMessage">
     <wsdl:part name="parameters" element="tns:GetGroupsCate" />
   </wsdl:message>
@@ -293,6 +299,24 @@
   </wsdl:message>
   <wsdl:message name="Iservice_GetUpdOutByDateDetle2tewithdate_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetUpdOutByDateDetle2tewithdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_AddNewSession_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddNewSession" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_AddNewSession_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddNewSessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_UpdateENDtimeSession_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateENDtimeSession" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_UpdateENDtimeSession_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateENDtimeSessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GETMAXIDSession_InputMessage">
+    <wsdl:part name="parameters" element="tns:GETMAXIDSession" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GETMAXIDSession_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GETMAXIDSessionResponse" />
   </wsdl:message>
   <wsdl:message name="Iservice_GetUserNameBYIdUser_InputMessage">
     <wsdl:part name="parameters" element="tns:GetUserNameBYIdUser" />
@@ -1155,6 +1179,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GetConnectionAccountwithPlace" message="tns:Iservice_GetConnectionAccountwithPlace_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GetConnectionAccountwithPlaceResponse" message="tns:Iservice_GetConnectionAccountwithPlace_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetAllCategoryARWithAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GetAllCategoryARWithAccount" message="tns:Iservice_GetAllCategoryARWithAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GetAllCategoryARWithAccountResponse" message="tns:Iservice_GetAllCategoryARWithAccount_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetGroupsCate">
       <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GetGroupsCate" message="tns:Iservice_GetGroupsCate_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GetGroupsCateResponse" message="tns:Iservice_GetGroupsCate_OutputMessage" />
@@ -1246,6 +1274,18 @@
     <wsdl:operation name="GetUpdOutByDateDetle2tewithdate">
       <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GetUpdOutByDateDetle2tewithdate" message="tns:Iservice_GetUpdOutByDateDetle2tewithdate_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GetUpdOutByDateDetle2tewithdateResponse" message="tns:Iservice_GetUpdOutByDateDetle2tewithdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNewSession">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/AddNewSession" message="tns:Iservice_AddNewSession_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/AddNewSessionResponse" message="tns:Iservice_AddNewSession_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateENDtimeSession">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/UpdateENDtimeSession" message="tns:Iservice_UpdateENDtimeSession_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/UpdateENDtimeSessionResponse" message="tns:Iservice_UpdateENDtimeSession_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GETMAXIDSession">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GETMAXIDSession" message="tns:Iservice_GETMAXIDSession_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GETMAXIDSessionResponse" message="tns:Iservice_GETMAXIDSession_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetUserNameBYIdUser">
       <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GetUserNameBYIdUser" message="tns:Iservice_GetUserNameBYIdUser_InputMessage" />
@@ -1971,6 +2011,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetAllCategoryARWithAccount">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/GetAllCategoryARWithAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetGroupsCate">
       <soap12:operation soapAction="http://tempuri.org/Iservice/GetGroupsCate" style="document" />
       <wsdl:input>
@@ -2171,6 +2220,33 @@
     </wsdl:operation>
     <wsdl:operation name="GetUpdOutByDateDetle2tewithdate">
       <soap12:operation soapAction="http://tempuri.org/Iservice/GetUpdOutByDateDetle2tewithdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewSession">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/AddNewSession" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateENDtimeSession">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/UpdateENDtimeSession" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GETMAXIDSession">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/GETMAXIDSession" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -3333,9 +3409,9 @@
   </wsdl:binding>
   <wsdl:service name="MYSerivce">
     <wsdl:port name="NetTcpBinding_Iservice" binding="tns:NetTcpBinding_Iservice">
-      <soap12:address location="net.tcp://localhost:9002/MyMathService" />
+      <soap12:address location="net.tcp://localhost:9002/StoreService" />
       <wsa10:EndpointReference>
-        <wsa10:Address>net.tcp://localhost:9002/MyMathService</wsa10:Address>
+        <wsa10:Address>net.tcp://localhost:9002/StoreService</wsa10:Address>
       </wsa10:EndpointReference>
     </wsdl:port>
   </wsdl:service>

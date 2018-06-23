@@ -331,6 +331,18 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetAllCategoryARWithAccount">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllCategoryARWithAccountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAllCategoryARWithAccountResult" nillable="true" type="q12:MemoryStream" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetGroupsCate">
     <xs:complexType>
       <xs:sequence />
@@ -339,7 +351,7 @@
   <xs:element name="GetGroupsCateResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetGroupsCateResult" nillable="true" type="q12:MemoryStream" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetGroupsCateResult" nillable="true" type="q13:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -351,7 +363,7 @@
   <xs:element name="GetAllUserinReprtResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAllUserinReprtResult" nillable="true" type="q13:MemoryStream" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAllUserinReprtResult" nillable="true" type="q14:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -363,7 +375,7 @@
   <xs:element name="GetAllUserARResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAllUserARResult" nillable="true" type="q14:MemoryStream" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAllUserARResult" nillable="true" type="q15:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -383,7 +395,7 @@
   <xs:element name="PrintRequstRPTResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="PrintRequstRPTResult" nillable="true" type="q15:MemoryStream" />
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="PrintRequstRPTResult" nillable="true" type="q16:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -399,7 +411,7 @@
   <xs:element name="PrintRequstRPTAllResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="PrintRequstRPTAllResult" nillable="true" type="q16:MemoryStream" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="PrintRequstRPTAllResult" nillable="true" type="q17:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -416,7 +428,7 @@
   <xs:element name="PrintRequstRPTIDcatResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="PrintRequstRPTIDcatResult" nillable="true" type="q17:MemoryStream" />
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="PrintRequstRPTIDcatResult" nillable="true" type="q18:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -437,7 +449,7 @@
   <xs:element name="PrintOutAllwithDateResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="PrintOutAllwithDateResult" nillable="true" type="q18:MemoryStream" />
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="PrintOutAllwithDateResult" nillable="true" type="q19:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -453,7 +465,7 @@
   <xs:element name="PrintOutAllwithDateAllResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="PrintOutAllwithDateAllResult" nillable="true" type="q19:MemoryStream" />
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="PrintOutAllwithDateAllResult" nillable="true" type="q20:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -470,7 +482,7 @@
   <xs:element name="PrintOutAllwithDateWithIDcaResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="PrintOutAllwithDateWithIDcaResult" nillable="true" type="q20:MemoryStream" />
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="PrintOutAllwithDateWithIDcaResult" nillable="true" type="q21:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -488,7 +500,7 @@
   <xs:element name="PrintOutAllwithDateWithIDcaPLACResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="PrintOutAllwithDateWithIDcaPLACResult" nillable="true" type="q21:MemoryStream" />
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="PrintOutAllwithDateWithIDcaPLACResult" nillable="true" type="q22:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -505,7 +517,7 @@
   <xs:element name="PrintOutAllwithDateWithPLACResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="PrintOutAllwithDateWithPLACResult" nillable="true" type="q22:MemoryStream" />
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="PrintOutAllwithDateWithPLACResult" nillable="true" type="q23:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -521,7 +533,7 @@
   <xs:element name="PrintAccountQuntityResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="PrintAccountQuntityResult" nillable="true" type="q23:MemoryStream" />
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="PrintAccountQuntityResult" nillable="true" type="q24:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -535,7 +547,7 @@
   <xs:element name="PrintAccountQuntityIDacResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="PrintAccountQuntityIDacResult" nillable="true" type="q24:MemoryStream" />
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="PrintAccountQuntityIDacResult" nillable="true" type="q25:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -549,7 +561,7 @@
   <xs:element name="PrintAccountQuntityWithGroupResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="PrintAccountQuntityWithGroupResult" nillable="true" type="q25:MemoryStream" />
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="PrintAccountQuntityWithGroupResult" nillable="true" type="q26:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -561,7 +573,7 @@
   <xs:element name="PrintAccountQuntityAllResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="PrintAccountQuntityAllResult" nillable="true" type="q26:MemoryStream" />
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="PrintAccountQuntityAllResult" nillable="true" type="q27:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -575,7 +587,7 @@
   <xs:element name="GetUpdateSupplyByIDSupplyResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetUpdateSupplyByIDSupplyResult" nillable="true" type="q27:MemoryStream" />
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetUpdateSupplyByIDSupplyResult" nillable="true" type="q28:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -590,7 +602,7 @@
   <xs:element name="GetUpdateSupplyByDateResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetUpdateSupplyByDateResult" nillable="true" type="q28:MemoryStream" />
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetUpdateSupplyByDateResult" nillable="true" type="q29:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -605,7 +617,7 @@
   <xs:element name="GetUpdateSupplyByDateUpdateWithDateResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetUpdateSupplyByDateUpdateWithDateResult" nillable="true" type="q29:MemoryStream" />
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetUpdateSupplyByDateUpdateWithDateResult" nillable="true" type="q30:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -620,7 +632,7 @@
   <xs:element name="GetUpdateSupplyByDateDeleteWithDateResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetUpdateSupplyByDateDeleteWithDateResult" nillable="true" type="q30:MemoryStream" />
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetUpdateSupplyByDateDeleteWithDateResult" nillable="true" type="q31:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -634,7 +646,7 @@
   <xs:element name="GetUpdtOutByIDOutResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetUpdtOutByIDOutResult" nillable="true" type="q31:MemoryStream" />
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetUpdtOutByIDOutResult" nillable="true" type="q32:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -649,7 +661,7 @@
   <xs:element name="GetUpdOutByDateResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetUpdOutByDateResult" nillable="true" type="q32:MemoryStream" />
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetUpdOutByDateResult" nillable="true" type="q33:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -664,7 +676,7 @@
   <xs:element name="GetUpdOutByDateUpdtewithdateResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetUpdOutByDateUpdtewithdateResult" nillable="true" type="q33:MemoryStream" />
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetUpdOutByDateUpdtewithdateResult" nillable="true" type="q34:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -679,7 +691,53 @@
   <xs:element name="GetUpdOutByDateDetle2tewithdateResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetUpdOutByDateDetle2tewithdateResult" nillable="true" type="q34:MemoryStream" />
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetUpdOutByDateDetle2tewithdateResult" nillable="true" type="q35:MemoryStream" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddNewSession">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strat" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="end" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="OSversion" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="NameMachin" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="UserWindows" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="UserID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddNewSessionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddNewSessionResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateENDtimeSession">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IDSession" type="xs:int" />
+        <xs:element minOccurs="0" name="End" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateENDtimeSessionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateENDtimeSessionResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GETMAXIDSession">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GETMAXIDSessionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GETMAXIDSessionResult" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -707,7 +765,7 @@
   <xs:element name="GetRequstOutSngleResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetRequstOutSngleResult" nillable="true" type="q35:MemoryStream" />
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetRequstOutSngleResult" nillable="true" type="q36:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -810,7 +868,7 @@
   <xs:element name="GetALLAcountNmResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetALLAcountNmResult" nillable="true" type="q36:MemoryStream" />
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetALLAcountNmResult" nillable="true" type="q37:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -980,7 +1038,7 @@
   <xs:element name="PrintRequstSupplyResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="PrintRequstSupplyResult" nillable="true" type="q37:MemoryStream" />
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="PrintRequstSupplyResult" nillable="true" type="q38:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -996,7 +1054,7 @@
   <xs:element name="printrequstOutExit1Response">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="printrequstOutExit1Result" nillable="true" type="q38:MemoryStream" />
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="printrequstOutExit1Result" nillable="true" type="q39:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1062,7 +1120,7 @@
   <xs:element name="SearchINRequsetSupplyDateResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="SearchINRequsetSupplyDateResult" nillable="true" type="q39:MemoryStream" />
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="SearchINRequsetSupplyDateResult" nillable="true" type="q40:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1074,7 +1132,7 @@
   <xs:element name="GetAllCreditorINSupllyResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAllCreditorINSupllyResult" nillable="true" type="q40:MemoryStream" />
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAllCreditorINSupllyResult" nillable="true" type="q41:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1148,7 +1206,7 @@
   <xs:element name="GetAllCategoryARResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAllCategoryARResult" nillable="true" type="q41:MemoryStream" />
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAllCategoryARResult" nillable="true" type="q42:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1160,7 +1218,7 @@
   <xs:element name="GetAllTypeQuntityResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAllTypeQuntityResult" nillable="true" type="q42:MemoryStream" />
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAllTypeQuntityResult" nillable="true" type="q43:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1172,7 +1230,7 @@
   <xs:element name="GetAllCurrencyInSupplyResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAllCurrencyInSupplyResult" nillable="true" type="q43:MemoryStream" />
+        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAllCurrencyInSupplyResult" nillable="true" type="q44:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1200,7 +1258,7 @@
   <xs:element name="SearchINRequsetSupplyResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="SearchINRequsetSupplyResult" nillable="true" type="q44:MemoryStream" />
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="SearchINRequsetSupplyResult" nillable="true" type="q45:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1216,7 +1274,7 @@
   <xs:element name="SearchINRequsetSupplyTxtAndDateResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="SearchINRequsetSupplyTxtAndDateResult" nillable="true" type="q45:MemoryStream" />
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="SearchINRequsetSupplyTxtAndDateResult" nillable="true" type="q46:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1230,7 +1288,7 @@
   <xs:element name="GetRequstSupplyResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetRequstSupplyResult" nillable="true" type="q46:MemoryStream" />
+        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetRequstSupplyResult" nillable="true" type="q47:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1318,7 +1376,7 @@
   <xs:element name="GetALLAcountNmInSupplyResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetALLAcountNmInSupplyResult" nillable="true" type="q47:MemoryStream" />
+        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetALLAcountNmInSupplyResult" nillable="true" type="q48:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1444,7 +1502,7 @@
   <xs:element name="GetCategoryByNameResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetCategoryByNameResult" nillable="true" type="q48:MemoryStream" />
+        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetCategoryByNameResult" nillable="true" type="q49:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1515,7 +1573,7 @@
   <xs:element name="chackCatagoryResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="chackCatagoryResult" nillable="true" type="q49:MemoryStream" />
+        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="chackCatagoryResult" nillable="true" type="q50:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1527,7 +1585,7 @@
   <xs:element name="GetAllTypeQuntityInConfResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAllTypeQuntityInConfResult" nillable="true" type="q50:MemoryStream" />
+        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAllTypeQuntityInConfResult" nillable="true" type="q51:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1541,7 +1599,7 @@
   <xs:element name="GetTypeQuntityByNameResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetTypeQuntityByNameResult" nillable="true" type="q51:MemoryStream" />
+        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetTypeQuntityByNameResult" nillable="true" type="q52:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1598,7 +1656,7 @@
   <xs:element name="chackTapyResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="chackTapyResult" nillable="true" type="q52:MemoryStream" />
+        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="chackTapyResult" nillable="true" type="q53:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1612,7 +1670,7 @@
   <xs:element name="GetPlaceByNameResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetPlaceByNameResult" nillable="true" type="q53:MemoryStream" />
+        <xs:element xmlns:q54="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetPlaceByNameResult" nillable="true" type="q54:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1663,7 +1721,14 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="falg" type="xs:int" />
-        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="SessionID" type="xs:int" />
+        <xs:element minOccurs="0" name="start" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="end" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="NameMachine" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="UserWindow" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="OSVersion" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="NameUser" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="USerID" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1776,7 +1841,7 @@
   <xs:element name="GetAllUserResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q54="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAllUserResult" nillable="true" type="q54:MemoryStream" />
+        <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAllUserResult" nillable="true" type="q55:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1790,7 +1855,7 @@
   <xs:element name="GetUserResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetUserResult" nillable="true" type="q55:MemoryStream" />
+        <xs:element xmlns:q56="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetUserResult" nillable="true" type="q56:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1802,7 +1867,7 @@
   <xs:element name="GetAllAccountResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q56="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAllAccountResult" nillable="true" type="q56:MemoryStream" />
+        <xs:element xmlns:q57="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAllAccountResult" nillable="true" type="q57:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1814,7 +1879,7 @@
   <xs:element name="GetAllAcountnArResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q57="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAllAcountnArResult" nillable="true" type="q57:MemoryStream" />
+        <xs:element xmlns:q58="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAllAcountnArResult" nillable="true" type="q58:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1976,7 +2041,7 @@
   <xs:element name="SearchAcountResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q58="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="SearchAcountResult" nillable="true" type="q58:MemoryStream" />
+        <xs:element xmlns:q59="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="SearchAcountResult" nillable="true" type="q59:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1988,7 +2053,7 @@
   <xs:element name="GETALLAccountPrimeResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q59="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GETALLAccountPrimeResult" nillable="true" type="q59:MemoryStream" />
+        <xs:element xmlns:q60="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GETALLAccountPrimeResult" nillable="true" type="q60:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2000,7 +2065,7 @@
   <xs:element name="GETALLAccountSubResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q60="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GETALLAccountSubResult" nillable="true" type="q60:MemoryStream" />
+        <xs:element xmlns:q61="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GETALLAccountSubResult" nillable="true" type="q61:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2012,7 +2077,7 @@
   <xs:element name="GetAllCurrencyResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q61="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAllCurrencyResult" nillable="true" type="q61:MemoryStream" />
+        <xs:element xmlns:q62="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAllCurrencyResult" nillable="true" type="q62:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2028,7 +2093,7 @@
   <xs:element name="GetBalanceAccountResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q62="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetBalanceAccountResult" nillable="true" type="q62:MemoryStream" />
+        <xs:element xmlns:q63="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetBalanceAccountResult" nillable="true" type="q63:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2042,7 +2107,7 @@
   <xs:element name="GetBalanceAccountALLCunncyResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q63="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetBalanceAccountALLCunncyResult" nillable="true" type="q63:MemoryStream" />
+        <xs:element xmlns:q64="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetBalanceAccountALLCunncyResult" nillable="true" type="q64:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2070,7 +2135,7 @@
   <xs:element name="GetBalanceALLAccountALLCunncyResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q64="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetBalanceALLAccountALLCunncyResult" nillable="true" type="q64:MemoryStream" />
+        <xs:element xmlns:q65="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetBalanceALLAccountALLCunncyResult" nillable="true" type="q65:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2084,7 +2149,7 @@
   <xs:element name="GETNMAccountResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q65="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GETNMAccountResult" nillable="true" type="q65:MemoryStream" />
+        <xs:element xmlns:q66="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GETNMAccountResult" nillable="true" type="q66:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2101,7 +2166,7 @@
   <xs:element name="GETAccountDitalisResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q66="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GETAccountDitalisResult" nillable="true" type="q66:MemoryStream" />
+        <xs:element xmlns:q67="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GETAccountDitalisResult" nillable="true" type="q67:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2134,7 +2199,7 @@
   <xs:element name="GETAcountDitlisResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q67="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GETAcountDitlisResult" nillable="true" type="q67:MemoryStream" />
+        <xs:element xmlns:q68="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GETAcountDitlisResult" nillable="true" type="q68:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2160,7 +2225,7 @@
   <xs:element name="GetGroupsAsAccountsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q68="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetGroupsAsAccountsResult" nillable="true" type="q68:MemoryStream" />
+        <xs:element xmlns:q69="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetGroupsAsAccountsResult" nillable="true" type="q69:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2174,7 +2239,7 @@
   <xs:element name="GetAccountesMOnayInGroupResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q69="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAccountesMOnayInGroupResult" nillable="true" type="q69:MemoryStream" />
+        <xs:element xmlns:q70="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAccountesMOnayInGroupResult" nillable="true" type="q70:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2305,7 +2370,7 @@
   <xs:element name="GetAllSimpleConstraintOneDayResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q70="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAllSimpleConstraintOneDayResult" nillable="true" type="q70:MemoryStream" />
+        <xs:element xmlns:q71="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAllSimpleConstraintOneDayResult" nillable="true" type="q71:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2321,7 +2386,7 @@
   <xs:element name="PrintRequstOutResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q71="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="PrintRequstOutResult" nillable="true" type="q71:MemoryStream" />
+        <xs:element xmlns:q72="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="PrintRequstOutResult" nillable="true" type="q72:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2337,7 +2402,7 @@
   <xs:element name="printrequstOutExitResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q72="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="printrequstOutExitResult" nillable="true" type="q72:MemoryStream" />
+        <xs:element xmlns:q73="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="printrequstOutExitResult" nillable="true" type="q73:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2363,7 +2428,7 @@
   <xs:element name="GetCatagoryInAccountResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q73="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetCatagoryInAccountResult" nillable="true" type="q73:MemoryStream" />
+        <xs:element xmlns:q74="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetCatagoryInAccountResult" nillable="true" type="q74:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2389,7 +2454,7 @@
   <xs:element name="GetAllPlaceResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q74="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAllPlaceResult" nillable="true" type="q74:MemoryStream" />
+        <xs:element xmlns:q75="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAllPlaceResult" nillable="true" type="q75:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2401,7 +2466,7 @@
   <xs:element name="GetAllDebitResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q75="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAllDebitResult" nillable="true" type="q75:MemoryStream" />
+        <xs:element xmlns:q76="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAllDebitResult" nillable="true" type="q76:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2413,7 +2478,7 @@
   <xs:element name="GetAllCreditorResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q76="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAllCreditorResult" nillable="true" type="q76:MemoryStream" />
+        <xs:element xmlns:q77="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAllCreditorResult" nillable="true" type="q77:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2428,7 +2493,7 @@
   <xs:element name="SearchINRequstOutDateResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q77="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="SearchINRequstOutDateResult" nillable="true" type="q77:MemoryStream" />
+        <xs:element xmlns:q78="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="SearchINRequstOutDateResult" nillable="true" type="q78:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2442,7 +2507,7 @@
   <xs:element name="GetTypeInAccountResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q78="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetTypeInAccountResult" nillable="true" type="q78:MemoryStream" />
+        <xs:element xmlns:q79="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetTypeInAccountResult" nillable="true" type="q79:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2457,7 +2522,7 @@
   <xs:element name="GetCurrencyINAccountResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q79="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetCurrencyINAccountResult" nillable="true" type="q79:MemoryStream" />
+        <xs:element xmlns:q80="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetCurrencyINAccountResult" nillable="true" type="q80:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2473,7 +2538,7 @@
   <xs:element name="GetAccountIDsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q80="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAccountIDsResult" nillable="true" type="q80:MemoryStream" />
+        <xs:element xmlns:q81="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="GetAccountIDsResult" nillable="true" type="q81:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2617,7 +2682,7 @@
   <xs:element name="SearchINRequsetOuttxtResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q81="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="SearchINRequsetOuttxtResult" nillable="true" type="q81:MemoryStream" />
+        <xs:element xmlns:q82="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="SearchINRequsetOuttxtResult" nillable="true" type="q82:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2633,7 +2698,7 @@
   <xs:element name="SearchINRequsetOutTxtAndDateResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q82="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="SearchINRequsetOutTxtAndDateResult" nillable="true" type="q82:MemoryStream" />
+        <xs:element xmlns:q83="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="SearchINRequsetOutTxtAndDateResult" nillable="true" type="q83:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2649,7 +2714,7 @@
   <xs:element name="SearchINRequsetOutTxtAndDate2Response">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q83="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="SearchINRequsetOutTxtAndDate2Result" nillable="true" type="q83:MemoryStream" />
+        <xs:element xmlns:q84="http://schemas.datacontract.org/2004/07/System.IO" minOccurs="0" name="SearchINRequsetOutTxtAndDate2Result" nillable="true" type="q84:MemoryStream" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

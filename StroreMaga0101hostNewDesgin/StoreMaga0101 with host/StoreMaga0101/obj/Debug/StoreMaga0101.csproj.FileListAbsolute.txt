@@ -328,9 +328,9 @@ D:\programing1\StoreMaga0101\StroreMaga0101hostNewDesgin\StoreMaga0101 with host
 D:\programing1\StoreMaga0101\StroreMaga0101hostNewDesgin\StoreMaga0101 with host\StoreMaga0101\bin\Debug\Out.pdb
 D:\programing1\StoreMaga0101\StroreMaga0101hostNewDesgin\StoreMaga0101 with host\StoreMaga0101\bin\Debug\Supplly.pdb
 D:\programing1\StoreMaga0101\StroreMaga0101hostNewDesgin\StoreMaga0101 with host\StoreMaga0101\bin\Debug\SystemConfiguration.pdb
-D:\programing1\StoreMaga0101\StroreMaga0101hostNewDesgin\StoreMaga0101 with host\StoreMaga0101\bin\Debug\Users.pdb
 D:\programing1\StoreMaga0101\StroreMaga0101hostNewDesgin\StoreMaga0101 with host\StoreMaga0101\obj\Debug\StoreMaga0101.FrmMain.resources
 D:\programing1\StoreMaga0101\StroreMaga0101hostNewDesgin\StoreMaga0101 with host\StoreMaga0101\obj\Debug\StoreMaga0101.Properties.Resources.resources
 D:\programing1\StoreMaga0101\StroreMaga0101hostNewDesgin\StoreMaga0101 with host\StoreMaga0101\obj\Debug\StoreMaga0101.csproj.GenerateResource.Cache
 D:\programing1\StoreMaga0101\StroreMaga0101hostNewDesgin\StoreMaga0101 with host\StoreMaga0101\obj\Debug\StoreMaga0101.csprojResolveAssemblyReference.cache
 D:\programing1\StoreMaga0101\StroreMaga0101hostNewDesgin\StoreMaga0101 with host\StoreMaga0101\bin\Debug\KRBTabControl.pdb
+D:\programing1\StoreMaga0101\StroreMaga0101hostNewDesgin\StoreMaga0101 with host\StoreMaga0101\bin\Debug\Users.pdb

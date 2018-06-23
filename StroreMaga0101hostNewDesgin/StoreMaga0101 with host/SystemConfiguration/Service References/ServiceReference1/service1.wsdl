@@ -18,6 +18,306 @@
       <xsd:import namespace="http://schemas.datacontract.org/2004/07/System" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="Iservice_chackPlace_InputMessage">
+    <wsdl:part name="parameters" element="tns:chackPlace" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_chackPlace_OutputMessage">
+    <wsdl:part name="parameters" element="tns:chackPlaceResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GETCurrencyBYName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GETCurrencyBYName" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GETCurrencyBYName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GETCurrencyBYNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_AddNewCurrency_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddNewCurrency" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_AddNewCurrency_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddNewCurrencyResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_UpdateCurrency_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCurrency" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_UpdateCurrency_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCurrencyResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_DeleteCurrency_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCurrency" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_DeleteCurrency_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCurrencyResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_chackCurncy_InputMessage">
+    <wsdl:part name="parameters" element="tns:chackCurncy" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_chackCurncy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:chackCurncyResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_AddNewGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddNewGroup" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_AddNewGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddNewGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetOneGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOneGroup" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetOneGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOneGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetAllGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllGroup" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetAllGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetGroupByName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGroupByName" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetGroupByName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGroupByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_DeleteGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteGroup" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_DeleteGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_CheckGroupItems_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckGroupItems" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_CheckGroupItems_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckGroupItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetSourecGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSourecGroup" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetSourecGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSourecGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetMaxIDGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMaxIDGroup" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetMaxIDGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMaxIDGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_UpdateGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateGroup" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_UpdateGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetAllAccountSubNoInGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAccountSubNoInGroup" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetAllAccountSubNoInGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAccountSubNoInGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetAllAccountSubInGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAccountSubInGroup" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetAllAccountSubInGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAccountSubInGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_DeleteItemsONGroupDetalis_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteItemsONGroupDetalis" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_DeleteItemsONGroupDetalis_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteItemsONGroupDetalisResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_AddItemsONGroupDetalis_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddItemsONGroupDetalis" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_AddItemsONGroupDetalis_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddItemsONGroupDetalisResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_AddConnectionAccountwithPlace_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddConnectionAccountwithPlace" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_AddConnectionAccountwithPlace_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddConnectionAccountwithPlaceResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_UpdateConnectionAccountwithPlace_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateConnectionAccountwithPlace" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_UpdateConnectionAccountwithPlace_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateConnectionAccountwithPlaceResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_DeleteConnectionAccountwithPlace_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteConnectionAccountwithPlace" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_DeleteConnectionAccountwithPlace_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteConnectionAccountwithPlaceResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetConnectionAccountwithPlace_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetConnectionAccountwithPlace" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetConnectionAccountwithPlace_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetConnectionAccountwithPlaceResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetAllCategoryARWithAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCategoryARWithAccount" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetAllCategoryARWithAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCategoryARWithAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetGroupsCate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGroupsCate" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetGroupsCate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGroupsCateResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetAllUserinReprt_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUserinReprt" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetAllUserinReprt_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUserinReprtResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetAllUserAR_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUserAR" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetAllUserAR_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUserARResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_PrintRequstRPT_InputMessage">
+    <wsdl:part name="parameters" element="tns:PrintRequstRPT" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_PrintRequstRPT_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PrintRequstRPTResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_PrintRequstRPTAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:PrintRequstRPTAll" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_PrintRequstRPTAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PrintRequstRPTAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_PrintRequstRPTIDcat_InputMessage">
+    <wsdl:part name="parameters" element="tns:PrintRequstRPTIDcat" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_PrintRequstRPTIDcat_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PrintRequstRPTIDcatResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_PrintOutAllwithDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:PrintOutAllwithDate" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_PrintOutAllwithDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PrintOutAllwithDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_PrintOutAllwithDateAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:PrintOutAllwithDateAll" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_PrintOutAllwithDateAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PrintOutAllwithDateAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_PrintOutAllwithDateWithIDca_InputMessage">
+    <wsdl:part name="parameters" element="tns:PrintOutAllwithDateWithIDca" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_PrintOutAllwithDateWithIDca_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PrintOutAllwithDateWithIDcaResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_PrintOutAllwithDateWithIDcaPLAC_InputMessage">
+    <wsdl:part name="parameters" element="tns:PrintOutAllwithDateWithIDcaPLAC" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_PrintOutAllwithDateWithIDcaPLAC_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PrintOutAllwithDateWithIDcaPLACResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_PrintOutAllwithDateWithPLAC_InputMessage">
+    <wsdl:part name="parameters" element="tns:PrintOutAllwithDateWithPLAC" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_PrintOutAllwithDateWithPLAC_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PrintOutAllwithDateWithPLACResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_PrintAccountQuntity_InputMessage">
+    <wsdl:part name="parameters" element="tns:PrintAccountQuntity" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_PrintAccountQuntity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PrintAccountQuntityResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_PrintAccountQuntityIDac_InputMessage">
+    <wsdl:part name="parameters" element="tns:PrintAccountQuntityIDac" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_PrintAccountQuntityIDac_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PrintAccountQuntityIDacResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_PrintAccountQuntityWithGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:PrintAccountQuntityWithGroup" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_PrintAccountQuntityWithGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PrintAccountQuntityWithGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_PrintAccountQuntityAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:PrintAccountQuntityAll" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_PrintAccountQuntityAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PrintAccountQuntityAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetUpdateSupplyByIDSupply_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUpdateSupplyByIDSupply" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetUpdateSupplyByIDSupply_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUpdateSupplyByIDSupplyResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetUpdateSupplyByDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUpdateSupplyByDate" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetUpdateSupplyByDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUpdateSupplyByDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetUpdateSupplyByDateUpdateWithDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUpdateSupplyByDateUpdateWithDate" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetUpdateSupplyByDateUpdateWithDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUpdateSupplyByDateUpdateWithDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetUpdateSupplyByDateDeleteWithDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUpdateSupplyByDateDeleteWithDate" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetUpdateSupplyByDateDeleteWithDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUpdateSupplyByDateDeleteWithDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetUpdtOutByIDOut_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUpdtOutByIDOut" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetUpdtOutByIDOut_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUpdtOutByIDOutResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetUpdOutByDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUpdOutByDate" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetUpdOutByDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUpdOutByDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetUpdOutByDateUpdtewithdate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUpdOutByDateUpdtewithdate" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetUpdOutByDateUpdtewithdate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUpdOutByDateUpdtewithdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetUpdOutByDateDetle2tewithdate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUpdOutByDateDetle2tewithdate" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetUpdOutByDateDetle2tewithdate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUpdOutByDateDetle2tewithdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_AddNewSession_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddNewSession" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_AddNewSession_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddNewSessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_UpdateENDtimeSession_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateENDtimeSession" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_UpdateENDtimeSession_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateENDtimeSessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GETMAXIDSession_InputMessage">
+    <wsdl:part name="parameters" element="tns:GETMAXIDSession" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GETMAXIDSession_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GETMAXIDSessionResponse" />
+  </wsdl:message>
   <wsdl:message name="Iservice_GetUserNameBYIdUser_InputMessage">
     <wsdl:part name="parameters" element="tns:GetUserNameBYIdUser" />
   </wsdl:message>
@@ -305,6 +605,102 @@
   </wsdl:message>
   <wsdl:message name="Iservice_DeleteSuuplyFrmAccountDitalis2InSupply_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteSuuplyFrmAccountDitalis2InSupplyResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetCategoryByName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCategoryByName" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetCategoryByName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCategoryByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_AddNewCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddNewCategory" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_AddNewCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddNewCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetMaxIDCate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMaxIDCate" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetMaxIDCate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMaxIDCateResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_UpdateCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCategory" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_UpdateCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_DeleteCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCategory" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_DeleteCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_chackCatagory_InputMessage">
+    <wsdl:part name="parameters" element="tns:chackCatagory" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_chackCatagory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:chackCatagoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetAllTypeQuntityInConf_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTypeQuntityInConf" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetAllTypeQuntityInConf_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTypeQuntityInConfResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetTypeQuntityByName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTypeQuntityByName" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetTypeQuntityByName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTypeQuntityByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_AddNewTypeQuntity_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddNewTypeQuntity" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_AddNewTypeQuntity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddNewTypeQuntityResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_UpdateTypeQuntity_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTypeQuntity" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_UpdateTypeQuntity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTypeQuntityResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_DeleteQuntity_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteQuntity" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_DeleteQuntity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteQuntityResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_chackTapy_InputMessage">
+    <wsdl:part name="parameters" element="tns:chackTapy" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_chackTapy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:chackTapyResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetPlaceByName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPlaceByName" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetPlaceByName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPlaceByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_AddNewPlaceSend_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddNewPlaceSend" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_AddNewPlaceSend_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddNewPlaceSendResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_UpdatePlaceSend_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePlaceSend" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_UpdatePlaceSend_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePlaceSendResponse" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_DeletePlaceSend_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePlaceSend" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_DeletePlaceSend_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePlaceSendResponse" />
   </wsdl:message>
   <wsdl:message name="Iservice_SENDUSERTOSERVER_InputMessage">
     <wsdl:part name="parameters" element="tns:SENDUSERTOSERVER" />
@@ -691,6 +1087,206 @@
     <wsdl:part name="parameters" element="tns:SearchINRequsetOutTxtAndDate2Response" />
   </wsdl:message>
   <wsdl:portType name="Iservice">
+    <wsdl:operation name="chackPlace">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/chackPlace" message="tns:Iservice_chackPlace_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/chackPlaceResponse" message="tns:Iservice_chackPlace_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GETCurrencyBYName">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GETCurrencyBYName" message="tns:Iservice_GETCurrencyBYName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GETCurrencyBYNameResponse" message="tns:Iservice_GETCurrencyBYName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNewCurrency">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/AddNewCurrency" message="tns:Iservice_AddNewCurrency_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/AddNewCurrencyResponse" message="tns:Iservice_AddNewCurrency_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCurrency">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/UpdateCurrency" message="tns:Iservice_UpdateCurrency_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/UpdateCurrencyResponse" message="tns:Iservice_UpdateCurrency_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCurrency">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/DeleteCurrency" message="tns:Iservice_DeleteCurrency_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/DeleteCurrencyResponse" message="tns:Iservice_DeleteCurrency_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="chackCurncy">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/chackCurncy" message="tns:Iservice_chackCurncy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/chackCurncyResponse" message="tns:Iservice_chackCurncy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNewGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/AddNewGroup" message="tns:Iservice_AddNewGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/AddNewGroupResponse" message="tns:Iservice_AddNewGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOneGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GetOneGroup" message="tns:Iservice_GetOneGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GetOneGroupResponse" message="tns:Iservice_GetOneGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GetAllGroup" message="tns:Iservice_GetAllGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GetAllGroupResponse" message="tns:Iservice_GetAllGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupByName">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GetGroupByName" message="tns:Iservice_GetGroupByName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GetGroupByNameResponse" message="tns:Iservice_GetGroupByName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/DeleteGroup" message="tns:Iservice_DeleteGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/DeleteGroupResponse" message="tns:Iservice_DeleteGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckGroupItems">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/CheckGroupItems" message="tns:Iservice_CheckGroupItems_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/CheckGroupItemsResponse" message="tns:Iservice_CheckGroupItems_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSourecGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GetSourecGroup" message="tns:Iservice_GetSourecGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GetSourecGroupResponse" message="tns:Iservice_GetSourecGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMaxIDGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GetMaxIDGroup" message="tns:Iservice_GetMaxIDGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GetMaxIDGroupResponse" message="tns:Iservice_GetMaxIDGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/UpdateGroup" message="tns:Iservice_UpdateGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/UpdateGroupResponse" message="tns:Iservice_UpdateGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAccountSubNoInGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GetAllAccountSubNoInGroup" message="tns:Iservice_GetAllAccountSubNoInGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GetAllAccountSubNoInGroupResponse" message="tns:Iservice_GetAllAccountSubNoInGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAccountSubInGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GetAllAccountSubInGroup" message="tns:Iservice_GetAllAccountSubInGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GetAllAccountSubInGroupResponse" message="tns:Iservice_GetAllAccountSubInGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteItemsONGroupDetalis">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/DeleteItemsONGroupDetalis" message="tns:Iservice_DeleteItemsONGroupDetalis_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/DeleteItemsONGroupDetalisResponse" message="tns:Iservice_DeleteItemsONGroupDetalis_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddItemsONGroupDetalis">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/AddItemsONGroupDetalis" message="tns:Iservice_AddItemsONGroupDetalis_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/AddItemsONGroupDetalisResponse" message="tns:Iservice_AddItemsONGroupDetalis_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddConnectionAccountwithPlace">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/AddConnectionAccountwithPlace" message="tns:Iservice_AddConnectionAccountwithPlace_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/AddConnectionAccountwithPlaceResponse" message="tns:Iservice_AddConnectionAccountwithPlace_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateConnectionAccountwithPlace">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/UpdateConnectionAccountwithPlace" message="tns:Iservice_UpdateConnectionAccountwithPlace_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/UpdateConnectionAccountwithPlaceResponse" message="tns:Iservice_UpdateConnectionAccountwithPlace_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteConnectionAccountwithPlace">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/DeleteConnectionAccountwithPlace" message="tns:Iservice_DeleteConnectionAccountwithPlace_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/DeleteConnectionAccountwithPlaceResponse" message="tns:Iservice_DeleteConnectionAccountwithPlace_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetConnectionAccountwithPlace">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GetConnectionAccountwithPlace" message="tns:Iservice_GetConnectionAccountwithPlace_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GetConnectionAccountwithPlaceResponse" message="tns:Iservice_GetConnectionAccountwithPlace_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCategoryARWithAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GetAllCategoryARWithAccount" message="tns:Iservice_GetAllCategoryARWithAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GetAllCategoryARWithAccountResponse" message="tns:Iservice_GetAllCategoryARWithAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupsCate">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GetGroupsCate" message="tns:Iservice_GetGroupsCate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GetGroupsCateResponse" message="tns:Iservice_GetGroupsCate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUserinReprt">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GetAllUserinReprt" message="tns:Iservice_GetAllUserinReprt_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GetAllUserinReprtResponse" message="tns:Iservice_GetAllUserinReprt_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUserAR">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GetAllUserAR" message="tns:Iservice_GetAllUserAR_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GetAllUserARResponse" message="tns:Iservice_GetAllUserAR_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PrintRequstRPT">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/PrintRequstRPT" message="tns:Iservice_PrintRequstRPT_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/PrintRequstRPTResponse" message="tns:Iservice_PrintRequstRPT_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PrintRequstRPTAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/PrintRequstRPTAll" message="tns:Iservice_PrintRequstRPTAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/PrintRequstRPTAllResponse" message="tns:Iservice_PrintRequstRPTAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PrintRequstRPTIDcat">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/PrintRequstRPTIDcat" message="tns:Iservice_PrintRequstRPTIDcat_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/PrintRequstRPTIDcatResponse" message="tns:Iservice_PrintRequstRPTIDcat_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PrintOutAllwithDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/PrintOutAllwithDate" message="tns:Iservice_PrintOutAllwithDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/PrintOutAllwithDateResponse" message="tns:Iservice_PrintOutAllwithDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PrintOutAllwithDateAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/PrintOutAllwithDateAll" message="tns:Iservice_PrintOutAllwithDateAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/PrintOutAllwithDateAllResponse" message="tns:Iservice_PrintOutAllwithDateAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PrintOutAllwithDateWithIDca">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/PrintOutAllwithDateWithIDca" message="tns:Iservice_PrintOutAllwithDateWithIDca_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/PrintOutAllwithDateWithIDcaResponse" message="tns:Iservice_PrintOutAllwithDateWithIDca_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PrintOutAllwithDateWithIDcaPLAC">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/PrintOutAllwithDateWithIDcaPLAC" message="tns:Iservice_PrintOutAllwithDateWithIDcaPLAC_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/PrintOutAllwithDateWithIDcaPLACResponse" message="tns:Iservice_PrintOutAllwithDateWithIDcaPLAC_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PrintOutAllwithDateWithPLAC">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/PrintOutAllwithDateWithPLAC" message="tns:Iservice_PrintOutAllwithDateWithPLAC_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/PrintOutAllwithDateWithPLACResponse" message="tns:Iservice_PrintOutAllwithDateWithPLAC_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PrintAccountQuntity">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/PrintAccountQuntity" message="tns:Iservice_PrintAccountQuntity_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/PrintAccountQuntityResponse" message="tns:Iservice_PrintAccountQuntity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PrintAccountQuntityIDac">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/PrintAccountQuntityIDac" message="tns:Iservice_PrintAccountQuntityIDac_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/PrintAccountQuntityIDacResponse" message="tns:Iservice_PrintAccountQuntityIDac_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PrintAccountQuntityWithGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/PrintAccountQuntityWithGroup" message="tns:Iservice_PrintAccountQuntityWithGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/PrintAccountQuntityWithGroupResponse" message="tns:Iservice_PrintAccountQuntityWithGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PrintAccountQuntityAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/PrintAccountQuntityAll" message="tns:Iservice_PrintAccountQuntityAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/PrintAccountQuntityAllResponse" message="tns:Iservice_PrintAccountQuntityAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUpdateSupplyByIDSupply">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GetUpdateSupplyByIDSupply" message="tns:Iservice_GetUpdateSupplyByIDSupply_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GetUpdateSupplyByIDSupplyResponse" message="tns:Iservice_GetUpdateSupplyByIDSupply_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUpdateSupplyByDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GetUpdateSupplyByDate" message="tns:Iservice_GetUpdateSupplyByDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GetUpdateSupplyByDateResponse" message="tns:Iservice_GetUpdateSupplyByDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUpdateSupplyByDateUpdateWithDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GetUpdateSupplyByDateUpdateWithDate" message="tns:Iservice_GetUpdateSupplyByDateUpdateWithDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GetUpdateSupplyByDateUpdateWithDateResponse" message="tns:Iservice_GetUpdateSupplyByDateUpdateWithDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUpdateSupplyByDateDeleteWithDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GetUpdateSupplyByDateDeleteWithDate" message="tns:Iservice_GetUpdateSupplyByDateDeleteWithDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GetUpdateSupplyByDateDeleteWithDateResponse" message="tns:Iservice_GetUpdateSupplyByDateDeleteWithDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUpdtOutByIDOut">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GetUpdtOutByIDOut" message="tns:Iservice_GetUpdtOutByIDOut_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GetUpdtOutByIDOutResponse" message="tns:Iservice_GetUpdtOutByIDOut_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUpdOutByDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GetUpdOutByDate" message="tns:Iservice_GetUpdOutByDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GetUpdOutByDateResponse" message="tns:Iservice_GetUpdOutByDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUpdOutByDateUpdtewithdate">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GetUpdOutByDateUpdtewithdate" message="tns:Iservice_GetUpdOutByDateUpdtewithdate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GetUpdOutByDateUpdtewithdateResponse" message="tns:Iservice_GetUpdOutByDateUpdtewithdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUpdOutByDateDetle2tewithdate">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GetUpdOutByDateDetle2tewithdate" message="tns:Iservice_GetUpdOutByDateDetle2tewithdate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GetUpdOutByDateDetle2tewithdateResponse" message="tns:Iservice_GetUpdOutByDateDetle2tewithdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNewSession">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/AddNewSession" message="tns:Iservice_AddNewSession_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/AddNewSessionResponse" message="tns:Iservice_AddNewSession_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateENDtimeSession">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/UpdateENDtimeSession" message="tns:Iservice_UpdateENDtimeSession_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/UpdateENDtimeSessionResponse" message="tns:Iservice_UpdateENDtimeSession_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GETMAXIDSession">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GETMAXIDSession" message="tns:Iservice_GETMAXIDSession_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GETMAXIDSessionResponse" message="tns:Iservice_GETMAXIDSession_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetUserNameBYIdUser">
       <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GetUserNameBYIdUser" message="tns:Iservice_GetUserNameBYIdUser_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GetUserNameBYIdUserResponse" message="tns:Iservice_GetUserNameBYIdUser_OutputMessage" />
@@ -882,6 +1478,70 @@
     <wsdl:operation name="DeleteSuuplyFrmAccountDitalis2InSupply">
       <wsdl:input wsaw:Action="http://tempuri.org/Iservice/DeleteSuuplyFrmAccountDitalis2InSupply" message="tns:Iservice_DeleteSuuplyFrmAccountDitalis2InSupply_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/Iservice/DeleteSuuplyFrmAccountDitalis2InSupplyResponse" message="tns:Iservice_DeleteSuuplyFrmAccountDitalis2InSupply_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCategoryByName">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GetCategoryByName" message="tns:Iservice_GetCategoryByName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GetCategoryByNameResponse" message="tns:Iservice_GetCategoryByName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNewCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/AddNewCategory" message="tns:Iservice_AddNewCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/AddNewCategoryResponse" message="tns:Iservice_AddNewCategory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMaxIDCate">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GetMaxIDCate" message="tns:Iservice_GetMaxIDCate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GetMaxIDCateResponse" message="tns:Iservice_GetMaxIDCate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/UpdateCategory" message="tns:Iservice_UpdateCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/UpdateCategoryResponse" message="tns:Iservice_UpdateCategory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/DeleteCategory" message="tns:Iservice_DeleteCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/DeleteCategoryResponse" message="tns:Iservice_DeleteCategory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="chackCatagory">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/chackCatagory" message="tns:Iservice_chackCatagory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/chackCatagoryResponse" message="tns:Iservice_chackCatagory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTypeQuntityInConf">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GetAllTypeQuntityInConf" message="tns:Iservice_GetAllTypeQuntityInConf_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GetAllTypeQuntityInConfResponse" message="tns:Iservice_GetAllTypeQuntityInConf_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTypeQuntityByName">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GetTypeQuntityByName" message="tns:Iservice_GetTypeQuntityByName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GetTypeQuntityByNameResponse" message="tns:Iservice_GetTypeQuntityByName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNewTypeQuntity">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/AddNewTypeQuntity" message="tns:Iservice_AddNewTypeQuntity_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/AddNewTypeQuntityResponse" message="tns:Iservice_AddNewTypeQuntity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTypeQuntity">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/UpdateTypeQuntity" message="tns:Iservice_UpdateTypeQuntity_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/UpdateTypeQuntityResponse" message="tns:Iservice_UpdateTypeQuntity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteQuntity">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/DeleteQuntity" message="tns:Iservice_DeleteQuntity_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/DeleteQuntityResponse" message="tns:Iservice_DeleteQuntity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="chackTapy">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/chackTapy" message="tns:Iservice_chackTapy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/chackTapyResponse" message="tns:Iservice_chackTapy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPlaceByName">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GetPlaceByName" message="tns:Iservice_GetPlaceByName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GetPlaceByNameResponse" message="tns:Iservice_GetPlaceByName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNewPlaceSend">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/AddNewPlaceSend" message="tns:Iservice_AddNewPlaceSend_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/AddNewPlaceSendResponse" message="tns:Iservice_AddNewPlaceSend_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePlaceSend">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/UpdatePlaceSend" message="tns:Iservice_UpdatePlaceSend_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/UpdatePlaceSendResponse" message="tns:Iservice_UpdatePlaceSend_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePlaceSend">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/DeletePlaceSend" message="tns:Iservice_DeletePlaceSend_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/DeletePlaceSendResponse" message="tns:Iservice_DeletePlaceSend_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="SENDUSERTOSERVER">
       <wsdl:input wsaw:Action="http://tempuri.org/Iservice/SENDUSERTOSERVER" message="tns:Iservice_SENDUSERTOSERVER_InputMessage" />
@@ -1144,6 +1804,456 @@
     <wsp:PolicyReference URI="#NetTcpBinding_Iservice_policy">
     </wsp:PolicyReference>
     <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="chackPlace">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/chackPlace" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GETCurrencyBYName">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/GETCurrencyBYName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewCurrency">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/AddNewCurrency" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCurrency">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/UpdateCurrency" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCurrency">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/DeleteCurrency" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="chackCurncy">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/chackCurncy" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewGroup">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/AddNewGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOneGroup">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/GetOneGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllGroup">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/GetAllGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupByName">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/GetGroupByName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteGroup">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/DeleteGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckGroupItems">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/CheckGroupItems" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSourecGroup">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/GetSourecGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMaxIDGroup">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/GetMaxIDGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGroup">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/UpdateGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAccountSubNoInGroup">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/GetAllAccountSubNoInGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAccountSubInGroup">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/GetAllAccountSubInGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteItemsONGroupDetalis">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/DeleteItemsONGroupDetalis" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddItemsONGroupDetalis">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/AddItemsONGroupDetalis" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddConnectionAccountwithPlace">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/AddConnectionAccountwithPlace" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateConnectionAccountwithPlace">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/UpdateConnectionAccountwithPlace" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteConnectionAccountwithPlace">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/DeleteConnectionAccountwithPlace" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetConnectionAccountwithPlace">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/GetConnectionAccountwithPlace" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCategoryARWithAccount">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/GetAllCategoryARWithAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupsCate">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/GetGroupsCate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUserinReprt">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/GetAllUserinReprt" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUserAR">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/GetAllUserAR" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrintRequstRPT">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/PrintRequstRPT" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrintRequstRPTAll">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/PrintRequstRPTAll" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrintRequstRPTIDcat">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/PrintRequstRPTIDcat" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrintOutAllwithDate">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/PrintOutAllwithDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrintOutAllwithDateAll">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/PrintOutAllwithDateAll" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrintOutAllwithDateWithIDca">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/PrintOutAllwithDateWithIDca" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrintOutAllwithDateWithIDcaPLAC">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/PrintOutAllwithDateWithIDcaPLAC" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrintOutAllwithDateWithPLAC">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/PrintOutAllwithDateWithPLAC" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrintAccountQuntity">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/PrintAccountQuntity" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrintAccountQuntityIDac">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/PrintAccountQuntityIDac" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrintAccountQuntityWithGroup">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/PrintAccountQuntityWithGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrintAccountQuntityAll">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/PrintAccountQuntityAll" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUpdateSupplyByIDSupply">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/GetUpdateSupplyByIDSupply" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUpdateSupplyByDate">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/GetUpdateSupplyByDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUpdateSupplyByDateUpdateWithDate">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/GetUpdateSupplyByDateUpdateWithDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUpdateSupplyByDateDeleteWithDate">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/GetUpdateSupplyByDateDeleteWithDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUpdtOutByIDOut">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/GetUpdtOutByIDOut" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUpdOutByDate">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/GetUpdOutByDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUpdOutByDateUpdtewithdate">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/GetUpdOutByDateUpdtewithdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUpdOutByDateDetle2tewithdate">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/GetUpdOutByDateDetle2tewithdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewSession">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/AddNewSession" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateENDtimeSession">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/UpdateENDtimeSession" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GETMAXIDSession">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/GETMAXIDSession" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetUserNameBYIdUser">
       <soap12:operation soapAction="http://tempuri.org/Iservice/GetUserNameBYIdUser" style="document" />
       <wsdl:input>
@@ -1569,6 +2679,150 @@
     </wsdl:operation>
     <wsdl:operation name="DeleteSuuplyFrmAccountDitalis2InSupply">
       <soap12:operation soapAction="http://tempuri.org/Iservice/DeleteSuuplyFrmAccountDitalis2InSupply" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCategoryByName">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/GetCategoryByName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewCategory">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/AddNewCategory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMaxIDCate">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/GetMaxIDCate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCategory">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/UpdateCategory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCategory">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/DeleteCategory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="chackCatagory">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/chackCatagory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTypeQuntityInConf">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/GetAllTypeQuntityInConf" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTypeQuntityByName">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/GetTypeQuntityByName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewTypeQuntity">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/AddNewTypeQuntity" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTypeQuntity">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/UpdateTypeQuntity" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteQuntity">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/DeleteQuntity" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="chackTapy">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/chackTapy" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlaceByName">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/GetPlaceByName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewPlaceSend">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/AddNewPlaceSend" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePlaceSend">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/UpdatePlaceSend" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePlaceSend">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/DeletePlaceSend" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -2155,9 +3409,9 @@
   </wsdl:binding>
   <wsdl:service name="MYSerivce">
     <wsdl:port name="NetTcpBinding_Iservice" binding="tns:NetTcpBinding_Iservice">
-      <soap12:address location="net.tcp://localhost:9002/MyMathService" />
+      <soap12:address location="net.tcp://localhost:9002/StoreService" />
       <wsa10:EndpointReference>
-        <wsa10:Address>net.tcp://localhost:9002/MyMathService</wsa10:Address>
+        <wsa10:Address>net.tcp://localhost:9002/StoreService</wsa10:Address>
       </wsa10:EndpointReference>
     </wsdl:port>
   </wsdl:service>

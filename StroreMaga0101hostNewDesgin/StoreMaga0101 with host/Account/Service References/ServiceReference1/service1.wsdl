@@ -3409,9 +3409,9 @@
   </wsdl:binding>
   <wsdl:service name="MYSerivce">
     <wsdl:port name="NetTcpBinding_Iservice" binding="tns:NetTcpBinding_Iservice">
-      <soap12:address location="net.tcp://localhost:9002/MyMathService" />
+      <soap12:address location="net.tcp://localhost:9002/StoreService" />
       <wsa10:EndpointReference>
-        <wsa10:Address>net.tcp://localhost:9002/MyMathService</wsa10:Address>
+        <wsa10:Address>net.tcp://localhost:9002/StoreService</wsa10:Address>
       </wsa10:EndpointReference>
     </wsdl:port>
   </wsdl:service>

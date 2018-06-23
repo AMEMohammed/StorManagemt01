@@ -25,7 +25,7 @@ namespace StoreMaga0101
         private Point _imageLocation = new Point(13, 5);
         private Point _imgHitArea = new Point(13, 2);
         int UserID;
-        Image CloseImage;
+      
 
         frmLogin frm;// Login from
         ServiceReference1.IserviceClient serHost;
@@ -37,7 +37,7 @@ namespace StoreMaga0101
            
             try
             {
-              
+                
                 if (ConServer.ConnectionWithHost)
                 {
                     serHost=new ServiceReference1.IserviceClient();
@@ -119,8 +119,7 @@ namespace StoreMaga0101
             try
             {
                
-                CloseImage = StoreMaga0101.Properties.Resources.error;
-              
+             
 
                 string NameUser;
                 frm.ShowDialog();

@@ -18,7 +18,7 @@
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="HostIP" Type="System.String" Scope="User">
-      <Value Profile="(Default)">net.tcp://localhost:9002/MyMathService</Value>
+      <Value Profile="(Default)">net.tcp://localhost:9002/StoreService</Value>
     </Setting>
     <Setting Name="port" Type="System.String" Scope="User">
       <Value Profile="(Default)">9002</Value>
