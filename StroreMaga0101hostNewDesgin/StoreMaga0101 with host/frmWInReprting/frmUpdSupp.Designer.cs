@@ -38,6 +38,7 @@
             this.عددجميعالاسطرToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.عددالاسطرالمحددةToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.تصديرالىاكسلToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnRefrsh = new System.Windows.Forms.Button();
@@ -58,7 +59,6 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
-            this.تصديرالىاكسلToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -72,9 +72,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(358, 10);
+            this.groupBox1.Location = new System.Drawing.Point(454, 10);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(423, 46);
             this.groupBox1.TabIndex = 18;
@@ -131,7 +132,14 @@
             this.تصديرالىاكسلToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.contextMenuStrip1.Size = new System.Drawing.Size(189, 158);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(189, 136);
+            // 
+            // تصديرالىاكسلToolStripMenuItem
+            // 
+            this.تصديرالىاكسلToolStripMenuItem.Name = "تصديرالىاكسلToolStripMenuItem";
+            this.تصديرالىاكسلToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.تصديرالىاكسلToolStripMenuItem.Text = "تصدير الى اكسل";
+            this.تصديرالىاكسلToolStripMenuItem.Click += new System.EventHandler(this.تصديرالىاكسلToolStripMenuItem_Click);
             // 
             // dataGridView1
             // 
@@ -155,11 +163,12 @@
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1141, 435);
+            this.dataGridView1.Size = new System.Drawing.Size(1386, 469);
             this.dataGridView1.TabIndex = 12;
             // 
             // btnExit
             // 
+            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnExit.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btnExit.Image = global::frmWInReprting.Properties.Resources.exit__3_;
             this.btnExit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -174,6 +183,7 @@
             // 
             // btnRefrsh
             // 
+            this.btnRefrsh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRefrsh.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btnRefrsh.Image = global::frmWInReprting.Properties.Resources.printer__3_;
             this.btnRefrsh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -188,6 +198,7 @@
             // 
             // btnPrint
             // 
+            this.btnPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnPrint.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btnPrint.Image = global::frmWInReprting.Properties.Resources.printer__3_;
             this.btnPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -202,6 +213,7 @@
             // 
             // btnAddSup
             // 
+            this.btnAddSup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAddSup.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btnAddSup.Image = global::frmWInReprting.Properties.Resources.search;
             this.btnAddSup.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -216,6 +228,7 @@
             // 
             // groupBox11
             // 
+            this.groupBox11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox11.Controls.Add(this.btnExit);
             this.groupBox11.Controls.Add(this.btnRefrsh);
             this.groupBox11.Controls.Add(this.btnPrint);
@@ -235,13 +248,14 @@
             this.groupBox12.Controls.Add(this.dataGridView1);
             this.groupBox12.Location = new System.Drawing.Point(9, 208);
             this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(1153, 460);
+            this.groupBox12.Size = new System.Drawing.Size(1398, 494);
             this.groupBox12.TabIndex = 20;
             this.groupBox12.TabStop = false;
             this.groupBox12.Text = "التعديل والحذف";
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.radioButton3);
             this.groupBox2.Controls.Add(this.radioButton2);
             this.groupBox2.Controls.Add(this.radioButton1);
@@ -250,7 +264,7 @@
             this.groupBox2.Controls.Add(this.groupBox10);
             this.groupBox2.Controls.Add(this.groupBox11);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(152, 62);
+            this.groupBox2.Location = new System.Drawing.Point(248, 62);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(885, 140);
             this.groupBox2.TabIndex = 19;
@@ -258,6 +272,7 @@
             // 
             // radioButton3
             // 
+            this.radioButton3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.radioButton3.AutoSize = true;
             this.radioButton3.Location = new System.Drawing.Point(674, 114);
             this.radioButton3.Name = "radioButton3";
@@ -269,6 +284,7 @@
             // 
             // radioButton2
             // 
+            this.radioButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.radioButton2.AutoSize = true;
             this.radioButton2.Location = new System.Drawing.Point(750, 114);
             this.radioButton2.Name = "radioButton2";
@@ -279,6 +295,7 @@
             // 
             // radioButton1
             // 
+            this.radioButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.radioButton1.AutoSize = true;
             this.radioButton1.Checked = true;
             this.radioButton1.Location = new System.Drawing.Point(831, 114);
@@ -291,6 +308,7 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox5.Controls.Add(this.comboBox5);
             this.groupBox5.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox5.Location = new System.Drawing.Point(614, 8);
@@ -302,6 +320,7 @@
             // 
             // comboBox5
             // 
+            this.comboBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox5.FormattingEnabled = true;
@@ -319,6 +338,7 @@
             // 
             // groupBox7
             // 
+            this.groupBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox7.Controls.Add(this.dateTimePicker2);
             this.groupBox7.Controls.Add(this.label3);
             this.groupBox7.Controls.Add(this.label2);
@@ -333,6 +353,9 @@
             // 
             // dateTimePicker2
             // 
+            this.dateTimePicker2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dateTimePicker2.CustomFormat = "yyyy-mm-dd dddd";
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker2.Location = new System.Drawing.Point(6, 19);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(200, 21);
@@ -341,6 +364,7 @@
             // 
             // label3
             // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(210, 25);
             this.label3.Name = "label3";
@@ -351,6 +375,7 @@
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(452, 25);
             this.label2.Name = "label2";
@@ -361,6 +386,9 @@
             // 
             // dateTimePicker1
             // 
+            this.dateTimePicker1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dateTimePicker1.CustomFormat = "yyyy-mm-dd dddd";
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker1.Location = new System.Drawing.Point(246, 19);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 21);
@@ -369,6 +397,7 @@
             // 
             // groupBox10
             // 
+            this.groupBox10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox10.Controls.Add(this.textBox4);
             this.groupBox10.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox10.Location = new System.Drawing.Point(771, 9);
@@ -380,6 +409,7 @@
             // 
             // textBox4
             // 
+            this.textBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox4.Location = new System.Drawing.Point(6, 19);
             this.textBox4.Name = "textBox4";
@@ -388,18 +418,12 @@
             this.textBox4.TabIndex = 7;
             this.textBox4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox4_KeyPress);
             // 
-            // تصديرالىاكسلToolStripMenuItem
-            // 
-            this.تصديرالىاكسلToolStripMenuItem.Name = "تصديرالىاكسلToolStripMenuItem";
-            this.تصديرالىاكسلToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
-            this.تصديرالىاكسلToolStripMenuItem.Text = "تصدير الى اكسل";
-            this.تصديرالىاكسلToolStripMenuItem.Click += new System.EventHandler(this.تصديرالىاكسلToolStripMenuItem_Click);
-            // 
             // frmUpdSupp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1171, 679);
+            this.ClientSize = new System.Drawing.Size(1416, 713);
+            this.ControlBox = false;
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox12);
             this.Controls.Add(this.groupBox2);
@@ -407,7 +431,8 @@
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "تقارير الحذف والتعديل للتوريد";
+            this.Tag = "تقارير الحذف و التعديل في التوريد";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmUpdSupp_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

@@ -52,6 +52,7 @@
             this.اجماليالكميةالمحددةToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.اجماليالسعرالمحددToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.اجماليالاجماليالمحددToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.تصدبرالىاكسلToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
@@ -70,7 +71,6 @@
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.تصدبرالىاكسلToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox11.SuspendLayout();
             this.groupBox14.SuspendLayout();
             this.groupBox12.SuspendLayout();
@@ -89,6 +89,7 @@
             // 
             // textBox4
             // 
+            this.textBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox4.Location = new System.Drawing.Point(6, 20);
             this.textBox4.Name = "textBox4";
@@ -98,6 +99,7 @@
             // 
             // comboBox4
             // 
+            this.comboBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox4.Enabled = false;
             this.comboBox4.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox4.FormattingEnabled = true;
@@ -108,6 +110,7 @@
             // 
             // checkBox3
             // 
+            this.checkBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox3.AutoSize = true;
             this.checkBox3.Checked = true;
             this.checkBox3.CheckState = System.Windows.Forms.CheckState.Checked;
@@ -121,6 +124,7 @@
             // 
             // groupBox11
             // 
+            this.groupBox11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox11.Controls.Add(this.btnExit);
             this.groupBox11.Controls.Add(this.btnRefrsh);
             this.groupBox11.Controls.Add(this.btnPrint);
@@ -134,6 +138,7 @@
             // 
             // btnExit
             // 
+            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnExit.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btnExit.Image = global::frmWInReprting.Properties.Resources.exit__3_;
             this.btnExit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -148,6 +153,7 @@
             // 
             // btnRefrsh
             // 
+            this.btnRefrsh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRefrsh.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btnRefrsh.Image = global::frmWInReprting.Properties.Resources.printer__3_;
             this.btnRefrsh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -162,6 +168,7 @@
             // 
             // btnPrint
             // 
+            this.btnPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnPrint.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btnPrint.Image = global::frmWInReprting.Properties.Resources.printer__3_;
             this.btnPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -176,6 +183,7 @@
             // 
             // btnAddSup
             // 
+            this.btnAddSup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAddSup.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btnAddSup.Image = global::frmWInReprting.Properties.Resources.search;
             this.btnAddSup.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -190,6 +198,7 @@
             // 
             // comboBox2
             // 
+            this.comboBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox2.Enabled = false;
             this.comboBox2.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox2.FormattingEnabled = true;
@@ -200,6 +209,7 @@
             // 
             // checkBox2
             // 
+            this.checkBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox2.AutoSize = true;
             this.checkBox2.Checked = true;
             this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
@@ -213,6 +223,7 @@
             // 
             // groupBox14
             // 
+            this.groupBox14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox14.Controls.Add(this.checkBox5);
             this.groupBox14.Controls.Add(this.comboBox3);
             this.groupBox14.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -225,6 +236,7 @@
             // 
             // checkBox5
             // 
+            this.checkBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox5.AutoSize = true;
             this.checkBox5.Checked = true;
             this.checkBox5.CheckState = System.Windows.Forms.CheckState.Checked;
@@ -237,6 +249,7 @@
             // 
             // comboBox3
             // 
+            this.comboBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox3.Enabled = false;
             this.comboBox3.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox3.FormattingEnabled = true;
@@ -247,6 +260,7 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox1.Enabled = false;
             this.comboBox1.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox1.FormattingEnabled = true;
@@ -263,7 +277,7 @@
             this.groupBox12.Controls.Add(this.dataGridView1);
             this.groupBox12.Location = new System.Drawing.Point(12, 349);
             this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(1153, 318);
+            this.groupBox12.Size = new System.Drawing.Size(1156, 352);
             this.groupBox12.TabIndex = 17;
             this.groupBox12.TabStop = false;
             this.groupBox12.Text = "اوامر الصرف";
@@ -290,7 +304,7 @@
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1141, 293);
+            this.dataGridView1.Size = new System.Drawing.Size(1144, 327);
             this.dataGridView1.TabIndex = 12;
             // 
             // contextMenuStrip1
@@ -304,7 +318,7 @@
             this.تصدبرالىاكسلToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.contextMenuStrip1.Size = new System.Drawing.Size(189, 158);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(189, 136);
             // 
             // عددالاسطرالمحددةToolStripMenuItem
             // 
@@ -341,8 +355,16 @@
             this.اجماليالاجماليالمحددToolStripMenuItem.Text = "اجمالي الاجمالي المحدد";
             this.اجماليالاجماليالمحددToolStripMenuItem.Click += new System.EventHandler(this.اجماليالاجماليالمحددToolStripMenuItem_Click);
             // 
+            // تصدبرالىاكسلToolStripMenuItem
+            // 
+            this.تصدبرالىاكسلToolStripMenuItem.Name = "تصدبرالىاكسلToolStripMenuItem";
+            this.تصدبرالىاكسلToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.تصدبرالىاكسلToolStripMenuItem.Text = "تصدبر الى اكسل";
+            this.تصدبرالىاكسلToolStripMenuItem.Click += new System.EventHandler(this.تصدبرالىاكسلToolStripMenuItem_Click);
+            // 
             // groupBox7
             // 
+            this.groupBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox7.Controls.Add(this.dateTimePicker2);
             this.groupBox7.Controls.Add(this.label3);
             this.groupBox7.Controls.Add(this.label2);
@@ -357,6 +379,9 @@
             // 
             // dateTimePicker2
             // 
+            this.dateTimePicker2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dateTimePicker2.CustomFormat = "yyyy-mm-dd dddd";
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker2.Location = new System.Drawing.Point(6, 19);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(200, 21);
@@ -365,6 +390,7 @@
             // 
             // label3
             // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(210, 25);
             this.label3.Name = "label3";
@@ -375,6 +401,7 @@
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(452, 25);
             this.label2.Name = "label2";
@@ -385,6 +412,9 @@
             // 
             // dateTimePicker1
             // 
+            this.dateTimePicker1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dateTimePicker1.CustomFormat = "yyyy-mm-dd dddd";
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker1.Location = new System.Drawing.Point(246, 19);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 21);
@@ -393,6 +423,7 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox5.Controls.Add(this.comboBox5);
             this.groupBox5.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox5.Location = new System.Drawing.Point(622, 127);
@@ -404,6 +435,7 @@
             // 
             // comboBox5
             // 
+            this.comboBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox5.FormattingEnabled = true;
@@ -421,6 +453,7 @@
             // 
             // checkBox4
             // 
+            this.checkBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox4.AutoSize = true;
             this.checkBox4.Checked = true;
             this.checkBox4.CheckState = System.Windows.Forms.CheckState.Checked;
@@ -434,6 +467,7 @@
             // 
             // groupBox10
             // 
+            this.groupBox10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox10.Controls.Add(this.textBox4);
             this.groupBox10.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox10.Location = new System.Drawing.Point(131, 66);
@@ -445,9 +479,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(340, 17);
+            this.groupBox1.Location = new System.Drawing.Point(212, 17);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(423, 46);
             this.groupBox1.TabIndex = 15;
@@ -465,6 +500,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.groupBox8);
             this.groupBox2.Controls.Add(this.groupBox5);
             this.groupBox2.Controls.Add(this.groupBox7);
@@ -475,7 +511,7 @@
             this.groupBox2.Controls.Add(this.groupBox4);
             this.groupBox2.Controls.Add(this.groupBox3);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(141, 69);
+            this.groupBox2.Location = new System.Drawing.Point(13, 69);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(885, 274);
             this.groupBox2.TabIndex = 16;
@@ -483,6 +519,7 @@
             // 
             // groupBox8
             // 
+            this.groupBox8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox8.Controls.Add(this.checkBox1);
             this.groupBox8.Controls.Add(this.comboBox6);
             this.groupBox8.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -518,6 +555,7 @@
             // 
             // groupBox6
             // 
+            this.groupBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox6.Controls.Add(this.checkBox4);
             this.groupBox6.Controls.Add(this.comboBox4);
             this.groupBox6.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -530,6 +568,7 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox4.Controls.Add(this.checkBox3);
             this.groupBox4.Controls.Add(this.comboBox2);
             this.groupBox4.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -542,6 +581,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.checkBox2);
             this.groupBox3.Controls.Add(this.comboBox1);
             this.groupBox3.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -552,18 +592,12 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "اسم الصنف";
             // 
-            // تصدبرالىاكسلToolStripMenuItem
-            // 
-            this.تصدبرالىاكسلToolStripMenuItem.Name = "تصدبرالىاكسلToolStripMenuItem";
-            this.تصدبرالىاكسلToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
-            this.تصدبرالىاكسلToolStripMenuItem.Text = "تصدبر الى اكسل";
-            this.تصدبرالىاكسلToolStripMenuItem.Click += new System.EventHandler(this.تصدبرالىاكسلToolStripMenuItem_Click);
-            // 
             // frmOutRepting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1171, 679);
+            this.ClientSize = new System.Drawing.Size(1174, 713);
+            this.ControlBox = false;
             this.Controls.Add(this.groupBox12);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
@@ -571,7 +605,8 @@
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "تقارير اوامر الصرف";
+            this.Tag = "تقارير اوامر الصرف";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmOutRepting_Load);
             this.groupBox11.ResumeLayout(false);
             this.groupBox14.ResumeLayout(false);

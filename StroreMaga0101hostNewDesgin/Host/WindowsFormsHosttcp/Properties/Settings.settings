@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="ServerNm" Type="System.String" Scope="User">
-      <Value Profile="(Default)">.\s20012</Value>
+      <Value Profile="(Default)">EXSERVER\SQL2012R2</Value>
     </Setting>
     <Setting Name="DBNM" Type="System.String" Scope="User">
       <Value Profile="(Default)">StoreManagement1host</Value>
@@ -12,7 +12,7 @@
       <Value Profile="(Default)">sa</Value>
     </Setting>
     <Setting Name="PassSql" Type="System.String" Scope="User">
-      <Value Profile="(Default)">123456</Value>
+      <Value Profile="(Default)">admin@123</Value>
     </Setting>
   </Settings>
 </SettingsFile>

@@ -65,9 +65,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(514, 9);
+            this.groupBox1.Location = new System.Drawing.Point(187, 9);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(423, 46);
             this.groupBox1.TabIndex = 15;
@@ -85,6 +86,7 @@
             // 
             // groupBox11
             // 
+            this.groupBox11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox11.Controls.Add(this.btnRefrish);
             this.groupBox11.Controls.Add(this.btnDele);
             this.groupBox11.Controls.Add(this.btnExit);
@@ -99,6 +101,7 @@
             // 
             // btnRefrish
             // 
+            this.btnRefrish.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRefrish.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btnRefrish.Image = global::SystemConfiguration.Properties.Resources.refresh__1_;
             this.btnRefrish.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -113,6 +116,7 @@
             // 
             // btnDele
             // 
+            this.btnDele.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDele.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btnDele.Image = global::SystemConfiguration.Properties.Resources.delete;
             this.btnDele.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -127,6 +131,7 @@
             // 
             // btnExit
             // 
+            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnExit.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btnExit.Image = global::SystemConfiguration.Properties.Resources.exit__3_;
             this.btnExit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -140,6 +145,7 @@
             // 
             // btnRefrsh
             // 
+            this.btnRefrsh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRefrsh.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btnRefrsh.Image = global::SystemConfiguration.Properties.Resources.update;
             this.btnRefrsh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -154,6 +160,7 @@
             // 
             // btnAddSup
             // 
+            this.btnAddSup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAddSup.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btnAddSup.Image = global::SystemConfiguration.Properties.Resources.plus;
             this.btnAddSup.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -168,6 +175,7 @@
             // 
             // groupBox10
             // 
+            this.groupBox10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox10.Controls.Add(this.combAccountIDMAdden);
             this.groupBox10.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox10.Location = new System.Drawing.Point(401, 73);
@@ -179,6 +187,7 @@
             // 
             // combAccountIDMAdden
             // 
+            this.combAccountIDMAdden.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.combAccountIDMAdden.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.combAccountIDMAdden.FormattingEnabled = true;
             this.combAccountIDMAdden.Location = new System.Drawing.Point(6, 20);
@@ -188,13 +197,14 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.groupBox4);
             this.groupBox2.Controls.Add(this.groupBox3);
             this.groupBox2.Controls.Add(this.groupBox11);
             this.groupBox2.Controls.Add(this.groupBox10);
             this.groupBox2.Controls.Add(this.groupBox9);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(335, 55);
+            this.groupBox2.Location = new System.Drawing.Point(8, 55);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(817, 199);
             this.groupBox2.TabIndex = 16;
@@ -202,6 +212,7 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox4.Controls.Add(this.txtNumber);
             this.groupBox4.Location = new System.Drawing.Point(622, 16);
             this.groupBox4.Name = "groupBox4";
@@ -212,6 +223,7 @@
             // 
             // txtNumber
             // 
+            this.txtNumber.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNumber.Enabled = false;
             this.txtNumber.Location = new System.Drawing.Point(6, 19);
             this.txtNumber.Name = "txtNumber";
@@ -220,6 +232,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.combAccountIDDaan);
             this.groupBox3.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(6, 73);
@@ -231,6 +244,7 @@
             // 
             // combAccountIDDaan
             // 
+            this.combAccountIDDaan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.combAccountIDDaan.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.combAccountIDDaan.FormattingEnabled = true;
             this.combAccountIDDaan.Location = new System.Drawing.Point(6, 20);
@@ -240,6 +254,7 @@
             // 
             // groupBox9
             // 
+            this.groupBox9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox9.Controls.Add(this.combPalce);
             this.groupBox9.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox9.Location = new System.Drawing.Point(227, 16);
@@ -251,6 +266,7 @@
             // 
             // combPalce
             // 
+            this.combPalce.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.combPalce.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.combPalce.FormattingEnabled = true;
             this.combPalce.Location = new System.Drawing.Point(6, 20);
@@ -281,7 +297,7 @@
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1390, 437);
+            this.dataGridView1.Size = new System.Drawing.Size(1063, 437);
             this.dataGridView1.TabIndex = 12;
             this.dataGridView1.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEnter);
             // 
@@ -307,7 +323,7 @@
             this.groupBox12.Controls.Add(this.dataGridView1);
             this.groupBox12.Location = new System.Drawing.Point(12, 262);
             this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(1402, 462);
+            this.groupBox12.Size = new System.Drawing.Size(1075, 462);
             this.groupBox12.TabIndex = 17;
             this.groupBox12.TabStop = false;
             this.groupBox12.Text = "قائمة الربط";
@@ -317,7 +333,7 @@
             this.AcceptButton = this.btnAddSup;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1426, 736);
+            this.ClientSize = new System.Drawing.Size(1099, 736);
             this.ControlBox = false;
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);

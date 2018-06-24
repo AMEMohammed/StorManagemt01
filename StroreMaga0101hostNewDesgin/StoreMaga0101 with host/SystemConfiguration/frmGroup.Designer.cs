@@ -78,9 +78,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(521, 12);
+            this.groupBox1.Location = new System.Drawing.Point(164, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(423, 46);
             this.groupBox1.TabIndex = 15;
@@ -88,6 +89,7 @@
             // 
             // txtIDgroup
             // 
+            this.txtIDgroup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtIDgroup.Enabled = false;
             this.txtIDgroup.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIDgroup.Location = new System.Drawing.Point(6, 20);
@@ -98,6 +100,7 @@
             // 
             // txtNameGroup
             // 
+            this.txtNameGroup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNameGroup.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNameGroup.Location = new System.Drawing.Point(8, 20);
             this.txtNameGroup.Name = "txtNameGroup";
@@ -109,6 +112,7 @@
             // 
             // groupBox11
             // 
+            this.groupBox11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox11.Controls.Add(this.btnRefrish);
             this.groupBox11.Controls.Add(this.button1);
             this.groupBox11.Controls.Add(this.button4);
@@ -123,6 +127,7 @@
             // 
             // btnRefrish
             // 
+            this.btnRefrish.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRefrish.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btnRefrish.Image = global::SystemConfiguration.Properties.Resources.refresh__1_;
             this.btnRefrish.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -137,6 +142,7 @@
             // 
             // button1
             // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.Font = new System.Drawing.Font("Tahoma", 12F);
             this.button1.Image = global::SystemConfiguration.Properties.Resources.delete;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -151,6 +157,7 @@
             // 
             // button4
             // 
+            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button4.Font = new System.Drawing.Font("Tahoma", 12F);
             this.button4.Image = global::SystemConfiguration.Properties.Resources.exit__3_;
             this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -165,6 +172,7 @@
             // 
             // btnRefrsh
             // 
+            this.btnRefrsh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRefrsh.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btnRefrsh.Image = global::SystemConfiguration.Properties.Resources.update;
             this.btnRefrsh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -179,6 +187,7 @@
             // 
             // btnAddGroup
             // 
+            this.btnAddGroup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAddGroup.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btnAddGroup.Image = global::SystemConfiguration.Properties.Resources.plus;
             this.btnAddGroup.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -193,6 +202,7 @@
             // 
             // groupBox10
             // 
+            this.groupBox10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox10.Controls.Add(this.txtNameGroup);
             this.groupBox10.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox10.Location = new System.Drawing.Point(161, 69);
@@ -204,6 +214,7 @@
             // 
             // group
             // 
+            this.group.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.group.Controls.Add(this.groupBox5);
             this.group.Controls.Add(this.groupBox4);
             this.group.Controls.Add(this.groupBox3);
@@ -211,7 +222,7 @@
             this.group.Controls.Add(this.groupBox10);
             this.group.Controls.Add(this.groupBox9);
             this.group.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.group.Location = new System.Drawing.Point(431, 61);
+            this.group.Location = new System.Drawing.Point(74, 61);
             this.group.Name = "group";
             this.group.Size = new System.Drawing.Size(647, 249);
             this.group.TabIndex = 16;
@@ -219,6 +230,7 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox5.Controls.Add(this.txtDecrp);
             this.groupBox5.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox5.Location = new System.Drawing.Point(6, 126);
@@ -230,6 +242,7 @@
             // 
             // txtDecrp
             // 
+            this.txtDecrp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDecrp.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDecrp.Location = new System.Drawing.Point(8, 20);
             this.txtDecrp.Name = "txtDecrp";
@@ -239,6 +252,7 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox4.Controls.Add(this.button2);
             this.groupBox4.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.Location = new System.Drawing.Point(6, 69);
@@ -250,6 +264,7 @@
             // 
             // button2
             // 
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button2.Location = new System.Drawing.Point(10, 20);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(133, 25);
@@ -260,6 +275,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.comboBox1);
             this.groupBox3.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(6, 12);
@@ -271,6 +287,7 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox1.FormattingEnabled = true;
@@ -281,6 +298,7 @@
             // 
             // groupBox9
             // 
+            this.groupBox9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox9.Controls.Add(this.txtIDgroup);
             this.groupBox9.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox9.Location = new System.Drawing.Point(430, 12);
@@ -313,7 +331,7 @@
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1400, 400);
+            this.dataGridView1.Size = new System.Drawing.Size(1043, 400);
             this.dataGridView1.TabIndex = 12;
             this.dataGridView1.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEnter);
             // 
@@ -340,7 +358,7 @@
             this.groupBox12.Controls.Add(this.dataGridView1);
             this.groupBox12.Location = new System.Drawing.Point(12, 309);
             this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(1412, 425);
+            this.groupBox12.Size = new System.Drawing.Size(1055, 425);
             this.groupBox12.TabIndex = 17;
             this.groupBox12.TabStop = false;
             this.groupBox12.Text = "قائمة الجهات";
@@ -349,7 +367,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1436, 746);
+            this.ClientSize = new System.Drawing.Size(1079, 746);
             this.ControlBox = false;
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.group);

@@ -187,4 +187,3 @@ D:\programing1\StoreMaga0101\StroreMaga0101hostNewDesgin\StoreMaga0101 with host
 D:\programing1\StoreMaga0101\StroreMaga0101hostNewDesgin\StoreMaga0101 with host\Supplly\bin\Debug\stdole.dll
 D:\programing1\StoreMaga0101\StroreMaga0101hostNewDesgin\StoreMaga0101 with host\Supplly\bin\Debug\ShockwaveFlashObjects.dll
 D:\programing1\StoreMaga0101\StroreMaga0101hostNewDesgin\StoreMaga0101 with host\Supplly\bin\Debug\FrmRports.pdb
-D:\programing1\StoreMaga0101\StroreMaga0101hostNewDesgin\StoreMaga0101 with host\Supplly\obj\Debug\Supplly.csprojResolveAssemblyReference.cache

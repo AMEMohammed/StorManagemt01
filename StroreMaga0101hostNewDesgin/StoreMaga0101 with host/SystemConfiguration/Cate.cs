@@ -72,12 +72,12 @@ namespace SystemConfiguration
                 combAccont.DisplayMember = "اسم الحساب";
                 if (HostConnection == false)
                 {
-                    dataGridView1.DataSource = config.GetAllCategoryAR();
+                   // dataGridView1.DataSource = config.GetAllCategoryAR();
                     combAccont.DataSource = config.GETALLAccountSub();
                 }
                 else
                 {
-                    dataGridView1.DataSource =ConvertMemorytoDB( configHost.GetAllCategoryARWithAccount());
+                    //dataGridView1.DataSource =ConvertMemorytoDB( configHost.GetAllCategoryARWithAccount());
                     combAccont.DataSource =ConvertMemorytoDB( configHost.GETALLAccountSub());
 
                 }
@@ -314,7 +314,17 @@ namespace SystemConfiguration
         {
             textBox3.Text = "";
             textBox4.Text = "";
-            combAccont.DataSource = config.GETALLAccountSub();
+            if (HostConnection == false)
+            {
+                dataGridView1.DataSource = config.GetAllCategoryAR();
+                combAccont.DataSource = config.GETALLAccountSub();
+            }
+            else
+            {
+                dataGridView1.DataSource = ConvertMemorytoDB(configHost.GetAllCategoryARWithAccount());
+                combAccont.DataSource = ConvertMemorytoDB(configHost.GETALLAccountSub());
+
+            }
 
         }
 
@@ -409,6 +419,46 @@ namespace SystemConfiguration
             ms.Seek(0, SeekOrigin.Begin);
             DataTable dt = (DataTable)formatter.Deserialize(ms);
             return dt;
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox9_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox5_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void combAccont_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox11_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

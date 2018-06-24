@@ -24,6 +24,7 @@ namespace WindowsFormsHosttcp
         {
             try
             {
+               
                 my= new MYSerivce();
                  my.restd = new MYSerivce.ResDT(ReciveNameFRMCLINET);
                

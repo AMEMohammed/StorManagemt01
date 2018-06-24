@@ -67,9 +67,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(475, 19);
+            this.groupBox1.Location = new System.Drawing.Point(228, 19);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(423, 46);
             this.groupBox1.TabIndex = 16;
@@ -87,6 +88,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.textBox2);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.textBox1);
@@ -104,7 +106,7 @@
             this.groupBox2.Controls.Add(this.labName);
             this.groupBox2.Controls.Add(this.textID);
             this.groupBox2.Controls.Add(this.labId);
-            this.groupBox2.Location = new System.Drawing.Point(259, 71);
+            this.groupBox2.Location = new System.Drawing.Point(12, 71);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(872, 141);
             this.groupBox2.TabIndex = 17;
@@ -113,6 +115,7 @@
             // 
             // textBox2
             // 
+            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.Location = new System.Drawing.Point(25, 101);
             this.textBox2.Name = "textBox2";
@@ -121,6 +124,7 @@
             // 
             // label3
             // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(323, 104);
             this.label3.Name = "label3";
@@ -130,6 +134,7 @@
             // 
             // textBox1
             // 
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(25, 74);
             this.textBox1.Name = "textBox1";
@@ -138,6 +143,7 @@
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(323, 77);
             this.label2.Name = "label2";
@@ -147,6 +153,7 @@
             // 
             // textPhone
             // 
+            this.textPhone.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textPhone.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textPhone.Location = new System.Drawing.Point(25, 47);
             this.textPhone.Name = "textPhone";
@@ -155,6 +162,7 @@
             // 
             // labPhone
             // 
+            this.labPhone.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labPhone.AutoSize = true;
             this.labPhone.Location = new System.Drawing.Point(323, 50);
             this.labPhone.Name = "labPhone";
@@ -164,6 +172,7 @@
             // 
             // textNameEn
             // 
+            this.textNameEn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textNameEn.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textNameEn.Location = new System.Drawing.Point(25, 19);
             this.textNameEn.Name = "textNameEn";
@@ -172,6 +181,7 @@
             // 
             // labNameEn
             // 
+            this.labNameEn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labNameEn.AutoSize = true;
             this.labNameEn.Location = new System.Drawing.Point(323, 22);
             this.labNameEn.Name = "labNameEn";
@@ -181,6 +191,7 @@
             // 
             // textNote
             // 
+            this.textNote.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textNote.Font = new System.Drawing.Font("Tahoma", 9F);
             this.textNote.Location = new System.Drawing.Point(491, 104);
             this.textNote.Name = "textNote";
@@ -189,6 +200,7 @@
             // 
             // labNotes
             // 
+            this.labNotes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labNotes.AutoSize = true;
             this.labNotes.Location = new System.Drawing.Point(794, 107);
             this.labNotes.Name = "labNotes";
@@ -198,6 +210,7 @@
             // 
             // comboAccount
             // 
+            this.comboAccount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.comboAccount.FormattingEnabled = true;
             this.comboAccount.Location = new System.Drawing.Point(589, 77);
             this.comboAccount.Name = "comboAccount";
@@ -207,6 +220,7 @@
             // 
             // textNumIDACOunt
             // 
+            this.textNumIDACOunt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textNumIDACOunt.Font = new System.Drawing.Font("Tahoma", 9F);
             this.textNumIDACOunt.Location = new System.Drawing.Point(491, 77);
             this.textNumIDACOunt.Name = "textNumIDACOunt";
@@ -215,6 +229,7 @@
             // 
             // labAccount
             // 
+            this.labAccount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labAccount.AutoSize = true;
             this.labAccount.Location = new System.Drawing.Point(792, 80);
             this.labAccount.Name = "labAccount";
@@ -224,6 +239,7 @@
             // 
             // textName
             // 
+            this.textName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textName.Font = new System.Drawing.Font("Tahoma", 9F);
             this.textName.Location = new System.Drawing.Point(491, 50);
             this.textName.Name = "textName";
@@ -232,6 +248,7 @@
             // 
             // labName
             // 
+            this.labName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labName.AutoSize = true;
             this.labName.Location = new System.Drawing.Point(788, 53);
             this.labName.Name = "labName";
@@ -241,6 +258,7 @@
             // 
             // textID
             // 
+            this.textID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textID.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textID.Location = new System.Drawing.Point(491, 22);
             this.textID.Name = "textID";
@@ -249,6 +267,7 @@
             // 
             // labId
             // 
+            this.labId.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labId.AutoSize = true;
             this.labId.Location = new System.Drawing.Point(788, 25);
             this.labId.Name = "labId";
@@ -258,13 +277,14 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.btnPrint);
             this.groupBox3.Controls.Add(this.btnRefrish);
             this.groupBox3.Controls.Add(this.btnDele);
             this.groupBox3.Controls.Add(this.btnExit);
             this.groupBox3.Controls.Add(this.btnRefrsh);
             this.groupBox3.Controls.Add(this.btnAddSup);
-            this.groupBox3.Location = new System.Drawing.Point(585, 218);
+            this.groupBox3.Location = new System.Drawing.Point(338, 218);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(546, 55);
             this.groupBox3.TabIndex = 18;
@@ -272,6 +292,7 @@
             // 
             // btnPrint
             // 
+            this.btnPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnPrint.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btnPrint.Image = global::SystemConfiguration.Properties.Resources.printer__3_;
             this.btnPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -285,6 +306,7 @@
             // 
             // btnRefrish
             // 
+            this.btnRefrish.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRefrish.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btnRefrish.Image = global::SystemConfiguration.Properties.Resources.refresh__1_;
             this.btnRefrish.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -298,6 +320,7 @@
             // 
             // btnDele
             // 
+            this.btnDele.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDele.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btnDele.Image = global::SystemConfiguration.Properties.Resources.delete;
             this.btnDele.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -311,6 +334,7 @@
             // 
             // btnExit
             // 
+            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnExit.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btnExit.Image = global::SystemConfiguration.Properties.Resources.exit__3_;
             this.btnExit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -324,6 +348,7 @@
             // 
             // btnRefrsh
             // 
+            this.btnRefrsh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRefrsh.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btnRefrsh.Image = global::SystemConfiguration.Properties.Resources.update;
             this.btnRefrsh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -337,6 +362,7 @@
             // 
             // btnAddSup
             // 
+            this.btnAddSup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAddSup.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btnAddSup.Image = global::SystemConfiguration.Properties.Resources.plus;
             this.btnAddSup.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -356,7 +382,7 @@
             this.groupBox12.Controls.Add(this.dataGridView1);
             this.groupBox12.Location = new System.Drawing.Point(12, 279);
             this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(1412, 464);
+            this.groupBox12.Size = new System.Drawing.Size(1165, 464);
             this.groupBox12.TabIndex = 14;
             this.groupBox12.TabStop = false;
             this.groupBox12.Text = "دليل الفروع";
@@ -383,14 +409,14 @@
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1400, 439);
+            this.dataGridView1.Size = new System.Drawing.Size(1153, 439);
             this.dataGridView1.TabIndex = 12;
             // 
             // frmBranches
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1436, 746);
+            this.ClientSize = new System.Drawing.Size(1189, 746);
             this.ControlBox = false;
             this.Controls.Add(this.groupBox12);
             this.Controls.Add(this.groupBox3);

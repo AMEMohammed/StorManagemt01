@@ -70,11 +70,11 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.krbTabControl1 = new KRBTabControl.KRBTabControl();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.krbTabControl1 = new System.Windows.Forms.CustomTabControl();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -101,7 +101,7 @@
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
             this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.menuStrip1.Size = new System.Drawing.Size(1277, 40);
+            this.menuStrip1.Size = new System.Drawing.Size(1160, 40);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -563,7 +563,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 40);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1277, 728);
+            this.groupBox1.Size = new System.Drawing.Size(1160, 463);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Visible = false;
@@ -573,66 +573,13 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(60)))), ((int)(((byte)(89)))));
             this.panel1.Controls.Add(this.krbTabControl1);
-            this.panel1.Location = new System.Drawing.Point(2, 7);
+            this.panel1.Location = new System.Drawing.Point(3, 10);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1272, 694);
-            this.panel1.TabIndex = 2;
+            this.panel1.Size = new System.Drawing.Size(1154, 426);
+            this.panel1.TabIndex = 10;
             this.panel1.Visible = false;
-            // 
-            // krbTabControl1
-            // 
-            this.krbTabControl1.AllowDrop = true;
-            this.krbTabControl1.BackgroundColor = System.Drawing.Color.WhiteSmoke;
-            this.krbTabControl1.BackgroundHatcher.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.krbTabControl1.BackgroundHatcher.ForeColor = System.Drawing.Color.Gainsboro;
-            this.krbTabControl1.BackgroundHatcher.HatchStyle = "DiagonalBrick";
-            this.krbTabControl1.BackgroundHatcher.HatchType = System.Drawing.Drawing2D.HatchStyle.DiagonalBrick;
-            this.krbTabControl1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("krbTabControl1.BackgroundImage")));
-            this.krbTabControl1.CaptionButtons.InactiveCaptionButtonsColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.krbTabControl1.CaptionRandomizer.Transparency = ((byte)(255));
-            this.krbTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.krbTabControl1.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.krbTabControl1.GradientCaption.InactiveCaptionColorEnd = System.Drawing.SystemColors.ActiveBorder;
-            this.krbTabControl1.GradientCaption.InactiveCaptionColorStart = System.Drawing.SystemColors.ActiveBorder;
-            this.krbTabControl1.GradientCaption.InactiveCaptionTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.krbTabControl1.HeaderStyle = KRBTabControl.KRBTabControl.TabHeaderStyle.Texture;
-            this.krbTabControl1.ImageList = this.imageList1;
-            this.krbTabControl1.IsDrawHeader = false;
-            this.krbTabControl1.ItemSize = new System.Drawing.Size(0, 30);
-            this.krbTabControl1.Location = new System.Drawing.Point(0, 0);
-            this.krbTabControl1.Name = "krbTabControl1";
-            this.krbTabControl1.Size = new System.Drawing.Size(1270, 692);
-            this.krbTabControl1.TabGradient.ColorEnd = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(223)))), ((int)(((byte)(246)))));
-            this.krbTabControl1.TabGradient.ColorStart = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(67)))), ((int)(((byte)(164)))));
-            this.krbTabControl1.TabGradient.GradientStyle = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            this.krbTabControl1.TabGradient.TabPageSelectedTextColor = System.Drawing.Color.White;
-            this.krbTabControl1.TabGradient.TabPageTextColor = System.Drawing.Color.DimGray;
-            this.krbTabControl1.TabHOffset = -2;
-            this.krbTabControl1.TabIndex = 8;
-            this.krbTabControl1.TabPageCloseIconColor = System.Drawing.Color.White;
-            this.krbTabControl1.UpDownStyle = KRBTabControl.KRBTabControl.UpDown32Style.OfficeBlue;
-            this.krbTabControl1.Visible = false;
-            this.krbTabControl1.TabPageClosing += new System.EventHandler<KRBTabControl.KRBTabControl.SelectedIndexChangingEventArgs>(this.krbTabControl1_TabPageClosing);
-            // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "file.png");
-            this.imageList1.Images.SetKeyName(1, "document.png");
-            this.imageList1.Images.SetKeyName(2, "accounting-book.png");
-            this.imageList1.Images.SetKeyName(3, "mobile-phone.png");
-            this.imageList1.Images.SetKeyName(4, "bank-transfer (1).png");
-            this.imageList1.Images.SetKeyName(5, "networking1.png");
-            this.imageList1.Images.SetKeyName(6, "diagram.png");
-            this.imageList1.Images.SetKeyName(7, "packaging.png");
-            this.imageList1.Images.SetKeyName(8, "money-bag.png");
-            this.imageList1.Images.SetKeyName(9, "school.png");
-            this.imageList1.Images.SetKeyName(10, "networking.png");
-            this.imageList1.Images.SetKeyName(11, "user.png");
-            this.imageList1.Images.SetKeyName(12, "user (1).png");
             // 
             // statusStrip1
             // 
@@ -643,11 +590,11 @@
             this.toolStripStatusLabel1,
             this.toolStripStatusLabel2});
             this.statusStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            this.statusStrip1.Location = new System.Drawing.Point(3, 701);
+            this.statusStrip1.Location = new System.Drawing.Point(3, 436);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.statusStrip1.ShowItemToolTips = true;
-            this.statusStrip1.Size = new System.Drawing.Size(1271, 24);
+            this.statusStrip1.Size = new System.Drawing.Size(1154, 24);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -668,11 +615,62 @@
             this.toolStripStatusLabel2.Size = new System.Drawing.Size(139, 19);
             this.toolStripStatusLabel2.Text = "toolStripStatusLabel2";
             // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "file.png");
+            this.imageList1.Images.SetKeyName(1, "document.png");
+            this.imageList1.Images.SetKeyName(2, "accounting-book.png");
+            this.imageList1.Images.SetKeyName(3, "mobile-phone.png");
+            this.imageList1.Images.SetKeyName(4, "bank-transfer (1).png");
+            this.imageList1.Images.SetKeyName(5, "networking1.png");
+            this.imageList1.Images.SetKeyName(6, "diagram.png");
+            this.imageList1.Images.SetKeyName(7, "packaging.png");
+            this.imageList1.Images.SetKeyName(8, "money-bag.png");
+            this.imageList1.Images.SetKeyName(9, "school.png");
+            this.imageList1.Images.SetKeyName(10, "networking.png");
+            this.imageList1.Images.SetKeyName(11, "user.png");
+            this.imageList1.Images.SetKeyName(12, "user (1).png");
+            // 
+            // krbTabControl1
+            // 
+            this.krbTabControl1.AllowDrop = true;
+            this.krbTabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.krbTabControl1.DisplayStyle = System.Windows.Forms.TabStyle.VS2010;
+            // 
+            // 
+            // 
+            this.krbTabControl1.DisplayStyleProvider.BorderColor = System.Drawing.Color.Transparent;
+            this.krbTabControl1.DisplayStyleProvider.BorderColorHot = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(167)))), ((int)(((byte)(183)))));
+            this.krbTabControl1.DisplayStyleProvider.BorderColorSelected = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(157)))), ((int)(((byte)(185)))));
+            this.krbTabControl1.DisplayStyleProvider.CloserColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(99)))), ((int)(((byte)(61)))));
+            this.krbTabControl1.DisplayStyleProvider.FocusTrack = false;
+            this.krbTabControl1.DisplayStyleProvider.HotTrack = true;
+            this.krbTabControl1.DisplayStyleProvider.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.krbTabControl1.DisplayStyleProvider.Opacity = 1F;
+            this.krbTabControl1.DisplayStyleProvider.Overlap = 0;
+            this.krbTabControl1.DisplayStyleProvider.Padding = new System.Drawing.Point(6, 5);
+            this.krbTabControl1.DisplayStyleProvider.Radius = 3;
+            this.krbTabControl1.DisplayStyleProvider.ShowTabCloser = true;
+            this.krbTabControl1.DisplayStyleProvider.TextColor = System.Drawing.Color.White;
+            this.krbTabControl1.DisplayStyleProvider.TextColorDisabled = System.Drawing.Color.WhiteSmoke;
+            this.krbTabControl1.DisplayStyleProvider.TextColorSelected = System.Drawing.SystemColors.ControlText;
+            this.krbTabControl1.HotTrack = true;
+            this.krbTabControl1.Location = new System.Drawing.Point(8, 9);
+            this.krbTabControl1.Name = "krbTabControl1";
+            this.krbTabControl1.SelectedIndex = 0;
+            this.krbTabControl1.Size = new System.Drawing.Size(1140, 407);
+            this.krbTabControl1.TabIndex = 8;
+            this.krbTabControl1.TabClosing += new System.EventHandler<System.Windows.Forms.TabControlCancelEventArgs>(this.krbTabControl1_TabClosing);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1277, 768);
+            this.ClientSize = new System.Drawing.Size(1160, 503);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -741,9 +739,9 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
-        private System.Windows.Forms.Panel panel1;
-        private KRBTabControl.KRBTabControl krbTabControl1;
         private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.CustomTabControl krbTabControl1;
     }
 }
 

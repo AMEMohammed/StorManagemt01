@@ -64,6 +64,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\frmWInReprting\bin\Debug\frmWInReprting.dll</HintPath>
     </Reference>
+    <Reference Include="JacksonSoft.CustomTabControl">
+      <HintPath>C:\Users\MOHAMMED ALHAZMI\Downloads\Compressed\NewCustomTabControl\CustomTabControl\bin\Debug\JacksonSoft.CustomTabControl.dll</HintPath>
+    </Reference>
     <Reference Include="KRBTabControl, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\KRBTabControl.dll</HintPath>

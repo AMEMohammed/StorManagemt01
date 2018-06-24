@@ -25,7 +25,7 @@ namespace WindowsFormsHosttcp.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute(".\\s20012")]
+        [global::System.Configuration.DefaultSettingValueAttribute("EXSERVER\\SQL2012R2")]
         public string ServerNm {
             get {
                 return ((string)(this["ServerNm"]));
@@ -61,7 +61,7 @@ namespace WindowsFormsHosttcp.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("123456")]
+        [global::System.Configuration.DefaultSettingValueAttribute("admin@123")]
         public string PassSql {
             get {
                 return ((string)(this["PassSql"]));

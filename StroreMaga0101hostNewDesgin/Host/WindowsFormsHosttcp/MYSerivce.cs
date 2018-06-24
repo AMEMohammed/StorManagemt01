@@ -20,19 +20,19 @@ namespace WindowsFormsHosttcp
     class MYSerivce : Iservice
     {   /// Classes
         // Users    
-        UsersSQl users = new UsersSQl(Properties.Settings.Default.ServerNm, Properties.Settings.Default.DBNM, null, null);
+        UsersSQl users = new UsersSQl(Properties.Settings.Default.ServerNm, Properties.Settings.Default.DBNM, Properties.Settings.Default.UserSql, Properties.Settings.Default.PassSql);
         // Account
-        AccountNm accountNm = new AccountNm(Properties.Settings.Default.ServerNm, Properties.Settings.Default.DBNM, null, null);
+        AccountNm accountNm = new AccountNm(Properties.Settings.Default.ServerNm, Properties.Settings.Default.DBNM, Properties.Settings.Default.UserSql, Properties.Settings.Default.PassSql);
         //Out
-        OutFunction OutFun = new OutFunction(Properties.Settings.Default.ServerNm, Properties.Settings.Default.DBNM, null, null);
+        OutFunction OutFun = new OutFunction(Properties.Settings.Default.ServerNm, Properties.Settings.Default.DBNM, Properties.Settings.Default.UserSql, Properties.Settings.Default.PassSql);
         //Supply
-        SupplyRequset SupplyFun = new SupplyRequset(Properties.Settings.Default.ServerNm, Properties.Settings.Default.DBNM, null, null);
+        SupplyRequset SupplyFun = new SupplyRequset(Properties.Settings.Default.ServerNm, Properties.Settings.Default.DBNM, Properties.Settings.Default.UserSql, Properties.Settings.Default.PassSql);
         //Confation
-        Config config = new Config(Properties.Settings.Default.ServerNm, Properties.Settings.Default.DBNM, null, null);
+        Config config = new Config(Properties.Settings.Default.ServerNm, Properties.Settings.Default.DBNM, Properties.Settings.Default.UserSql, Properties.Settings.Default.PassSql);
         //RepotFunction
-        RepotFunction ReportFun=new RepotFunction(Properties.Settings.Default.ServerNm, Properties.Settings.Default.DBNM, null, null);
+        RepotFunction ReportFun=new RepotFunction(Properties.Settings.Default.ServerNm, Properties.Settings.Default.DBNM, Properties.Settings.Default.UserSql, Properties.Settings.Default.PassSql);
         //Session
-        SettingsPCconnection session = new SettingsPCconnection(Properties.Settings.Default.ServerNm, Properties.Settings.Default.DBNM, null, null);
+        SettingsPCconnection session = new SettingsPCconnection(Properties.Settings.Default.ServerNm, Properties.Settings.Default.DBNM, Properties.Settings.Default.UserSql, Properties.Settings.Default.PassSql);
         /// end Classes
         /// 
         public delegate void ResDT(int falg,int SessionID,DateTime start,DateTime end, string NameMachine,string UserWindow,string OSVersion,string NameUser,int USerID);

@@ -74,7 +74,7 @@ namespace StoreMaga0101
                 frmADDSup frm = new frmADDSup(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID, ConServer.ConnectionWithHost, ConServer.HostIp);
                 krbTabControl1.Visible = true;
                 panel1.Visible = true;
-                foreach (KRBTabControl.TabPageEx b in krbTabControl1.TabPages)
+                foreach (TabPage b in krbTabControl1.TabPages)
                 {
                     if (b.Text.Trim() == ((string)frm.Tag).Trim())
                     {
@@ -86,7 +86,7 @@ namespace StoreMaga0101
                 }
                 if (!isHere)
                 {
-                    KRBTabControl.TabPageEx newTabPage = new KRBTabControl.TabPageEx((string)frm.Tag);
+                    TabPage newTabPage = new TabPage((string)frm.Tag);
                     newTabPage.ImageIndex = 0;
                     krbTabControl1.TabPages.Add(newTabPage);
                     Label newLabel = new Label();
@@ -221,7 +221,7 @@ namespace StoreMaga0101
                 frmUpdatSupply frm = new frmUpdatSupply(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID, ConServer.ConnectionWithHost, ConServer.HostIp);
                 krbTabControl1.Visible = true;
                 panel1.Visible = true;
-                foreach (KRBTabControl.TabPageEx b in krbTabControl1.TabPages)
+                foreach (TabPage b in krbTabControl1.TabPages)
                 {
                     if (b.Text.Trim() == ((string)frm.Tag).Trim())
                     {
@@ -232,7 +232,7 @@ namespace StoreMaga0101
                 }
                 if (!isHere)
                 {
-                    KRBTabControl.TabPageEx newTabPage = new KRBTabControl.TabPageEx((string)frm.Tag);
+                    TabPage newTabPage = new TabPage((string)frm.Tag);
                     newTabPage.ImageIndex = 1;
                     krbTabControl1.TabPages.Add(newTabPage);
                     Label newLabel = new Label();
@@ -272,7 +272,7 @@ namespace StoreMaga0101
                 frmAddOut frm = new frmAddOut(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID, ConServer.ConnectionWithHost, ConServer.HostIp);
                 krbTabControl1.Visible = true;
                 panel1.Visible = true;
-                foreach (KRBTabControl.TabPageEx b in krbTabControl1.TabPages)
+                foreach (TabPage b in krbTabControl1.TabPages)
                 {
                     if (b.Text.Trim() == ((string)frm.Tag).Trim())
                     {
@@ -284,7 +284,7 @@ namespace StoreMaga0101
                 }
                 if (!isHere)
                 {
-                    KRBTabControl.TabPageEx newTabPage = new KRBTabControl.TabPageEx((string)frm.Tag);
+                    TabPage newTabPage = new TabPage((string)frm.Tag);
                     newTabPage.ImageIndex = 0;
                     krbTabControl1.TabPages.Add(newTabPage);
                     Label newLabel = new Label();
@@ -322,7 +322,7 @@ namespace StoreMaga0101
                 krbTabControl1.Visible = true;
 
                 panel1.Visible = true;
-                foreach (KRBTabControl.TabPageEx b in krbTabControl1.TabPages)
+                foreach (TabPage b in krbTabControl1.TabPages)
                 {
                     if (b.Text.Trim() == ((string)frm.Tag).Trim())
                     {
@@ -334,7 +334,7 @@ namespace StoreMaga0101
                 }
                 if (!isHere)
                 {
-                    KRBTabControl.TabPageEx newTabPage = new KRBTabControl.TabPageEx((string)frm.Tag);
+                    TabPage newTabPage = new TabPage((string)frm.Tag);
                     newTabPage.ImageIndex = 11;
                     krbTabControl1.TabPages.Add(newTabPage);
                     Label newLabel = new Label();
@@ -413,7 +413,7 @@ namespace StoreMaga0101
                 frmAddUser frm = new frmAddUser(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID, ConServer.HostIp);
                 krbTabControl1.Visible = true;
                 panel1.Visible = true;
-                foreach (KRBTabControl.TabPageEx b in krbTabControl1.TabPages)
+                foreach (TabPage b in krbTabControl1.TabPages)
                 {
                     if (b.Text.Trim() == ((string)frm.Tag).Trim())
                     {
@@ -426,7 +426,7 @@ namespace StoreMaga0101
                 }
                 if (!isHere)
                 {
-                    KRBTabControl.TabPageEx newTabPage = new KRBTabControl.TabPageEx((string)frm.Tag);
+                    TabPage newTabPage = new TabPage((string)frm.Tag);
                     newTabPage.ImageIndex = 12;
                     krbTabControl1.TabPages.Add(newTabPage);
                     Label newLabel = new Label();
@@ -506,7 +506,7 @@ namespace StoreMaga0101
                 frmUpdateOut frm = new frmUpdateOut(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID, ConServer.ConnectionWithHost, ConServer.HostIp);
                 krbTabControl1.Visible = true;
                 panel1.Visible = true;
-                foreach (KRBTabControl.TabPageEx b in krbTabControl1.TabPages)
+                foreach (TabPage b in krbTabControl1.TabPages)
                 {
                     if (b.Text.Trim() == ((string)frm.Tag).Trim())
                     {
@@ -518,7 +518,7 @@ namespace StoreMaga0101
                 }
                 if (!isHere)
                 {
-                    KRBTabControl.TabPageEx newTabPage = new KRBTabControl.TabPageEx((string)frm.Tag);
+                    TabPage newTabPage = new TabPage((string)frm.Tag);
                     newTabPage.ImageIndex = 1;
                     krbTabControl1.TabPages.Add(newTabPage);
                     Label newLabel = new Label();
@@ -548,185 +548,18 @@ namespace StoreMaga0101
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        /// 
+        /// تقارير الوارد
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
             try
             {
                 this.Cursor = Cursors.WaitCursor;
-                frmSuppRepring frmRepotingSuppply = new frmSuppRepring(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID,ConServer.ConnectionWithHost,ConServer.HostIp); //from update Supply
-                FormCollection fromco = Application.OpenForms;
-                bool foundFrom = false;
-                foreach (Form frm in fromco)
-                {
-                    if (frm.Name == "frmSuppRepring")
-                    {
-                        frm.Focus();
-
-                        foundFrom = true;
-
-                    }
-
-                }
-                if (foundFrom == false)
-                {
-                    frmRepotingSuppply.Show();
-                }
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            this.Cursor = Cursors.Default;
-        }
-        /// <summary>
-        /// //Repoting OUt 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void toolStripMenuItem10_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.Cursor = Cursors.WaitCursor;
-                frmOutRepting frmRepotingout = new frmOutRepting(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID,ConServer.ConnectionWithHost,ConServer.HostIp); //from update Supply
-                FormCollection fromco = Application.OpenForms;
-                bool foundFrom = false;
-                foreach (Form frm in fromco)
-                {
-                    if (frm.Name == "frmOutRepting")
-                    {
-                        frm.Focus();
-
-                        foundFrom = true;
-
-                    }
-
-                }
-                if (foundFrom == false)
-                {
-                    frmRepotingout.Show();
-                }
-            }
-            catch(Exception ex)
-            { MessageBox.Show(ex.Message); }
-            this.Cursor = Cursors.Default;
-        }
-        /// <summary>
-        /// //////// Repoting Quntity
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void toolStripMenuItem11_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.Cursor = Cursors.WaitCursor;
-                frmQuntityRepting frmRepotingQuntity = new frmQuntityRepting(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID, ConServer.ConnectionWithHost, ConServer.HostIp);
-                FormCollection fromco = Application.OpenForms;
-                bool foundFrom = false;
-                foreach (Form frm in fromco)
-                {
-                    if (frm.Name == "frmQuntityRepting")
-                    {
-                        frm.Focus();
-
-                        foundFrom = true;
-
-                    }
-
-                }
-                if (foundFrom == false)
-                {
-                    frmRepotingQuntity.Show();
-                }
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            this.Cursor = Cursors.Default;
-        }
-        /// <summary>
-        /// ///repoting Updta Supply
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void toolStripMenuItem12_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.Cursor = Cursors.WaitCursor;
-                frmUpdSupp frmRepotingSupp = new frmUpdSupp(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID,ConServer.ConnectionWithHost,ConServer.HostIp);
-                FormCollection fromco = Application.OpenForms;
-                bool foundFrom = false;
-                foreach (Form frm in fromco)
-                {
-                    if (frm.Name == "frmUpdSupp")
-                    {
-                        frm.Focus();
-
-                        foundFrom = true;
-
-                    }
-
-                }
-                if (foundFrom == false)
-                {
-                    frmRepotingSupp.Show();
-                }
-            }
-            catch(Exception ex)
-            { MessageBox.Show(ex.Message); }
-            this.Cursor = Cursors.Default;
-
-        }
-        /// <summary>
-        /// // repoting Update OUt
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void toolStripMenuItem16_Click(object sender, EventArgs e)
-        {
-            try
-            {
-
-
-                this.Cursor = Cursors.WaitCursor;
-                frmUpdOutcs frmRepotingUpdOut = new frmUpdOutcs(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID,ConServer.ConnectionWithHost,ConServer.HostIp);
-                FormCollection fromco = Application.OpenForms;
-                bool foundFrom = false;
-                foreach (Form frm in fromco)
-                {
-                    if (frm.Name == "frmUpdOutcs")
-                    {
-                        frm.Focus();
-
-                        foundFrom = true;
-
-                    }
-
-                }
-                if (foundFrom == false)
-                {
-                    frmRepotingUpdOut.Show();
-                }
-            }
-            catch(Exception ex)
-            { MessageBox.Show(ex.Message); }
-            this.Cursor = Cursors.Default;
-        }
-        // تهيئة الاصناف
-        private void toolStripMenuItem24_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.Cursor = Cursors.WaitCursor;
-                Cate frm = new Cate(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, ConServer.ConnectionWithHost, ConServer.HostIp);
                 bool isHere = false;
+                frmSuppRepring frm = new frmSuppRepring(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID, ConServer.ConnectionWithHost, ConServer.HostIp);
+
                 krbTabControl1.Visible = true;
                 panel1.Visible = true;
-                foreach (KRBTabControl.TabPageEx b in krbTabControl1.TabPages)
+                foreach (TabPage b in krbTabControl1.TabPages)
                 {
                     if (b.Text.Trim() == ((string)frm.Tag).Trim())
                     {
@@ -738,13 +571,393 @@ namespace StoreMaga0101
                 }
                 if (!isHere)
                 {
-                    KRBTabControl.TabPageEx newTabPage = new KRBTabControl.TabPageEx((string)frm.Tag);
-                    newTabPage.ImageIndex = 6;
+                    TabPage newTabPage = new TabPage((string)frm.Tag);
+                    newTabPage.ImageIndex = 0;
                     krbTabControl1.TabPages.Add(newTabPage);
                     Label newLabel = new Label();
                     newTabPage.Font = new Font("Tahoma", 8);
                     newLabel.Text = newTabPage.Text;
                     newTabPage.Controls.Add(newLabel);
+                    krbTabControl1.SelectedTab = newTabPage;
+                    frm.TopLevel = false;
+                    frm.KeyPreview = true;
+                    frm.Parent = newTabPage;
+                    frm.Visible = true;
+                    frm.Location = new Point((newTabPage.Width - frm.Width) / 2, ((newTabPage.Height - frm.Height) / 2));
+                    this.Cursor = Cursors.Default;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+                this.Cursor = Cursors.Default;
+            }
+
+
+
+            //try
+            //{
+            //    this.Cursor = Cursors.WaitCursor;
+            //    frmSuppRepring frmRepotingSuppply = new frmSuppRepring(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID, ConServer.ConnectionWithHost, ConServer.HostIp); //from update Supply
+            //    FormCollection fromco = Application.OpenForms;
+            //    bool foundFrom = false;
+            //    foreach (Form frm in fromco)
+            //    {
+            //        if (frm.Name == "frmSuppRepring")
+            //        {
+            //            frm.Focus();
+
+            //            foundFrom = true;
+
+            //        }
+
+            //    }
+            //    if (foundFrom == false)
+            //    {
+            //        frmRepotingSuppply.Show();
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //}
+            //this.Cursor = Cursors.Default;
+        }
+        /// <summary>
+        /// //Repoting OUt 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// // تقارير الصرف
+        private void toolStripMenuItem10_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                this.Cursor = Cursors.WaitCursor;
+                bool isHere = false;
+                frmOutRepting frm = new frmOutRepting(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID, ConServer.ConnectionWithHost, ConServer.HostIp);
+
+                krbTabControl1.Visible = true;
+                panel1.Visible = true;
+                foreach (TabPage b in krbTabControl1.TabPages)
+                {
+                    if (b.Text.Trim() == ((string)frm.Tag).Trim())
+                    {
+                        isHere = true;
+                        krbTabControl1.SelectedTab = b;
+                        this.Cursor = Cursors.Default;
+                        return;
+                    }
+                }
+                if (!isHere)
+                {
+                    TabPage newTabPage = new TabPage((string)frm.Tag);
+                    newTabPage.ImageIndex = 0;
+                    krbTabControl1.TabPages.Add(newTabPage);
+                    Label newLabel = new Label();
+                    newTabPage.Font = new Font("Tahoma", 8);
+                    newLabel.Text = newTabPage.Text;
+                    newTabPage.Controls.Add(newLabel);
+                    krbTabControl1.SelectedTab = newTabPage;
+                    frm.TopLevel = false;
+                    frm.Parent = newTabPage;
+                    frm.Visible = true;
+                    frm.Location = new Point((newTabPage.Width - frm.Width) / 2, ((newTabPage.Height - frm.Height) / 2));
+                    this.Cursor = Cursors.Default;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+                this.Cursor = Cursors.Default;
+            }
+            //try
+            //{
+            //    this.Cursor = Cursors.WaitCursor;
+            //    frmOutRepting frmRepotingout = new frmOutRepting(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID,ConServer.ConnectionWithHost,ConServer.HostIp); //from update Supply
+            //    FormCollection fromco = Application.OpenForms;
+            //    bool foundFrom = false;
+            //    foreach (Form frm in fromco)
+            //    {
+            //        if (frm.Name == "frmOutRepting")
+            //        {
+            //            frm.Focus();
+
+            //            foundFrom = true;
+
+            //        }
+
+            //    }
+            //    if (foundFrom == false)
+            //    {
+            //        frmRepotingout.Show();
+            //    }
+            //}
+            //catch(Exception ex)
+            //{ MessageBox.Show(ex.Message); }
+            //this.Cursor = Cursors.Default;
+        }
+        /// <summary>
+        /// //////// Repoting Quntity
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// تقارير المحزون
+        private void toolStripMenuItem11_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Cursor = Cursors.WaitCursor;
+                bool isHere = false;
+                frmQuntityRepting frm = new frmQuntityRepting(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID, ConServer.ConnectionWithHost, ConServer.HostIp);
+
+                krbTabControl1.Visible = true;
+                panel1.Visible = true;
+                foreach (TabPage b in krbTabControl1.TabPages)
+                {
+                    if (b.Text.Trim() == ((string)frm.Tag).Trim())
+                    {
+                        isHere = true;
+                        krbTabControl1.SelectedTab = b;
+                        this.Cursor = Cursors.Default;
+                        return;
+                    }
+                }
+                if (!isHere)
+                {
+                    TabPage newTabPage = new TabPage((string)frm.Tag);
+                    newTabPage.ImageIndex = 0;
+                    krbTabControl1.TabPages.Add(newTabPage);
+                    Label newLabel = new Label();
+                    newTabPage.Font = new Font("Tahoma", 8);
+                    newLabel.Text = newTabPage.Text;
+                    newTabPage.Controls.Add(newLabel);
+                    krbTabControl1.SelectedTab = newTabPage;
+                    frm.TopLevel = false;
+                    frm.Parent = newTabPage;
+                    frm.Visible = true;
+                    frm.Location = new Point((newTabPage.Width - frm.Width) / 2, ((newTabPage.Height - frm.Height) / 2));
+                    this.Cursor = Cursors.Default;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+                this.Cursor = Cursors.Default;
+            }
+            //try
+            //{
+            //    this.Cursor = Cursors.WaitCursor;
+            //    frmQuntityRepting frmRepotingQuntity = new frmQuntityRepting(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID, ConServer.ConnectionWithHost, ConServer.HostIp);
+            //    FormCollection fromco = Application.OpenForms;
+            //    bool foundFrom = false;
+            //    foreach (Form frm in fromco)
+            //    {
+            //        if (frm.Name == "frmQuntityRepting")
+            //        {
+            //            frm.Focus();
+
+            //            foundFrom = true;
+
+            //        }
+
+            //    }
+            //    if (foundFrom == false)
+            //    {
+            //        frmRepotingQuntity.Show();
+            //    }
+            //}
+            //catch(Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //}
+            //this.Cursor = Cursors.Default;
+        }
+        /// <summary>
+        /// ///repoting Updta Supply
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// تقارير تعديلات الوارد
+        private void toolStripMenuItem12_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Cursor = Cursors.WaitCursor;
+                bool isHere = false;
+                frmUpdSupp frm = new frmUpdSupp(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID, ConServer.ConnectionWithHost, ConServer.HostIp);
+
+                krbTabControl1.Visible = true;
+                panel1.Visible = true;
+                foreach (TabPage b in krbTabControl1.TabPages)
+                {
+                    if (b.Text.Trim() == ((string)frm.Tag).Trim())
+                    {
+                        isHere = true;
+                        krbTabControl1.SelectedTab = b;
+                        this.Cursor = Cursors.Default;
+                        return;
+                    }
+                }
+                if (!isHere)
+                {
+                    TabPage newTabPage = new TabPage((string)frm.Tag);
+                    newTabPage.ImageIndex = 0;
+                    krbTabControl1.TabPages.Add(newTabPage);
+                    Label newLabel = new Label();
+                    newTabPage.Font = new Font("Tahoma", 8);
+                    newLabel.Text = newTabPage.Text;
+                    newTabPage.Controls.Add(newLabel);
+                    krbTabControl1.SelectedTab = newTabPage;
+                    frm.TopLevel = false;
+                    frm.Parent = newTabPage;
+                    frm.Visible = true;
+                    frm.Location = new Point((newTabPage.Width - frm.Width) / 2, ((newTabPage.Height - frm.Height) / 2));
+                    this.Cursor = Cursors.Default;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+                this.Cursor = Cursors.Default;
+            }
+            //try
+            //{
+            //    this.Cursor = Cursors.WaitCursor;
+            //    frmUpdSupp frmRepotingSupp = new frmUpdSupp(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID,ConServer.ConnectionWithHost,ConServer.HostIp);
+            //    FormCollection fromco = Application.OpenForms;
+            //    bool foundFrom = false;
+            //    foreach (Form frm in fromco)
+            //    {
+            //        if (frm.Name == "frmUpdSupp")
+            //        {
+            //            frm.Focus();
+
+            //            foundFrom = true;
+
+            //        }
+
+            //    }
+            //    if (foundFrom == false)
+            //    {
+            //        frmRepotingSupp.Show();
+            //    }
+            //}
+            //catch(Exception ex)
+            //{ MessageBox.Show(ex.Message); }
+            //this.Cursor = Cursors.Default;
+
+        }
+        /// <summary>
+        /// // repoting Update OUt
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void toolStripMenuItem16_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Cursor = Cursors.WaitCursor;
+                bool isHere = false;
+                frmUpdOutcs frm = new frmUpdOutcs(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID, ConServer.ConnectionWithHost, ConServer.HostIp);
+
+                krbTabControl1.Visible = true;
+                panel1.Visible = true;
+                foreach (TabPage b in krbTabControl1.TabPages)
+                {
+                    if (b.Text.Trim() == ((string)frm.Tag).Trim())
+                    {
+                        isHere = true;
+                        krbTabControl1.SelectedTab = b;
+                        this.Cursor = Cursors.Default;
+                        return;
+                    }
+                }
+                if (!isHere)
+                {
+                    TabPage newTabPage = new TabPage((string)frm.Tag);
+                    newTabPage.ImageIndex = 0;
+                    krbTabControl1.TabPages.Add(newTabPage);
+                    Label newLabel = new Label();
+                    newTabPage.Font = new Font("Tahoma", 8);
+                    newLabel.Text = newTabPage.Text;
+                    newTabPage.Controls.Add(newLabel);
+                    krbTabControl1.SelectedTab = newTabPage;
+                    frm.TopLevel = false;
+                    frm.Parent = newTabPage;
+                    frm.Visible = true;
+                    frm.Location = new Point((newTabPage.Width - frm.Width) / 2, ((newTabPage.Height - frm.Height) / 2));
+                    this.Cursor = Cursors.Default;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+                this.Cursor = Cursors.Default;
+            }
+            //try
+            //{
+
+
+            //    this.Cursor = Cursors.WaitCursor;
+            //    frmUpdOutcs frmRepotingUpdOut = new frmUpdOutcs(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID,ConServer.ConnectionWithHost,ConServer.HostIp);
+            //    FormCollection fromco = Application.OpenForms;
+            //    bool foundFrom = false;
+            //    foreach (Form frm in fromco)
+            //    {
+            //        if (frm.Name == "frmUpdOutcs")
+            //        {
+            //            frm.Focus();
+
+            //            foundFrom = true;
+
+            //        }
+
+            //    }
+            //    if (foundFrom == false)
+            //    {
+            //        frmRepotingUpdOut.Show();
+            //    }
+            //}
+            //catch(Exception ex)
+            //{ MessageBox.Show(ex.Message); }
+            //this.Cursor = Cursors.Default;
+        }
+        // تهيئة الاصناف
+        private void toolStripMenuItem24_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Cursor = Cursors.WaitCursor;
+                Cate frm = new Cate(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, ConServer.ConnectionWithHost, ConServer.HostIp);
+                bool isHere = false;
+                krbTabControl1.Visible = true;
+                panel1.Visible = true;
+                foreach (TabPage b in krbTabControl1.TabPages)
+                {
+                    if (b.Text.Trim() == ((string)frm.Tag).Trim())
+                    {
+                        isHere = true;
+                        krbTabControl1.SelectedTab = b;
+                        this.Cursor = Cursors.Default;
+                        return;
+                    }
+                }
+                if (!isHere)
+                {
+                    TabPage  newTabPage = new TabPage((string)frm.Tag);
+                    newTabPage.ImageIndex = 6;
+                    krbTabControl1.TabPages.Add(newTabPage);
+                    Label newLabel = new Label();
+                    newTabPage.Font = new Font("Tahoma", 8);
+                    newLabel.Text = newTabPage.Text;
+                   // newTabPage.Controls.Add(newLabel);
                     krbTabControl1.SelectedTab = newTabPage;
                     frm.TopLevel = false;
                     frm.Parent = newTabPage;
@@ -808,7 +1021,7 @@ namespace StoreMaga0101
                 krbTabControl1.Visible = true;
                 this.Cursor = Cursors.Default;
                 panel1.Visible = true;
-                foreach (KRBTabControl.TabPageEx b in krbTabControl1.TabPages)
+                foreach (TabPage b in krbTabControl1.TabPages)
                 {
                     if (b.Text.Trim() == ((string)frm.Tag).Trim())
                     {
@@ -819,7 +1032,7 @@ namespace StoreMaga0101
                 }
                 if (!isHere)
                 {
-                    KRBTabControl.TabPageEx newTabPage = new KRBTabControl.TabPageEx((string)frm.Tag);
+                    TabPage newTabPage = new TabPage((string)frm.Tag);
                     newTabPage.ImageIndex = 7;
                     krbTabControl1.TabPages.Add(newTabPage);
                     Label newLabel = new Label();
@@ -896,7 +1109,7 @@ namespace StoreMaga0101
                 krbTabControl1.Visible = true;
                 this.Cursor = Cursors.Default;
                 panel1.Visible = true;
-                foreach (KRBTabControl.TabPageEx b in krbTabControl1.TabPages)
+                foreach (TabPage b in krbTabControl1.TabPages)
                 {
                     if (b.Text.Trim() == ((string)frm.Tag).Trim())
                     {
@@ -907,7 +1120,7 @@ namespace StoreMaga0101
                 }
                  if (!isHere)
                  {
-                    KRBTabControl.TabPageEx newTabPage = new KRBTabControl.TabPageEx((string)frm.Tag);
+                    TabPage newTabPage = new TabPage((string)frm.Tag);
                     newTabPage.ImageIndex = 9;
                     krbTabControl1.TabPages.Add(newTabPage);
                     Label newLabel = new Label();
@@ -982,7 +1195,7 @@ namespace StoreMaga0101
                 krbTabControl1.Visible = true;
                 panel1.Visible = true;
                 this.Cursor = Cursors.Default;
-                foreach (KRBTabControl.TabPageEx b in krbTabControl1.TabPages)
+                foreach (TabPage b in krbTabControl1.TabPages)
                 {
                     if (b.Text.Trim() == ((string)frm.Tag).Trim())
                     {
@@ -993,7 +1206,7 @@ namespace StoreMaga0101
                 }
                 if (!isHere)
                 {
-                    KRBTabControl.TabPageEx newTabPage = new KRBTabControl.TabPageEx((string)frm.Tag);
+                    TabPage newTabPage = new TabPage((string)frm.Tag);
                     newTabPage.ImageIndex = 8;
                     krbTabControl1.TabPages.Add(newTabPage);
                     Label newLabel = new Label();
@@ -1068,7 +1281,7 @@ namespace StoreMaga0101
                 frmAcount frm = new frmAcount(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID, ConServer.ConnectionWithHost, ConServer.HostIp);
                 krbTabControl1.Visible = true;
                 panel1.Visible = true;
-                foreach (KRBTabControl.TabPageEx b in krbTabControl1.TabPages)
+                foreach (TabPage b in krbTabControl1.TabPages)
                 {
                     if (b.Text.Trim() == ((string)frm.Tag).Trim())
                     {
@@ -1080,7 +1293,7 @@ namespace StoreMaga0101
                 }
                 if (!isHere)
                 {
-                    KRBTabControl.TabPageEx newTabPage = new KRBTabControl.TabPageEx((string)frm.Tag);
+                    TabPage newTabPage = new TabPage((string)frm.Tag);
                     newTabPage.ImageIndex = 2;
                     krbTabControl1.TabPages.Add(newTabPage);
                     Label newLabel = new Label();
@@ -1112,7 +1325,7 @@ namespace StoreMaga0101
                 frmSearchAccountNM frm = new frmSearchAccountNM(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID, ConServer.ConnectionWithHost, ConServer.HostIp);
                 krbTabControl1.Visible = true;
                 panel1.Visible = true;
-                foreach (KRBTabControl.TabPageEx b in krbTabControl1.TabPages)
+                foreach (TabPage b in krbTabControl1.TabPages)
                 {
                     if (b.Text.Trim() == ((string)frm.Tag).Trim())
                     {
@@ -1124,7 +1337,7 @@ namespace StoreMaga0101
                 }
                 if (!isHere)
                 {
-                    KRBTabControl.TabPageEx newTabPage = new KRBTabControl.TabPageEx((string)frm.Tag);
+                    TabPage newTabPage = new TabPage((string)frm.Tag);
                     newTabPage.ImageIndex = 3;
                     krbTabControl1.TabPages.Add(newTabPage);
                     Label newLabel = new Label();
@@ -1185,7 +1398,7 @@ namespace StoreMaga0101
                 this.Cursor = Cursors.WaitCursor;
                 bool isHere = false;
                 frmGroup frm = new frmGroup(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID, ConServer.ConnectionWithHost, ConServer.HostIp); panel1.Visible = true;
-                foreach (KRBTabControl.TabPageEx b in krbTabControl1.TabPages)
+                foreach (TabPage b in krbTabControl1.TabPages)
                 {
                     if (b.Text.Trim() == ((string)frm.Tag).Trim())
                     {
@@ -1197,7 +1410,7 @@ namespace StoreMaga0101
                 }
                 if (!isHere)
                 {
-                    KRBTabControl.TabPageEx newTabPage = new KRBTabControl.TabPageEx((string)frm.Tag);
+                    TabPage newTabPage = new TabPage((string)frm.Tag);
                     newTabPage.ImageIndex = 5;
                     krbTabControl1.TabPages.Add(newTabPage);
                     Label newLabel = new Label();
@@ -1255,7 +1468,7 @@ namespace StoreMaga0101
                 bool isHere = false;
                 SimpleConstraint frm = new SimpleConstraint(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID, ConServer.ConnectionWithHost, ConServer.HostIp); krbTabControl1.Visible = true;
                 panel1.Visible = true;
-                foreach (KRBTabControl.TabPageEx b in krbTabControl1.TabPages)
+                foreach (TabPage b in krbTabControl1.TabPages)
                 {
                     if (b.Text.Trim() == ((string)frm.Tag).Trim())
                     {
@@ -1267,7 +1480,7 @@ namespace StoreMaga0101
                 }
                 if (!isHere)
                 {
-                    KRBTabControl.TabPageEx newTabPage = new KRBTabControl.TabPageEx((string)frm.Tag);
+                    TabPage newTabPage = new TabPage((string)frm.Tag);
                     newTabPage.ImageIndex = 4;
                     krbTabControl1.TabPages.Add(newTabPage);
                     Label newLabel = new Label();
@@ -1300,7 +1513,7 @@ namespace StoreMaga0101
                 krbTabControl1.Visible = true;
                 this.Cursor = Cursors.Default;
                 panel1.Visible = true;
-                foreach (KRBTabControl.TabPageEx b in krbTabControl1.TabPages)
+                foreach (TabPage b in krbTabControl1.TabPages)
                 {
                     if (b.Text.Trim() == ((string)frm.Tag).Trim())
                     {
@@ -1311,7 +1524,7 @@ namespace StoreMaga0101
                 }
                 if (!isHere)
                 {
-                    KRBTabControl.TabPageEx newTabPage = new KRBTabControl.TabPageEx((string)frm.Tag);
+                    TabPage newTabPage = new TabPage((string)frm.Tag);
                     newTabPage.ImageIndex = 10;
                     krbTabControl1.TabPages.Add(newTabPage);
                     Label newLabel = new Label();
@@ -1397,12 +1610,11 @@ namespace StoreMaga0101
             }
         }
 
-        private void krbTabControl1_TabPageClosing(object sender, KRBTabControl.KRBTabControl.SelectedIndexChangingEventArgs e)
+       
+        private void krbTabControl1_TabClosing(object sender, TabControlCancelEventArgs e)
         {
             if (krbTabControl1.TabPages.Count == 1)
                 panel1.Visible = false;
         }
-
-       
     }
 }
