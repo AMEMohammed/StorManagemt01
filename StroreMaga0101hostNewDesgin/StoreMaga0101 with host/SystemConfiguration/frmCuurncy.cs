@@ -18,6 +18,7 @@ namespace SystemConfiguration
         Config config;
         bool HostConnection;
         ServiceReference1.IserviceClient configHost;
+      
         public frmCuurncy()
         {
             InitializeComponent();
