@@ -70,11 +70,11 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.krbTabControl1 = new System.Windows.Forms.CustomTabControl();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.krbTabControl1 = new System.Windows.Forms.CustomTabControl();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -581,58 +581,6 @@
             this.panel1.TabIndex = 10;
             this.panel1.Visible = false;
             // 
-            // statusStrip1
-            // 
-            this.statusStrip1.BackColor = System.Drawing.Color.Navy;
-            this.statusStrip1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.statusStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1,
-            this.toolStripStatusLabel2});
-            this.statusStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            this.statusStrip1.Location = new System.Drawing.Point(3, 436);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.statusStrip1.ShowItemToolTips = true;
-            this.statusStrip1.Size = new System.Drawing.Size(1154, 24);
-            this.statusStrip1.TabIndex = 1;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // toolStripStatusLabel1
-            // 
-            this.toolStripStatusLabel1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(139, 19);
-            this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
-            // 
-            // toolStripStatusLabel2
-            // 
-            this.toolStripStatusLabel2.BorderStyle = System.Windows.Forms.Border3DStyle.Raised;
-            this.toolStripStatusLabel2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripStatusLabel2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.toolStripStatusLabel2.LinkColor = System.Drawing.SystemColors.Window;
-            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(139, 19);
-            this.toolStripStatusLabel2.Text = "toolStripStatusLabel2";
-            // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "file.png");
-            this.imageList1.Images.SetKeyName(1, "document.png");
-            this.imageList1.Images.SetKeyName(2, "accounting-book.png");
-            this.imageList1.Images.SetKeyName(3, "mobile-phone.png");
-            this.imageList1.Images.SetKeyName(4, "bank-transfer (1).png");
-            this.imageList1.Images.SetKeyName(5, "networking1.png");
-            this.imageList1.Images.SetKeyName(6, "diagram.png");
-            this.imageList1.Images.SetKeyName(7, "packaging.png");
-            this.imageList1.Images.SetKeyName(8, "money-bag.png");
-            this.imageList1.Images.SetKeyName(9, "school.png");
-            this.imageList1.Images.SetKeyName(10, "networking.png");
-            this.imageList1.Images.SetKeyName(11, "user.png");
-            this.imageList1.Images.SetKeyName(12, "user (1).png");
-            // 
             // krbTabControl1
             // 
             this.krbTabControl1.AllowDrop = true;
@@ -665,6 +613,59 @@
             this.krbTabControl1.Size = new System.Drawing.Size(1140, 407);
             this.krbTabControl1.TabIndex = 8;
             this.krbTabControl1.TabClosing += new System.EventHandler<System.Windows.Forms.TabControlCancelEventArgs>(this.krbTabControl1_TabClosing);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.BackColor = System.Drawing.Color.Navy;
+            this.statusStrip1.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.statusStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1,
+            this.toolStripStatusLabel2});
+            this.statusStrip1.Location = new System.Drawing.Point(3, 436);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.ManagerRenderMode;
+            this.statusStrip1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.statusStrip1.ShowItemToolTips = true;
+            this.statusStrip1.Size = new System.Drawing.Size(1154, 24);
+            this.statusStrip1.TabIndex = 1;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.BorderStyle = System.Windows.Forms.Border3DStyle.RaisedOuter;
+            this.toolStripStatusLabel1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(139, 19);
+            this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
+            // 
+            // toolStripStatusLabel2
+            // 
+            this.toolStripStatusLabel2.BorderStyle = System.Windows.Forms.Border3DStyle.Raised;
+            this.toolStripStatusLabel2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripStatusLabel2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.toolStripStatusLabel2.LinkColor = System.Drawing.SystemColors.Window;
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(139, 19);
+            this.toolStripStatusLabel2.Text = "toolStripStatusLabel2";
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "file.png");
+            this.imageList1.Images.SetKeyName(1, "document.png");
+            this.imageList1.Images.SetKeyName(2, "accounting-book.png");
+            this.imageList1.Images.SetKeyName(3, "mobile-phone.png");
+            this.imageList1.Images.SetKeyName(4, "bank-transfer (1).png");
+            this.imageList1.Images.SetKeyName(5, "networking1.png");
+            this.imageList1.Images.SetKeyName(6, "diagram.png");
+            this.imageList1.Images.SetKeyName(7, "packaging.png");
+            this.imageList1.Images.SetKeyName(8, "money-bag.png");
+            this.imageList1.Images.SetKeyName(9, "school.png");
+            this.imageList1.Images.SetKeyName(10, "networking.png");
+            this.imageList1.Images.SetKeyName(11, "user.png");
+            this.imageList1.Images.SetKeyName(12, "user (1).png");
             // 
             // FrmMain
             // 

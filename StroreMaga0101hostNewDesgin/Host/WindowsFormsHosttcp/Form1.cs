@@ -24,7 +24,6 @@ namespace WindowsFormsHosttcp
         {
             try
             {
-               
                 my= new MYSerivce();
                  my.restd = new MYSerivce.ResDT(ReciveNameFRMCLINET);
                
@@ -32,22 +31,14 @@ namespace WindowsFormsHosttcp
 
                  host.Open();
                  textBox1.Text = host.Description.Endpoints[0].Address.ToString()+"  "+DateTime.Now.ToString();
+                 textBox2.Text ="اسم السرفير : "+ Properties.Settings.Default.ServerNm;
+                 textBox3.Text = "قاعدة البيانات  :  " + Properties.Settings.Default.DBNM;
             
-             
-             
-               
-            
-
             }
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-          
         }
         void ReciveNameFRMCLINET(int flag, int SessionID, DateTime start, DateTime end, string NameMachine, string UserWindow, string OSVersion, string NameUser, int USerID)
         {
@@ -78,6 +69,16 @@ namespace WindowsFormsHosttcp
                 my.AddNewSession(start, end, OSVersion, NameMachine, UserWindow, USerID);
 
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            new ConectionDb().ShowDialog();
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

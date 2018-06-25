@@ -63,10 +63,14 @@ namespace SystemConfiguration
             try
             {
                 textBox4.Focus();
-                if (HostConnection == false)
+                if (HostConnection == true)
                 {
 
                     dataGridView1.DataSource =ConvertMemorytoDB( configHost.GetAllCurrency());
+                }
+                else
+                {
+                    dataGridView1.DataSource = config.GetAllCurrency();
                 }
             }
             catch (Exception ex)
@@ -305,5 +309,25 @@ namespace SystemConfiguration
             return dt;
         }
 
+        private void btnRefrish_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                textBox4.Focus();
+                if (HostConnection == true)
+                {
+
+                    dataGridView1.DataSource = ConvertMemorytoDB(configHost.GetAllCurrency());
+                }
+                else
+                {
+                    dataGridView1.DataSource = config.GetAllCurrency();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

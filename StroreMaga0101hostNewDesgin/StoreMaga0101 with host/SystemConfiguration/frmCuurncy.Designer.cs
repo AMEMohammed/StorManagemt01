@@ -46,6 +46,7 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.تصديرالىاكسلToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
+            this.btnRefrish = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox11.SuspendLayout();
             this.groupBox10.SuspendLayout();
@@ -102,13 +103,14 @@
             // groupBox11
             // 
             this.groupBox11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox11.Controls.Add(this.btnRefrish);
             this.groupBox11.Controls.Add(this.button1);
             this.groupBox11.Controls.Add(this.button4);
             this.groupBox11.Controls.Add(this.btnRefrsh);
             this.groupBox11.Controls.Add(this.btnAddSup);
             this.groupBox11.Location = new System.Drawing.Point(6, 129);
             this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(364, 64);
+            this.groupBox11.Size = new System.Drawing.Size(458, 64);
             this.groupBox11.TabIndex = 1;
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "العمليات";
@@ -149,7 +151,7 @@
             this.btnRefrsh.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btnRefrsh.Image = global::SystemConfiguration.Properties.Resources.update;
             this.btnRefrsh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRefrsh.Location = new System.Drawing.Point(180, 19);
+            this.btnRefrsh.Location = new System.Drawing.Point(277, 19);
             this.btnRefrsh.Name = "btnRefrsh";
             this.btnRefrsh.Size = new System.Drawing.Size(81, 35);
             this.btnRefrsh.TabIndex = 2;
@@ -164,7 +166,7 @@
             this.btnAddSup.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btnAddSup.Image = global::SystemConfiguration.Properties.Resources.plus;
             this.btnAddSup.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddSup.Location = new System.Drawing.Point(267, 19);
+            this.btnAddSup.Location = new System.Drawing.Point(364, 19);
             this.btnAddSup.Name = "btnAddSup";
             this.btnAddSup.Size = new System.Drawing.Size(81, 35);
             this.btnAddSup.TabIndex = 1;
@@ -265,6 +267,21 @@
             this.groupBox12.TabStop = false;
             this.groupBox12.Text = "قائمة العملات";
             // 
+            // btnRefrish
+            // 
+            this.btnRefrish.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRefrish.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.btnRefrish.Image = global::SystemConfiguration.Properties.Resources.refresh__1_;
+            this.btnRefrish.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRefrish.Location = new System.Drawing.Point(179, 19);
+            this.btnRefrish.Name = "btnRefrish";
+            this.btnRefrish.Size = new System.Drawing.Size(93, 35);
+            this.btnRefrish.TabIndex = 6;
+            this.btnRefrish.Text = "تحديث ";
+            this.btnRefrish.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnRefrish.UseVisualStyleBackColor = true;
+            this.btnRefrish.Click += new System.EventHandler(this.btnRefrish_Click);
+            // 
             // frmCuurncy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -315,5 +332,6 @@
         private System.Windows.Forms.GroupBox groupBox12;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem تصديرالىاكسلToolStripMenuItem;
+        private System.Windows.Forms.Button btnRefrish;
     }
 }

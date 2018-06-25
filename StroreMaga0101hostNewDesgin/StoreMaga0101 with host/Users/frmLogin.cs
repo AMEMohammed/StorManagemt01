@@ -45,7 +45,7 @@ namespace Users
             InitializeComponent();
             try
             {
-               MessageBox.Show(ConServer.ConnectionWithHost.ToString());
+              
                 if (!ConServer.ConnectionWithHost)
                 {
 
