@@ -496,14 +496,14 @@ namespace Supplly
         }
         public int DeleteSuuplyFrmAccountDitalis(int idSupply)
         {
-            string Query = "  delete from AccountDetalis where AccountDetalis.IDSupply=@idsup";
+            string Query = "delete from AccountDetalis where AccountDetalis.IDSupply=@idsup";
             SqlParameter[] parm = new SqlParameter[1];
             parm[0] = new SqlParameter("@idsup", idSupply);
             return sql.ExcuteQuery(Query, parm);
         }
         public int DeleteSuuplyFrmAccountDitalis2(int idout)
         {
-            string Query = "  delete from AccountDetalis where AccountDetalis.IDOut=@idsup";
+            string Query = "delete from AccountDetalis where AccountDetalis.IDOut=@idsup";
             SqlParameter[] parm = new SqlParameter[1];
             parm[0] = new SqlParameter("@idsup", idout);
             return sql.ExcuteQuery(Query, parm);

@@ -134,43 +134,44 @@ namespace Supplly
                                 {
                                     SuRe.UpdateQuntityAccount(idAcount, newQunt);
                                     ///// Acount Detilas
-                                    SuRe.DeleteSuuplyFrmAccountDitalis(idAcount); // حذف الحساب من جدول التفاصيل 
+                                   
+                                    SuRe.DeleteSuuplyFrmAccountDitalis(IDSupply); // حذف الحساب من جدول التفاصيل 
                                 }
                                 else
                                 {
                                     SureHost.UpdateQuntityAccountInSuplly(idAcount, newQunt);
                                     ///// Acount Detilas
-                                    SureHost.DeleteSuuplyFrmAccountDitalisInSupply(idAcount); // حذف الحساب من جدول التفاصيل 
+                                    SureHost.DeleteSuuplyFrmAccountDitalisInSupply(IDSupply); // حذف الحساب من جدول التفاصيل 
                                 }
-                                string DitalisMis = "تم قيد عليكم مبلغ وقدره " +" "+ string.Format("{0:##,##}", (NewTotla).ToString()) + " " + comboBox3.Text + "  " + "مقابل امر توريد ب  " + " "+newQuntity.ToString() + " " + comboBox1.Text + " " + comboBox2.Text + " الى حساب" +" "+ comboBox5.Text + "رقم الطلب " + " "+idAcount;
-                                string DitalisPlus = "تم قيد لكم مبلغ وقدره" +" "+ string.Format("{0:##,##}", (NewTotla).ToString()) + " " + comboBox3.Text + "  " + "مقابل امر توريد ب " + newQuntity.ToString() + " " + comboBox1.Text + " " + comboBox2.Text + "  من حساب " + comboBox4.Text + "رقم الطلب " +" "+ idAcount;
+                                string DitalisMis = "تم قيد عليكم مبلغ وقدره " +" "+ string.Format("{0:##,##}", (NewTotla).ToString()) + " " + comboBox3.Text + "  " + "مقابل امر توريد ب  " + " "+newQuntity.ToString() + " " + comboBox1.Text + " " + comboBox2.Text + " الى حساب" +" "+ comboBox5.Text + "رقم الطلب " + " "+IDSupply;
+                                string DitalisPlus = "تم قيد لكم مبلغ وقدره" +" "+ string.Format("{0:##,##}", (NewTotla).ToString()) + " " + comboBox3.Text + "  " + "مقابل امر توريد ب " + newQuntity.ToString() + " " + comboBox1.Text + " " + comboBox2.Text + "  من حساب " + comboBox4.Text + "رقم الطلب " +" "+ IDSupply;
                                 if (HostConnection == false)
                                 {
-                                    SuRe.AddNewAccountDetalis(IdAccountPlus, NewTotla, idAcount, 0, DitalisMis, DateTime.Now, UserID, idcurrn, 0);//اضافة الحساب الدائن المعدل الى جدول التفاصيل
-                                    SuRe.AddNewAccountDetalis(IdAccountMins, (-1 * NewTotla), idAcount, 0, DitalisPlus, DateTime.Now, UserID, idcurrn, 0);//اضافة الحساب المدين المعدل الى جدول التفاصيل
+                                    SuRe.AddNewAccountDetalis(IdAccountPlus, NewTotla, IDSupply, 0, DitalisMis, DateTime.Now, UserID, idcurrn, 0);//اضافة الحساب الدائن المعدل الى جدول التفاصيل
+                                    SuRe.AddNewAccountDetalis(IdAccountMins, (-1 * NewTotla), IDSupply, 0, DitalisPlus, DateTime.Now, UserID, idcurrn, 0);//اضافة الحساب المدين المعدل الى جدول التفاصيل
                                 }
                                 else
                                 {
-                                    SureHost.AddNewAccountDetalisINSupply(IdAccountPlus, NewTotla, idAcount, 0, DitalisMis, DateTime.Now, UserID, idcurrn, 0);//اضافة الحساب الدائن المعدل الى جدول التفاصيل
-                                    SureHost.AddNewAccountDetalisINSupply(IdAccountMins, (-1 * NewTotla), idAcount, 0, DitalisPlus, DateTime.Now, UserID, idcurrn, 0);//اضافة ال
+                                    SureHost.AddNewAccountDetalisINSupply(IdAccountPlus, NewTotla,IDSupply, 0, DitalisMis, DateTime.Now, UserID, idcurrn, 0);//اضافة الحساب الدائن المعدل الى جدول التفاصيل
+                                    SureHost.AddNewAccountDetalisINSupply(IdAccountMins, (-1 * NewTotla), IDSupply, 0, DitalisPlus, DateTime.Now, UserID, idcurrn, 0);//اضافة ال
 
                                 }
                             }
                             else //  في حالة الحساب جديد
                             {
-                                string DitalisMis = "تم قيد عليكم مبلغ وقدره " + string.Format("{0:##,##}", (NewTotla).ToString()) + " " + comboBox3.Text + "  " + "مقابل امر توريد ب  " + newQuntity.ToString() + " " + comboBox1.Text + " " + comboBox2.Text + "  الى حساب" + comboBox5.Text + "رقم الطلب " + idAcount;
-                                string DitalisPlus = "تم قيد لكم مبلغ وقدره" + string.Format("{0:##,##}", (NewTotla).ToString()) + " " + comboBox3.Text + "  " + "مقابل امر توريد ب " + newQuntity.ToString() + " " + comboBox1.Text + " " + comboBox2.Text + "  من حساب " + comboBox4.Text + "رقم الطلب " + idAcount;
+                                string DitalisMis = "تم قيد عليكم مبلغ وقدره " + string.Format("{0:##,##}", (NewTotla).ToString()) + " " + comboBox3.Text + "  " + "مقابل امر توريد ب  " + newQuntity.ToString() + " " + comboBox1.Text + " " + comboBox2.Text + "  الى حساب" + comboBox5.Text + "رقم الطلب " + IDSupply;
+                                string DitalisPlus = "تم قيد لكم مبلغ وقدره" + string.Format("{0:##,##}", (NewTotla).ToString()) + " " + comboBox3.Text + "  " + "مقابل امر توريد ب " + newQuntity.ToString() + " " + comboBox1.Text + " " + comboBox2.Text + "  من حساب " + comboBox4.Text + "رقم الطلب " + IDSupply;
                                 if (HostConnection == false)
                                 {
                                     SuRe.AddNewAccount(IDCAT, IDTYPE, newQuntity, NewPrice, idcurrn);// اضافة حساب جديد
-                                    SuRe.DeleteSuuplyFrmAccountDitalis(idAcount); // حذف الحساب من جدول التفاصيل 
+                                    SuRe.DeleteSuuplyFrmAccountDitalis(IDSupply); // حذف الحساب من جدول التفاصيل 
                                     SuRe.AddNewAccountDetalis(IdAccountPlus, NewTotla, SuRe.GetMaxIdSupply(), 0, DitalisMis, DateTime.Now, UserID, idcurrn, 0);//اضافة الحساب الدائن المعدل الى جدول التفاصيل
                                     SuRe.AddNewAccountDetalis(IdAccountMins, (-1 * NewTotla), SuRe.GetMaxIdSupply(), 0, DitalisPlus, DateTime.Now, UserID, idcurrn, 0);//اضافة الحساب المدين المعدل الى جدول التفاصيل
                                 }
                                 else//connection host
                                 {
                                     SureHost.AddNewAccount(IDCAT, IDTYPE, newQuntity, NewPrice, idcurrn);// اضافة حساب جديد
-                                    SureHost.DeleteSuuplyFrmAccountDitalisInSupply(idAcount); // حذف الحساب من جدول التفاصيل 
+                                    SureHost.DeleteSuuplyFrmAccountDitalisInSupply(IDSupply); // حذف الحساب من جدول التفاصيل 
                                     SureHost.AddNewAccountDetalisINSupply(IdAccountPlus, NewTotla, SureHost.GetMaxIdSupply(), 0, DitalisMis, DateTime.Now, UserID, idcurrn, 0);//اضافة الحساب الدائن المعدل الى جدول التفاصيل
                                     SureHost.AddNewAccountDetalisINSupply(IdAccountMins, (-1 * NewTotla), SureHost.GetMaxIdSupply(), 0, DitalisPlus, DateTime.Now, UserID, idcurrn, 0);//اضافة الحساب المدين المعدل الى جدول التفاصيل
 
@@ -183,8 +184,8 @@ namespace Supplly
                                 //////////////////////////////
                                 ///////////////// 
                                 ///// AccountTotal 
-                                SuRe.UpdateAccountTotal(dAccountMinsOld, (-1 * oldTotal), oldIdCurrncy); // حذف القيمة من حساب الدائن
-                                SuRe.UpdateAccountTotal(dAccountPulsOld, oldTotal, oldIdCurrncy);// حذف القيمة من حساب المدين
+                                SuRe.UpdateAccountTotal(dAccountPulsOld, (-1 * oldTotal), oldIdCurrncy); // حذف القيمة من حساب الدائن
+                                SuRe.UpdateAccountTotal(dAccountMinsOld, oldTotal, oldIdCurrncy);// حذف القيمة من حساب المدين
                                                                                                  ///////////////////////////////////////////////////////////////
 
 
@@ -222,8 +223,8 @@ namespace Supplly
                             { //////////////////////////////
                                 ///////////////// 
                                 ///// AccountTotal 
-                                SureHost.UpdateAccountTotalInSupply(dAccountMinsOld, (-1 * oldTotal), oldIdCurrncy); // حذف القيمة من حساب الدائن
-                                SureHost.UpdateAccountTotalInSupply(dAccountPulsOld, oldTotal, oldIdCurrncy);// حذف القيمة من حساب المدين
+                                SureHost.UpdateAccountTotalInSupply(dAccountPulsOld, (-1 * oldTotal), oldIdCurrncy); // حذف القيمة من حساب الدائن
+                                SureHost.UpdateAccountTotalInSupply(dAccountMinsOld, oldTotal, oldIdCurrncy);// حذف القيمة من حساب المدين
                                                                                                  ///////////////////////////////////////////////////////////////
 
 
