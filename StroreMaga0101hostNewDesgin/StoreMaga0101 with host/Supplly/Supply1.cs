@@ -122,17 +122,17 @@ namespace Supplly
         ////
        public DataTable    SearchINRequsetSupplyDate(DateTime d1,DateTime d2)
         {
-            TimeSpan t1 = new TimeSpan(12, 59, 59);
+            TimeSpan t1 = new TimeSpan(24, 59, 59);
             TimeSpan t2 = DateTime.Now.TimeOfDay;
             DateTime d3 = d2.Add(t1 - t2);
             d2 = d3;
-          
+         
             string Query = "select IDSupply as 'رقم الطلب' ,Category.NameCategory as 'اسم الصنف', TypeQuntity.NameType as 'نوع الكمية', RequstSupply.Quntity as 'الكمية', RequstSupply.Price as 'سعر الوحدة', RequstSupply.Quntity * RequstSupply.Price as 'الاجمالي',Currency.NameCurrency as 'العملة',RequstSupply.DateSupply as'تاريخ التوريد', RequstSupply.NameSupply as 'اسم المورد',Users.Name as 'اسم الموظف', RequstSupply.DescSupply as 'ملاحظات',RequstSupply.chek  from Category, TypeQuntity, RequstSupply,Currency, Users where RequstSupply.UserId=Users.IDUSER and  RequstSupply.IDCategory = Category.IDCategory and RequstSupply.IDCurrency=Currency.IDCurrency and RequstSupply.IDType = TypeQuntity.IDType and DateSupply between @d1 and @d2  order by RequstSupply.DateSupply,RequstSupply.IDCurrency,RequstSupply.IDType,RequstSupply.IDCategory";
-                  DataTable dt = new DataTable();
+            DataTable dt = new DataTable();
             SqlParameter[] parm = new SqlParameter[2];
             parm[0] = new SqlParameter("@d1", d1);
             parm[1] = new SqlParameter("@d2", d2);
-          dt=  sql.SelectData(Query, parm);
+            dt=sql.SelectData(Query, parm);
             return dt;
         }
         //////////////

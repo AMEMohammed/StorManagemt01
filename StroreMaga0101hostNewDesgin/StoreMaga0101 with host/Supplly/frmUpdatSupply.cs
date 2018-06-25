@@ -358,7 +358,7 @@ namespace Supplly
                         }
                         else
                         {
-                            dtExite =ConvertMemorytoDB( SureHost.printrequstOutExit1(id, UserID, SuRe.GetIdUser(name)));
+                            dtExite =ConvertMemorytoDB( SureHost.printrequstOutExit1(id, UserID, SureHost.GetIdUser(name)));
                         }
                     }
                     else
@@ -371,7 +371,7 @@ namespace Supplly
                     }
                     else
                     {
-                        dtSupp =ConvertMemorytoDB( SureHost.PrintRequstSupply(id, UserID, SuRe.GetIdUser(name)));
+                        dtSupp =ConvertMemorytoDB( SureHost.PrintRequstSupply(id, UserID, SureHost.GetIdUser(name)));
                     }
                    
                     frmReprt frmRp = new frmReprt(dtSupp, dtExite, 1);

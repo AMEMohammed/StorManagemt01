@@ -509,7 +509,7 @@ namespace Supplly
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
-                try
+               // try
                 {
                     int id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[11].Value.ToString());
                     string name = dataGridView1.SelectedRows[0].Cells[9].Value.ToString();
@@ -523,7 +523,7 @@ namespace Supplly
                        if(HostConnction==false)
                           dtExite = SuRe.printrequstOutExit1(id, UserID, SuRe.GetIdUser(name));
                        else
-                            dtExite =ConvertMemorytoDB( SureHost.printrequstOutExit1(id, UserID, SuRe.GetIdUser(name)));
+                            dtExite =ConvertMemorytoDB( SureHost.printrequstOutExit1(id, UserID, SureHost.GetIdUser(name)));
 
                     }
                     else
@@ -536,7 +536,7 @@ namespace Supplly
                     }
                     else
                     {
-                        dtSupp =ConvertMemorytoDB( SureHost.PrintRequstSupply(id, UserID, SuRe.GetIdUser(name)));
+                        dtSupp =ConvertMemorytoDB( SureHost.PrintRequstSupply(id, UserID, SureHost.GetIdUser(name)));
 
                     }
                     frmReprt frmRp = new frmReprt(dtSupp, dtExite, 1);
@@ -544,7 +544,7 @@ namespace Supplly
 
                     this.Cursor = Cursors.Default;
                 }
-                catch (Exception ex) { MessageBox.Show(ex.Message); }
+               // catch (Exception ex) { MessageBox.Show(ex.Message); }
             }
         }
 
