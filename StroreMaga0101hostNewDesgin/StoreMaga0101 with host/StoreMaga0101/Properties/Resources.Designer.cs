@@ -163,6 +163,46 @@ namespace StoreMaga0101.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bitcoin_with_olive_leaves_at_both_sides {
+            get {
+                object obj = ResourceManager.GetObject("bitcoin-with-olive-leaves-at-both-sides", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bitcoin_with_olive_leaves_at_both_sides__1_ {
+            get {
+                object obj = ResourceManager.GetObject("bitcoin-with-olive-leaves-at-both-sides (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bitcoin_with_olive_leaves_at_both_sides__1_1 {
+            get {
+                object obj = ResourceManager.GetObject("bitcoin-with-olive-leaves-at-both-sides (1)1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bitcoin_with_olive_leaves_at_both_sides__2_ {
+            get {
+                object obj = ResourceManager.GetObject("bitcoin-with-olive-leaves-at-both-sides (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap database {
             get {
                 object obj = ResourceManager.GetObject("database", resourceCulture);

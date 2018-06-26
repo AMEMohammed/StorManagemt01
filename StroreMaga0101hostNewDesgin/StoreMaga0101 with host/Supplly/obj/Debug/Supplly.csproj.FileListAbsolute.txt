@@ -156,13 +156,6 @@ D:\programing1\StoreMaga0101\StoreMaga0101 with host\Supplly\obj\Debug\Supplly.P
 D:\programing1\StoreMaga0101\StoreMaga0101 with host\Supplly\obj\Debug\Supplly.csproj.GenerateResource.Cache
 D:\programing1\StoreMaga0101\StoreMaga0101 with host\Supplly\obj\Debug\Supplly.dll
 D:\programing1\StoreMaga0101\StoreMaga0101 with host\Supplly\obj\Debug\Supplly.pdb
-D:\programing1\StoreMaga0101\StroreMaga0101hostNewDesgin\StoreMaga0101 with host\Supplly\obj\Debug\Supplly.frmADDSup.resources
-D:\programing1\StoreMaga0101\StroreMaga0101hostNewDesgin\StoreMaga0101 with host\Supplly\obj\Debug\Supplly.frmupdatesupply2.resources
-D:\programing1\StoreMaga0101\StroreMaga0101hostNewDesgin\StoreMaga0101 with host\Supplly\obj\Debug\Supplly.frmUpdatSupply.resources
-D:\programing1\StoreMaga0101\StroreMaga0101hostNewDesgin\StoreMaga0101 with host\Supplly\obj\Debug\Supplly.Properties.Resources.resources
-D:\programing1\StoreMaga0101\StroreMaga0101hostNewDesgin\StoreMaga0101 with host\Supplly\obj\Debug\Supplly.csproj.GenerateResource.Cache
-D:\programing1\StoreMaga0101\StroreMaga0101hostNewDesgin\StoreMaga0101 with host\Supplly\obj\Debug\Supplly.dll
-D:\programing1\StoreMaga0101\StroreMaga0101hostNewDesgin\StoreMaga0101 with host\Supplly\obj\Debug\Supplly.pdb
 D:\programing1\StoreMaga0101\StroreMaga0101hostNewDesgin\StoreMaga0101 with host\Supplly\bin\Debug\Supplly.dll.config
 D:\programing1\StoreMaga0101\StroreMaga0101hostNewDesgin\StoreMaga0101 with host\Supplly\bin\Debug\Supplly.dll
 D:\programing1\StoreMaga0101\StroreMaga0101hostNewDesgin\StoreMaga0101 with host\Supplly\bin\Debug\Supplly.pdb
@@ -187,4 +180,10 @@ D:\programing1\StoreMaga0101\StroreMaga0101hostNewDesgin\StoreMaga0101 with host
 D:\programing1\StoreMaga0101\StroreMaga0101hostNewDesgin\StoreMaga0101 with host\Supplly\bin\Debug\stdole.dll
 D:\programing1\StoreMaga0101\StroreMaga0101hostNewDesgin\StoreMaga0101 with host\Supplly\bin\Debug\ShockwaveFlashObjects.dll
 D:\programing1\StoreMaga0101\StroreMaga0101hostNewDesgin\StoreMaga0101 with host\Supplly\bin\Debug\FrmRports.pdb
-D:\programing1\StoreMaga0101\StroreMaga0101hostNewDesgin\StoreMaga0101 with host\Supplly\obj\Debug\Supplly.csprojResolveAssemblyReference.cache
+D:\programing1\StoreMaga0101\StroreMaga0101hostNewDesgin\StoreMaga0101 with host\Supplly\obj\Debug\Supplly.frmADDSup.resources
+D:\programing1\StoreMaga0101\StroreMaga0101hostNewDesgin\StoreMaga0101 with host\Supplly\obj\Debug\Supplly.frmupdatesupply2.resources
+D:\programing1\StoreMaga0101\StroreMaga0101hostNewDesgin\StoreMaga0101 with host\Supplly\obj\Debug\Supplly.frmUpdatSupply.resources
+D:\programing1\StoreMaga0101\StroreMaga0101hostNewDesgin\StoreMaga0101 with host\Supplly\obj\Debug\Supplly.Properties.Resources.resources
+D:\programing1\StoreMaga0101\StroreMaga0101hostNewDesgin\StoreMaga0101 with host\Supplly\obj\Debug\Supplly.csproj.GenerateResource.Cache
+D:\programing1\StoreMaga0101\StroreMaga0101hostNewDesgin\StoreMaga0101 with host\Supplly\obj\Debug\Supplly.dll
+D:\programing1\StoreMaga0101\StroreMaga0101hostNewDesgin\StoreMaga0101 with host\Supplly\obj\Debug\Supplly.pdb

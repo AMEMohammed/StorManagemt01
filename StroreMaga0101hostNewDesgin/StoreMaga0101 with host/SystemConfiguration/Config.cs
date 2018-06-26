@@ -563,15 +563,28 @@ namespace SystemConfiguration
             return (int)sql.ExcuteQueryValue(Query, null);
 
         }
-        ///
-        public int GetIdFromNumber(int Number)
+        /// get id Barnch From Number
+        public int GetIdBranchFromNumber(int Number)
         {
             string Query = "select IDBranch from where [dbo].[tblBranches] where  [TheNumber]=@Number";
             SqlParameter[] parm = new SqlParameter[1];
             parm[0] = new SqlParameter("@Number", Number);
             return (int)sql.ExcuteQueryValue(Query, parm);
          }
-        
+        /// get all Branches
+        public DataTable GetAllBarnch()
+        {
+            string Query = "select Top 1000 tblBranches.TheNumber as 'الرقم' ,tblBranches.BranchName as 'اسم الفرع' ,tblBranches.EnglishName as'الاسم الاجنبي', AccountNm.AcountNm as 'الحساب الرئيسي',tblBranches.phone as 'رقم التلفون',tblBranches.fax as 'الفاكس',tblBranches.Address as 'العنوان',tblBranches.Notes as 'ملاحظات',Users.UserName as'اسم المستخدم',tblBranches.EnterTime as'وقت الادخال' from tblBranches inner join AccountNm on tblBranches.AccountID=AccountNm.IDCode inner join Users on tblBranches.UserID=Users.UserID";
+            return sql.SelectData(Query, null);
+
+        }
+       //GET Accounts main
+       public DataTable GetAccountsMain()
+        {
+            string Query = "select AccountNm.AcountNm as'اسم الحساب',AccountNm.IDCode as'رقم الحساب' from AccountNm where AcountType='رئيسي'";
+            return sql.SelectData(Query, null);
+
+        }
 
       
        

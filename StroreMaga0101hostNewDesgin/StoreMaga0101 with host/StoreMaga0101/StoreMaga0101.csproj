@@ -300,6 +300,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="12_DHr_icon.ico" />
+    <None Include="Resources\bitcoin-with-olive-leaves-at-both-sides.png" />
+    <None Include="Resources\bitcoin-with-olive-leaves-at-both-sides %281%29.png" />
+    <None Include="Resources\bitcoin-with-olive-leaves-at-both-sides %281%291.png" />
+    <None Include="Resources\bitcoin-with-olive-leaves-at-both-sides %282%29.png" />
     <Content Include="Resources\error.png" />
     <None Include="Service References\ServiceReference1\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>

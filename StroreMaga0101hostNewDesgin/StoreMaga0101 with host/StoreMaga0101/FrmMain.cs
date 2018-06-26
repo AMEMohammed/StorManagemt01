@@ -1616,5 +1616,49 @@ namespace StoreMaga0101
             if (krbTabControl1.TabPages.Count == 1)
                 panel1.Visible = false;
         }
+
+        private void toolStripMenuItem36_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Cursor = Cursors.WaitCursor;
+                frmBranches frm = new frmBranches(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql,UserID, ConServer.ConnectionWithHost, ConServer.HostIp,1);
+                bool isHere = false;
+                krbTabControl1.Visible = true;
+                this.Cursor = Cursors.Default;
+                panel1.Visible = true;
+                foreach (TabPage b in krbTabControl1.TabPages)
+                {
+                    if (b.Text.Trim() == ((string)frm.Tag).Trim())
+                    {
+                        isHere = true;
+                        krbTabControl1.SelectedTab = b;
+                        return;
+                    }
+                }
+                if (!isHere)
+                {
+                    TabPage newTabPage = new TabPage((string)frm.Tag);
+                    newTabPage.ImageIndex = 10;
+                    krbTabControl1.TabPages.Add(newTabPage);
+                    Label newLabel = new Label();
+                    newTabPage.Font = new Font("Tahoma", 8);
+                    newLabel.Text = newTabPage.Text;
+                    newTabPage.Controls.Add(newLabel);
+                    krbTabControl1.SelectedTab = newTabPage;
+                    frm.TopLevel = false;
+                    frm.Parent = newTabPage;
+                    frm.Visible = true;
+                    frm.Location = new Point((newTabPage.Width - frm.Width) / 2, ((newTabPage.Height - frm.Height) / 2));
+                    this.Cursor = Cursors.Default;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+                this.Cursor = Cursors.Default;
+            }
+        }
     }
 }
