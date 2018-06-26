@@ -85,4 +85,3 @@ D:\programing1\StoreMaga0101\StroreMaga0101hostNewDesgin\StoreMaga0101 with host
 D:\programing1\StoreMaga0101\StroreMaga0101hostNewDesgin\StoreMaga0101 with host\SystemConfiguration\obj\Debug\SystemConfiguration.csproj.GenerateResource.Cache
 D:\programing1\StoreMaga0101\StroreMaga0101hostNewDesgin\StoreMaga0101 with host\SystemConfiguration\obj\Debug\SystemConfiguration.dll
 D:\programing1\StoreMaga0101\StroreMaga0101hostNewDesgin\StoreMaga0101 with host\SystemConfiguration\obj\Debug\SystemConfiguration.pdb
-D:\programing1\StoreMaga0101\StroreMaga0101hostNewDesgin\StoreMaga0101 with host\SystemConfiguration\obj\Debug\SystemConfiguration.csprojResolveAssemblyReference.cache

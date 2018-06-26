@@ -291,3 +291,6 @@ E:\programming\StoreManagemntWithHost\StoreMaga0101\StoreMaga0101 with host\Stor
 E:\programming\StoreManagemntWithHost\StoreMaga0101\StoreMaga0101 with host\StoreMaga0101\obj\Debug\StoreMaga0101.exe
 E:\programming\StoreManagemntWithHost\StoreMaga0101\StoreMaga0101 with host\StoreMaga0101\obj\Debug\StoreMaga0101.pdb
 D:\programing1\StoreMaga0101\StoreMaga0101 with host\StoreMaga0101\bin\Debug\Users.dll
+D:\programing1\StoreMaga0101\StroeMaga0101hostFroms\StoreMaga0101 with host\StoreMaga0101\bin\Debug\StoreMaga0101.exe.config
+D:\programing1\StoreMaga0101\StroeMaga0101hostFroms\StoreMaga0101 with host\StoreMaga0101\obj\Debug\StoreMaga0101.exe
+D:\programing1\StoreMaga0101\StroeMaga0101hostFroms\StoreMaga0101 with host\StoreMaga0101\obj\Debug\StoreMaga0101.pdb

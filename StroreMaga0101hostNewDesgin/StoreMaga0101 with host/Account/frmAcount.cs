@@ -483,11 +483,6 @@ namespace Account
         int IDParnt1;
         int IDCod1;
 
-        private void dataGridView1_CellEnter(object sender, DataGridViewCellEventArgs e)
-        {
-           
-        }
-
         private void button4_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -535,29 +530,7 @@ namespace Account
             }
         }
         public int idcode;
-        private void dataGridView1_CellEnter_1(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                if (dataGridView1.SelectedRows.Count > 0)
-                {
-                    IDParnt1 = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[4].Value.ToString());
-                    IDCod1 = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
-                    comboBox1.Text = IDParnt1 + "-" + dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
-                    textBox1.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
-                    comboBox2.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
-                    textBox4.Text = IDCod1.ToString();
-                    bool chek = Convert.ToBoolean(dataGridView1.SelectedRows[0].Cells[5].Value.ToString());
-                    checkBox1.Checked = !chek;
-                    IdAcount = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[8].Value.ToString());
-                    idcode = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
-
-                }
-            }
-            catch (Exception ex)
-            { MessageBox.Show(ex.Message); }
-
-        }
+     
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -691,6 +664,29 @@ namespace Account
             ms.Seek(0, SeekOrigin.Begin);
             DataTable dt = (DataTable)formatter.Deserialize(ms);
             return dt;
+        }
+
+        private void dataGridView1_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+                    IDParnt1 = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[4].Value.ToString());
+                    IDCod1 = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
+                    comboBox1.Text = IDParnt1 + "-" + dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
+                    textBox1.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+                    comboBox2.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+                    textBox4.Text = IDCod1.ToString();
+                    bool chek = Convert.ToBoolean(dataGridView1.SelectedRows[0].Cells[5].Value.ToString());
+                    checkBox1.Checked = !chek;
+                    IdAcount = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[8].Value.ToString());
+                    idcode = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
+
+                }
+            }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); }
         }
     }
     }

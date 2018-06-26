@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -54,7 +54,7 @@
             this.btnRefrish = new System.Windows.Forms.Button();
             this.btnDele = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
-            this.btnRefrsh = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
             this.btnAddSup = new System.Windows.Forms.Button();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -224,7 +224,8 @@
             this.textNumIDACOunt.Font = new System.Drawing.Font("Tahoma", 9F);
             this.textNumIDACOunt.Location = new System.Drawing.Point(491, 77);
             this.textNumIDACOunt.Name = "textNumIDACOunt";
-            this.textNumIDACOunt.Size = new System.Drawing.Size(102, 22);
+            this.textNumIDACOunt.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.textNumIDACOunt.Size = new System.Drawing.Size(101, 22);
             this.textNumIDACOunt.TabIndex = 23;
             // 
             // labAccount
@@ -282,7 +283,7 @@
             this.groupBox3.Controls.Add(this.btnRefrish);
             this.groupBox3.Controls.Add(this.btnDele);
             this.groupBox3.Controls.Add(this.btnExit);
-            this.groupBox3.Controls.Add(this.btnRefrsh);
+            this.groupBox3.Controls.Add(this.btnUpdate);
             this.groupBox3.Controls.Add(this.btnAddSup);
             this.groupBox3.Location = new System.Drawing.Point(338, 218);
             this.groupBox3.Name = "groupBox3";
@@ -317,6 +318,7 @@
             this.btnRefrish.Text = "تحديث ";
             this.btnRefrish.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnRefrish.UseVisualStyleBackColor = true;
+            this.btnRefrish.Click += new System.EventHandler(this.btnRefrish_Click);
             // 
             // btnDele
             // 
@@ -346,19 +348,19 @@
             this.btnExit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnExit.UseVisualStyleBackColor = true;
             // 
-            // btnRefrsh
+            // btnUpdate
             // 
-            this.btnRefrsh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRefrsh.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btnRefrsh.Image = global::SystemConfiguration.Properties.Resources.update;
-            this.btnRefrsh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRefrsh.Location = new System.Drawing.Point(368, 11);
-            this.btnRefrsh.Name = "btnRefrsh";
-            this.btnRefrsh.Size = new System.Drawing.Size(81, 35);
-            this.btnRefrsh.TabIndex = 9;
-            this.btnRefrsh.Text = "تعديل";
-            this.btnRefrsh.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnRefrsh.UseVisualStyleBackColor = true;
+            this.btnUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnUpdate.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.btnUpdate.Image = global::SystemConfiguration.Properties.Resources.update;
+            this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUpdate.Location = new System.Drawing.Point(368, 11);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(81, 35);
+            this.btnUpdate.TabIndex = 9;
+            this.btnUpdate.Text = "تعديل";
+            this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnUpdate.UseVisualStyleBackColor = true;
             // 
             // btnAddSup
             // 
@@ -395,23 +397,25 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridView1.Location = new System.Drawing.Point(6, 19);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1153, 439);
-            this.dataGridView1.TabIndex = 12;
+            this.dataGridView1.Size = new System.Drawing.Size(1153, 436);
+            this.dataGridView1.TabIndex = 14;
+            this.dataGridView1.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEnter);
             // 
             // frmBranches
             // 
@@ -468,7 +472,7 @@
         private System.Windows.Forms.Button btnRefrish;
         private System.Windows.Forms.Button btnDele;
         private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.Button btnRefrsh;
+        private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnAddSup;
         private System.Windows.Forms.Button btnPrint;
         private System.Windows.Forms.GroupBox groupBox12;

@@ -510,7 +510,7 @@ namespace SystemConfiguration
         // AddNEWBARNCH
         public int AddNewBranch(int number,string branchName,int Idaccount,string Note,string nameEnglish,string phone,string fax,string Adderss,int Userid,int baranchId)
         {
-            string Query = "INSERT INTO [dbo].[tblBranches]([TheNumber],[BranchName],[AccountID],[Notes],[EnglishName],[phone],[fax],[Address],[UserID],[BranchID],[EnterTime])VALUES(@number,@branchName,@Idaccount,@Note,@nameEnglish,@phone,@fax,@Adderss,@Userid,@baranchId)";
+            string Query = "INSERT INTO [dbo].[tblBranches]([TheNumber],[BranchName],[AccountID],[Notes],[EnglishName],[phone],[fax],[Address],[UserID],[BranchID])VALUES(@number,@branchName,@Idaccount,@Note,@nameEnglish,@phone,@fax,@Adderss,@Userid,@baranchId)";
             SqlParameter[] parm = new SqlParameter[10];
             parm[0] = new SqlParameter("@number", number);
             parm[1] = new SqlParameter("@branchName", branchName);
@@ -566,7 +566,7 @@ namespace SystemConfiguration
         /// get id Barnch From Number
         public int GetIdBranchFromNumber(int Number)
         {
-            string Query = "select IDBranch from where [dbo].[tblBranches] where  [TheNumber]=@Number";
+            string Query = "select IDBranch from  [dbo].[tblBranches] where  [TheNumber]=@Number";
             SqlParameter[] parm = new SqlParameter[1];
             parm[0] = new SqlParameter("@Number", Number);
             return (int)sql.ExcuteQueryValue(Query, parm);
@@ -574,7 +574,7 @@ namespace SystemConfiguration
         /// get all Branches
         public DataTable GetAllBarnch()
         {
-            string Query = "select Top 1000 tblBranches.TheNumber as 'الرقم' ,tblBranches.BranchName as 'اسم الفرع' ,tblBranches.EnglishName as'الاسم الاجنبي', AccountNm.AcountNm as 'الحساب الرئيسي',tblBranches.phone as 'رقم التلفون',tblBranches.fax as 'الفاكس',tblBranches.Address as 'العنوان',tblBranches.Notes as 'ملاحظات',Users.UserName as'اسم المستخدم',tblBranches.EnterTime as'وقت الادخال' from tblBranches inner join AccountNm on tblBranches.AccountID=AccountNm.IDCode inner join Users on tblBranches.UserID=Users.UserID";
+            string Query = "select Top 1000 tblBranches.TheNumber as 'الرقم' ,tblBranches.BranchName as 'اسم الفرع' ,tblBranches.EnglishName as'الاسم الاجنبي', AccountNm.AcountNm as 'الحساب الرئيسي',tblBranches.phone as 'رقم التلفون',tblBranches.fax as 'الفاكس',tblBranches.Address as 'العنوان',tblBranches.Notes as 'ملاحظات',Users.UserName as'اسم المستخدم',tblBranches.EnterTime as'وقت الادخال',tblBranches1.BranchName as 'فرع الادخال'  from tblBranches inner join AccountNm on tblBranches.AccountID=AccountNm.IDCode inner join Users on tblBranches.UserID=Users.IDUSER inner join tblBranches as tblBranches1 on  tblBranches.IDBranch = tblBranches1.IDBranch";
             return sql.SelectData(Query, null);
 
         }
