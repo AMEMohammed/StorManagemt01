@@ -147,8 +147,8 @@ namespace Supplly
                                 string DitalisPlus = "تم قيد لكم مبلغ وقدره" +" "+ string.Format("{0:##,##}", (NewTotla).ToString()) + " " + comboBox3.Text + "  " + "مقابل امر توريد ب " + newQuntity.ToString() + " " + comboBox1.Text + " " + comboBox2.Text + "  من حساب " + comboBox4.Text + "رقم الطلب " +" "+ IDSupply;
                                 if (HostConnection == false)
                                 {
-                                    SuRe.AddNewAccountDetalis(IdAccountPlus, NewTotla, IDSupply, 0, DitalisMis, DateTime.Now, UserID, idcurrn, 0);//اضافة الحساب الدائن المعدل الى جدول التفاصيل
-                                    SuRe.AddNewAccountDetalis(IdAccountMins, (-1 * NewTotla), IDSupply, 0, DitalisPlus, DateTime.Now, UserID, idcurrn, 0);//اضافة الحساب المدين المعدل الى جدول التفاصيل
+                                    SuRe.AddNewAccountDetalis(IdAccountPlus, NewTotla, IDSupply, 0, DitalisPlus, DateTime.Now, UserID, idcurrn, 0);//اضافة الحساب الدائن المعدل الى جدول التفاصيل
+                                    SuRe.AddNewAccountDetalis(IdAccountMins, (-1 * NewTotla), IDSupply, 0, DitalisMis, DateTime.Now, UserID, idcurrn, 0);//اضافة الحساب المدين المعدل الى جدول التفاصيل
                                 }
                                 else
                                 {
