@@ -260,6 +260,8 @@ namespace WindowsFormsHosttcp
         int DeleteSuuplyFrmAccountDitalisInSupply(int idSupply);
         [OperationContract]
         int DeleteSuuplyFrmAccountDitalis2InSupply(int idout);
+        [OperationContract]
+        MemoryStream GetRequstOneSupply(int IDreqSup);
 
         #endregion
         // end Supply

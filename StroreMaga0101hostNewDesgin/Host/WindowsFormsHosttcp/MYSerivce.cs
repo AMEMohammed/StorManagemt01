@@ -632,6 +632,10 @@ namespace WindowsFormsHosttcp
         {
             return SupplyFun.DeleteSuuplyFrmAccountDitalis2( idout);
         }
+        public MemoryStream GetRequstOneSupply(int IDreqSup)
+        {
+            return ConvertDBtoMomery(SupplyFun.GetRequstOneSupply(IDreqSup));
+        }
         #endregion
         // end Supply
         //

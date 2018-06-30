@@ -19,14 +19,14 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="net.tcp://localhost:9002/StoreService/mex" Protocol="mex" SourceId="1" />
+    <MetadataSource Address="net.tcp://localhost:9009/StoreService/mex" Protocol="mex" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="service1.wsdl" MetadataType="Wsdl" ID="f6c4b7f0-15c1-4b48-9c91-42e62650d3cf" SourceId="1" SourceUrl="net.tcp://localhost:9002/StoreService/mex" />
-    <MetadataFile FileName="service2.xsd" MetadataType="Schema" ID="a1962868-9f0a-4e08-aa5a-01526d6a9e42" SourceId="1" SourceUrl="net.tcp://localhost:9002/StoreService/mex" />
-    <MetadataFile FileName="service21.xsd" MetadataType="Schema" ID="8639ec53-2cde-45c3-a453-eadc2668d010" SourceId="1" SourceUrl="net.tcp://localhost:9002/StoreService/mex" />
-    <MetadataFile FileName="System.IO1.xsd" MetadataType="Schema" ID="e71c645a-6fc9-4efd-bf00-5a7aa7e4e057" SourceId="1" SourceUrl="net.tcp://localhost:9002/StoreService/mex" />
-    <MetadataFile FileName="System1.xsd" MetadataType="Schema" ID="eff2559e-057e-4f9b-aa6d-a361c87e7d9d" SourceId="1" SourceUrl="net.tcp://localhost:9002/StoreService/mex" />
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="82010e28-b96e-47ec-ada6-4f28d4d2f823" SourceId="1" SourceUrl="net.tcp://localhost:9009/StoreService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="0ea82d7e-f824-42eb-a496-9bcbb83d7c88" SourceId="1" SourceUrl="net.tcp://localhost:9009/StoreService/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="407f76e1-8f52-4c4f-b5c4-660dba1ba29f" SourceId="1" SourceUrl="net.tcp://localhost:9009/StoreService/mex" />
+    <MetadataFile FileName="System.IO.xsd" MetadataType="Schema" ID="73d2104f-efb6-4925-8a23-7913c43c34f7" SourceId="1" SourceUrl="net.tcp://localhost:9009/StoreService/mex" />
+    <MetadataFile FileName="System.xsd" MetadataType="Schema" ID="e9535e52-8a25-46e1-ac5d-95208817bd60" SourceId="1" SourceUrl="net.tcp://localhost:9009/StoreService/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

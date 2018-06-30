@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.ServiceModel;
 using System.Transactions;
-using System.Data;
+
 namespace WindowsFormsHosttcp
 {
     public partial class Form1 : Form

@@ -18,6 +18,12 @@
       <xsd:import namespace="http://schemas.datacontract.org/2004/07/System" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="Iservice_DeletePlaceSend_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePlaceSend" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_DeletePlaceSend_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePlaceSendResponse" />
+  </wsdl:message>
   <wsdl:message name="Iservice_chackPlace_InputMessage">
     <wsdl:part name="parameters" element="tns:chackPlace" />
   </wsdl:message>
@@ -606,6 +612,12 @@
   <wsdl:message name="Iservice_DeleteSuuplyFrmAccountDitalis2InSupply_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteSuuplyFrmAccountDitalis2InSupplyResponse" />
   </wsdl:message>
+  <wsdl:message name="Iservice_GetRequstOneSupply_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRequstOneSupply" />
+  </wsdl:message>
+  <wsdl:message name="Iservice_GetRequstOneSupply_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRequstOneSupplyResponse" />
+  </wsdl:message>
   <wsdl:message name="Iservice_GetCategoryByName_InputMessage">
     <wsdl:part name="parameters" element="tns:GetCategoryByName" />
   </wsdl:message>
@@ -695,12 +707,6 @@
   </wsdl:message>
   <wsdl:message name="Iservice_UpdatePlaceSend_OutputMessage">
     <wsdl:part name="parameters" element="tns:UpdatePlaceSendResponse" />
-  </wsdl:message>
-  <wsdl:message name="Iservice_DeletePlaceSend_InputMessage">
-    <wsdl:part name="parameters" element="tns:DeletePlaceSend" />
-  </wsdl:message>
-  <wsdl:message name="Iservice_DeletePlaceSend_OutputMessage">
-    <wsdl:part name="parameters" element="tns:DeletePlaceSendResponse" />
   </wsdl:message>
   <wsdl:message name="Iservice_SENDUSERTOSERVER_InputMessage">
     <wsdl:part name="parameters" element="tns:SENDUSERTOSERVER" />
@@ -1087,6 +1093,10 @@
     <wsdl:part name="parameters" element="tns:SearchINRequsetOutTxtAndDate2Response" />
   </wsdl:message>
   <wsdl:portType name="Iservice">
+    <wsdl:operation name="DeletePlaceSend">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/DeletePlaceSend" message="tns:Iservice_DeletePlaceSend_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/DeletePlaceSendResponse" message="tns:Iservice_DeletePlaceSend_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="chackPlace">
       <wsdl:input wsaw:Action="http://tempuri.org/Iservice/chackPlace" message="tns:Iservice_chackPlace_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/Iservice/chackPlaceResponse" message="tns:Iservice_chackPlace_OutputMessage" />
@@ -1479,6 +1489,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/Iservice/DeleteSuuplyFrmAccountDitalis2InSupply" message="tns:Iservice_DeleteSuuplyFrmAccountDitalis2InSupply_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/Iservice/DeleteSuuplyFrmAccountDitalis2InSupplyResponse" message="tns:Iservice_DeleteSuuplyFrmAccountDitalis2InSupply_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetRequstOneSupply">
+      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GetRequstOneSupply" message="tns:Iservice_GetRequstOneSupply_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GetRequstOneSupplyResponse" message="tns:Iservice_GetRequstOneSupply_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetCategoryByName">
       <wsdl:input wsaw:Action="http://tempuri.org/Iservice/GetCategoryByName" message="tns:Iservice_GetCategoryByName_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/Iservice/GetCategoryByNameResponse" message="tns:Iservice_GetCategoryByName_OutputMessage" />
@@ -1538,10 +1552,6 @@
     <wsdl:operation name="UpdatePlaceSend">
       <wsdl:input wsaw:Action="http://tempuri.org/Iservice/UpdatePlaceSend" message="tns:Iservice_UpdatePlaceSend_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/Iservice/UpdatePlaceSendResponse" message="tns:Iservice_UpdatePlaceSend_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="DeletePlaceSend">
-      <wsdl:input wsaw:Action="http://tempuri.org/Iservice/DeletePlaceSend" message="tns:Iservice_DeletePlaceSend_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/Iservice/DeletePlaceSendResponse" message="tns:Iservice_DeletePlaceSend_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="SENDUSERTOSERVER">
       <wsdl:input wsaw:Action="http://tempuri.org/Iservice/SENDUSERTOSERVER" message="tns:Iservice_SENDUSERTOSERVER_InputMessage" />
@@ -1804,6 +1814,15 @@
     <wsp:PolicyReference URI="#NetTcpBinding_Iservice_policy">
     </wsp:PolicyReference>
     <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="DeletePlaceSend">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/DeletePlaceSend" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="chackPlace">
       <soap12:operation soapAction="http://tempuri.org/Iservice/chackPlace" style="document" />
       <wsdl:input>
@@ -2686,6 +2705,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetRequstOneSupply">
+      <soap12:operation soapAction="http://tempuri.org/Iservice/GetRequstOneSupply" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetCategoryByName">
       <soap12:operation soapAction="http://tempuri.org/Iservice/GetCategoryByName" style="document" />
       <wsdl:input>
@@ -2814,15 +2842,6 @@
     </wsdl:operation>
     <wsdl:operation name="UpdatePlaceSend">
       <soap12:operation soapAction="http://tempuri.org/Iservice/UpdatePlaceSend" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="DeletePlaceSend">
-      <soap12:operation soapAction="http://tempuri.org/Iservice/DeletePlaceSend" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -3409,9 +3428,9 @@
   </wsdl:binding>
   <wsdl:service name="MYSerivce">
     <wsdl:port name="NetTcpBinding_Iservice" binding="tns:NetTcpBinding_Iservice">
-      <soap12:address location="net.tcp://localhost:9002/StoreService" />
+      <soap12:address location="net.tcp://localhost:9009/StoreService" />
       <wsa10:EndpointReference>
-        <wsa10:Address>net.tcp://localhost:9002/StoreService</wsa10:Address>
+        <wsa10:Address>net.tcp://localhost:9009/StoreService</wsa10:Address>
       </wsa10:EndpointReference>
     </wsdl:port>
   </wsdl:service>

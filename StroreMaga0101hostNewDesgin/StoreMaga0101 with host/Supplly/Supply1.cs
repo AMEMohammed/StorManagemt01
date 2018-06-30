@@ -321,6 +321,15 @@ namespace Supplly
             return sql.SelectData(query, parm);
 
         }
+        /////// GetRequstSupply
+        public DataTable GetRequstOneSupply(int IDreqSup)
+        {
+            string Query = "select IDSupply as 'رقم الطلب' ,Category.NameCategory as 'اسم الصنف', TypeQuntity.NameType as 'نوع الكمية', RequstSupply.Quntity as 'الكمية', RequstSupply.Price as 'سعر الوحدة', RequstSupply.Quntity * RequstSupply.Price as 'الاجمالي',Currency.NameCurrency as 'العملة',RequstSupply.DateSupply as'تاريخ التوريد', RequstSupply.NameSupply as 'اسم المورد',Users.Name as 'اسم الموظف', RequstSupply.DescSupply as 'ملاحظات',RequstSupply.chek  from Category, TypeQuntity, RequstSupply,Currency, Users where RequstSupply.UserId=Users.IDUSER and  RequstSupply.IDCategory = Category.IDCategory and RequstSupply.IDCurrency=Currency.IDCurrency and RequstSupply.IDType = TypeQuntity.IDType and RequstSupply.IDSupply=@id  order by RequstSupply.DateSupply,RequstSupply.IDCurrency,RequstSupply.IDType,RequstSupply.IDCategory";
+            SqlParameter[] parm = new SqlParameter[1];
+            parm[0] = new SqlParameter("@id", IDreqSup);
+            return sql.SelectData(Query, parm);
+
+        }
         ///////////
         //////////
         //////

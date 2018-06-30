@@ -15,6 +15,12 @@ namespace Supplly.ServiceReference1 {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.Iservice")]
     public interface Iservice {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/DeletePlaceSend", ReplyAction="http://tempuri.org/Iservice/DeletePlaceSendResponse")]
+        int DeletePlaceSend(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/DeletePlaceSend", ReplyAction="http://tempuri.org/Iservice/DeletePlaceSendResponse")]
+        System.Threading.Tasks.Task<int> DeletePlaceSendAsync(int id);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/chackPlace", ReplyAction="http://tempuri.org/Iservice/chackPlaceResponse")]
         System.IO.MemoryStream chackPlace(int IDplace);
         
@@ -603,6 +609,12 @@ namespace Supplly.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/DeleteSuuplyFrmAccountDitalis2InSupply", ReplyAction="http://tempuri.org/Iservice/DeleteSuuplyFrmAccountDitalis2InSupplyResponse")]
         System.Threading.Tasks.Task<int> DeleteSuuplyFrmAccountDitalis2InSupplyAsync(int idout);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetRequstOneSupply", ReplyAction="http://tempuri.org/Iservice/GetRequstOneSupplyResponse")]
+        System.IO.MemoryStream GetRequstOneSupply(int IDreqSup);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetRequstOneSupply", ReplyAction="http://tempuri.org/Iservice/GetRequstOneSupplyResponse")]
+        System.Threading.Tasks.Task<System.IO.MemoryStream> GetRequstOneSupplyAsync(int IDreqSup);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/GetCategoryByName", ReplyAction="http://tempuri.org/Iservice/GetCategoryByNameResponse")]
         System.IO.MemoryStream GetCategoryByName(string NMCate);
         
@@ -698,12 +710,6 @@ namespace Supplly.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/UpdatePlaceSend", ReplyAction="http://tempuri.org/Iservice/UpdatePlaceSendResponse")]
         System.Threading.Tasks.Task<int> UpdatePlaceSendAsync(int id, string name);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/DeletePlaceSend", ReplyAction="http://tempuri.org/Iservice/DeletePlaceSendResponse")]
-        int DeletePlaceSend(int id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/DeletePlaceSend", ReplyAction="http://tempuri.org/Iservice/DeletePlaceSendResponse")]
-        System.Threading.Tasks.Task<int> DeletePlaceSendAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Iservice/SENDUSERTOSERVER", ReplyAction="http://tempuri.org/Iservice/SENDUSERTOSERVERResponse")]
         void SENDUSERTOSERVER(int falg, int SessionID, System.DateTime start, System.DateTime end, string NameMachine, string UserWindow, string OSVersion, string NameUser, int USerID);
@@ -1233,6 +1239,14 @@ namespace Supplly.ServiceReference1 {
         
         public IserviceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        public int DeletePlaceSend(int id) {
+            return base.Channel.DeletePlaceSend(id);
+        }
+        
+        public System.Threading.Tasks.Task<int> DeletePlaceSendAsync(int id) {
+            return base.Channel.DeletePlaceSendAsync(id);
         }
         
         public System.IO.MemoryStream chackPlace(int IDplace) {
@@ -2019,6 +2033,14 @@ namespace Supplly.ServiceReference1 {
             return base.Channel.DeleteSuuplyFrmAccountDitalis2InSupplyAsync(idout);
         }
         
+        public System.IO.MemoryStream GetRequstOneSupply(int IDreqSup) {
+            return base.Channel.GetRequstOneSupply(IDreqSup);
+        }
+        
+        public System.Threading.Tasks.Task<System.IO.MemoryStream> GetRequstOneSupplyAsync(int IDreqSup) {
+            return base.Channel.GetRequstOneSupplyAsync(IDreqSup);
+        }
+        
         public System.IO.MemoryStream GetCategoryByName(string NMCate) {
             return base.Channel.GetCategoryByName(NMCate);
         }
@@ -2137,14 +2159,6 @@ namespace Supplly.ServiceReference1 {
         
         public System.Threading.Tasks.Task<int> UpdatePlaceSendAsync(int id, string name) {
             return base.Channel.UpdatePlaceSendAsync(id, name);
-        }
-        
-        public int DeletePlaceSend(int id) {
-            return base.Channel.DeletePlaceSend(id);
-        }
-        
-        public System.Threading.Tasks.Task<int> DeletePlaceSendAsync(int id) {
-            return base.Channel.DeletePlaceSendAsync(id);
         }
         
         public void SENDUSERTOSERVER(int falg, int SessionID, System.DateTime start, System.DateTime end, string NameMachine, string UserWindow, string OSVersion, string NameUser, int USerID) {

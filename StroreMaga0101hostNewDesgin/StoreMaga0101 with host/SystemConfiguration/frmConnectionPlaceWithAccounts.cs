@@ -97,12 +97,12 @@ namespace SystemConfiguration
                     {  if (HostConection == false)
                         {
                             config.AddConnectionAccountwithPlace((int)combPalce.SelectedValue, (int)combAccountIDMAdden.SelectedValue, (int)combAccountIDDaan.SelectedValue);
-                            dataGridView1.DataSource = config.GetConnectionAccountwithPlace();
+                           // dataGridView1.DataSource = config.GetConnectionAccountwithPlace();
                         }
                         else
                         {
                             configHost.AddConnectionAccountwithPlace((int)combPalce.SelectedValue, (int)combAccountIDMAdden.SelectedValue, (int)combAccountIDDaan.SelectedValue);
-                            dataGridView1.DataSource =ConvertMemorytoDB( configHost.GetConnectionAccountwithPlace());
+                         //   dataGridView1.DataSource =ConvertMemorytoDB( configHost.GetConnectionAccountwithPlace());
                         }
                         GetDate();
                     }

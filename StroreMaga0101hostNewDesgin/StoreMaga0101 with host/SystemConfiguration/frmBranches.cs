@@ -71,6 +71,20 @@ namespace SystemConfiguration
                     {  if (HostConnction == false)
                         {
                             thenumber = config.GETMaxNumberBarnch() + 1;
+
+                            if (dataGridView1.RowCount > 0)
+                            {   // عرض البيانات الموجودة مسبقا مع البيانات المضافه 
+                                DataTable dt = new DataTable();
+                                DataTable dt2 = new DataTable();
+                                dt = (DataTable)dataGridView1.DataSource;
+                                dt2 = config.Getbranch(config.GetMaxIDBranch());
+                                dt2.Merge(dt);
+                                dataGridView1.DataSource = dt2;
+                            }
+                            else
+                            {
+                                dataGridView1.DataSource = config.Getbranch(config.GetMaxIDBranch());
+                            }
                         }
                         else
                         {
@@ -86,7 +100,8 @@ namespace SystemConfiguration
                     if (HostConnction == false)
                     {
                         config.AddNewBranch(thenumber, textName.Text, Convert.ToInt32(textNumIDACOunt.Text), textNote.Text, textNameEn.Text, textPhone.Text, textfax.Text, textAddress.Text, UserID, IDBranchEnter);
-                        dataGridView1.DataSource = config.GetAllBarnch();
+                        
+                       
                         Clean();
                     }
                     else
@@ -177,6 +192,11 @@ namespace SystemConfiguration
 
 
             }
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+
         }
     }
     }

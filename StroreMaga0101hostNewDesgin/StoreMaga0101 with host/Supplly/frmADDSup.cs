@@ -80,7 +80,7 @@ namespace Supplly
                 comboBox4.AutoCompleteSource = AutoCompleteSource.ListItems;
                 comboBox5.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
                 comboBox5.AutoCompleteSource = AutoCompleteSource.ListItems;
-                getDate1();
+                getData11();
                 getdata22();
                 changeLanguage();
                 
@@ -116,6 +116,62 @@ namespace Supplly
                     comboBox1.DataSource =ConvertMemorytoDB( SureHost.GetAllCategoryAR());
                     dataGridView1.DataSource =ConvertMemorytoDB(SureHost.SearchINRequsetSupplyDate(DateTime.Now.Date, DateTime.Now));
                     
+                }
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message + "4"); }
+        }
+        void getData11()
+        {
+            try
+            {
+                comboBox1.DisplayMember = "اسم الصنف";
+                comboBox1.ValueMember = "رقم الصنف";
+
+                comboBox2.DisplayMember = "اسم النوع";
+                comboBox2.ValueMember = "رقم النوع";
+
+                comboBox3.DisplayMember = "اسم العملة";
+                comboBox3.ValueMember = "رقم العملة";
+                if (HostConnction == false)
+                {
+                    comboBox2.DataSource = SuRe.GetAllTypeQuntity();
+                    comboBox3.DataSource = SuRe.GetAllCurrency();
+                    comboBox1.DataSource = SuRe.GetAllCategoryAR();
+                    ///عرض البيانات في GridView
+                    if (dataGridView1.RowCount > 0)
+                    {   // عرض البيانات الموجودة مسبقا مع البيانات المضافه 
+                        DataTable dt = new DataTable();
+                        DataTable dt2 = new DataTable();
+                        dt = (DataTable)dataGridView1.DataSource;
+                        dt2 = SuRe.GetRequstOneSupply(SuRe.GetMaxIdSupply());
+                        dt2.Merge(dt);
+                        dataGridView1.DataSource = dt2;
+                    }
+                    else
+                    {
+                        dataGridView1.DataSource = SuRe.GetRequstOneSupply(SuRe.GetMaxIdSupply());
+                    }
+                }
+                else
+                {
+                    comboBox2.DataSource = ConvertMemorytoDB(SureHost.GetAllTypeQuntity());
+                    comboBox3.DataSource = ConvertMemorytoDB(SureHost.GetAllCurrencyInSupply());
+                    comboBox1.DataSource = ConvertMemorytoDB(SureHost.GetAllCategoryAR());
+
+                    if (dataGridView1.RowCount > 0)
+                    {   // عرض البيانات الموجودة مسبقا مع البيانات المضافه 
+                        DataTable dt = new DataTable();
+                        DataTable dt2 = new DataTable();
+                        dt = (DataTable)dataGridView1.DataSource;
+                        dt2 =ConvertMemorytoDB(SureHost.GetRequstOneSupply(SureHost.GetMaxIdSupply()));
+                        dt2.Merge(dt);
+                        dataGridView1.DataSource = dt2;
+                    }
+                    else
+                    {
+                        dataGridView1.DataSource = ConvertMemorytoDB(SureHost.GetRequstOneSupply(SureHost.GetMaxIdSupply()));
+                    }
+
                 }
             }
             catch (Exception ex) { MessageBox.Show(ex.Message + "4"); }
@@ -158,6 +214,19 @@ namespace Supplly
             textBox3.Text = "";
             textBox4.Text = "";
            
+            comboBox4.Enabled = true;
+            comboBox5.Enabled = true;
+        }
+        void Refrsh11()
+        {
+            getData11();
+            getdata22();
+            textBox1.Text = "";
+            textBox2.Text = "";
+
+            textBox3.Text = "";
+            textBox4.Text = "";
+
             comboBox4.Enabled = true;
             comboBox5.Enabled = true;
         }
@@ -333,7 +402,7 @@ namespace Supplly
                                     {
                                         try
                                         {
-                                            Refrsh1();
+                                            Refrsh11();
 
                                             int IDRequstSupply = SuRe.GetMaxCheckSupply();
 
@@ -361,7 +430,7 @@ namespace Supplly
                                     }
                                     else
                                     {
-                                        Refrsh1();
+                                        Refrsh11();
                                     }
 
                                 }
@@ -433,7 +502,7 @@ namespace Supplly
                                     {
                                         try
                                         {
-                                            Refrsh1();
+                                            Refrsh11();
 
                                             int IDRequstSupply = SureHost.GetMaxCheckSupply();
 
@@ -461,7 +530,7 @@ namespace Supplly
                                     }
                                     else
                                     {
-                                        Refrsh1();
+                                        Refrsh11();
                                     }
 
                                 }

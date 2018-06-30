@@ -563,6 +563,12 @@ namespace SystemConfiguration
             return (int)sql.ExcuteQueryValue(Query, null);
 
         }
+        ///get max id from branch
+        public int GetMaxIDBranch()
+        {
+            string Query = "select max(IDBranch) from [dbo].[tblBranches]";
+            return (int)sql.ExcuteQueryValue(Query, null);
+        }
         /// get id Barnch From Number
         public int GetIdBranchFromNumber(int Number)
         {
@@ -574,12 +580,30 @@ namespace SystemConfiguration
         /// get all Branches
         public DataTable GetAllBarnch()
         {
-            string Query = "select Top 1000 tblBranches.TheNumber as 'الرقم' ,tblBranches.BranchName as 'اسم الفرع' ,tblBranches.EnglishName as'الاسم الاجنبي', AccountNm.AcountNm as 'الحساب الرئيسي',tblBranches.phone as 'رقم التلفون',tblBranches.fax as 'الفاكس',tblBranches.Address as 'العنوان',tblBranches.Notes as 'ملاحظات',Users.UserName as'اسم المستخدم',tblBranches.EnterTime as'وقت الادخال',tblBranches1.BranchName as 'فرع الادخال'  from tblBranches inner join AccountNm on tblBranches.AccountID=AccountNm.IDCode inner join Users on tblBranches.UserID=Users.IDUSER inner join tblBranches as tblBranches1 on  tblBranches.IDBranch = tblBranches1.IDBranch";
+            string Query = "select Top 1000 tblBranches.TheNumber as 'الرقم' ,tblBranches.BranchName as 'اسم الفرع' ,tblBranches.EnglishName as'الاسم الاجنبي', AccountNm.AcountNm as 'الحساب الرئيسي',tblBranches.phone as 'رقم التلفون',tblBranches.fax as 'الفاكس',tblBranches.Address as 'العنوان',tblBranches.Notes as 'ملاحظات',Users.UserName as'اسم المستخدم',tblBranches.EnterTime as'وقت الادخال',tblBranches1.BranchName as 'فرع الادخال'  from tblBranches inner join AccountNm on tblBranches.AccountID=AccountNm.IDCode inner join Users on tblBranches.UserID=Users.IDUSER inner join tblBranches as tblBranches1 on  tblBranches.BranchID = tblBranches1.IDBranch";
             return sql.SelectData(Query, null);
 
         }
        //GET Accounts main
-       public DataTable GetAccountsMain()
+       public DataTable Getbranch(int IdBranch)
+        {
+            
+            if (IdBranch == 0)
+            {
+                IdBranch = this.GetMaxIDBranch();
+            }
+            
+            string Query = "select Top 1000 tblBranches.TheNumber as 'الرقم' ,tblBranches.BranchName as 'اسم الفرع' ,tblBranches.EnglishName as'الاسم الاجنبي', AccountNm.AcountNm as 'الحساب الرئيسي',tblBranches.phone as 'رقم التلفون',tblBranches.fax as 'الفاكس',tblBranches.Address as 'العنوان',tblBranches.Notes as 'ملاحظات',Users.UserName as'اسم المستخدم',tblBranches.EnterTime as'وقت الادخال',tblBranches1.BranchName as 'فرع الادخال'  from tblBranches inner join AccountNm on tblBranches.AccountID=AccountNm.IDCode inner join Users on tblBranches.UserID=Users.IDUSER inner join tblBranches as tblBranches1 on  tblBranches.BranchID = tblBranches1.IDBranch where tblBranches.IDBranch=@id";
+            SqlParameter[] parm = new SqlParameter[1];
+            parm[0] = new SqlParameter("id", IdBranch);
+            DataTable dt = new DataTable();
+            dt = sql.SelectData(Query, parm);
+            
+            return dt;
+
+        }
+        // get all account main
+        public DataTable GetAccountsMain()
         {
             string Query = "select AccountNm.AcountNm as'اسم الحساب',AccountNm.IDCode as'رقم الحساب' from AccountNm where AcountType='رئيسي'";
             return sql.SelectData(Query, null);
