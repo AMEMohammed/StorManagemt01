@@ -22,6 +22,7 @@ namespace Users
         int idd = 0;
         UsersSQl Us;
         ServiceReference1.IserviceClient UsHost;
+        UsersAccess UsAccess;
         public frmAddUser()
         {
             InitializeComponent();
@@ -35,10 +36,13 @@ namespace Users
                     Us = new UsersSQl(@".\s2008", "StoreManagement1", null, null);
                 }
              else
-                {  
+                {
                     // connection host
-                   
-                    UsHost = new ServiceReference1.IserviceClient();   
+                    
+                    UsHost = new ServiceReference1.IserviceClient();
+                  
+                    UsAccess = new UsersAccess(Application.StartupPath + @"\StorManagment1.accdb");
+                      
                 }
             }
             catch (Exception ex)
@@ -46,7 +50,7 @@ namespace Users
                 MessageBox.Show(ex.Message);
             }
         }
-        public frmAddUser(string SerNm, string DbNm, string UserSql, string PassSql, int UserI, string HostIp)
+        public frmAddUser(string SerNm, string DbNm, string UserSql, string PassSql, int UserI, string HostIp,string PathAccess)
         {
             InitializeComponent();
             try
@@ -58,9 +62,11 @@ namespace Users
                 }
                 else
                 {  // connection host
+                   
                     UsHost = new ServiceReference1.IserviceClient();
                     EndpointAddress endp = new EndpointAddress(HostIp);
                     UsHost.Endpoint.Address = endp;
+                    UsAccess = new UsersAccess(Application.StartupPath );
                 }
             }
             catch (Exception ex)
@@ -205,6 +211,8 @@ namespace Users
                 else
                 {
                     UsHost.UpdUsers(idd, textBox1.Text, textBox3.Text, textBox4.Text, GetBool[0], GetBool[1], GetBool[2], GetBool[3], GetBool[4], GetBool[5], GetBool[6], GetBool[7], GetBool[8], GetBool[9], active, GetBool[10], GetBool[11], GetBool[12], GetBool[13], GetBool[14]);
+                    UsAccess.UpdUsers(idd, textBox1.Text, textBox3.Text, textBox4.Text, GetBool[0], GetBool[1], GetBool[2], GetBool[3], GetBool[4], GetBool[5], GetBool[6], GetBool[7], GetBool[8], GetBool[9], active, GetBool[10], GetBool[11], GetBool[12], GetBool[13], GetBool[14]);
+
                 }
                 LoadDate();
             }
@@ -218,8 +226,8 @@ namespace Users
             }
          else
             {
-                 dataGridView1.DataSource = ConvertMemorytoDB(UsHost.GetAllUser());
-              
+                //  dataGridView1.DataSource = ConvertMemorytoDB(UsHost.GetAllUser());
+                //  dataGridView1.DataSource = UsAccess.GetAllUser();
             }
         }
 
@@ -248,6 +256,7 @@ namespace Users
                         else
                         {
                             UsHost.AddNewUser(textBox1.Text, textBox3.Text, ChangePass("1"), GetBool[0], GetBool[1], GetBool[2], GetBool[3], GetBool[4], GetBool[5], GetBool[6], GetBool[7], GetBool[8], GetBool[9], active, GetBool[10], GetBool[11], GetBool[12], GetBool[13], GetBool[14], UserID);
+                            UsAccess.AddNewUser(textBox1.Text, textBox3.Text, ChangePass("1"), GetBool[0], GetBool[1], GetBool[2], GetBool[3], GetBool[4], GetBool[5], GetBool[6], GetBool[7], GetBool[8], GetBool[9], active, GetBool[10], GetBool[11], GetBool[12], GetBool[13], GetBool[14], UserID);
                         }
                         LoadDate();
                     }

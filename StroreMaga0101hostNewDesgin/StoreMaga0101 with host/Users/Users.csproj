@@ -56,6 +56,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccessConnection.cs" />
     <Compile Include="ConServer.cs" />
     <Compile Include="frmChangPass.cs">
       <SubType>Form</SubType>
@@ -90,6 +91,7 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="SqlConnection.cs" />
+    <Compile Include="UsersAccess.cs" />
     <Compile Include="UsersSQl.cs" />
     <EmbeddedResource Include="frmChangPass.resx">
       <DependentUpon>frmChangPass.cs</DependentUpon>

@@ -130,6 +130,7 @@
             this.toolStripMenuItem4.Size = new System.Drawing.Size(210, 50);
             this.toolStripMenuItem4.Text = "معلومات النظام";
             this.toolStripMenuItem4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.toolStripMenuItem4.Click += new System.EventHandler(this.toolStripMenuItem4_Click);
             // 
             // toolStripMenuItem20
             // 
@@ -528,6 +529,7 @@
             this.toolStripMenuItem17.Size = new System.Drawing.Size(150, 38);
             this.toolStripMenuItem17.Text = "المستخدمين";
             this.toolStripMenuItem17.Visible = false;
+            this.toolStripMenuItem17.Click += new System.EventHandler(this.toolStripMenuItem17_Click);
             // 
             // toolStripMenuItem19
             // 

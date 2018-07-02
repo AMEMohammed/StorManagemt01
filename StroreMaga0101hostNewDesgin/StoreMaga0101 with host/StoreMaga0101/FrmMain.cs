@@ -318,7 +318,7 @@ namespace StoreMaga0101
             {
                 this.Cursor = Cursors.WaitCursor;
                 bool isHere = false;
-                frmAddUser frm = new frmAddUser(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID, ConServer.HostIp);
+                frmAddUser frm = new frmAddUser(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID, ConServer.HostIp,Application.StartupPath);
                 krbTabControl1.Visible = true;
 
                 panel1.Visible = true;
@@ -410,7 +410,7 @@ namespace StoreMaga0101
             {
                 this.Cursor = Cursors.WaitCursor;
                 bool isHere = false;
-                frmAddUser frm = new frmAddUser(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID, ConServer.HostIp);
+                frmAddUser frm = new frmAddUser(ConServer.ServerNM, ConServer.DBNM, ConServer.UserSql, ConServer.PassSql, UserID, ConServer.HostIp,Application.StartupPath);
                 krbTabControl1.Visible = true;
                 panel1.Visible = true;
                 foreach (TabPage b in krbTabControl1.TabPages)
@@ -1659,6 +1659,16 @@ namespace StoreMaga0101
                 MessageBox.Show(ex.Message);
                 this.Cursor = Cursors.Default;
             }
+        }
+
+        private void toolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(Application.StartupPath.ToString());
+        }
+
+        private void toolStripMenuItem17_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
